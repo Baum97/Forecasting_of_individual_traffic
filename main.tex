@@ -1,0 +1,95 @@
+% =============================================================================
+% Masterarbeit – Hauptdokument
+% =============================================================================
+\documentclass[12pt, a4paper, twocolumn, toc=listof, toc=bibliography]{scrreprt}
+
+% Pakete und Einstellungen laden
+\input{imports}
+
+% =============================================================================
+% Dokumentbeginn
+% =============================================================================
+\begin{document}
+
+% --- Titelseite ---
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+
+    {\Large Universität Musterstadt\\[0.3cm]}
+    {\large Fakultät für Informatik\\[0.5cm]}
+
+    \vspace{2cm}
+
+    {\LARGE \textbf{Masterarbeit}\\[1cm]}
+
+    {\Huge \textbf{Titel der Masterarbeit}\\[0.5cm]}
+    {\Large Untertitel (falls vorhanden)\\[2cm]}
+
+    \vspace{1cm}
+
+    {\large
+    vorgelegt von:\\[0.3cm]
+    \textbf{Vorname Nachname}\\[0.3cm]
+    Matrikelnummer: 1234567\\[1.5cm]
+
+    Erstgutachter: Prof.\ Dr.\ Vorname Nachname\\
+    Zweitgutachter: Prof.\ Dr.\ Vorname Nachname\\[1.5cm]
+
+    Musterstadt, \today
+    }
+
+    \vfill
+\end{titlepage}
+
+% --- Römische Seitenzahlen für Verzeichnisse ---
+\pagenumbering{roman}
+
+% --- Abstrakt ---
+\input{chapters/00abstract}
+
+% --- Inhaltsverzeichnis ---
+\tableofcontents
+\newpage
+
+% --- Abbildungsverzeichnis ---
+\listoffigures
+\newpage
+
+% --- Tabellenverzeichnis ---
+\listoftables
+\newpage
+
+% --- Abkürzungsverzeichnis ---
+\printglossary[type=\acronymtype, title=Abkürzungsverzeichnis]
+\newpage
+
+% --- Arabische Seitenzahlen für den Hauptteil ---
+\pagenumbering{arabic}
+
+% =============================================================================
+% Hauptkapitel
+% =============================================================================
+\input{chapters/01einleitung}
+\input{chapters/02grundlagen}
+\input{chapters/03methodik}
+\input{chapters/04implementierung}
+\input{chapters/05evaluation}
+\input{chapters/06diskussion}
+\input{chapters/07fazit}
+
+% =============================================================================
+% Literaturverzeichnis
+% =============================================================================
+\printbibliography[heading=bibintoc, title={Literaturverzeichnis}]
+
+% =============================================================================
+% Anhang
+% =============================================================================
+\appendix
+\input{chapters/08anhang}
+
+% --- Eidesstattliche Erklärung ---
+\input{chapters/09erklaerung}
+
+\end{document}

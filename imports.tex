@@ -1,0 +1,78 @@
+% =============================================================================
+% Pakete und Einstellungen
+% =============================================================================
+
+% --- Grundlegende Pakete ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern}
+
+% --- Seitenränder und Layout ---
+\usepackage[a4paper, left=3cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% --- Kopf- und Fußzeilen ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Mathematik ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+% --- Grafiken und Farben ---
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{float}
+\usepackage{subcaption}
+
+% --- Tabellen ---
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{multirow}
+
+% --- Listings / Quellcode ---
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    tabsize=4,
+    captionpos=b,
+    showstringspaces=false
+}
+
+% --- Verzeichnisse und Verweise ---
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{url}
+\usepackage{bookmark}
+
+% --- Literaturverzeichnis ---
+\usepackage[backend=biber, style=authoryear, sorting=nyt, maxbibnames=99]{biblatex}
+\addbibresource{literatur.bib}
+
+% --- Abkürzungsverzeichnis ---
+\usepackage[acronym, toc, nonumberlist]{glossaries}
+\makeglossaries
+
+% --- Sonstiges ---
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{pdflscape}
+\usepackage{pdfpages}
+\usepackage{appendix}
+\usepackage{tocbibind}
+
+% --- Eigene Befehle ---
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{TODO:} #1}}
