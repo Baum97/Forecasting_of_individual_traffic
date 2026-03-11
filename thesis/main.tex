@@ -1,0 +1,109 @@
+% =============================================================================
+% Masterarbeit – Hauptdokument
+% =============================================================================
+\documentclass[12pt, a4paper, twocolumn, toc=listof, toc=bibliography]{scrreprt}
+
+% Pakete und Einstellungen laden
+\input{imports}
+
+% =============================================================================
+% Dokumentbeginn
+% =============================================================================
+\begin{document}
+
+% --- Zeilenabstand ---
+\onehalfspacing
+
+% --- Titelseite (einspaltig) ---
+\onecolumn
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+
+    {\Large Hochschule Esslingen\\[0.3cm]}
+    {\large Fakultät für Informatik\\[0.5cm]}
+
+    \vspace{2cm}
+
+    {\LARGE \textbf{Masterarbeit}\\[1cm]}
+
+    {\Huge \textbf{Forecasting mit Machine Learning durch Mobilitätsverhalten}\\[0.5cm]}
+
+    \vspace{1cm}
+
+    {\large
+    \textbf{Achim Baumgärtner}\\[0.3cm]
+    Matrikelnummer: 766010\\[1.5cm]
+
+    Erstgutachter: Prof.\ Dr.\ Sonntag\\
+    Zweitgutachter: Prof.\ Dr.\ Schober\\[1.5cm]
+
+    Esslingen am Neckar, \today
+    }
+
+    \vfill
+\end{titlepage}
+
+% --- Keine Seitennummer auf Titelseite ---
+\thispagestyle{empty}
+
+% --- Römische Seitenzahlen für Verzeichnisse ---
+\pagenumbering{roman}
+
+% --- Abstrakt (einspaltig, römische Zahlen) ---
+\onecolumn
+\input{chapters/00abstract}
+
+% --- Inhaltsverzeichnis ---
+\tableofcontents
+\newpage
+
+% --- Abbildungsverzeichnis ---
+\listoffigures
+\newpage
+
+% --- Tabellenverzeichnis ---
+\listoftables
+\newpage
+
+% --- Abkürzungsverzeichnis ---
+\printglossary[type=\acronymtype, title=Abkürzungsverzeichnis]
+\newpage
+
+% --- Arabische Seitenzahlen für den Hauptteil (ab Grundlagen) ---
+\pagenumbering{arabic}
+\setcounter{page}{0}
+
+% =============================================================================
+% Hauptkapitel
+% =============================================================================
+\twocolumn
+\input{chapters/01einleitung}
+\input{chapters/001inhaltsverzeichnis}
+\input{chapters/002disclaimer}
+\input{chapters/003glossar}
+\input{chapters/02grundlagen}
+\input{chapters/03methodik}
+\input{chapters/04implementierung}
+\input{chapters/05evaluation}
+\input{chapters/06diskussion}
+\input{chapters/07fazit}
+
+% =============================================================================
+% Literaturverzeichnis
+% =============================================================================
+\onecolumn
+\printbibliography[heading=bibintoc, title={Literaturverzeichnis}]
+
+% --- Anhang (zweikolumnig) ---
+\twocolumn
+
+\appendix
+\input{chapters/08anhang}
+
+% --- Eidesstattliche Erklärung (einspaltig, römische Zahlen) ---
+\onecolumn
+\pagenumbering{roman}
+\input{chapters/09erklaerung}
+
+\end{document}
