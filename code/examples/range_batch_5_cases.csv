@@ -1,0 +1,6 @@
+label,soc_percent,capacity_ah,nominal_voltage,reserve_percent
+Person A,30,33,400,5
+Person B,45,33,400,5
+Person C,62,33,400,5
+Person D,25,28,400,5
+Person E,80,40,400,5

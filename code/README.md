@@ -103,6 +103,63 @@ CSV-Ausgabe:
 Typischer Satz im Output:
 - `Geschaetzter Akku-Bedarf naechste 3 Tage: ca. 30.0% (...)`
 
+## Forecast fuer mehrere Personen (mehrere History-Dateien)
+
+Wenn du mehrere Personen/Fahrzeuge gleichzeitig aus einzelnen 100-Tage-History-Dateien vorhersagen willst, nutze `predict-batch`.
+
+Manifest-Datei (Template):
+- `examples/predict_batch_manifest_template.csv`
+- Pflichtspalte: `history_path`
+- Optional: `label`, `current_soc_percent`, `battery_capacity_kwh`, `capacity_ah`, `nominal_voltage`
+
+```powershell
+python emobility_forecaster.py predict-batch `
+  --model-in .\models\emobility_forecaster.joblib `
+  --batch-path .\examples\predict_batch_manifest_template.csv `
+  --history-col history_path `
+  --label-col label `
+  --date-col date `
+  --target-col target `
+  --horizons 1,2,3,4,5,6,7 `
+  --summary-days 3 `
+  --energy-col energy_kwh `
+  --plot-out .\predictions\predict_batch_5_boxplots.png `
+  --stats-out .\predictions\predict_batch_5_stats.csv `
+  --pred-out-dir .\predictions\persons
+```
+
+Ergebnis:
+- Ein gemeinsamer Graph mit mehreren Boxplots (eine Box pro Person)
+- Jeder Boxplot zeigt die Unsicherheitsverteilung der Gesamtdistanz fuer die naechsten `summary_days` Tage
+- Optional Akku-Bedarf in % je Person in der Stats-CSV (wenn Verbrauchsspalten vorhanden sind)
+
+Validierung (nur pruefen, ohne Forecast):
+
+```powershell
+python emobility_forecaster.py predict-batch `
+  --model-in .\models\emobility_forecaster.joblib `
+  --batch-path .\examples\predict_batch_manifest_template.csv `
+  --plot-out .\predictions\predict_batch_5_boxplots.png `
+  --validate-only
+```
+
+Geprueft werden u. a.:
+- Existenz der Manifest- und History-Dateien
+- Pflichtspalten (`date`, `target` bzw. konfiguriert)
+- Gueltige Datum-/Target-Werte
+- Mindestanzahl gueltiger Historien-Tage (mindestens `history_days`)
+- Gueltiger `current_soc_percent` im Bereich 0 bis 100 (falls gesetzt)
+
+## Was bedeuten P10, P50, P90?
+
+Ja, das sind Perzentile:
+- `P10`: 10. Perzentil, d. h. 10% der moeglichen Werte liegen darunter
+- `P50`: 50. Perzentil (Median)
+- `P90`: 90. Perzentil, d. h. 90% der moeglichen Werte liegen darunter
+
+Interpretation im Kontext der Prognose:
+- Ein Bereich `P10-P90` ist ein Unsicherheitsband, das etwa die mittleren 80% plausibler Verlaeufe abdeckt.
+
 ## Direkte Reichweiten-Schaetzung mit Unsicherheit
 
 Wenn du sofort eine sinnvolle Reichweiten-Aussage aus Akkuwerten willst (inkl. Unsicherheits-Graph), nutze den `range`-Befehl.
@@ -135,6 +192,27 @@ Dateien:
 - Statistik: `predictions/range_stats.csv`
 
 Hinweis: Die Szenario-Werte (`bad/avg/good`) werden auf andere Akku-Zustaende skaliert. Wenn du z. B. `--soc-percent 60` setzt, steigen die Distanzen entsprechend.
+
+## Mehrere Datensaetze als mehrere Boxplots
+
+Wenn du mehrere Reihen gleichzeitig plotten willst (z. B. 5 Personen/Fahrzeuge), nutze `range-batch`.
+
+Beispiel-CSV:
+- `examples/range_batch_5_cases.csv`
+- Pflichtspalten: `soc_percent`, `capacity_ah`
+- Optional: `label`, `nominal_voltage`, `reserve_percent`, `bad_km`, `avg_min_km`, `avg_max_km`, `good_km`, `ref_soc_percent`, `ref_capacity_ah`, `samples`
+
+```powershell
+python emobility_forecaster.py range-batch `
+  --batch-path .\examples\range_batch_5_cases.csv `
+  --label-col label `
+  --plot-out .\predictions\range_batch_5_boxplots.png `
+  --stats-out .\predictions\range_batch_5_stats.csv
+```
+
+Ergebnis:
+- Ein gemeinsamer Graph mit mehreren horizontalen Reichweiten-Boxplots (z. B. 5 Boxen)
+- CSV mit Kennzahlen je Zeile (Mean, P10, P50, P90 usw.)
 
 ## Hinweise
 

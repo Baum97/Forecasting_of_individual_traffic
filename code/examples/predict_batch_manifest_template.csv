@@ -1,0 +1,6 @@
+label,history_path,current_soc_percent,battery_capacity_kwh
+Person A,examples/person_a_100_days.csv,30,55
+Person B,examples/person_b_100_days.csv,42,55
+Person C,examples/person_c_100_days.csv,65,60
+Person D,examples/person_d_100_days.csv,25,50
+Person E,examples/person_e_100_days.csv,80,70
