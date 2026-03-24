@@ -1,0 +1,164 @@
+trainingsdiagramm:
+	flowchart TD
+    A[Start: train Command] --> B[Config laden<br/>history_days=100, horizons=2..7]
+    B --> C{Datenformat}
+    C -->|emobpy| D[read_emobpy_csv]
+    C -->|long| E[read_long_csv]
+
+    D --> F[to_daily_panel]
+    E --> F
+
+    F --> G[Typen bereinigen<br/>date zu datetime<br/>target zu numerisch]
+    G --> H[Fehlende Zeilen entfernen]
+    H --> I[Auf Tagesebene aggregieren<br/>groupby vehicle_id + date_day]
+    I --> J[Spalten umbenennen zu<br/>vehicle_id, date, target]
+
+    J --> K[_build_supervised]
+    K --> L[Je vehicle_id durchlaufen]
+    L --> M[_build_examples_for_group]
+
+    M --> N[Kalender auf Daily auffuellen<br/>fehlende Tage = target 0]
+    N --> O[Sliding Window ueber Zeit]
+    O --> P[History-Window: letzte 100 Tage]
+
+    P --> Q[Lag-Features
+lag_1 ... lag_100]
+    P --> R[Statistik-Features
+mean_7, mean_14, mean_30
+std_7, std_30
+min_14, max_14]
+
+    Q --> S[Pro Horizont h in 2..7]
+    R --> S
+    S --> T[Label y = target(t+h)]
+    S --> U[Kalenderfeatures fuer Zieltag
+pred_dow_sin, pred_dow_cos]
+
+    T --> V[Supervised Datensatz]
+    U --> V
+
+    V --> W[Featureliste bauen
+alles ausser y,target_date,anchor_date,vehicle_id,horizon]
+    W --> X[Zeitbasierter Split
+split_date = max(target_date)-validation_days]
+
+    X --> Y{Je Horizont eigenes Modell}
+    Y --> Z[Train-Teil: target_date <= split_date]
+    Y --> ZA[Valid-Teil: target_date > split_date]
+
+    Z --> ZB[RandomForestRegressor fit]
+    ZB --> ZC[Modell in models[h] speichern]
+    ZC --> ZD[Auf Validierung vorhersagen]
+    ZD --> ZE[Metriken berechnen
+MAE, RMSE, n_valid]
+
+    ZE --> ZF[Alle Horizonte zusammenfassen]
+    ZF --> ZG[Modellpaket speichern
+config + models + feature_columns]
+    ZG --> ZH[Ende: Training abgeschlossen]
+
+
+
+
+
+ablaufdiagramm:
+	flowchart TD
+    A[CSV Input<br/>Long-Format oder emobpy] --> B{Datenformat}
+    B -->|emobpy| C[read_emobpy_csv<br/>2 Headerzeilen + Metazeile parsen]
+    B -->|long| D[read_long_csv<br/>date parsen]
+
+    C --> E[to_daily_panel]
+    D --> E
+
+    E --> F[Pro Fahrzeug + Tag aggregieren<br/>sum oder mean]
+    F --> G[_build_supervised]
+
+    G --> H[_build_examples_for_group]
+    H --> I[100 Tage History Features<br/>lag_1...lag_100 + Rolling Stats]
+    I --> J[Horizonte 2..7 erzeugen<br/>je Horizont Zielwert y]
+
+    J --> K[fit]
+    K --> L[Zeitbasierter Split<br/>Train vs letzte Validationstage]
+    L --> M[Je Horizont eigenes Modell<br/>RandomForestRegressor]
+    M --> N[Validierung: MAE, RMSE]
+    M --> O[save<br/>joblib Modellpaket]
+
+    O --> P[predict]
+    P --> Q[load Modell]
+    Q --> R[100 Tage Historie einer Person]
+    R --> S[predict_from_history<br/>Features wie im Training bauen]
+    S --> T[Vorhersage für Tag +2 bis +7]
+    T --> U[CSV Output<br/>forecast_day, date, prediction]
+
+
+
+predictdiagramm:
+	flowchart TD
+    A[Start: predict Command] --> B[model_in laden\njoblib: config + models + feature_columns]
+    B --> C[history CSV laden\nSpalten: date, target]
+
+    C --> D[date zu datetime\ntarget zu numerisch]
+    D --> E[NaN entfernen + nach Datum sortieren]
+    E --> F{Mindestens 100 Tage vorhanden?}
+    F -->|Nein| G[Fehler: History muss >= history_days sein]
+    F -->|Ja| H[Letzte 100 Tage extrahieren]
+
+    H --> I[Lag-Features bauen\nlag_1 ... lag_100]
+    H --> J[Rolling-Features bauen\nmean_7, mean_14, mean_30\nstd_7, std_30, min_14, max_14]
+
+    I --> K[Für jeden gewünschten Horizont d\nz.B. 2,3,4,5,6,7]
+    J --> K
+
+    K --> L[Zieldatum berechnen\npred_date = last_date + d]
+    L --> M[Kalenderfeatures Zieltag\npred_dow_sin, pred_dow_cos]
+    M --> N[Feature-Vektor in Training-Reihenfolge\nfeature_columns]
+    N --> O[Passendes Modell nutzen\nmodels[d].predict(x)]
+
+    O --> P[Ergebniszeile erzeugen\nforecast_day, date, prediction]
+    P --> Q[Alle Horizonte zusammenfassen]
+    Q --> R[pred_out als CSV speichern]
+    R --> S[Ende: Forecast bereit]
+
+    T[Beispielinput]\nU[100 tägliche Werte einer Person\nTag-100 ... Tag-1] --> H
+
+
+
+
+gesamtdiagramm:
+	flowchart LR
+    A[Mehrfahrzeug-Zeitreihen\nLong CSV oder emobpy CSV] --> B[Datenimport\nread_long_csv / read_emobpy_csv]
+    B --> C[Vorverarbeitung\nto_daily_panel]
+    C --> C1[Datentypen bereinigen\nDatum + numerisches Target]
+    C1 --> C2[Aggregation auf Tagesebene\npro vehicle_id und Tag]
+
+    C2 --> D[Feature-Engineering\n_build_supervised]
+    D --> D1[Pro Fahrzeug kontinuierliche Tagesachse\nfehlende Tage auffuellen]
+    D1 --> D2[100-Tage-History je Anchor-Zeitpunkt]
+    D2 --> D3[Lag-Features: lag_1 ... lag_100]
+    D2 --> D4[Statistik-Features\nmean/std/min/max]
+    D3 --> D5[Horizonte 2..7 erzeugen\nLabel y = target(t+h)]
+    D4 --> D5
+    D5 --> D6[Kalender-Features des Zieltags\ndow_sin, dow_cos]
+
+    D6 --> E[Modelltraining\nfit]
+    E --> E1[Zeitbasierter Split\nTrain / Validation]
+    E1 --> E2[Je Horizont eigenes Modell\nRandomForestRegressor]
+    E2 --> E3[Validierung\nMAE, RMSE pro Horizont]
+    E3 --> E4[Speichern\njoblib: config + models + feature_columns]
+
+    E4 --> F[Inferenz fuer 1 Person]
+    F --> F1[Input: letzte 100 Tageswerte]
+    F1 --> F2[Identische Features wie im Training]
+    F2 --> F3[Modelle fuer d=2..7 anwenden]
+    F3 --> F4[Output CSV\nforecast_day, date, prediction]
+
+    classDef data fill:#e8f3ff,stroke:#2b6cb0,stroke-width:1px,color:#1a365d;
+    classDef prep fill:#edfdf2,stroke:#2f855a,stroke-width:1px,color:#1c4532;
+    classDef model fill:#fff8e8,stroke:#b7791f,stroke-width:1px,color:#744210;
+    classDef infer fill:#f9edf8,stroke:#97266d,stroke-width:1px,color:#702459;
+
+    class A,B data;
+    class C,C1,C2,D,D1,D2,D3,D4,D5,D6 prep;
+    class E,E1,E2,E3,E4 model;
+    class F,F1,F2,F3,F4 infer;
+

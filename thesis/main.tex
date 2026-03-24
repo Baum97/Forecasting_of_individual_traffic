@@ -17,6 +17,16 @@
 % --- Titelseite (einspaltig) ---
 \onecolumn
 \begin{titlepage}
+    \AddToShipoutPictureFG*{%
+        \AtPageUpperLeft{%
+            \hspace*{2pt}%
+            \raisebox{-72pt}{%
+                \includegraphics[height=0.1\textheight]{images/HochschuleEsslingen_Logo_4c_DE.png}\hspace{0.8cm}%
+                \includegraphics[height=0.1\textheight]{images/KEIM-quadr.png}%
+            }%
+        }%
+    }
+
     \centering
     \vspace*{2cm}
 
@@ -43,6 +53,7 @@
 
     \vfill
 \end{titlepage}
+\ClearShipoutPictureFG
 
 % --- Keine Seitennummer auf Titelseite ---
 \thispagestyle{empty}

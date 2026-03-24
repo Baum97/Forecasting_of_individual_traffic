@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.21)  11 MAR 2026 12:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.9)  24 MAR 2026 15:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -216,11 +216,14 @@ Package babel Info: Importing font and identification data for ngerman
 
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/babel-german\ng
 erman.ldf
-Language: ngerman 
+Language: ngerman 2024/12/10 v2.15 German support for babel (post-1996 orthogra
+phy)
 
-(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/babel-german\ba
-bel-german.def
-Package babel Info: Making " an active character on input line 470.
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/babel-german\ng
+ermanb.ldf
+Language: ngermanb 2024/12/10 v2.15 German support for babel (post-1996 orthogr
+aphy)
+Package babel Info: Making " an active character on input line 122.
 )))
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
@@ -1052,7 +1055,7 @@ Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
 ))
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/base
 \glossaries.sty
-Package: glossaries 2025/11/09 v4.9 (NLCT)
+Package: glossaries 2026/03/06 v5.0 (NLCT)
 
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval
 .sty
@@ -1157,22 +1160,22 @@ t line 9924.
 
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styl
 es\glossary-hypernav.sty
-Package: glossary-hypernav 2025/11/09 v4.9 (NLCT)
+Package: glossary-hypernav 2026/03/06 v5.0 (NLCT)
 )
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styl
 es\glossary-list.sty
-Package: glossary-list 2025/11/09 v4.9 (NLCT)
+Package: glossary-list 2026/03/06 v5.0 (NLCT)
 \glslistdottedwidth=\skip117
 )
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styl
 es\glossary-long.sty
-Package: glossary-long 2025/11/09 v4.9 (NLCT)
+Package: glossary-long 2026/03/06 v5.0 (NLCT)
 \glsdescwidth=\skip118
 \glspagelistwidth=\skip119
 )
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styl
 es\glossary-super.sty
-Package: glossary-super 2025/11/09 v4.9 (NLCT)
+Package: glossary-super 2026/03/06 v5.0 (NLCT)
 
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/supertabular\su
 pertabular.sty
@@ -1195,7 +1198,7 @@ Package: supertabular 2025/06/26 v4.2d the supertabular environment
 ))
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styl
 es\glossary-tree.sty
-Package: glossary-tree 2025/11/09 v4.9 (NLCT)
+Package: glossary-tree 2026/03/06 v5.0 (NLCT)
 \l__glossaries_tree_max_known_level_int=\count495
 \l__glossaries_tree_offset_dim=\dimen277
 \l__glossaries_tree_namewidth_dim=\dimen278
@@ -1323,7 +1326,7 @@ Class scrreprt Warning: Usage of package `tocbibind' together
 (scrreprt)              the list of figures, list of tables, bibliography,
 (scrreprt)              index and the running head.
 (scrreprt)              Nevertheless, using requested
-(scrreprt)              package `tocbibind' on input line 75.
+(scrreprt)              package `tocbibind' on input line 76.
 
 
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/tocbibind\tocbi
@@ -1344,7 +1347,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 12
  (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (main.aux
-Package babel Info: 'ngerman' activates 'german' shorthands.
+Package babel Info: 'ngerman' activates 'ngerman' shorthands.
 (babel)             Reported on input line 18.
 )
 \openout1 = `main.aux'.
@@ -1469,13 +1472,23 @@ Package biblatex Info: Automatic encoding selection.
 \openout3 = `main.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' not found.
-
-No file main.bbl.
+Package biblatex Info: ... file 'main.bbl' found.
+ (main.bbl)
 Package biblatex Info: Reference section=0 on input line 12.
 Package biblatex Info: Reference segment=0 on input line 12.
 Package tocbasic Info: usage of `tocbibind' detected on input line 12.
-[1
+<images/HochschuleEsslingen_Logo_4c_DE.png, id=3, 1315.91624pt x 444.15938pt>
+File: images/HochschuleEsslingen_Logo_4c_DE.png Graphic file (type png)
+<use images/HochschuleEsslingen_Logo_4c_DE.png>
+Package pdftex.def Info: images/HochschuleEsslingen_Logo_4c_DE.png  used on inp
+ut line 55.
+(pdftex.def)             Requested size: 208.22171pt x 70.2826pt.
+<images/KEIM-quadr.png, id=5, 1863.21094pt x 1040.38687pt>
+File: images/KEIM-quadr.png Graphic file (type png)
+<use images/KEIM-quadr.png>
+Package pdftex.def Info: images/KEIM-quadr.png  used on input line 55.
+(pdftex.def)             Requested size: 125.86081pt x 70.2826pt.
+ [1
 
 
 \openout4 = `main.ist'.
@@ -1484,8 +1497,9 @@ Package tocbasic Info: usage of `tocbibind' detected on input line 12.
 
 
 {C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Us
-ers/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}] 
-(chapters/00abstract.tex
+ers/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <
+./images/HochschuleEsslingen_Logo_4c_DE.png> <./images/KEIM-quadr.png>] (chapte
+rs/00abstract.tex
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 4
 .
 
@@ -1545,8 +1559,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write7
 \openout7 = `main.toc'.
 
-Package babel Info: 'ngerman' activates 'german' shorthands.
-(babel)             Reported on input line 59.
+Package babel Info: 'ngerman' activates 'ngerman' shorthands.
+(babel)             Reported on input line 70.
  [4] (main.lof)
 \tf@lof=\write8
 \openout8 = `main.lof'.
@@ -1636,7 +1650,7 @@ chapter 6.
 ]
 chapter 7.
 )
-Underfull \hbox (badness 3209) in paragraph at lines 29--91
+Underfull \hbox (badness 3209) in paragraph at lines 29--102
 []\T1/lmr/bx/n/12 TODO: \T1/lmr/m/n/12 Wel-che zu-künf-ti-gen Ar-bei-ten
  []
 
@@ -1645,7 +1659,7 @@ Underfull \hbox (badness 3209) in paragraph at lines 29--91
 
 ]
 
-LaTeX Warning: Empty bibliography on input line 96.
+LaTeX Warning: Empty bibliography on input line 107.
 
 (chapters/08anhang.tex
 chapter A.
@@ -1659,7 +1673,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.109 \end{document}
+l.120 \end{document}
                      [1
 
 
@@ -1673,10 +1687,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37459 strings out of 467871
- 736869 string characters out of 5414504
- 1763294 words of memory out of 5000000
- 65790 multiletter control sequences out of 15000+600000
+ 37379 strings out of 467871
+ 735766 string characters out of 5414505
+ 1761706 words of memory out of 5000000
+ 65708 multiletter control sequences out of 15000+600000
  684528 words of font info for 74 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,11n,107p,11209b,2465s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1686,9 +1700,9 @@ lic/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on main.pdf (17 pages, 186164 bytes).
+Output written on main.pdf (17 pages, 394069 bytes).
 PDF statistics:
- 373 PDF objects out of 1000 (max. 8388607)
+ 378 PDF objects out of 1000 (max. 8388607)
  70 named destinations out of 1000 (max. 500000)
- 385 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 395 words of extra memory for PDF output out of 10000 (max. 10000000)
 
