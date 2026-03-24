@@ -1,0 +1,41 @@
+example_case,date,target,energy_kwh,soc_used_percent,description
+A_energy_kwh,2026-01-01,42,7.3,,Distance + energy_kwh available
+A_energy_kwh,2026-01-02,38,6.5,,Distance + energy_kwh available
+A_energy_kwh,2026-01-03,47,8.1,,Distance + energy_kwh available
+A_energy_kwh,2026-01-04,35,6.0,,Distance + energy_kwh available
+A_energy_kwh,2026-01-05,50,8.6,,Distance + energy_kwh available
+A_energy_kwh,2026-01-06,41,7.1,,Distance + energy_kwh available
+A_energy_kwh,2026-01-07,39,6.7,,Distance + energy_kwh available
+A_energy_kwh,2026-01-08,44,7.5,,Distance + energy_kwh available
+A_energy_kwh,2026-01-09,36,6.2,,Distance + energy_kwh available
+A_energy_kwh,2026-01-10,48,8.3,,Distance + energy_kwh available
+B_soc_used_percent,2026-01-01,40,,14.0,Distance + soc_used_percent available
+B_soc_used_percent,2026-01-02,37,,12.5,Distance + soc_used_percent available
+B_soc_used_percent,2026-01-03,45,,15.4,Distance + soc_used_percent available
+B_soc_used_percent,2026-01-04,34,,11.8,Distance + soc_used_percent available
+B_soc_used_percent,2026-01-05,49,,16.7,Distance + soc_used_percent available
+B_soc_used_percent,2026-01-06,43,,14.8,Distance + soc_used_percent available
+B_soc_used_percent,2026-01-07,38,,13.2,Distance + soc_used_percent available
+B_soc_used_percent,2026-01-08,46,,15.9,Distance + soc_used_percent available
+B_soc_used_percent,2026-01-09,35,,12.0,Distance + soc_used_percent available
+B_soc_used_percent,2026-01-10,47,,16.1,Distance + soc_used_percent available
+C_distance_only,2026-01-01,30,,,Distance only (no battery demand output)
+C_distance_only,2026-01-02,32,,,Distance only (no battery demand output)
+C_distance_only,2026-01-03,28,,,Distance only (no battery demand output)
+C_distance_only,2026-01-04,34,,,Distance only (no battery demand output)
+C_distance_only,2026-01-05,36,,,Distance only (no battery demand output)
+C_distance_only,2026-01-06,31,,,Distance only (no battery demand output)
+C_distance_only,2026-01-07,29,,,Distance only (no battery demand output)
+C_distance_only,2026-01-08,35,,,Distance only (no battery demand output)
+C_distance_only,2026-01-09,33,,,Distance only (no battery demand output)
+C_distance_only,2026-01-10,30,,,Distance only (no battery demand output)
+D_weekend_pattern,2026-01-01,22,3.8,,Strong weekday/weekend pattern
+D_weekend_pattern,2026-01-02,21,3.6,,Strong weekday/weekend pattern
+D_weekend_pattern,2026-01-03,58,10.2,,Strong weekday/weekend pattern
+D_weekend_pattern,2026-01-04,62,10.8,,Strong weekday/weekend pattern
+D_weekend_pattern,2026-01-05,24,4.1,,Strong weekday/weekend pattern
+D_weekend_pattern,2026-01-06,23,4.0,,Strong weekday/weekend pattern
+D_weekend_pattern,2026-01-07,25,4.3,,Strong weekday/weekend pattern
+D_weekend_pattern,2026-01-08,22,3.8,,Strong weekday/weekend pattern
+D_weekend_pattern,2026-01-09,21,3.6,,Strong weekday/weekend pattern
+D_weekend_pattern,2026-01-10,60,10.5,,Strong weekday/weekend pattern

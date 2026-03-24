@@ -1,0 +1,2 @@
+soc_percent,capacity_ah,nominal_voltage,reserve_percent,usable_energy_kwh,bad_km,avg_min_km,avg_max_km,good_km,p10_km,p25_km,p50_km,mean_km,p75_km,p90_km
+30.0,33.0,400.0,5.0,3.762,20.0,35.0,50.0,70.0,30.71397880877904,36.69556300467547,43.854800235961555,44.16763950952797,51.41258110288415,58.21597468419663
