@@ -1,0 +1,40 @@
+.settings-screen {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--accent-strong);
+}
+
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+p {
+  color: var(--ink-soft);
+  max-width: 66ch;
+}
+
+.todo-box {
+  border: 1px solid color-mix(in srgb, var(--ink) 15%, transparent);
+  background: color-mix(in srgb, #fff 90%, transparent);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+ul {
+  padding-left: 1.1rem;
+  margin-top: 0.6rem;
+}
+
+li {
+  margin: 0.2rem 0;
+}

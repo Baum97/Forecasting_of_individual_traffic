@@ -1,0 +1,103 @@
+<section class="input-screen screen-card">
+  <div class="headline">
+    <p class="eyebrow">Startseite</p>
+    <h2>Input</h2>
+    <p>Simulationen abfragen oder neue Konfigurationen anlegen - ohne Konsole.</p>
+  </div>
+
+  <div class="grid-wrap">
+    <article class="panel glow-left">
+      <h3>Neue Simulation anlegen</h3>
+
+      <form [formGroup]="form" (ngSubmit)="submitSimulation()" class="sim-form">
+        <label>
+          Name
+          <input type="text" formControlName="name" placeholder="z. B. Person 4514928 / Woche 14" />
+        </label>
+
+        <label>
+          Befehl
+          <select formControlName="command">
+            <option value="predict">predict</option>
+            <option value="predict-batch">predict-batch</option>
+            <option value="range">range</option>
+            <option value="range-batch">range-batch</option>
+          </select>
+        </label>
+
+        <div class="split-row">
+          <label>
+            History Days
+            <input type="number" formControlName="historyDays" min="20" max="365" />
+          </label>
+
+          <label>
+            Horizons
+            <input type="text" formControlName="horizons" placeholder="1,2,3,4,5,6,7" />
+          </label>
+        </div>
+
+        <label>
+          Zielspalte
+          <input type="text" formControlName="targetColumn" placeholder="target" />
+        </label>
+
+        <label>
+          Notizen (optional)
+          <textarea formControlName="notes" rows="3" placeholder="Optional: Batterie, SoC, Datenquelle"></textarea>
+        </label>
+
+        <button type="submit">Simulation speichern</button>
+
+        <p class="status" [ngClass]="{ visible: createState() === 'success' }">
+          Simulation wurde erfolgreich gespeichert.
+        </p>
+      </form>
+    </article>
+
+    <article class="panel glow-right">
+      <h3>Vorhandene Simulationen abfragen</h3>
+
+      <label class="search-label">
+        Suche
+        <input
+          type="search"
+          placeholder="Name, Befehl oder Zielspalte"
+          (input)="updateFilter($any($event.target).value)"
+        />
+      </label>
+
+      <div class="sim-list" *ngIf="filtered().length; else emptyState">
+        <article class="sim-item" *ngFor="let sim of filtered()">
+          <div class="sim-main">
+            <h4>{{ sim.name }}</h4>
+            <p>{{ sim.command }} | target: {{ sim.targetColumn }}</p>
+          </div>
+
+          <dl>
+            <div>
+              <dt>History</dt>
+              <dd>{{ sim.historyDays }} Tage</dd>
+            </div>
+            <div>
+              <dt>Horizons</dt>
+              <dd>{{ sim.horizons }}</dd>
+            </div>
+            <div>
+              <dt>Erstellt</dt>
+              <dd>{{ sim.createdAt | date: 'dd.MM.yyyy, HH:mm' }}</dd>
+            </div>
+          </dl>
+
+          <p class="notes" *ngIf="sim.notes">{{ sim.notes }}</p>
+        </article>
+      </div>
+
+      <ng-template #emptyState>
+        <p class="empty">
+          Noch keine Simulationen gefunden. Erstelle links die erste Konfiguration.
+        </p>
+      </ng-template>
+    </article>
+  </div>
+</section>

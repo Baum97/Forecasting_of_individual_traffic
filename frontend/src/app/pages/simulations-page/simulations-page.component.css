@@ -1,0 +1,81 @@
+.simulations-screen {
+  display: grid;
+  gap: 1rem;
+}
+
+header h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+}
+
+header p {
+  margin: 0.35rem 0 0;
+  color: var(--ink-soft);
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--accent-strong);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.7rem;
+}
+
+.stats article {
+  background: color-mix(in srgb, #fff 90%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+}
+
+.stats h3,
+.stats p {
+  margin: 0;
+}
+
+.stats p {
+  color: var(--ink-soft);
+  margin-top: 0.3rem;
+}
+
+.table-wrap {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 650px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.6rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 13%, transparent);
+}
+
+th {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  background: color-mix(in srgb, #f15b4f 87%, #fff 13%);
+  color: #2a1614;
+  cursor: pointer;
+}
+
+.hint {
+  margin: 0;
+  color: var(--ink-soft);
+}

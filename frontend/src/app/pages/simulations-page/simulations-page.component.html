@@ -1,0 +1,49 @@
+<section class="screen-card simulations-screen">
+  <header>
+    <p class="eyebrow">Anzeigebildschirm</p>
+    <h2>Simulationen</h2>
+    <p>Übersicht aller gespeicherten Konfigurationen und schneller Cleanup.</p>
+  </header>
+
+  <div class="stats" *ngIf="commandCounts().length; else noStats">
+    <article *ngFor="let row of commandCounts()">
+      <h3>{{ row[0] }}</h3>
+      <p>{{ row[1] }} gespeichert</p>
+    </article>
+  </div>
+
+  <ng-template #noStats>
+    <p class="hint">Noch keine Daten vorhanden. Lege zuerst im Input-Bereich eine Simulation an.</p>
+  </ng-template>
+
+  <div class="table-wrap" *ngIf="simulations().length; else noEntries">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Befehl</th>
+          <th>History</th>
+          <th>Horizons</th>
+          <th>Erstellt</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sim of simulations()">
+          <td>{{ sim.name }}</td>
+          <td>{{ sim.command }}</td>
+          <td>{{ sim.historyDays }}</td>
+          <td>{{ sim.horizons }}</td>
+          <td>{{ sim.createdAt | date: 'dd.MM.yy HH:mm' }}</td>
+          <td>
+            <button type="button" (click)="removeSimulation(sim.id)">Entfernen</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noEntries>
+    <p class="hint">Keine gespeicherten Simulationen vorhanden.</p>
+  </ng-template>
+</section>

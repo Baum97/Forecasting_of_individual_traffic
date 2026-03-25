@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,700&display=swap');
+
+:root {
+  --bg-start: #f6ecd7;
+  --bg-end: #c8e6d8;
+  --surface: #fff9ef;
+  --surface-strong: #fff3dc;
+  --ink: #18211f;
+  --ink-soft: #42504d;
+  --accent: #f2c14e;
+  --accent-alt: #74c69d;
+  --accent-strong: #2f8f83;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 15%, color-mix(in srgb, #ffffff 62%, transparent), transparent 45%),
+    radial-gradient(circle at 88% 80%, color-mix(in srgb, var(--accent-alt) 36%, transparent), transparent 40%),
+    linear-gradient(130deg, var(--bg-start), var(--bg-end));
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+.screen-card {
+  border-radius: 1.3rem;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+  padding: 1.1rem;
+  animation: fadeSlide 360ms ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

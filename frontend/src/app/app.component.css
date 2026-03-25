@@ -1,0 +1,81 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.layout-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.menu-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(16px);
+  background: color-mix(in srgb, var(--surface) 84%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 15%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+}
+
+.brand-block h1 {
+  margin: 0;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.top-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  background: color-mix(in srgb, var(--surface-strong) 82%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ink) 15%, transparent);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  transition: transform 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.top-nav a:hover {
+  transform: translateY(-1px);
+  color: var(--ink);
+  border-color: color-mix(in srgb, var(--accent) 65%, var(--ink) 35%);
+}
+
+.top-nav a.active {
+  color: #111;
+  background: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 70%, #000 30%);
+}
+
+.content-area {
+  padding: 1.25rem;
+}
+
+@media (max-width: 860px) {
+  .menu-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .content-area {
+    padding: 1rem;
+  }
+}
