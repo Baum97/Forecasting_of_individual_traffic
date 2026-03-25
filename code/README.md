@@ -1,6 +1,6 @@
 # E-Mobility Time Series Forecasting (1-7 Tage)
 
-Dieses Setup trainiert ein globales ML-Modell ueber viele Fahrzeuge und erstellt Vorhersagen fuer die naechsten 1 bis 7 Tage auf Basis von ca. 100 vergangenen Tagen.
+Dieses Setup trainiert ein globales ML-Modell über viele Fahrzeuge und erstellt Vorhersagen für die nächsten 1 bis 7 Tage auf Basis von ca. 100 vergangenen Tagen.
 
 ## Modellidee
 
@@ -11,7 +11,7 @@ Dieses Setup trainiert ein globales ML-Modell ueber viele Fahrzeuge und erstellt
   - Wochenzyklus des Prognosetages (sin/cos)
 - Modelltyp: `RandomForestRegressor`
 
-Das funktioniert gut, wenn viele Fahrzeuge fuer das Training vorhanden sind und fuer eine einzelne Person eine stabile Kurzfristprognose benoetigt wird.
+Funktioniert gut, wenn viele Fahrzeuge für Training vorhanden sind und für einzelne Person stabile Prognose benötigt wird.
 
 ## Datenformate
 
@@ -23,7 +23,7 @@ CSV mit mindestens:
 
 ### 2) emobpy-Format
 Direkt die emobpy-Zeitreihen-Datei (`emobpy_timeseries_hourly.csv` oder `emobpy_timeseries_original.csv`).
-Das Skript verarbeitet die 2 Header-Zeilen + Metazeile automatisch.
+Header-Zeilen + Metazeile werden automatisch verarbeitet.
 
 ## Installation
 
@@ -51,7 +51,7 @@ python emobility_forecaster.py train `
 
 ### emobpy-Datei
 
-Beispiel fuer stundenbasierte Distanz (`VehicleMobility__Distance_km`):
+Beispiel für stundenbasierte Distanz (`VehicleMobility__Distance_km`):
 
 ```powershell
 python emobility_forecaster.py train `
@@ -67,9 +67,9 @@ python emobility_forecaster.py train `
   --metrics-out .\models\validation_metrics.csv
 ```
 
-## Forecast fuer eine Person
+## Forecast für eine Person
 
-Eingabe ist eine CSV mit taeglichen Werten aus mindestens 100 Tagen, z. B.:
+Eingabe ist eine CSV mit täglichen Werten aus mindestens 100 Tagen, z. B.:
 - `date`
 - `target` (z. B. Distanz in km)
 - optional `energy_kwh` pro Tag oder `soc_used_percent` pro Tag
@@ -89,9 +89,9 @@ python emobility_forecaster.py predict `
   --plot-out .\predictions\person_forecast_uncertainty.png
 ```
 
-Konsolen-Ausgabe enthaelt automatisch:
-- Gesamtdistanz fuer die naechsten 3 Tage (inkl. Unsicherheitsband)
-- Geschaetzten Akku-Bedarf in % (bei gleichbleibendem Fahrverhalten)
+Konsolen-Ausgabe enthält automatisch:
+- Gesamtdistanz für die nächsten 3 Tage (inkl. Unsicherheitsband)
+- Geschätzten Akku-Bedarf in % (bei gleichbleibendem Fahrverhalten)
 - Optional verbleibenden SoC, wenn `--current-soc-percent` gesetzt ist
 
 CSV-Ausgabe:
@@ -101,9 +101,9 @@ CSV-Ausgabe:
 - `p10`, `p50`, `p90`, `std`
 
 Typischer Satz im Output:
-- `Geschaetzter Akku-Bedarf naechste 3 Tage: ca. 30.0% (...)`
+- `Geschätzter Akku-Bedarf nächste 3 Tage: ca. 30.0% (...)`
 
-## Forecast fuer mehrere Personen (mehrere History-Dateien)
+## Forecast für mehrere Personen (mehrere History-Dateien)
 
 Wenn du mehrere Personen/Fahrzeuge gleichzeitig aus einzelnen 100-Tage-History-Dateien vorhersagen willst, nutze `predict-batch`.
 
@@ -130,10 +130,10 @@ python emobility_forecaster.py predict-batch `
 
 Ergebnis:
 - Ein gemeinsamer Graph mit mehreren Boxplots (eine Box pro Person)
-- Jeder Boxplot zeigt die Unsicherheitsverteilung der Gesamtdistanz fuer die naechsten `summary_days` Tage
+- Jeder Boxplot zeigt die Unsicherheitsverteilung der Gesamtdistanz für die nächsten `summary_days` Tage
 - Optional Akku-Bedarf in % je Person in der Stats-CSV (wenn Verbrauchsspalten vorhanden sind)
 
-Validierung (nur pruefen, ohne Forecast):
+Validierung (nur prüfen, ohne Forecast):
 
 ```powershell
 python emobility_forecaster.py predict-batch `
@@ -143,24 +143,24 @@ python emobility_forecaster.py predict-batch `
   --validate-only
 ```
 
-Geprueft werden u. a.:
+Geprüft werden u. a.:
 - Existenz der Manifest- und History-Dateien
 - Pflichtspalten (`date`, `target` bzw. konfiguriert)
-- Gueltige Datum-/Target-Werte
-- Mindestanzahl gueltiger Historien-Tage (mindestens `history_days`)
-- Gueltiger `current_soc_percent` im Bereich 0 bis 100 (falls gesetzt)
+- Gültige Datum-/Target-Werte
+- Mindestanzahl gültiger Historien-Tage (mindestens `history_days`)
+- Gültiger `current_soc_percent` im Bereich 0 bis 100 (falls gesetzt)
 
 ## Was bedeuten P10, P50, P90?
 
 Ja, das sind Perzentile:
-- `P10`: 10. Perzentil, d. h. 10% der moeglichen Werte liegen darunter
+- `P10`: 10. Perzentil, d. h. 10% der möglichen Werte liegen darunter
 - `P50`: 50. Perzentil (Median)
-- `P90`: 90. Perzentil, d. h. 90% der moeglichen Werte liegen darunter
+- `P90`: 90. Perzentil, d. h. 90% der möglichen Werte liegen darunter
 
 Interpretation im Kontext der Prognose:
-- Ein Bereich `P10-P90` ist ein Unsicherheitsband, das etwa die mittleren 80% plausibler Verlaeufe abdeckt.
+- Ein Bereich `P10-P90` ist ein Unsicherheitsband, das etwa die mittleren 80% plausibler Verläufe abdeckt.
 
-## Direkte Reichweiten-Schaetzung mit Unsicherheit
+## Direkte Reichweiten-Schätzung mit Unsicherheit
 
 Wenn du sofort eine sinnvolle Reichweiten-Aussage aus Akkuwerten willst (inkl. Unsicherheits-Graph), nutze den `range`-Befehl.
 
@@ -191,9 +191,9 @@ Dateien:
 - Plot: `predictions/range_uncertainty.png`
 - Statistik: `predictions/range_stats.csv`
 
-Hinweis: Die Szenario-Werte (`bad/avg/good`) werden auf andere Akku-Zustaende skaliert. Wenn du z. B. `--soc-percent 60` setzt, steigen die Distanzen entsprechend.
+Hinweis: Die Szenario-Werte (`bad/avg/good`) werden auf andere Akku-Zustände skaliert. Wenn du z. B. `--soc-percent 60` setzt, steigen die Distanzen entsprechend.
 
-## Mehrere Datensaetze als mehrere Boxplots
+## Mehrere Datensätze als mehrere Boxplots
 
 Wenn du mehrere Reihen gleichzeitig plotten willst (z. B. 5 Personen/Fahrzeuge), nutze `range-batch`.
 
@@ -216,6 +216,6 @@ Ergebnis:
 
 ## Hinweise
 
-- Wenn Werte in untertaeglichen Zeitreihen vorliegen (z. B. 15 Minuten oder 1 Stunde), werden diese zuerst auf Tageswerte aggregiert (`sum` oder `mean`).
-- Fuer robuste Modelle pro Fahrzeug sollten deutlich mehr als 100 Tage Trainingsdaten je Fahrzeug vorliegen.
-- Wenn du willst, kann ich als naechsten Schritt noch einen Backtesting-Workflow (rolling origin) und einen Baseline-Vergleich (naiver Wochenzyklus) einbauen.
+- Wenn Werte in untertäglichen Zeitreihen vorliegen (z. B. 15 Minuten oder 1 Stunde), werden diese zürst auf Tageswerte aggregiert (`sum` oder `mean`).
+- Für robuste Modelle pro Fahrzeug sollten deutlich mehr als 100 Tage Trainingsdaten je Fahrzeug vorliegen.
+- Wenn du willst, kann ich als nächsten Schritt noch einen Backtesting-Workflow (rolling origin) und einen Baseline-Vergleich (naiver Wochenzyklus) einbauen.
