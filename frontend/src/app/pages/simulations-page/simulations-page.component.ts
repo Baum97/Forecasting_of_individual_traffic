@@ -1,4 +1,4 @@
-import { DatePipe, NgFor, NgIf } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
 
 import { SimulationStoreService } from '../../services/simulation-store.service';
@@ -6,9 +6,9 @@ import { SimulationStoreService } from '../../services/simulation-store.service'
 @Component({
   selector: 'app-simulations-page',
   standalone: true,
-  imports: [DatePipe, NgIf, NgFor],
+  imports: [DatePipe],
   templateUrl: './simulations-page.component.html',
-  styleUrl: './simulations-page.component.css'
+  styleUrl: './simulations-page.component.css',
 })
 export class SimulationsPageComponent {
   private readonly store = inject(SimulationStoreService);

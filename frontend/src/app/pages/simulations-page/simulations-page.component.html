@@ -1,49 +1,65 @@
-<section class="screen-card simulations-screen">
-  <header>
-    <p class="eyebrow">Anzeigebildschirm</p>
-    <h2>Simulationen</h2>
-    <p>Übersicht aller gespeicherten Konfigurationen und schneller Cleanup.</p>
-  </header>
-
-  <div class="stats" *ngIf="commandCounts().length; else noStats">
-    <article *ngFor="let row of commandCounts()">
-      <h3>{{ row[0] }}</h3>
-      <p>{{ row[1] }} gespeichert</p>
-    </article>
+<div class="page animate-in">
+  <div class="page-header">
+    <div>
+      <h2 class="page-title">Simulationen</h2>
+      <p class="page-sub">Gespeicherte Forecast-Konfigurationen</p>
+    </div>
   </div>
 
-  <ng-template #noStats>
-    <p class="hint">Noch keine Daten vorhanden. Lege zuerst im Input-Bereich eine Simulation an.</p>
-  </ng-template>
+  @if (commandCounts().length) {
+    <div class="stats-row">
+      @for (row of commandCounts(); track row[0]) {
+        <div class="stat-card card">
+          <span class="stat-val">{{ row[1] }}</span>
+          <span class="stat-label">{{ row[0] }}</span>
+        </div>
+      }
+    </div>
+  }
 
-  <div class="table-wrap" *ngIf="simulations().length; else noEntries">
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Befehl</th>
-          <th>History</th>
-          <th>Horizons</th>
-          <th>Erstellt</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let sim of simulations()">
-          <td>{{ sim.name }}</td>
-          <td>{{ sim.command }}</td>
-          <td>{{ sim.historyDays }}</td>
-          <td>{{ sim.horizons }}</td>
-          <td>{{ sim.createdAt | date: 'dd.MM.yy HH:mm' }}</td>
-          <td>
-            <button type="button" (click)="removeSimulation(sim.id)">Entfernen</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <ng-template #noEntries>
-    <p class="hint">Keine gespeicherten Simulationen vorhanden.</p>
-  </ng-template>
-</section>
+  @if (simulations().length) {
+    <div class="card table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Befehl</th>
+            <th>History</th>
+            <th>Horizons</th>
+            <th>Erstellt</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (sim of simulations(); track sim.id) {
+            <tr>
+              <td class="name-cell">{{ sim.name }}</td>
+              <td><span class="chip chip-blue">{{ sim.command }}</span></td>
+              <td>{{ sim.historyDays }} Tage</td>
+              <td>{{ sim.horizons }}</td>
+              <td class="muted">{{ sim.createdAt | date:'dd.MM.yy HH:mm' }}</td>
+              <td>
+                <button class="btn-ghost del-btn" type="button"
+                        (click)="removeSimulation(sim.id)">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 6h18M19 6l-1 14H6L5 6M10 11v6M14 11v6M9 6V4h6v2"
+                          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  } @else {
+    <div class="empty-state card">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+        <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"
+              stroke="#9aa0a6" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <p>Noch keine Simulationen gespeichert</p>
+      <p style="font-size:12px;color:var(--ink-muted)">Im Forecast-Bereich werden Läufe automatisch gelistet</p>
+    </div>
+  }
+</div>

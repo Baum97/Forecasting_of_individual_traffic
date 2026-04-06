@@ -1,40 +1,30 @@
-.settings-screen {
+.page { display: grid; gap: 20px; }
+.page-title { font-size: 22px; font-weight: 500; }
+.page-sub   { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+
+.settings-grid {
   display: grid;
-  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  align-items: start;
 }
 
-.eyebrow {
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.72rem;
-  color: var(--accent-strong);
-}
+.settings-card { display: grid; gap: 16px; }
+.settings-card h4 { font-size: 15px; font-weight: 500; }
 
-h2,
-h3,
-p,
-ul {
-  margin: 0;
+.info-card ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
 }
-
-p {
+.info-card li {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
   color: var(--ink-soft);
-  max-width: 66ch;
 }
-
-.todo-box {
-  border: 1px solid color-mix(in srgb, var(--ink) 15%, transparent);
-  background: color-mix(in srgb, #fff 90%, transparent);
-  border-radius: 1rem;
-  padding: 1rem;
-}
-
-ul {
-  padding-left: 1.1rem;
-  margin-top: 0.6rem;
-}
-
-li {
-  margin: 0.2rem 0;
+.info-card li::before {
+  content: '→';
+  color: var(--blue);
+  flex-shrink: 0;
 }

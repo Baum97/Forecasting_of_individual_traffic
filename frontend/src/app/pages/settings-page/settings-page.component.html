@@ -1,17 +1,42 @@
-<section class="screen-card settings-screen">
-  <p class="eyebrow">Anzeigebildschirm</p>
-  <h2>Einstellungen</h2>
-  <p>
-    Dieser Bereich ist als Platzhalter vorbereitet, um spaeter API-URLs, Modellpfade oder
-    Standardparameter zentral zu verwalten.
-  </p>
-
-  <div class="todo-box">
-    <h3>Nächste sinnvolle Optionen</h3>
-    <ul>
-      <li>Pfad zum Python-Service hinterlegen</li>
-      <li>Default-Horizons und History-Days speichern</li>
-      <li>CSV-Dateien direkt hochladen</li>
-    </ul>
+<div class="page animate-in">
+  <div>
+    <h2 class="page-title">Einstellungen</h2>
+    <p class="page-sub">Backend-Verbindung und Standardparameter konfigurieren</p>
   </div>
-</section>
+
+  <div class="settings-grid">
+    <div class="card settings-card">
+      <h4>Backend</h4>
+      <div class="field">
+        <label>Python-Service URL</label>
+        <input type="url" value="http://localhost:8000" placeholder="http://localhost:8000" />
+      </div>
+      <div class="field">
+        <label>Modell-Verzeichnis</label>
+        <input type="text" value=".\models" placeholder="Pfad zum Modell-Ordner" />
+      </div>
+      <button class="btn-outlined" style="margin-top:8px">Verbindung testen</button>
+    </div>
+
+    <div class="card settings-card">
+      <h4>Standardparameter</h4>
+      <div class="field">
+        <label>Default History-Tage</label>
+        <input type="number" value="100" min="30" max="365" />
+      </div>
+      <div class="field">
+        <label>Default Horizons</label>
+        <input type="text" value="7" />
+      </div>
+    </div>
+
+    <div class="card settings-card info-card">
+      <h4>Nächste Schritte</h4>
+      <ul>
+        <li>Python-Backend mit FastAPI starten</li>
+        <li>CSV-Upload direkt im Browser</li>
+        <li>Modell-Training über die UI triggern</li>
+      </ul>
+    </div>
+  </div>
+</div>

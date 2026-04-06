@@ -1,18 +1,24 @@
-<div class="layout-shell">
-  <header class="menu-header">
-    <div class="brand-block">
-      <p class="kicker">E-Mobility Forecast</p>
-      <h1>Simulation Dashboard</h1>
+<div class="shell">
+  <header class="topbar">
+    <div class="topbar-left">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" fill="#1a73e8"/>
+      </svg>
+      <span class="app-name">EV Forecast</span>
     </div>
 
-    <nav class="top-nav" aria-label="Hauptnavigation">
-      <a routerLink="/input" routerLinkActive="active">Input</a>
+    <nav class="topbar-nav">
+      <a routerLink="/forecast"     routerLinkActive="active">Forecast</a>
       <a routerLink="/simulationen" routerLinkActive="active">Simulationen</a>
       <a routerLink="/einstellungen" routerLinkActive="active">Einstellungen</a>
     </nav>
+
+    <div class="topbar-right">
+      <div class="avatar">EV</div>
+    </div>
   </header>
 
-  <main class="content-area">
+  <main class="main">
     <router-outlet></router-outlet>
   </main>
 </div>

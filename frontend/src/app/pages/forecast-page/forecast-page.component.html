@@ -1,0 +1,236 @@
+<div class="forecast-page animate-in">
+
+  <!-- ── Seitentitel ──────────────────────────────────────────── -->
+  <div class="page-header">
+    <div>
+      <h2 class="page-title">Fahrzeugnutzungs-Vorhersage</h2>
+      <p class="page-sub">Modell wählen, Parameter festlegen, Forecast starten</p>
+    </div>
+    @if (result()) {
+      <div class="metrics-row">
+        <span class="metric-chip">
+          <span class="metric-label">Accuracy</span>
+          <span class="metric-val">{{ result()!.metrics?.accuracy | percent:'1.1-1' }}</span>
+        </span>
+        <span class="metric-chip">
+          <span class="metric-label">MAE Abfahrt</span>
+          <span class="metric-val">{{ result()!.metrics?.maeDepH }}h</span>
+        </span>
+        <span class="metric-chip">
+          <span class="metric-label">MAE Rückkehr</span>
+          <span class="metric-val">{{ result()!.metrics?.maeRetH }}h</span>
+        </span>
+      </div>
+    }
+  </div>
+
+  <div class="layout">
+
+    <!-- ── Sidebar ──────────────────────────────────────────────── -->
+    <aside class="sidebar">
+
+      <!-- Modell-Auswahl -->
+      <div class="card sidebar-card">
+        <p class="section-title">Modell</p>
+        @for (model of models; track model.id) {
+          <label class="model-option" [class.selected]="selectedModelId() === model.id"
+                 (click)="selectedModelId.set(model.id)">
+            <div class="model-radio">
+              <div class="radio-dot" [class.active]="selectedModelId() === model.id"></div>
+            </div>
+            <div class="model-info">
+              <span class="model-name">{{ model.label }}</span>
+              <span class="model-desc">{{ model.description }}</span>
+            </div>
+          </label>
+        }
+      </div>
+
+      <!-- Parameter -->
+      <div class="card sidebar-card">
+        <p class="section-title">Parameter</p>
+
+        <div class="field">
+          <label>Vorhersage-Tage (1–7)</label>
+          <div class="slider-wrap">
+            <input type="range" min="1" max="7" step="1"
+                   [value]="horizons()"
+                   (input)="horizons.set(+$any($event.target).value)" />
+            <span class="slider-val">{{ horizons() }}</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="field">
+          <label>History-Tage</label>
+          <input type="number" min="30" max="365"
+                 [value]="historyDays()"
+                 (change)="historyDays.set(+$any($event.target).value)" />
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="field">
+          <label>Eingabe-Modus</label>
+          <div class="toggle-group">
+            <button type="button"
+                    [class.active]="inputMode() === 'emobpy'"
+                    (click)="inputMode.set('emobpy')">emobpy CSV</button>
+            <button type="button"
+                    [class.active]="inputMode() === 'csv'"
+                    (click)="inputMode.set('csv')">Eigene CSV</button>
+          </div>
+        </div>
+
+        @if (inputMode() === 'csv') {
+          <div class="field" style="margin-top:12px">
+            <label>CSV-Datei</label>
+            <div class="file-drop">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="#9aa0a6" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M14 2v6h6M12 18v-6M9 15l3-3 3 3" stroke="#9aa0a6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>CSV hier ablegen oder klicken</span>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Start-Button -->
+      <button class="btn-primary run-btn"
+              [disabled]="runState() === 'running'"
+              (click)="runForecast()">
+        @if (runState() === 'running') {
+          <span class="spinner"></span>
+          <span>Wird berechnet …</span>
+        } @else {
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          <span>Forecast starten</span>
+        }
+      </button>
+
+    </aside>
+
+    <!-- ── Hauptbereich ────────────────────────────────────────── -->
+    <div class="main-area">
+
+      <!-- Leerzustand -->
+      @if (runState() === 'idle') {
+        <div class="empty-state card">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
+            <path d="M3 3v18h18" stroke="#9aa0a6" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M7 16l4-4 3 3 5-6" stroke="#9aa0a6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p style="font-size:16px;font-weight:500;color:#5f6368">Noch kein Forecast</p>
+          <p style="color:#9aa0a6">Modell wählen und Forecast starten</p>
+        </div>
+      }
+
+      <!-- Charts -->
+      @if (runState() === 'done' && result()) {
+        <!-- Tag-Karten -->
+        <div class="day-cards">
+          @for (day of result()!.days; track day.forecastDay) {
+            <div class="day-card" [class.active]="activeDay()?.forecastDay === day.forecastDay"
+                 (click)="selectDay(day)">
+              <span class="day-wd">{{ day.weekday }}</span>
+              <span class="day-date">{{ day.date.slice(5) }}</span>
+              <div class="day-bar">
+                <div class="day-fill" [style.width.%]="day.pUsed * 100"
+                     [class.fill-blue]="day.pUsed >= 0.7"
+                     [class.fill-yellow]="day.pUsed >= 0.4 && day.pUsed < 0.7"
+                     [class.fill-green]="day.pUsed < 0.4"></div>
+              </div>
+              <span class="day-pct">{{ day.pUsed | percent:'1.0-0' }}</span>
+            </div>
+          }
+        </div>
+
+        <!-- Aktiver Tag Detail -->
+        @if (activeDay()) {
+          <div class="card detail-card animate-in">
+            <div class="detail-header">
+              <div>
+                <h3>{{ activeDay()!.weekday }}, {{ activeDay()!.date }}</h3>
+                <p style="color:var(--ink-soft);font-size:13px">Tag +{{ activeDay()!.forecastDay }}</p>
+              </div>
+              <span class="chip" [ngClass]="pUsedClass(activeDay()!.pUsed)">
+                {{ pUsedLabel(activeDay()!.pUsed) }} – {{ activeDay()!.pUsed | percent:'1.0-0' }}
+              </span>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-item">
+                <span class="detail-label">Abfahrt (erwartet)</span>
+                <span class="detail-val">{{ hourLabel(activeDay()!.depEst!) }}</span>
+                <span class="detail-range">P10 {{ hourLabel(activeDay()!.depP10!) }} – P90 {{ hourLabel(activeDay()!.depP90!) }}</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Rückkehr (erwartet)</span>
+                <span class="detail-val">{{ hourLabel(activeDay()!.retEst!) }}</span>
+                <span class="detail-range">P10 {{ hourLabel(activeDay()!.retP10!) }} – P90 {{ hourLabel(activeDay()!.retP90!) }}</span>
+              </div>
+            </div>
+          </div>
+        }
+
+        <!-- Chart-Grid -->
+        <div class="chart-grid">
+
+          <div class="card chart-card">
+            <div class="chart-header">
+              <div>
+                <h4>Nutzungswahrscheinlichkeit</h4>
+                <p>P(Fahrzeug genutzt) je Tag · Klicken für Details</p>
+              </div>
+              <span class="chip chip-blue">{{ horizons() }} Tage</span>
+            </div>
+            <div class="chart-body">
+              <canvas #chartUsage></canvas>
+            </div>
+          </div>
+
+          <div class="card chart-card">
+            <div class="chart-header">
+              <div>
+                <h4>Abfahrt &amp; Rückkehr</h4>
+                <p>P10–P90 Zeitfenster · Hover für Details</p>
+              </div>
+            </div>
+            <div class="chart-body chart-body-tall">
+              <canvas #chartTime></canvas>
+            </div>
+          </div>
+
+          <div class="card chart-card">
+            <div class="chart-header">
+              <div>
+                <h4>Stündliches Nutzungsprofil</h4>
+                <p>Historische P(in_use | Wochentag, Stunde) · Hover für Wert</p>
+              </div>
+            </div>
+            <div class="chart-body chart-body-heatmap">
+              <canvas #chartHeatmap></canvas>
+            </div>
+          </div>
+
+          <div class="card chart-card">
+            <div class="chart-header">
+              <div>
+                <h4>Nutzungstrend</h4>
+                <p>Rolling 7- und 14-Tage Nutzungsrate (History) · Hover für Wert</p>
+              </div>
+            </div>
+            <div class="chart-body">
+              <canvas #chartTrend></canvas>
+            </div>
+          </div>
+
+        </div>
+      }
+
+    </div>
+  </div>
+</div>
