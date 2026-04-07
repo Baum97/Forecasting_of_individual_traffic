@@ -13,12 +13,11 @@
 \usepackage{setspace}
 
 % --- Kopf- und Fußzeilen ---
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\leftmark}
-\fancyhead[R]{\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
+\usepackage[headsepline]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearpairofpagestyles
+\ihead{\leftmark}
+\ohead{\thepage}
 
 % --- Mathematik ---
 \usepackage{amsmath}
@@ -72,7 +71,6 @@
 \usepackage{pdfpages}
 \usepackage{eso-pic}
 \usepackage{appendix}
-\usepackage{tocbibind}
 
 % --- Eigene Befehle ---
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{TODO:} #1}}

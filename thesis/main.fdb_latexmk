@@ -1,11 +1,11 @@
 # Fdb version 4
-["biber main"] 1775552927.93606 "main.bcf" "main.bbl" "main" 1775552935.2541 0
-  "main.bcf" 1775552935 108605 0e39aafe23ac874dd1bf2b4bf95f39ca "pdflatex"
+["biber main"] 1775552927.93606 "main.bcf" "main.bbl" "main" 1775554131.73014 0
+  "main.bcf" 1775554131 108605 0e39aafe23ac874dd1bf2b4bf95f39ca "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1775552933.46201 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1775552935.25457 0
+["pdflatex"] 1775554129.88392 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1775554131.73065 0
   "C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1774437650 133807 2528f502faa7488577b38de1fae4f31e ""
   "C:/Users/Administrator/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1767985000 13337358 73f7419f8e5b2df7f05ba3c99c1fa0a4 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -20,6 +20,7 @@
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/ec-lmr12.tfm" 1256929440 12092 7b1546e2d096cfd5dcbd4049b0b1ec2e ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/ec-lmr17.tfm" 1256929440 12156 ca1ae6a3c8564e89597f1f993fba1608 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/ec-lmri12.tfm" 1256929440 17144 271aaf9ebb339934b04110dc5211fba4 ""
+  "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/ec-lmro12.tfm" 1256929440 12216 265ff4deab161a560d37046d13363b8c ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/ec-lmss12.tfm" 1256929440 11232 955a7245396175d9219648eadc654ac9 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/ec-lmssbx10.tfm" 1256929440 11168 06d87f5698fd1b642d96449b7c8d90b0 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/lmex10.tfm" 1256929440 992 ce925c9346c7613270a79afbee98c070 ""
@@ -36,6 +37,7 @@
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb" 1256929440 113634 9384aebdf26f9881e046a4b5574566db ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb" 1256929440 119752 1bd8d06e4079df624bf59ce3ad7c9aa6 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb" 1256929440 109265 e6c7d377db6dfccd4a123fb26da8cffb ""
+  "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb" 1256929440 125209 a5bd29c5b5feb791d0332220e4a79275 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb" 1256929440 119663 1a3a2206591ddc98c6d6c6271a282516 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty" 1765441417 146654 eaac99efd6386094bb8a3980e34ec87b ""
@@ -105,7 +107,6 @@
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1623003186 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/eso-pic/eso-pic.sty" 1766748757 11838 c56b1b2e06d66f65afcf19adbfba71b5 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/etoolbox/etoolbox.sty" 1759409308 46885 8953c67ffba03252c6090aa19568b8ba ""
-  "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/fancyhdr/fancyhdr.sty" 1740138435 31715 19e60610b63819fe670dfa1cd84a4e94 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/float/float.sty" 1469023953 6916 16d2656a1984957e674b149555f1ea1d ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/footmisc/footmisc.sty" 1746880395 18109 4de394dbf43fe44e00e619c01475403a ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/geometry/geometry.cfg" 1578053545 1104 7ac475a4e3466b0b43e138e9356bda83 ""
@@ -135,6 +136,8 @@
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/puenc.def" 1752319041 117118 e2f5f7983a43f89e2ffcd709fc59d37c ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/koma-script/scrbase.sty" 1770023710 101071 5c33e7845f9afaab8705ab53e1c47a1a ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/koma-script/scrkbase.sty" 1770023710 22923 4fd8d1dd112d2950b8c92f34f0d9788f ""
+  "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/koma-script/scrlayer-scrpage.sty" 1770023710 60542 684799f27e1e28e37cd15bfc943b9e4b ""
+  "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/koma-script/scrlayer.sty" 1770023710 87426 c5987d6f37fdc6073ff40ca3e8ee5f69 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/koma-script/scrlfile-hook.sty" 1770023710 11187 bb19b68b7570b0a5839776e49029dfc6 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/koma-script/scrlfile.sty" 1770023710 3330 524ef98f49a363d012453fece1f26677 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/koma-script/scrlogo.sty" 1770023710 2164 c44cdb4bc4dc3e1eacfb6a8e57830b70 ""
@@ -170,7 +173,6 @@
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1751104012 9684 a33a14b82ce60d6e77cb9be689d79ee6 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/setspace/setspace.sty" 1670403145 22490 8cac309b79a4c53a4ffce4b1b07aead0 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/supertabular/supertabular.sty" 1768130618 16217 4373543ac84bc0161205d94fecd4b8bf ""
-  "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/tocbibind/tocbibind.sty" 1286957996 8927 46f54e33fc9cef24f78ab3bc811cb63f ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/tools/array.sty" 1761901070 15651 9d7c62df82cb29a555c00550babfe364 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/tools/calc.sty" 1761901070 10374 2ffd4f27c7f90b8a300608069537743c ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/tools/longtable.sty" 1761901070 16014 dfa4b4d4e04a78a3f05a90c19711737a ""
@@ -197,15 +199,15 @@
   "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" 1775552925 3253 a1b927dd9e6b14138461b92cbad9a2b8 ""
   "images/HochschuleEsslingen_Logo_4c_DE.png" 1774357426 49451 08690eb3f248fef595e496be388df455 ""
   "images/KEIM-quadr.png" 1774357312 198790 022e9ca48d40c806fe434878a352ed26 ""
-  "imports.tex" 1774357768 1940 21c22cf9797904ca9f167d5a68428a38 ""
+  "imports.tex" 1775554127 1903 6e2c2bc85da8d13e1efd1d5f0d93fbc5 ""
   "main.acr" 0 -1 0 ""
-  "main.aux" 1775552935 24794 e3165e516437dcebca9dd74dbb849f02 "pdflatex"
+  "main.aux" 1775554131 24702 b190f654a2d6587df036825f93b32864 "pdflatex"
   "main.bbl" 1775552931 486 76d65a242ec496c9b4361af646ff12cb "biber main"
-  "main.lof" 1775552935 222 7b5630aa8b8d1500bca90ab33e3bef98 "pdflatex"
-  "main.lot" 1775552935 222 7b5630aa8b8d1500bca90ab33e3bef98 "pdflatex"
-  "main.run.xml" 1775552935 2340 ec6971efa096586f038b241f7cd1fd9c "pdflatex"
+  "main.lof" 1775554131 287 8473f22904a4c6caf58995787ea720d5 "pdflatex"
+  "main.lot" 1775554131 287 8473f22904a4c6caf58995787ea720d5 "pdflatex"
+  "main.run.xml" 1775554131 2340 ec6971efa096586f038b241f7cd1fd9c "pdflatex"
   "main.tex" 1775552925 3253 a1b927dd9e6b14138461b92cbad9a2b8 ""
-  "main.toc" 1775552935 3552 46689f19875588cd51a25cdbd4b78078 "pdflatex"
+  "main.toc" 1775554131 3583 745dbc9c3775560c69064d9d06257e3c "pdflatex"
   (generated)
   "main.acn"
   "main.aux"

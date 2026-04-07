@@ -64,8 +64,10 @@ INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\geometry\ge
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\setspace\setspace.sty
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\setspace\setspace.sty
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\fancyhdr\fancyhdr.sty
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\fancyhdr\fancyhdr.sty
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrlayer-scrpage.sty
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrlayer-scrpage.sty
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrlayer.sty
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrlayer.sty
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\amsopn.sty
@@ -298,8 +300,6 @@ INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\pdfpages\pp
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\pdfpages\pppdftex.def
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\appendix\appendix.sty
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\appendix\appendix.sty
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\tocbibind\tocbibind.sty
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\tocbibind\tocbibind.sty
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmr.fd
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmr.fd
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmr.fd
@@ -371,9 +371,7 @@ INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\e
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmssbx10.tfm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmssbx10.tfm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx12.tfm
-INPUT .\main.toc
-INPUT .\main.toc
-INPUT main.toc
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmro12.tfm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\ot1lmr.fd
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\ot1lmr.fd
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\ot1lmr.fd
@@ -408,6 +406,9 @@ INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\um
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT .\main.toc
+INPUT .\main.toc
+INPUT main.toc
 OUTPUT main.toc
 INPUT .\main.lof
 INPUT .\main.lof
@@ -490,5 +491,7 @@ INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr17.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmri12.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmri12.pfb
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmro12.pfb
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmro12.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmssbx10.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmssbx10.pfb
