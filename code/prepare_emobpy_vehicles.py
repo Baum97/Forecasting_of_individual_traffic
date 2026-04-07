@@ -146,7 +146,7 @@ def prepare(
     print(f"  Mittlere Fahrtage/Jahr: {stats_df['drive_days'].mean():.0f}")
     print(f"  Mittlere km/Jahr:       {stats_df['total_km'].mean():.0f}")
     print()
-    print("Nächster Schritt – Modell trainieren:")
+    print("Nächster Schritt - Modell trainieren:")
     print(f"  python time_pattern_forecaster.py fit-multi \\")
     print(f"    --vehicle-dir {out_dir} \\")
     print(f"    --n-train 140 --n-val 40 \\")

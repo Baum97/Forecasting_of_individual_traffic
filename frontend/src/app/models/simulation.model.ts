@@ -24,7 +24,7 @@ export interface DayForecast {
   retEst: number | null;
   retP10: number | null;
   retP90: number | null;
-  hourProfile: number[];   // 24 Werte P(in_use | h)
+  hourProfile: number[];
 }
 
 export interface ForecastResult {
@@ -32,8 +32,28 @@ export interface ForecastResult {
   generatedAt: string;
   days: DayForecast[];
   rollingUsage: { date: string; roll7: number; roll14: number }[];
-  hourlyProfile: number[][];   // [7 Wochentage][24 Stunden]
+  hourlyProfile: number[][];
   metrics?: { accuracy: number; maeDepH: number; maeRetH: number };
+}
+
+// ── Simulation Run (gespeicherte Ausführung) ─────────────────────────────────
+
+export interface SimulationRun {
+  id: string;
+  /** Automatisch generierter Name: z.B. "emobpy_003-7d_demo" */
+  name: string;
+  modelId: string;
+  modelLabel: string;
+  inputMode: 'csv' | 'emobpy';
+  horizons: number;
+  historyDays: number;
+  createdAt: string;
+  result: ForecastResult;
+}
+
+/** Schlüssel zur Deduplizierung: gleiche Parameter → gleicher Key */
+export function runKey(modelId: string, inputMode: string, horizons: number, historyDays: number): string {
+  return `${modelId}|${inputMode}|${horizons}|${historyDays}`;
 }
 
 // ── Modell-Auswahl ───────────────────────────────────────────────────────────
@@ -48,13 +68,13 @@ export interface AvailableModel {
 export const AVAILABLE_MODELS: AvailableModel[] = [
   {
     id: 'time_pattern_real',
-    label: 'Time Pattern – Real World',
-    description: '1 Fahrzeug, 347 Tage echte Messdaten (Nov 2019 – Okt 2020)',
+    label: 'Time Pattern - Real World',
+    description: '1 Fahrzeug, 347 Tage echte Messdaten (Nov 2019 - Okt 2020)',
     type: 'real_world',
   },
   {
     id: 'emobpy_global',
-    label: 'emobpy Global – 200 Fahrzeuge',
+    label: 'emobpy Global - 200 Fahrzeuge',
     description: 'Globales Modell trainiert auf 200 simulierten Fahrzeugen (emobpy)',
     type: 'emobpy_global',
   },

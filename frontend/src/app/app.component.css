@@ -64,22 +64,6 @@
   color: var(--blue);
 }
 
-/* ── Right ──────────────────────────────────────────────── */
-.topbar-right { flex-shrink: 0; }
-
-.avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--blue);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
 
 /* ── Main ───────────────────────────────────────────────── */
 .main {

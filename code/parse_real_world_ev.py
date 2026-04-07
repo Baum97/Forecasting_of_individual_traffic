@@ -15,10 +15,10 @@ Hintergrund:
     Periode 2: Charge/Folder3  + Drive/Folder4   (Nov 2019, Woche 4)
     Periode 3: Charge/Folder5  + Drive/Folder6   (Dez 2019, Woche 2)
     Periode 4: Charge/Folder7  + Drive/Folder8   (Dez 2019, Woche 3)
-    Periode 5: Charge/Folder9  + Drive/Folder10  (Dez 2019 – Jan 2020)
+    Periode 5: Charge/Folder9  + Drive/Folder10  (Dez 2019 - Jan 2020)
     Periode 6: Charge/Folder11 + Drive/Folder12  (Jan 2020)
-    Periode 7: Charge/Folder13 + Drive/Folder14  (Mai – Jul 2020)
-    Periode 8: Charge/Folder15 + Drive/Folder16  (Aug – Okt 2020)
+    Periode 7: Charge/Folder13 + Drive/Folder14  (Mai - Jul 2020)
+    Periode 8: Charge/Folder15 + Drive/Folder16  (Aug - Okt 2020)
 
 Ausgabe (im Zielordner):
   car_period_1.csv  …  car_period_8.csv
@@ -45,7 +45,7 @@ import pandas as pd
 try:
     import h5py
 except ImportError:
-    sys.exit("h5py fehlt – installieren mit: pip install h5py")
+    sys.exit("h5py fehlt - installieren mit: pip install h5py")
 
 
 # ── Konstanten ────────────────────────────────────────────────────────────────
@@ -123,7 +123,7 @@ def _to_absolute_timestamps(
     Methode: lineare Interpolation zwischen den Epoch-Ankerpunkten.
     Punkte ausserhalb der Anker werden linear extrapoliert.
     """
-    # np.interp extrapoliert mit Randwerten – wir rechnen manuell
+    # np.interp extrapoliert mit Randwerten - wir rechnen manuell
     # um auch ausserhalb der Anker korrekt zu sein
     abs_times = np.interp(time_relative, time_epoch, epoch)
     return abs_times
@@ -175,7 +175,7 @@ def _parse_folder(mat_path: Path, event_type: str) -> Optional[pd.DataFrame]:
     t_start = df["datetime"].iloc[0].strftime("%Y-%m-%d %H:%M")
     t_end   = df["datetime"].iloc[-1].strftime("%Y-%m-%d %H:%M")
     dur_h   = (df["datetime"].iloc[-1] - df["datetime"].iloc[0]).total_seconds() / 3600
-    print(f"    {event_type:8s}: {n:>9,} Messpunkte  |  {t_start} – {t_end}  ({dur_h:.1f} h)")
+    print(f"    {event_type:8s}: {n:>9,} Messpunkte  |  {t_start} - {t_end}  ({dur_h:.1f} h)")
 
     return df
 

@@ -779,8 +779,8 @@ def fit_multi(
       - Rest                             → Test
 
     Rückgabe:
-      forecaster  – trainiertes globales Modell
-      metrics_df  – Metriken je Fahrzeug und Split
+      forecaster  - trainiertes globales Modell
+      metrics_df  - Metriken je Fahrzeug und Split
     """
     config = config or TimePatternConfig()
     rng = np.random.RandomState(seed)
