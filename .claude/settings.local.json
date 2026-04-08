@@ -10,7 +10,8 @@
       "Bash(python prepare_emobpy_vehicles.py --n-vehicles 5)",
       "Bash(python -c \"import pandas as pd; df=pd.read_csv\\(r'd:/Projects/Forecasting_of_individual_traffic/data/emobpy-vehicles/vehicle_000.csv'\\); print\\(df.head\\(8\\).to_string\\(\\)\\)\")",
       "Bash(npm install:*)",
-      "Bash(npx ng:*)"
+      "Bash(npx ng:*)",
+      "Bash(grep -n \"Underfull\\\\\\\\|underfull\\\\|hbox\\\\|einleitung\" \"d:/Projects/Forecasting_of_individual_traffic/thesis/main.log\")"
     ]
   }
 }
