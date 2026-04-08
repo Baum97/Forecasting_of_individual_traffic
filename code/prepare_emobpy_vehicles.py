@@ -3,7 +3,7 @@ prepare_emobpy_vehicles.py
 ──────────────────────────
 Konvertiert die emobpy_timeseries_original.csv (200 Fahrzeuge, 15-min-Raster,
 gestapelt) in 200 einzelne stündliche CSV-Dateien, die direkt von
-time_pattern_forecaster.py (fit-multi) verwendet werden können.
+mat_file_forecaster.py (fit-multi) verwendet werden können.
 
 Datenstruktur der Quelle:
   - 7.008.000 Zeilen = 200 Fahrzeuge × 365 Tage × 96 Zeitschritte (15 min)
@@ -147,7 +147,7 @@ def prepare(
     print(f"  Mittlere km/Jahr:       {stats_df['total_km'].mean():.0f}")
     print()
     print("Nächster Schritt - Modell trainieren:")
-    print(f"  python time_pattern_forecaster.py fit-multi \\")
+    print(f"  python mat_file_forecaster.py fit-multi \\")
     print(f"    --vehicle-dir {out_dir} \\")
     print(f"    --n-train 140 --n-val 40 \\")
     print(f"    --model-out ./models/emobpy_global.joblib \\")
@@ -157,7 +157,7 @@ def prepare(
 def main() -> None:
     parser = argparse.ArgumentParser(
         prog="prepare_emobpy_vehicles.py",
-        description="emobpy 200-Fahrzeuge CSV -> 200 Einzel-CSVs für time_pattern_forecaster",
+        description="emobpy 200-Fahrzeuge CSV -> 200 Einzel-CSVs für mat_file_forecaster",
     )
     parser.add_argument("--src", default=str(SRC_DEFAULT),
                         help="Pfad zur emobpy_timeseries_original.csv")

@@ -1,5 +1,5 @@
 """
-time_pattern_forecaster.py
+mat_file_forecaster.py
 ──────────────────────────
 Erkennt Zeitdaten-Trends aus Fahrzeugnutzungsdaten und sagt voraus,
 wann ein Nutzer das Fahrzeug in den nächsten 1-7 Tagen nutzt/parkt.
@@ -999,7 +999,7 @@ def cmd_fit_multi(args: argparse.Namespace) -> None:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="time_pattern_forecaster.py",
+        prog="mat_file_forecaster.py",
         description="Zeitdaten-Trend-Erkennung & Fahrzeugnutzungs-Vorhersage",
     )
     sub = parser.add_subparsers(dest="command", required=True)

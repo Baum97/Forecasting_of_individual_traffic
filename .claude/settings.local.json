@@ -1,11 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python -c \"import time_pattern_forecaster; print\\('OK'\\)\")",
-      "Bash(python time_pattern_forecaster.py --help)",
+      "Bash(python -c \"import mat_file_forecaster; print\\('OK'\\)\")",
+      "Bash(python mat_file_forecaster.py --help)",
       "Bash(python -c ':*)",
       "Bash(pip install:*)",
-      "Bash(python time_pattern_forecaster.py fit-multi --help)",
+      "Bash(python mat_file_forecaster.py fit-multi --help)",
       "Bash(python parse_real_world_ev.py)",
       "Bash(python prepare_emobpy_vehicles.py --n-vehicles 5)",
       "Bash(python -c \"import pandas as pd; df=pd.read_csv\\(r'd:/Projects/Forecasting_of_individual_traffic/data/emobpy-vehicles/vehicle_000.csv'\\); print\\(df.head\\(8\\).to_string\\(\\)\\)\")",
