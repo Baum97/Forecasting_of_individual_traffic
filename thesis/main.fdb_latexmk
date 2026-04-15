@@ -1,11 +1,11 @@
 # Fdb version 4
-["biber main"] 1775638246.61855 "main.bcf" "main.bbl" "main" 1776251612.93636 0
-  "main.bcf" 1776251612 108700 103fa1aba8df7938c007627ec746368e "pdflatex"
+["biber main"] 1775638246.61855 "main.bcf" "main.bbl" "main" 1776254006.0051 0
+  "main.bcf" 1776254005 108700 103fa1aba8df7938c007627ec746368e "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1776251610.61713 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1776251612.93691 0
+["pdflatex"] 1776254003.81376 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1776254006.00565 0
   "C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1775638246 133807 2528f502faa7488577b38de1fae4f31e ""
   "C:/Users/Administrator/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1767985000 13337358 73f7419f8e5b2df7f05ba3c99c1fa0a4 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -193,7 +193,7 @@
   "chapters/002disclaimer.tex" 1774272499 0 d41d8cd98f00b204e9800998ecf8427e ""
   "chapters/003glossar.tex" 1774272499 0 d41d8cd98f00b204e9800998ecf8427e ""
   "chapters/00abstract.tex" 1774358317 1336 9daf1cd32b41fd8b8006de1056799233 ""
-  "chapters/01einleitung.tex" 1776251610 6286 9ab5e6b928dc0148077f603399de91ea ""
+  "chapters/01einleitung.tex" 1776254001 6154 56b4d8517eb3470c9f06c2a424c94d1c ""
   "chapters/02grundlagen.tex" 1774272499 1513 c10473c45f4110519b15305b44f5a38c ""
   "chapters/03methodik.tex" 1774272499 1480 cfdc829566f42e41c1f0cac756069e71 ""
   "chapters/04implementierung.tex" 1775649193 1732 d1dd6351f53367c425aa0c543c6e06d9 ""
@@ -207,13 +207,13 @@
   "images/KEIM-quadr.png" 1774357312 198790 022e9ca48d40c806fe434878a352ed26 ""
   "imports.tex" 1775639176 1960 317836291215bbf4bfe03c541a59701f ""
   "main.acr" 0 -1 0 ""
-  "main.aux" 1776251612 24702 fb6b96973328ec2112fdd7b94dd90041 "pdflatex"
+  "main.aux" 1776254005 24702 7d01b5e1c31fd549f238ccb6bc67591e "pdflatex"
   "main.bbl" 1775638250 486 76d65a242ec496c9b4361af646ff12cb "biber main"
-  "main.lof" 1776251612 287 8473f22904a4c6caf58995787ea720d5 "pdflatex"
-  "main.lot" 1776251612 287 8473f22904a4c6caf58995787ea720d5 "pdflatex"
-  "main.run.xml" 1776251612 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
+  "main.lof" 1776254005 287 8473f22904a4c6caf58995787ea720d5 "pdflatex"
+  "main.lot" 1776254005 287 8473f22904a4c6caf58995787ea720d5 "pdflatex"
+  "main.run.xml" 1776254005 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
   "main.tex" 1775639287 3307 a0fe32521acfa0c603c9c26eda95f700 ""
-  "main.toc" 1776251612 3583 a2cd43b72c05562563e9b805c1313409 "pdflatex"
+  "main.toc" 1776254005 3583 a2cd43b72c05562563e9b805c1313409 "pdflatex"
   (generated)
   "main.acn"
   "main.aux"
