@@ -18,20 +18,21 @@ Jedoch bringt eine Speicherung von Energie in Elektrofahrzeugen einen gerinfügi
 
 \todo{Warum ist das Thema relevant? Welches Problem wird adressiert? Was ist der aktuelle Stand und wo besteht Handlungsbedarf?}
 
-In dieser Arbeit soll untersucht werden, inwiefern das Nutzverhalten von Elektrofahrzeugen vorhergesagt werden kann, um so den Energiefluss zwischen Fahrzeug und Stromnetz zu optimieren. Dies setzt voraus, dass V2G (Vehicle-to-Grid) gegeben ist. Das bedeutet, dass Elektrofahrzeuge nicht nur Energie aufnehmen, sondern auch wieder abgeben können. Obwohl V2G zunehmend präsenter wird und damit auch das Thema  Die Vorhersage des Mobilitätsverhaltens ermöglicht es, Lade- und Entladezyklen zu optimieren, um so die Effizienz der Nutzung eines mobilen Akkumulators zu maximieren. Das wichtige dabei ist, dass die Vorhersage zuverlässig sein muss, da bei einer Fehleinschätzung des Mobilitätsverhaltens die Energie suboptimal genutzt werden könnte und im schlimmsten Fall auch zum Systemausfall führen könnte.
+In dieser Arbeit wird untersucht, inwiefern sich das Nutzungsverhalten von Elektrofahrzeugen vorhersagen lässt, um den Energiefluss zwischen Fahrzeug und Stromnetz zu optimieren. Voraussetzung hierfür ist die Verfügbarkeit von V2G (Vehicle-to-Grid), also der Fähigkeit von Elektrofahrzeugen, Energie nicht nur aufzunehmen, sondern auch wieder ans Stromnetz abzugeben. Obwohl V2G zunehmend an Präsenz gewinnt, bestehen in der praktischen Anwendung weiterhin große Lücken. Ein zentraler Baustein für das effiziente Zusammenwirken von Elektrofahrzeugen und Stromnetz ist ein zuverlässiges Vorhersagemodell des Mobilitätsverhaltens: Es erlaubt, Lade- und Entladezyklen so zu steuern, dass sowohl die Effizienz der mobilen Akkumulatoren als auch die Auslastung des Netzes optimiert werden. Entscheidend ist dabei die Zuverlässigkeit der Vorhersage: Eine Fehleinschätzung des Mobilitätsverhaltens kann zu einer fehlerhaften Energieverwaltung und im schlimmsten Fall zur Nichtverfügbarkeit des E-Fahrzeuges führen.
 % -----------------------------------------------------------------------------
 \section{Problemstellung}
 \label{sec:problemstellung}
 
 \todo{Konkrete Problemstellung formulieren. Was genau soll untersucht bzw.\ gelöst werden?}
 
-Die 
+Für ein zuverlässiges Machine Learning Modell zur Vorhersage von Mobilitätsverhalten ist eine hochqualitative Datenbasis notwendig. Es müssen also verlässliche Daten über das Mobilitätsverhalten von Nutzern entwender erhoben oder von Dritten bezogen werden. 
 
 % -----------------------------------------------------------------------------
 \section{Zielsetzung}
 \label{sec:zielsetzung}
 
 \todo{Welche Ziele verfolgt diese Arbeit? Was soll am Ende erreicht werden?}
+Das Ziel der Arbeit ist es, zuverlässige Daten zu erheben und zu analysieren. Die Daten, wenn nötig, zu anonymisieren und daraus Modelle zu erstellen, die das Mobilitätsverhalten von Nutzern möglichst genau vorhersagen können. Des Weiteren soll Gegenstand der Arbeit sein, die Vorhersagegenauigkeit der Modelle zu vergleichen und die wichtisten Einflussfaktoren des Verhaltens zu identifizieren. Die Ergebnisse sollen dazu beitragen, eine intelligente Steuerung von Energieflüssen zwischen Fahrzeug und Stromnetz zu ermöglichen, um so die Nutzung von erneuerbaren Energien zu verbessern und eine wichtige Rolle bei der Energiewende zu spielen.
 
 % -----------------------------------------------------------------------------
 \section{Forschungsfragen}
@@ -40,10 +41,16 @@ Die
 \todo{Die zentralen Forschungsfragen formulieren:}
 
 \begin{enumerate}
-    \item \todo{Forschungsfrage 1}
-    \item \todo{Forschungsfrage 2}
-    \item \todo{Forschungsfrage 3}
-\end{enumerate}
+    \item Die Beschaffung und Analysevon verlässlichen Daten über das Mobilitätsverhalten von Nutzern, um so die Vorhersage zu ermöglichen.
+    \begin{enumerate}
+        \item Berücksichtigung von Datenschutzaspekten bei der Datenerhebung.
+    \end{enumerate}
+    \item Erstellung mehrerer Modells zur Vorhersage des Mobilitätsverhaltens von Nutzern.
+    \begin{enumerate}
+        \item Vergleich der Modelle hinsichtlich ihrer Vorhersagegenauigkeit.
+        \item Identifikation der wichtigsten Einflussfaktoren auf das Mobilitätsverhalten.
+    \end{enumerate}
+\end{enumerate} 
 
 % -----------------------------------------------------------------------------
 \section{Aufbau der Arbeit}

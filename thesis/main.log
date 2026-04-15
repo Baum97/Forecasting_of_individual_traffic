@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.9)  8 APR 2026 13:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.9)  15 APR 2026 13:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1281,14 +1281,26 @@ chapter 1.
 [0
 
 
-]) (chapters/001inhaltsverzeichnis.tex) (chapters/002disclaimer.tex) (chapters/003glossar.tex) (chapters/02grundlagen.tex
+]
+Underfull \hbox (badness 7759) in paragraph at lines 46--47
+[]\T1/lmr/m/n/12 (+20) Berücksichtigung von Da-ten-
+ []
+
+
+Underfull \hbox (badness 3449) in paragraph at lines 51--52
+[]\T1/lmr/m/n/12 (+20) Identifikation der wich-tigs-ten
+ []
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.4 \chapter
-            {Theoretische Grundlagen} [1]
+l.64 
+      [1]) (chapters/001inhaltsverzeichnis.tex) (chapters/002disclaimer.tex) (chapters/003glossar.tex) (chapters/02grundlagen.tex [2
+
+]
 chapter 2.
-) (chapters/03methodik.tex [2
+) (chapters/03methodik.tex [3
 
 
 ]
@@ -1298,7 +1310,7 @@ Underfull \hbox (badness 5288) in paragraph at lines 7--8
 []\T1/lmr/bx/n/12 (+20) TODO: \T1/lmr/m/n/12 (+20) Ein-lei-ten-den Text ver-fas-sen.
  []
 
-) (chapters/04implementierung.tex [3
+) (chapters/04implementierung.tex [4
 
 ]
 chapter 4.
@@ -1310,16 +1322,16 @@ Underfull \hbox (badness 2213) in paragraph at lines 19--20
 ) (chapters/05evaluation.tex
 Underfull \vbox (badness 1546) has occurred while \output is active []
 
- [4
+ [5
 
 ]
 chapter 5.
-) (chapters/06diskussion.tex [5
+) (chapters/06diskussion.tex [6
 
 
 ]
 chapter 6.
-) (chapters/07fazit.tex [6
+) (chapters/07fazit.tex [7
 
 
 ]
@@ -1329,7 +1341,7 @@ Underfull \hbox (badness 1803) in paragraph at lines 29--104
 []\T1/lmr/bx/n/12 (+20) TODO: \T1/lmr/m/n/12 (+20) Wel-che zu-künf-ti-gen Ar-bei-ten
  []
 
-[7
+[8
 
 
 ]
@@ -1338,7 +1350,7 @@ LaTeX Warning: Empty bibliography on input line 109.
 
 (chapters/08anhang.tex
 chapter A.
-) [8
+) [9
 
 
 
@@ -1361,17 +1373,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40410 strings out of 467871
- 813770 string characters out of 5414505
- 1892201 words of memory out of 5000000
+ 40421 strings out of 467871
+ 813872 string characters out of 5414505
+ 1893201 words of memory out of 5000000
  68555 multiletter control sequences out of 15000+600000
- 695432 words of font info for 157 fonts, out of 8000000 for 9000
+ 695796 words of font info for 161 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,110p,11260b,2465s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on main.pdf (18 pages, 421537 bytes).
+Output written on main.pdf (19 pages, 424889 bytes).
 PDF statistics:
- 383 PDF objects out of 1000 (max. 8388607)
- 71 named destinations out of 1000 (max. 500000)
+ 392 PDF objects out of 1000 (max. 8388607)
+ 74 named destinations out of 1000 (max. 500000)
  37251 words of extra memory for PDF output out of 42996 (max. 10000000)
 
