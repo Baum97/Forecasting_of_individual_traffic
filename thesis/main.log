@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.9)  15 APR 2026 13:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  27 APR 2026 11:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1189,12 +1189,12 @@ Package tracklang Warning: No `datatool' support for dialect `ngerman'  on input
 File: images/HochschuleEsslingen_Logo_4c_DE.png Graphic file (type png)
 <use images/HochschuleEsslingen_Logo_4c_DE.png>
 Package pdftex.def Info: images/HochschuleEsslingen_Logo_4c_DE.png  used on input line 57.
-(pdftex.def)             Requested size: 208.22171pt x 70.2826pt.
+(pdftex.def)             Requested size: 124.91295pt x 42.16527pt.
 <images/KEIM-quadr.png, id=5, 1863.21094pt x 1040.38687pt>
 File: images/KEIM-quadr.png Graphic file (type png)
 <use images/KEIM-quadr.png>
 Package pdftex.def Info: images/KEIM-quadr.png  used on input line 57.
-(pdftex.def)             Requested size: 125.86081pt x 70.2826pt.
+(pdftex.def)             Requested size: 75.5108pt x 42.16527pt.
 [1
 
 
@@ -1300,10 +1300,12 @@ l.66 \textbf{\Cref{ch:evaluation}}
 
 ]
 chapter 2.
-) (chapters/03methodik.tex [3
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 45.
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)) (chapters/03methodik.tex [3
 
-
-]
+{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
 chapter 3.
 
 Underfull \hbox (badness 5288) in paragraph at lines 7--8
@@ -1373,17 +1375,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40423 strings out of 467871
- 813894 string characters out of 5414505
- 1893201 words of memory out of 5000000
- 68555 multiletter control sequences out of 15000+600000
- 695887 words of font info for 162 fonts, out of 8000000 for 9000
+ 40469 strings out of 467871
+ 815039 string characters out of 5414504
+ 1893327 words of memory out of 5000000
+ 68593 multiletter control sequences out of 15000+600000
+ 696313 words of font info for 164 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,110p,11260b,2465s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on main.pdf (19 pages, 424750 bytes).
+Output written on main.pdf (19 pages, 428048 bytes).
 PDF statistics:
- 392 PDF objects out of 1000 (max. 8388607)
- 74 named destinations out of 1000 (max. 500000)
- 37251 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 401 PDF objects out of 1000 (max. 8388607)
+ 75 named destinations out of 1000 (max. 500000)
+ 39307 words of extra memory for PDF output out of 42996 (max. 10000000)
 

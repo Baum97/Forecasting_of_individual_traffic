@@ -461,11 +461,16 @@ INPUT .\chapters\02grundlagen.tex
 INPUT .\chapters\02grundlagen.tex
 INPUT .\chapters\02grundlagen.tex
 INPUT chapters\02grundlagen.tex
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ts1-lmr12.tfm
 INPUT .\chapters\03methodik.tex
 INPUT .\chapters\03methodik.tex
 INPUT .\chapters\03methodik.tex
 INPUT .\chapters\03methodik.tex
 INPUT chapters\03methodik.tex
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-ts1.enc
 INPUT .\chapters\04implementierung.tex
 INPUT .\chapters\04implementierung.tex
 INPUT .\chapters\04implementierung.tex
