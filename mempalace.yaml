@@ -1,0 +1,18 @@
+wing: forecasting_of_individual_traffic
+rooms:
+- name: code
+  description: Files from code/
+- name: data
+  description: Files from data/
+- name: frontend
+  description: Files from frontend/
+- name: backend
+  description: Files from models/
+- name: predictions
+  description: Files from predictions/
+- name: studien
+  description: Files from studien/
+- name: thesis
+  description: Files from thesis/
+- name: general
+  description: Files that don't fit other rooms

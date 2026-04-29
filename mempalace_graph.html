@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MemPalace — Forecasting of Individual Traffic</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a1a;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #e0e0e0;
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  /* Header */
+  #header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: linear-gradient(180deg, rgba(10,10,26,0.95) 0%, rgba(10,10,26,0.7) 80%, transparent 100%);
+    padding: 18px 32px 28px;
+    pointer-events: none;
+  }
+  #header h1 {
+    font-size: 22px; font-weight: 600; letter-spacing: 1.5px;
+    background: linear-gradient(90deg, #a78bfa, #60a5fa, #34d399);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    pointer-events: auto;
+  }
+  #header .subtitle {
+    font-size: 12px; color: #6b7280; margin-top: 4px; letter-spacing: 0.5px;
+  }
+  #stats {
+    position: fixed; top: 18px; right: 32px; z-index: 100;
+    display: flex; gap: 24px; font-size: 13px; color: #9ca3af;
+  }
+  #stats .stat-val { font-size: 20px; font-weight: 700; color: #a78bfa; display: block; }
+
+  /* Tooltip */
+  #tooltip {
+    position: fixed; pointer-events: none; z-index: 200;
+    background: rgba(20,20,40,0.95); border: 1px solid rgba(167,139,250,0.3);
+    border-radius: 10px; padding: 14px 18px; max-width: 320px;
+    backdrop-filter: blur(12px); display: none;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  }
+  #tooltip h3 { font-size: 14px; color: #a78bfa; margin-bottom: 6px; }
+  #tooltip p { font-size: 12px; color: #9ca3af; line-height: 1.5; }
+  #tooltip .drawer-count { font-size: 18px; font-weight: 700; color: #34d399; }
+
+  /* Legend */
+  #legend {
+    position: fixed; bottom: 24px; left: 32px; z-index: 100;
+    display: flex; gap: 18px; font-size: 11px; color: #6b7280;
+  }
+  #legend .item { display: flex; align-items: center; gap: 6px; }
+  #legend .dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  /* Canvas */
+  svg { width: 100%; height: 100%; }
+
+  /* Glow filters */
+  .glow-purple { filter: url(#glow-purple); }
+  .glow-blue   { filter: url(#glow-blue); }
+  .glow-green  { filter: url(#glow-green); }
+  .glow-amber  { filter: url(#glow-amber); }
+</style>
+</head>
+<body>
+
+<div id="header">
+  <h1>MEMPALACE</h1>
+  <div class="subtitle">Forecasting of Individual Traffic — Knowledge Graph</div>
+</div>
+
+<div id="stats">
+  <div><span class="stat-val">6,682</span> drawers</div>
+  <div><span class="stat-val">1</span> wing</div>
+  <div><span class="stat-val">3</span> rooms</div>
+</div>
+
+<div id="tooltip"></div>
+
+<div id="legend">
+  <div class="item"><div class="dot" style="background:#a78bfa"></div> Palace</div>
+  <div class="item"><div class="dot" style="background:#60a5fa"></div> Wing</div>
+  <div class="item"><div class="dot" style="background:#34d399"></div> Room</div>
+  <div class="item"><div class="dot" style="background:#fbbf24"></div> Content Source</div>
+</div>
+
+<svg id="graph"></svg>
+
+<script>
+// ─── Data ───────────────────────────────────────────────
+const palace = {
+  id: "palace",
+  label: "MemPalace",
+  type: "palace",
+  drawers: 6682,
+  desc: "The memory palace for the Forecasting of Individual Traffic project. Contains all mined knowledge from code, data, and documentation."
+};
+
+const wings = [
+  {
+    id: "wing_fit",
+    label: "forecasting_of_individual_traffic",
+    shortLabel: "Forecasting Traffic",
+    type: "wing",
+    drawers: 6682,
+    desc: "Main project wing — electric vehicle mobility forecasting, battery SOC prediction, and route analysis."
+  }
+];
+
+const rooms = [
+  {
+    id: "room_data",
+    label: "data",
+    type: "room",
+    drawers: 6387,
+    desc: "CSV datasets: emobpy input data, vehicle mobility distributions, trips-per-day, driving consumption parameters, battery specs.",
+    parentWing: "wing_fit"
+  },
+  {
+    id: "room_code",
+    label: "code",
+    type: "room",
+    drawers: 294,
+    desc: "Source code: FastAPI backend, csv_forecaster module, generate_routine scripts, forecasting pipeline with scikit-learn models.",
+    parentWing: "wing_fit"
+  },
+  {
+    id: "room_general",
+    label: "general",
+    type: "room",
+    drawers: 1,
+    desc: "Miscellaneous files not fitting other rooms — project-level config and metadata.",
+    parentWing: "wing_fit"
+  }
+];
+
+const sources = [
+  { id: "src_emobpy",    label: "emobpy_input_data.csv", type: "source", drawers: null, desc: "Vehicle mobility parameters, trips/day distributions, driving consumption data for BEV simulation.", parentRoom: "room_data" },
+  { id: "src_routine",   label: "routine_early.csv",     type: "source", drawers: null, desc: "Early routine patterns — daily schedules for individual vehicle usage.", parentRoom: "room_data" },
+  { id: "src_backend",   label: "backend.py",            type: "source", drawers: null, desc: "FastAPI endpoints: /api/health, /api/models, /api/forecast — serves trained .joblib models via REST.", parentRoom: "room_code" },
+  { id: "src_forecaster", label: "csv_forecaster.py",    type: "source", drawers: null, desc: "Core forecasting module: Config, Forecaster class, feature engineering (make_features), model training pipeline.", parentRoom: "room_code" },
+  { id: "src_generate",  label: "generate_routine.py",   type: "source", drawers: null, desc: "Generates synthetic daily driving routines for simulation and testing.", parentRoom: "room_code" },
+  { id: "src_readme",    label: "README.md",             type: "source", drawers: null, desc: "Documentation: boxplot outputs, CSV metrics (Mean, P10, P50, P90), backtesting workflow notes.", parentRoom: "room_code" },
+  { id: "src_range",     label: "range_batch_5_cases.csv",type: "source", drawers: null, desc: "Battery range cases for 5 persons (A–E): SOC%, capacity, nominal voltage, reserve.", parentRoom: "room_code" },
+  { id: "src_thesis",    label: "thesis/",               type: "source", drawers: null, desc: "LaTeX thesis chapters: Einleitung, Grundlagen — academic documentation of the forecasting approach.", parentRoom: "room_general" },
+];
+
+// ─── Build nodes & links ────────────────────────────────
+const nodes = [palace, ...wings, ...rooms, ...sources];
+const links = [];
+
+// Palace → Wings
+wings.forEach(w => links.push({ source: "palace", target: w.id, type: "palace-wing" }));
+// Wings → Rooms
+rooms.forEach(r => links.push({ source: r.parentWing, target: r.id, type: "wing-room" }));
+// Rooms → Sources
+sources.forEach(s => links.push({ source: s.parentRoom, target: s.id, type: "room-source" }));
+
+// ─── Color & size maps ─────────────────────────────────
+const colorMap  = { palace: "#a78bfa", wing: "#60a5fa", room: "#34d399", source: "#fbbf24" };
+const radiusMap = { palace: 42, wing: 34, room: 0, source: 10 };
+function nodeRadius(d) {
+  if (d.type === "room") return Math.max(16, Math.sqrt(d.drawers / 6) + 12);
+  return radiusMap[d.type] || 10;
+}
+
+// ─── SVG setup ──────────────────────────────────────────
+const svg = document.getElementById("graph");
+const W = window.innerWidth, H = window.innerHeight;
+svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+
+// Glow filters
+const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+["purple", "blue", "green", "amber"].forEach((c, i) => {
+  const colors = ["#a78bfa", "#60a5fa", "#34d399", "#fbbf24"];
+  const f = document.createElementNS("http://www.w3.org/2000/svg", "filter");
+  f.setAttribute("id", `glow-${c}`);
+  f.innerHTML = `
+    <feGaussianBlur stdDeviation="6" result="blur"/>
+    <feFlood flood-color="${colors[i]}" flood-opacity="0.4" result="color"/>
+    <feComposite in="color" in2="blur" operator="in" result="glow"/>
+    <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>`;
+  defs.appendChild(f);
+});
+
+// Background particle field
+const bgGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+bgGroup.setAttribute("opacity", "0.15");
+for (let i = 0; i < 200; i++) {
+  const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  c.setAttribute("cx", Math.random() * W);
+  c.setAttribute("cy", Math.random() * H);
+  c.setAttribute("r", Math.random() * 1.2 + 0.3);
+  c.setAttribute("fill", "#60a5fa");
+  bgGroup.appendChild(c);
+}
+
+svg.appendChild(defs);
+svg.appendChild(bgGroup);
+
+// Link group
+const linkGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+svg.appendChild(linkGroup);
+
+// Node group
+const nodeGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+svg.appendChild(nodeGroup);
+
+// ─── Create link elements ───────────────────────────────
+const linkEls = links.map(l => {
+  const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+  line.setAttribute("stroke", "rgba(167,139,250,0.15)");
+  line.setAttribute("stroke-width", l.type === "palace-wing" ? 2.5 : l.type === "wing-room" ? 2 : 1);
+  linkGroup.appendChild(line);
+  return { el: line, data: l };
+});
+
+// ─── Create node elements ───────────────────────────────
+const nodeEls = nodes.map(n => {
+  const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  g.style.cursor = "pointer";
+
+  const r = nodeRadius(n);
+  const color = colorMap[n.type];
+  const glowName = { palace: "purple", wing: "blue", room: "green", source: "amber" }[n.type];
+
+  // Outer glow ring
+  if (n.type !== "source") {
+    const ring = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    ring.setAttribute("r", r + 6);
+    ring.setAttribute("fill", "none");
+    ring.setAttribute("stroke", color);
+    ring.setAttribute("stroke-opacity", "0.12");
+    ring.setAttribute("stroke-width", "3");
+    g.appendChild(ring);
+  }
+
+  // Main circle
+  const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  circle.setAttribute("r", r);
+  circle.setAttribute("fill", color);
+  circle.setAttribute("fill-opacity", n.type === "source" ? "0.6" : "0.85");
+  circle.setAttribute("filter", `url(#glow-${glowName})`);
+  g.appendChild(circle);
+
+  // Inner icon/text
+  const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  text.setAttribute("text-anchor", "middle");
+  text.setAttribute("dominant-baseline", "central");
+  text.setAttribute("fill", "#0a0a1a");
+  text.setAttribute("font-weight", "700");
+
+  if (n.type === "palace") {
+    text.setAttribute("font-size", "16");
+    text.textContent = "MP";
+  } else if (n.type === "wing") {
+    text.setAttribute("font-size", "11");
+    text.textContent = "W";
+  } else if (n.type === "room") {
+    text.setAttribute("font-size", "9");
+    text.textContent = n.drawers > 100 ? (n.drawers / 1000).toFixed(1) + "k" : n.drawers;
+  } else {
+    text.setAttribute("font-size", "7");
+    text.setAttribute("fill", "#0a0a1a");
+    text.textContent = "";
+  }
+  g.appendChild(text);
+
+  // Label below
+  const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  label.setAttribute("text-anchor", "middle");
+  label.setAttribute("dy", r + 16);
+  label.setAttribute("fill", color);
+  label.setAttribute("font-size", n.type === "source" ? "9" : "11");
+  label.setAttribute("font-weight", n.type === "source" ? "400" : "600");
+  label.setAttribute("opacity", "0.8");
+  label.textContent = n.type === "wing" ? n.shortLabel : n.label;
+  g.appendChild(label);
+
+  nodeGroup.appendChild(g);
+
+  // Tooltip events
+  g.addEventListener("mouseenter", e => showTooltip(e, n));
+  g.addEventListener("mousemove", e => moveTooltip(e));
+  g.addEventListener("mouseleave", hideTooltip);
+
+  return { el: g, data: n, x: W / 2 + (Math.random() - 0.5) * 200, y: H / 2 + (Math.random() - 0.5) * 200, vx: 0, vy: 0, r };
+});
+
+// ─── Tooltip ────────────────────────────────────────────
+const tooltip = document.getElementById("tooltip");
+function showTooltip(e, n) {
+  let html = `<h3>${n.label}</h3>`;
+  if (n.drawers != null) html += `<p class="drawer-count">${n.drawers.toLocaleString()} drawers</p>`;
+  html += `<p>${n.desc}</p>`;
+  html += `<p style="margin-top:6px;color:#6b7280;font-size:11px">Type: ${n.type}</p>`;
+  tooltip.innerHTML = html;
+  tooltip.style.display = "block";
+  moveTooltip(e);
+}
+function moveTooltip(e) {
+  let x = e.clientX + 16, y = e.clientY + 16;
+  if (x + 320 > W) x = e.clientX - 336;
+  if (y + 200 > H) y = e.clientY - 200;
+  tooltip.style.left = x + "px";
+  tooltip.style.top = y + "px";
+}
+function hideTooltip() { tooltip.style.display = "none"; }
+
+// ─── Simple force simulation ────────────────────────────
+// Build adjacency for link resolution
+const nodeMap = {};
+nodeEls.forEach(n => nodeMap[n.data.id] = n);
+
+// Initial positions: radial layout
+const cx = W / 2, cy = H / 2;
+nodeMap["palace"].x = cx; nodeMap["palace"].y = cy;
+nodeMap["wing_fit"].x = cx; nodeMap["wing_fit"].y = cy - 90;
+
+const roomAngle = { room_data: -Math.PI / 4, room_code: Math.PI / 4, room_general: Math.PI / 2 + 0.3 };
+rooms.forEach(r => {
+  const a = roomAngle[r.id];
+  nodeMap[r.id].x = cx + Math.cos(a) * 200;
+  nodeMap[r.id].y = cy + Math.sin(a) * 200;
+});
+
+sources.forEach((s, i) => {
+  const parent = nodeMap[s.parentRoom];
+  const angle = (i / sources.length) * Math.PI * 2 + Math.random() * 0.3;
+  nodeMap[s.id].x = parent.x + Math.cos(angle) * 130;
+  nodeMap[s.id].y = parent.y + Math.sin(angle) * 130;
+});
+
+function simulate() {
+  const alpha = 0.3;
+  const repulsion = 2500;
+  const attraction = 0.005;
+  const centerGravity = 0.002;
+
+  // Repulsion (all pairs)
+  for (let i = 0; i < nodeEls.length; i++) {
+    for (let j = i + 1; j < nodeEls.length; j++) {
+      const a = nodeEls[i], b = nodeEls[j];
+      let dx = a.x - b.x, dy = a.y - b.y;
+      let dist = Math.sqrt(dx * dx + dy * dy) || 1;
+      let minDist = a.r + b.r + 30;
+      let force = repulsion / (dist * dist);
+      if (dist < minDist) force *= 3;
+      let fx = (dx / dist) * force, fy = (dy / dist) * force;
+      a.vx += fx; a.vy += fy;
+      b.vx -= fx; b.vy -= fy;
+    }
+  }
+
+  // Attraction (links)
+  links.forEach(l => {
+    const a = nodeMap[l.source], b = nodeMap[l.target];
+    if (!a || !b) return;
+    let dx = b.x - a.x, dy = b.y - a.y;
+    let dist = Math.sqrt(dx * dx + dy * dy) || 1;
+    let targetDist = l.type === "palace-wing" ? 90 : l.type === "wing-room" ? 180 : 120;
+    let force = (dist - targetDist) * attraction;
+    let fx = (dx / dist) * force, fy = (dy / dist) * force;
+    a.vx += fx; a.vy += fy;
+    b.vx -= fx; b.vy -= fy;
+  });
+
+  // Center gravity
+  nodeEls.forEach(n => {
+    n.vx += (cx - n.x) * centerGravity;
+    n.vy += (cy - n.y) * centerGravity;
+  });
+
+  // Integrate
+  nodeEls.forEach(n => {
+    n.vx *= 0.85;
+    n.vy *= 0.85;
+    n.x += n.vx * alpha;
+    n.y += n.vy * alpha;
+    // Keep in bounds
+    n.x = Math.max(60, Math.min(W - 60, n.x));
+    n.y = Math.max(70, Math.min(H - 40, n.y));
+  });
+
+  // Update DOM
+  nodeEls.forEach(n => {
+    n.el.setAttribute("transform", `translate(${n.x},${n.y})`);
+  });
+  linkEls.forEach(l => {
+    const a = nodeMap[l.data.source], b = nodeMap[l.data.target];
+    if (!a || !b) return;
+    l.el.setAttribute("x1", a.x); l.el.setAttribute("y1", a.y);
+    l.el.setAttribute("x2", b.x); l.el.setAttribute("y2", b.y);
+  });
+}
+
+// ─── Drag ───────────────────────────────────────────────
+let dragging = null;
+svg.addEventListener("mousedown", e => {
+  const pt = svgPoint(e);
+  let closest = null, minD = 30;
+  nodeEls.forEach(n => {
+    const d = Math.sqrt((n.x - pt.x) ** 2 + (n.y - pt.y) ** 2);
+    if (d < minD) { minD = d; closest = n; }
+  });
+  if (closest) { dragging = closest; dragging.vx = 0; dragging.vy = 0; }
+});
+svg.addEventListener("mousemove", e => {
+  if (!dragging) return;
+  const pt = svgPoint(e);
+  dragging.x = pt.x; dragging.y = pt.y;
+});
+svg.addEventListener("mouseup", () => { dragging = null; });
+
+function svgPoint(e) {
+  const rect = svg.getBoundingClientRect();
+  return { x: (e.clientX - rect.left) / rect.width * W, y: (e.clientY - rect.top) / rect.height * H };
+}
+
+// ─── Animation loop ─────────────────────────────────────
+let frame = 0;
+function tick() {
+  simulate();
+  frame++;
+
+  // Subtle pulse on palace node
+  const palaceCircle = nodeMap["palace"].el.querySelector("circle:nth-child(2)");
+  if (palaceCircle) {
+    const pulse = 0.8 + 0.05 * Math.sin(frame * 0.03);
+    palaceCircle.setAttribute("fill-opacity", pulse);
+  }
+
+  // Animate link opacity
+  linkEls.forEach(l => {
+    const base = l.data.type === "palace-wing" ? 0.25 : l.data.type === "wing-room" ? 0.2 : 0.1;
+    const flicker = base + 0.05 * Math.sin(frame * 0.02 + Math.random());
+    l.el.setAttribute("stroke-opacity", flicker);
+  });
+
+  requestAnimationFrame(tick);
+}
+tick();
+
+// ─── Resize ─────────────────────────────────────────────
+window.addEventListener("resize", () => {
+  const nw = window.innerWidth, nh = window.innerHeight;
+  svg.setAttribute("viewBox", `0 0 ${nw} ${nh}`);
+});
+</script>
+</body>
+</html>
