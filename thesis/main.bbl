@@ -16,5 +16,174 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{emobpy_dataset}{dataset}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=bba098b0d0c1e9fb33028262fc12b816}{%
+           family={Gaete-Morales},
+           familyi={G\bibinithyphendelim M\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d382d48e2e6dee854150615eb756c8ef}{%
+           family={Kramer},
+           familyi={K\bibinitperiod},
+           given={Hendrik},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=944845999de6f79c9161d41fdcbf59a8}{%
+           family={Schill},
+           familyi={S\bibinitperiod},
+           given={Wolf-Peter},
+           giveni={W\bibinithyphendelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=da35b10c66e05a9e7e21d7c5bd111f30}{%
+           family={Zerrahn},
+           familyi={Z\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Zenodo}%
+      }
+      \strng{namehash}{f2b9f8c8606b08dcbe5dadab5b975794}
+      \strng{fullhash}{cd40caba8a8be8d60e83297baf56f291}
+      \strng{fullhashraw}{cd40caba8a8be8d60e83297baf56f291}
+      \strng{bibnamehash}{cd40caba8a8be8d60e83297baf56f291}
+      \strng{authorbibnamehash}{cd40caba8a8be8d60e83297baf56f291}
+      \strng{authornamehash}{f2b9f8c8606b08dcbe5dadab5b975794}
+      \strng{authorfullhash}{cd40caba8a8be8d60e83297baf56f291}
+      \strng{authorfullhashraw}{cd40caba8a8be8d60e83297baf56f291}
+      \field{extraname}{1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{An open tool for creating battery-electric vehicle time series from empirical data --- emobpy (data set)}
+      \field{year}{2021}
+      \verb{doi}
+      \verb https://doi.org/10.5281/zenodo.4514928
+      \endverb
+    \endentry
+    \entry{emobpy_paper}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=bba098b0d0c1e9fb33028262fc12b816}{%
+           family={Gaete-Morales},
+           familyi={G\bibinithyphendelim M\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d382d48e2e6dee854150615eb756c8ef}{%
+           family={Kramer},
+           familyi={K\bibinitperiod},
+           given={Hendrik},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=944845999de6f79c9161d41fdcbf59a8}{%
+           family={Schill},
+           familyi={S\bibinitperiod},
+           given={Wolf-Peter},
+           giveni={W\bibinithyphendelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=da35b10c66e05a9e7e21d7c5bd111f30}{%
+           family={Zerrahn},
+           familyi={Z\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f2b9f8c8606b08dcbe5dadab5b975794}
+      \strng{fullhash}{cd40caba8a8be8d60e83297baf56f291}
+      \strng{fullhashraw}{cd40caba8a8be8d60e83297baf56f291}
+      \strng{bibnamehash}{cd40caba8a8be8d60e83297baf56f291}
+      \strng{authorbibnamehash}{cd40caba8a8be8d60e83297baf56f291}
+      \strng{authornamehash}{f2b9f8c8606b08dcbe5dadab5b975794}
+      \strng{authorfullhash}{cd40caba8a8be8d60e83297baf56f291}
+      \strng{authorfullhashraw}{cd40caba8a8be8d60e83297baf56f291}
+      \field{extraname}{2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific Data}
+      \field{number}{152}
+      \field{title}{An open tool for creating battery-electric vehicle time series from empirical data, emobpy}
+      \field{volume}{8}
+      \field{year}{2021}
+      \verb{doi}
+      \verb https://doi.org/10.1038/s41597-021-00932-9
+      \endverb
+    \endentry
+    \entry{realworld_ev_dataset}{dataset}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=f8332617ae1cd8a7914e9c8918910d37}{%
+           family={Pozzato},
+           familyi={P\bibinitperiod},
+           given={Gabriele},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=13e831dbbaff5cd383bbe2ca28cefcda}{%
+           family={Allam},
+           familyi={A\bibinitperiod},
+           given={Anirudh},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c3df3e568d68d5243963c96a92528a26}{%
+           family={Pulvirenti},
+           familyi={P\bibinitperiod},
+           given={Luca},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=adfbc9687af88473a09bc89f6ddd874f}{%
+           family={Negoita},
+           familyi={N\bibinitperiod},
+           given={Alina},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=90eb4d6b57346d3a0c338e02756bb49a}{%
+           family={Paxton},
+           familyi={P\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1031b2e120656a4229aec4d954b5d41c}{%
+           family={Onori},
+           familyi={O\bibinitperiod},
+           given={Simona},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{bda5107fb86e2b207c9d362472a3d0dc}
+      \strng{fullhash}{b1db62079f0be6b87e309dd84bff3c18}
+      \strng{fullhashraw}{b1db62079f0be6b87e309dd84bff3c18}
+      \strng{bibnamehash}{b1db62079f0be6b87e309dd84bff3c18}
+      \strng{authorbibnamehash}{b1db62079f0be6b87e309dd84bff3c18}
+      \strng{authornamehash}{bda5107fb86e2b207c9d362472a3d0dc}
+      \strng{authorfullhash}{b1db62079f0be6b87e309dd84bff3c18}
+      \strng{authorfullhashraw}{b1db62079f0be6b87e309dd84bff3c18}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{DOI noch zu ergaenzen --- siehe Originalquelle (Mendeley Data / Zenodo)}
+      \field{title}{Real-world electric vehicle data driving and charging}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.17632/7vdkzpnjgj.2
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

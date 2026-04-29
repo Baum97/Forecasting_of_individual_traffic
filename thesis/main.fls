@@ -491,6 +491,12 @@ INPUT .\chapters\07fazit.tex
 INPUT .\chapters\07fazit.tex
 INPUT .\chapters\07fazit.tex
 INPUT chapters\07fazit.tex
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmri12.tfm
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmcsc10.tfm
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtt12.tfm
 INPUT .\chapters\08anhang.tex
 INPUT .\chapters\08anhang.tex
 INPUT .\chapters\08anhang.tex
@@ -501,12 +507,13 @@ INPUT .\chapters\09erklaerung.tex
 INPUT .\chapters\09erklaerung.tex
 INPUT .\chapters\09erklaerung.tex
 INPUT chapters\09erklaerung.tex
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmri12.tfm
 INPUT main.aux
 INPUT main.run.xml
 OUTPUT main.run.xml
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx12.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx12.pfb
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmcsc10.pfb
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmcsc10.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr12.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr12.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr17.pfb
@@ -517,3 +524,5 @@ INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmro12.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmssbx10.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmssbx10.pfb
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt12.pfb
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt12.pfb
