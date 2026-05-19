@@ -21,7 +21,7 @@ import pandas as pd
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
-from csv_forecaster import (
+from model_scripts.csv_forecaster import (
     Config, FEATURE_COLS, Forecaster,
     load_csv, make_features,
 )
