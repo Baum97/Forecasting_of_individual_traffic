@@ -1,13 +1,14 @@
 import {
   AfterViewInit, Component, computed, ElementRef,
-  inject, OnDestroy, signal, ViewChild
+  inject, OnDestroy, OnInit, signal, ViewChild
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DecimalPipe, NgClass, NgFor, NgIf, PercentPipe, SlicePipe } from '@angular/common';
 import {
-  AVAILABLE_MODELS, DayForecast, ForecastResult, SimulationRun
+  DayForecast, ForecastResult, SimulationRun
 } from '../../models/simulation.model';
 import { SimulationStoreService } from '../../services/simulation-store.service';
+import { ModelCatalogService } from '../../services/model-catalog.service';
 import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
@@ -91,18 +92,21 @@ function generateDemoForecast(horizons: number): ForecastResult {
   templateUrl: './forecast-page.component.html',
   styleUrl: './forecast-page.component.css',
 })
-export class ForecastPageComponent implements AfterViewInit, OnDestroy {
+export class ForecastPageComponent implements AfterViewInit, OnDestroy, OnInit {
   @ViewChild('chartUsage')   chartUsageRef!:   ElementRef<HTMLCanvasElement>;
   @ViewChild('chartTime')    chartTimeRef!:    ElementRef<HTMLCanvasElement>;
   @ViewChild('chartHeatmap') chartHeatmapRef!: ElementRef<HTMLCanvasElement>;
   @ViewChild('chartTrend')   chartTrendRef!:   ElementRef<HTMLCanvasElement>;
 
   private readonly store = inject(SimulationStoreService);
+  private readonly catalog = inject(ModelCatalogService);
 
-  readonly models = AVAILABLE_MODELS;
+  readonly models = this.catalog.models;
+  readonly catalogState = this.catalog.state;
+  readonly catalogError = this.catalog.errorMessage;
 
   // ── Parameter ────────────────────────────────────────────────────────────
-  selectedModelId = signal<string>('time_pattern_demo');
+  selectedModelId = signal<string>('');
   horizons        = signal<number>(7);
   historyDays     = signal<number>(100);
   inputMode       = signal<'csv' | 'emobpy'>('emobpy');
@@ -113,14 +117,63 @@ export class ForecastPageComponent implements AfterViewInit, OnDestroy {
   activeDay     = signal<DayForecast | null>(null);
   dupWarning    = signal<SimulationRun | null>(null);   // vorhandener Duplikat-Run
 
+  // ── Vergleichs-Modus ──────────────────────────────────────────────────────
+  /** Bis zu zwei Run-IDs fuer den Vergleich. Reihenfolge = Auswahl-Reihenfolge. */
+  compareIds = signal<string[]>([]);
+
   // ── History aus Store ─────────────────────────────────────────────────────
   readonly runs = this.store.runs;
 
-  selectedModel = computed(() =>
-    this.models.find(m => m.id === this.selectedModelId()) ?? this.models[0]
-  );
+  /** Die ausgewaehlten Runs als Objekte, in Auswahl-Reihenfolge. */
+  compareRuns = computed<SimulationRun[]>(() => {
+    const ids = this.compareIds();
+    const all = this.runs();
+    return ids
+      .map(id => all.find(r => r.id === id))
+      .filter((r): r is SimulationRun => !!r);
+  });
+
+  isInCompare(id: string): boolean {
+    return this.compareIds().includes(id);
+  }
+
+  /** Toggle: klick auf das DNA-Icon eines Runs. */
+  toggleCompare(run: SimulationRun, event: Event): void {
+    event.stopPropagation();
+    const current = this.compareIds();
+    if (current.includes(run.id)) {
+      this.compareIds.set(current.filter(id => id !== run.id));
+      return;
+    }
+    if (current.length >= 2) {
+      // Aelteste Auswahl rauswerfen, neue ans Ende.
+      this.compareIds.set([current[1], run.id]);
+      return;
+    }
+    this.compareIds.set([...current, run.id]);
+  }
+
+  closeCompare(): void {
+    this.compareIds.set([]);
+  }
+
+  selectedModel = computed(() => {
+    const list = this.models();
+    return list.find(m => m.id === this.selectedModelId()) ?? list[0];
+  });
 
   private charts: Chart[] = [];
+
+  ngOnInit(): void {
+    this.catalog.refresh();
+    // Beim ersten erfolgreichen Load das erste Modell vorauswaehlen.
+    queueMicrotask(() => {
+      const first = this.models()[0];
+      if (first && !this.selectedModelId()) {
+        this.selectedModelId.set(first.id);
+      }
+    });
+  }
 
   // ── Parameter-Änderung → Duplikat-Check ──────────────────────────────────
 
@@ -141,6 +194,10 @@ export class ForecastPageComponent implements AfterViewInit, OnDestroy {
     setTimeout(() => {
       const result = generateDemoForecast(this.horizons());
       const model = this.selectedModel();
+      if (!model) {
+        this.runState.set('error');
+        return;
+      }
 
       const run = this.store.addRun({
         modelId: this.selectedModelId(),

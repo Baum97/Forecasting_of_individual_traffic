@@ -1,9 +1,12 @@
 """
 Endpunkte:
-  GET  /api/health                - Liveness-Check
-  GET  /api/models                - Liste gespeicherter .joblib-Modelle
-  POST /api/forecast              - CSV hochladen, trainieren, Forecast liefern
-  POST /api/forecast/{model_id}   - Vorhersage aus vorhandenem Modell
+  GET  /api/health                       - Liveness-Check
+  GET  /api/models                       - Liste gespeicherter .joblib-Modelle
+  POST /api/forecast                     - CSV hochladen, trainieren, Forecast liefern
+  POST /api/forecast/{model_id}          - Vorhersage aus vorhandenem Modell
+  GET  /api/runs                         - Liste aller Run-Verzeichnisse in predictions/
+  GET  /api/runs/{model}/{run}           - Inhalt eines Runs (Forecast + Artefakte)
+  GET  /runs/{model}/{run}/{datei}       - Statische Auslieferung einzelner Artefakte
 
 Starten:
   python -m uvicorn backend:app --reload --port 8000
@@ -11,6 +14,7 @@ Starten:
 from __future__ import annotations
 
 import io
+import re
 import uuid
 from datetime import datetime
 from pathlib import Path
@@ -20,14 +24,37 @@ import numpy as np
 import pandas as pd
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
+from model_scripts.base import run_output_dir
 from model_scripts.csv_forecaster import (
     Config, FEATURE_COLS, Forecaster,
     load_csv, make_features,
 )
 
-MODELS_DIR = Path(__file__).parent / "models"
+MODELS_DIR = Path(__file__).resolve().parents[1] / "models"
 MODELS_DIR.mkdir(exist_ok=True)
+PRED_DIR = Path(__file__).resolve().parents[1] / "predictions"
+PRED_DIR.mkdir(exist_ok=True)
+
+
+def _describe_model(stem: str) -> dict:
+    """Leitet Label, Beschreibung und Typ aus dem Dateinamen ab."""
+    if stem == "car_full_forecaster":
+        return {
+            "label": "Car Full Forecaster",
+            "description": "CSV-basierter 1-7-Tage-Forecaster (Nutzung, Abfahrt, Rueckkehr) auf stuendlicher Real-World-Timeline.",
+            "type": "real_world",
+        }
+    if stem.startswith("driving_"):
+        source = stem.removeprefix("driving_")
+        pretty = source.replace("_", " ").title()
+        return {
+            "label": f"Driving Classifier - {pretty}",
+            "description": f'RandomForest "faehrt vs. geparkt", trainiert auf Datenquelle "{source}".',
+            "type": "driving_classifier",
+        }
+    return {"label": stem, "description": "", "type": "unknown"}
 
 app = FastAPI(title="Traffic Forecaster API")
 app.add_middleware(
@@ -36,6 +63,105 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Run-Artefakte (CSV, PNG, TXT, ...) als statische Dateien ausliefern.
+app.mount("/runs", StaticFiles(directory=str(PRED_DIR)), name="runs")
+
+
+# ── Run-Verzeichnisse als "Simulations-Objekte" ──────────────────────────────
+
+_RUN_DIR_RE = re.compile(
+    r"^(?P<dataset>.+?)(?:_(?P<days>\d+)d)?_T(?P<date>\d{2}-\d{2}-\d{4})$"
+)
+
+
+def _parse_run_dir_name(name: str) -> dict:
+    """dataset_<N>d_T<DD-MM-YYYY> -> {dataset, days?, date}."""
+    m = _RUN_DIR_RE.match(name)
+    if not m:
+        return {"dataset": name, "days": None, "date": None}
+    days = int(m["days"]) if m["days"] else None
+    return {"dataset": m["dataset"], "days": days, "date": m["date"]}
+
+
+def _artifact_kind(suffix: str) -> str:
+    s = suffix.lower()
+    if s == ".csv":
+        return "csv"
+    if s in {".png", ".jpg", ".jpeg", ".svg"}:
+        return "image"
+    if s in {".txt", ".md", ".log"}:
+        return "text"
+    if s == ".json":
+        return "json"
+    return "other"
+
+
+def _list_artifacts(run_dir: Path, rel_url_prefix: str) -> List[dict]:
+    items: List[dict] = []
+    for f in sorted(run_dir.iterdir()):
+        if not f.is_file():
+            continue
+        items.append({
+            "name": f.name,
+            "kind": _artifact_kind(f.suffix),
+            "size_kb": round(f.stat().st_size / 1024, 1),
+            "url": f"{rel_url_prefix}/{f.name}",
+        })
+    return items
+
+
+def _scan_runs() -> List[dict]:
+    """Scant predictions/<model>/<run>/ und gibt eine flache Liste zurueck."""
+    runs: List[dict] = []
+    if not PRED_DIR.exists():
+        return runs
+    for model_dir in sorted(p for p in PRED_DIR.iterdir() if p.is_dir()):
+        for run_dir in sorted(p for p in model_dir.iterdir() if p.is_dir()):
+            meta = _parse_run_dir_name(run_dir.name)
+            runs.append({
+                "model": model_dir.name,
+                "run": run_dir.name,
+                **meta,
+                "artifactCount": sum(1 for f in run_dir.iterdir() if f.is_file()),
+                "modified": datetime.fromtimestamp(run_dir.stat().st_mtime).isoformat(),
+            })
+    return runs
+
+
+def _load_run(model: str, run: str) -> dict:
+    run_dir = PRED_DIR / model / run
+    if not run_dir.is_dir():
+        raise HTTPException(status_code=404, detail=f"Run '{model}/{run}' nicht gefunden")
+
+    meta = _parse_run_dir_name(run)
+    artifacts = _list_artifacts(run_dir, rel_url_prefix=f"/runs/{model}/{run}")
+
+    rows: List[dict] = []
+    csv_file = run_dir / "forecast.csv"
+    if csv_file.exists():
+        try:
+            df = pd.read_csv(csv_file)
+            rows = df.to_dict(orient="records")
+        except Exception as e:
+            rows = []
+            artifacts.append({"name": "forecast.csv", "kind": "error",
+                              "size_kb": 0, "url": "",
+                              "error": f"CSV nicht lesbar: {e}"})
+
+    notes = ""
+    notes_file = run_dir / "notes.txt"
+    if notes_file.exists():
+        notes = notes_file.read_text(encoding="utf-8", errors="ignore")
+
+    return {
+        "model": model,
+        "run": run,
+        **meta,
+        "artifacts": artifacts,
+        "rows": rows,
+        "notes": notes,
+    }
 
 
 # ── Shape-Konvertierung: Forecaster → Frontend-JSON ──────────────────────────
@@ -96,13 +222,32 @@ def _rolling_usage(daily: pd.DataFrame, window: int = 90) -> List[dict]:
     ]
 
 
-def _to_result(model: Forecaster, model_id: str, horizons: int) -> dict:
+def _persist_run_csv(model_name: str, dataset: str, horizons: int,
+                     days: List[dict]) -> Path:
+    """Schreibt die Forecast-Tage als CSV in predictions/<model>/<dataset>_<N>d_T<DD-MM-YYYY>/."""
+    run_dir = run_output_dir(
+        model_name=model_name,
+        dataset=dataset,
+        forecast_days=horizons,
+    )
+    out = run_dir / "forecast.csv"
+    pd.DataFrame(days).drop(columns=["hourProfile"], errors="ignore").to_csv(
+        out, index=False
+    )
+    return out
+
+
+def _to_result(model: Forecaster, model_id: str, horizons: int,
+               dataset: str = "default") -> dict:
+    days = _predict_full(model, horizons)
+    csv_path = _persist_run_csv(model_id, dataset, horizons, days)
     return {
         "modelId": model_id,
         "generatedAt": datetime.utcnow().isoformat() + "Z",
-        "days": _predict_full(model, horizons),
+        "days": days,
         "rollingUsage": _rolling_usage(model.daily),
         "hourlyProfile": [[round(v, 4) for v in row] for row in model.profile],
+        "runCsvPath": str(csv_path),
     }
 
 
@@ -113,12 +258,28 @@ def health() -> dict:
     return {"status": "ok", "models_dir": str(MODELS_DIR)}
 
 
+@app.get("/api/runs")
+def list_runs() -> List[dict]:
+    """Listet alle Simulations-Verzeichnisse unter predictions/."""
+    return _scan_runs()
+
+
+@app.get("/api/runs/{model}/{run}")
+def get_run(model: str, run: str) -> dict:
+    """Liefert Forecast-Tage + Artefakt-Liste eines konkreten Runs."""
+    return _load_run(model, run)
+
+
 @app.get("/api/models")
 def list_models() -> List[dict]:
     return [
-        {"id": p.stem, "path": str(p),
-         "size_kb": round(p.stat().st_size / 1024, 1),
-         "modified": datetime.fromtimestamp(p.stat().st_mtime).isoformat()}
+        {
+            "id": p.stem,
+            **_describe_model(p.stem),
+            "path": str(p),
+            "size_kb": round(p.stat().st_size / 1024, 1),
+            "modified": datetime.fromtimestamp(p.stat().st_mtime).isoformat(),
+        }
         for p in sorted(MODELS_DIR.glob("*.joblib"))
     ]
 
@@ -131,6 +292,7 @@ async def forecast_from_csv(
     date_col: str = Form("datetime"),
     signal_col: str = Form("in_use"),
     save_model: bool = Form(False),
+    dataset: str = Form("upload"),
 ) -> dict:
     """CSV hochladen → trainieren → Forecast. Optional speichern."""
     try:
@@ -145,7 +307,7 @@ async def forecast_from_csv(
         if save_model:
             model.save(MODELS_DIR / f"{model_id}.joblib")
 
-        return _to_result(model, model_id, max(1, min(7, horizons)))
+        return _to_result(model, model_id, max(1, min(7, horizons)), dataset=dataset)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
@@ -153,10 +315,11 @@ async def forecast_from_csv(
 
 
 @app.post("/api/forecast/{model_id}")
-def forecast_from_model(model_id: str, horizons: int = 7) -> dict:
+def forecast_from_model(model_id: str, horizons: int = 7,
+                        dataset: str = "default") -> dict:
     """Forecast aus bereits gespeichertem Modell."""
     path = MODELS_DIR / f"{model_id}.joblib"
     if not path.exists():
         raise HTTPException(status_code=404, detail=f"Modell '{model_id}' nicht gefunden")
     model = Forecaster.load(path)
-    return _to_result(model, model_id, max(1, min(7, horizons)))
+    return _to_result(model, model_id, max(1, min(7, horizons)), dataset=dataset)

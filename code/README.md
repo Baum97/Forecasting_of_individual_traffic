@@ -219,3 +219,66 @@ Ergebnis:
 - Wenn Werte in untertäglichen Zeitreihen vorliegen (z. B. 15 Minuten oder 1 Stunde), werden diese zürst auf Tageswerte aggregiert (`sum` oder `mean`).
 - Für robuste Modelle pro Fahrzeug sollten deutlich mehr als 100 Tage Trainingsdaten je Fahrzeug vorliegen.
 - Wenn du willst, kann ich als nächsten Schritt noch einen Backtesting-Workflow (rolling origin) und einen Baseline-Vergleich (naiver Wochenzyklus) einbauen.
+
+## Implementierte Funktionalitäten
+
+### Datenpipeline & Vorbereitung
+- Loader und Adapter für vier Datenquellen ([data_adapters.py](model_scripts/data_adapters.py)): `emobpy`, `real_world_ev`, `routine`, `VED`
+- Aufbereitungs-Skripte: [parse_real_world_ev.py](parse_real_world_ev.py), [prepare_emobpy_vehicles.py](prepare_emobpy_vehicles.py), [generate_routine.py](generate_routine.py)
+- Automatische Aggregation untertägiger Zeitreihen auf Tages-/Stundenwerte (`sum` / `mean`)
+- Feature-Engineering: Lags (1, 2, 24, 168), Rolling-Means (24, 168), Stunde, Wochentag, Wochenend-Flag
+
+### Modelle & Training
+- Binär-Klassifikator „fährt vs. geparkt" auf Basis von `RandomForestClassifier` ([base.py](model_scripts/base.py))
+- Pro-Quelle-Trainingsskripte: `train_emobpy.py`, `train_real_world_ev.py`, `train_ved.py`, `train_routine.py`
+- Time-basierter 80/20-Split, Persistenz als `.joblib` unter [../models/](../models/)
+- Multi-Horizon-Regressor (Tag +1 bis +7) für Distanz-Forecasts ([csv_forecaster.py](model_scripts/csv_forecaster.py))
+
+### Evaluation
+- Cross-Validation-Matrix 4×4 ([run_cross_validation.py](model_scripts/run_cross_validation.py)): jedes Modell auf jeder Datenquelle getestet
+- Metriken: Accuracy, F1, Precision, Recall, ROC-AUC
+- Generierte Artefakte: [cross_validation_matrix.csv](../predictions/cross_validation_matrix.csv), F1- und Accuracy-Heatmaps
+- Unsicherheitsabschätzung über Perzentile (P10/P50/P90) für Forecast und Reichweite
+
+### Forecast-Modi (CLI)
+- `train` – globales Modell trainieren (Long-Format oder emobpy-Format)
+- `predict` – Forecast für eine einzelne Person aus 100-Tage-Historie inkl. Akku-Bedarfs-Schätzung
+- `predict-batch` – mehrere Personen über Manifest-CSV, Boxplot-Vergleich, Validate-only-Modus
+- `range` – direkte Reichweiten-Schätzung aus SoC + Akkudaten inkl. Unsicherheits-Plot
+- `range-batch` – mehrere Reichweiten-Szenarien als gemeinsamer Boxplot
+
+### Backend & Frontend
+- FastAPI-Server ([backend.py](backend.py)) mit Endpunkten `/api/health`, `/api/models`, `/api/forecast`, `/api/forecast/{model_id}`
+- CORS aktiviert, CSV-Upload, On-the-fly-Training und Forecast aus persistierten Modellen
+- Frontend-Projekt unter [../frontend/](../frontend/) (Node/JS)
+
+## ToDos
+
+### Refactor / Aufräumen
+- [ ] Aktuelle Umstrukturierung committen (Verschiebung nach `model_scripts/`, neue Trainings-/CV-Skripte)
+- [ ] `__pycache__` aus dem Repo entfernen und `.gitignore` ergänzen
+- [ ] `frontend/node_modules` aus dem Repo entfernen und `.gitignore` ergänzen
+
+### Modellierung
+- [ ] Backtesting-Workflow mit Rolling-Origin-Evaluation
+- [ ] Baseline-Vergleich gegen naiven Wochenzyklus
+- [ ] Hyperparameter-Tuning des RandomForest (n_estimators, max_depth, class_weight)
+- [ ] Alternative Modelle evaluieren (Gradient Boosting, LSTM/Temporal CNN)
+- [ ] Klassengewichtung gegen Imbalance (geparkt ≫ fährt) prüfen
+
+### Evaluation & Reporting
+- [ ] Confusion-Matrix pro Quelle zusätzlich zur F1-Heatmap exportieren
+- [ ] Feature-Importance-Analyse je Modell
+- [ ] Fehleranalyse: typische Fehlklassifikationen pro Datenquelle dokumentieren
+
+### Backend / API
+- [ ] Authentifizierung / API-Key für `/api/forecast`-Endpunkte
+- [ ] CORS-Whitelist statt `allow_origins=["*"]`
+- [ ] Pydantic-Schemata für Response-Modelle, OpenAPI-Doku verfeinern
+- [ ] Tests (pytest) für Endpunkte und Datenadapter
+
+### Thesis
+- [ ] Kapitel 1 (Einleitung) und Kapitel 3 (Methodik) fertigstellen
+- [ ] Cross-Validation-Ergebnisse in Methodik/Ergebnisse einbinden
+- [ ] Diskussion zur Übertragbarkeit zwischen Datenquellen ergänzen
+

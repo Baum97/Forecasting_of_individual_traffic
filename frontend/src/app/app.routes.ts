@@ -10,13 +10,6 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'simulationen',
-    loadComponent: () =>
-      import('./pages/simulations-page/simulations-page.component').then(
-        (m) => m.SimulationsPageComponent
-      ),
-  },
-  {
     path: 'einstellungen',
     loadComponent: () =>
       import('./pages/settings-page/settings-page.component').then(

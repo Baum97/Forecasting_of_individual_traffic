@@ -32,6 +32,13 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 
+try:
+    from model_scripts.base import run_output_dir
+except ImportError:
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+    from model_scripts.base import run_output_dir
+
 WEEKDAY_NAMES = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
 
 
@@ -290,15 +297,23 @@ def cmd_fit(args: argparse.Namespace) -> None:
 
 
 def cmd_predict(args: argparse.Namespace) -> None:
-    model = Forecaster.load(Path(args.model_in))
+    model_path = Path(args.model_in)
+    model = Forecaster.load(model_path)
     pred = model.predict(args.horizons, threshold=args.threshold,
                          min_active_p=args.min_active_p)
     print(pred.to_string(index=False))
-    if args.pred_out:
-        out = Path(args.pred_out)
-        out.parent.mkdir(parents=True, exist_ok=True)
-        pred.to_csv(out, index=False)
-        print(f"[predict] CSV gespeichert: {out}")
+
+    run_dir = run_output_dir(
+        model_name=model_path.stem,
+        dataset=args.dataset,
+        forecast_days=args.horizons,
+    )
+    print(f"[predict] run dir: {run_dir}")
+
+    pred_name = Path(args.pred_out).name if args.pred_out else "forecast.csv"
+    out = run_dir / pred_name
+    pred.to_csv(out, index=False)
+    print(f"[predict] CSV gespeichert: {out}")
 
 
 def main() -> None:
@@ -320,7 +335,10 @@ def main() -> None:
                     help="Stunden mit P(in_use) >= threshold zaehlen als Fahrt")
     pp.add_argument("--min-active-p", type=float, default=0.5,
                     help="Tag aktiv, wenn p_day >= min_active_p * Basisrate")
-    pp.add_argument("--pred-out")
+    pp.add_argument("--dataset", default="default",
+                    help="Datensatz-Label fuer den Run-Ordnernamen.")
+    pp.add_argument("--pred-out",
+                    help="Optionaler Dateiname (wird im Run-Ordner abgelegt).")
     pp.set_defaults(func=cmd_predict)
 
     args = p.parse_args()

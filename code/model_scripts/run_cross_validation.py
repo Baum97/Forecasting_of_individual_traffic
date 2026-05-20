@@ -24,6 +24,7 @@ from model_scripts.base import (
     TrainConfig,
     evaluate,
     make_features,
+    run_output_dir,
     save_model,
     split_by_time,
     train_model,
@@ -101,13 +102,25 @@ def main() -> None:
     parser.add_argument("--emobpy-vehicles", type=int, default=30)
     parser.add_argument("--ved-vehicles", type=int, default=15)
     parser.add_argument("--ved-files", type=int, default=4)
-    parser.add_argument("--out-csv", type=Path,
-                        default=PRED_DIR / "cross_validation_matrix.csv")
-    parser.add_argument("--heatmap-out", type=Path,
-                        default=PRED_DIR / "cross_validation_f1_heatmap.png")
-    parser.add_argument("--accuracy-heatmap-out", type=Path,
-                        default=PRED_DIR / "cross_validation_accuracy_heatmap.png")
+    parser.add_argument("--dataset-tag", default="all_sources",
+                        help="Rahmenbedingung im Run-Ordnernamen.")
+    parser.add_argument("--out-csv", type=Path, default=None)
+    parser.add_argument("--heatmap-out", type=Path, default=None)
+    parser.add_argument("--accuracy-heatmap-out", type=Path, default=None)
     args = parser.parse_args()
+
+    run_dir = run_output_dir(
+        model_name="cross_validation",
+        dataset=args.dataset_tag,
+        forecast_days=None,
+    )
+    if args.out_csv is None:
+        args.out_csv = run_dir / "cross_validation_matrix.csv"
+    if args.heatmap_out is None:
+        args.heatmap_out = run_dir / "cross_validation_f1_heatmap.png"
+    if args.accuracy_heatmap_out is None:
+        args.accuracy_heatmap_out = run_dir / "cross_validation_accuracy_heatmap.png"
+    print(f"run output dir: {run_dir}")
 
     datasets = build_datasets(args.emobpy_vehicles, args.ved_vehicles, args.ved_files)
     # Compute features on the full timeline first, then split.

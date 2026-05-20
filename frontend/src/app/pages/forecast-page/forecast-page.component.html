@@ -31,7 +31,14 @@
 
       <div class="card sidebar-card">
         <p class="section-title">Modell</p>
-        @for (model of models; track model.id) {
+        @if (catalogState() === 'loading') {
+          <p class="model-desc">Lade Modelle vom Backend ...</p>
+        } @else if (catalogState() === 'error') {
+          <p class="model-desc">Backend nicht erreichbar: {{ catalogError() }}</p>
+        } @else if (models().length === 0) {
+          <p class="model-desc">Keine Modelle in <code>models/</code> gefunden.</p>
+        }
+        @for (model of models(); track model.id) {
           <label class="model-option" [class.selected]="selectedModelId() === model.id"
                  (click)="selectedModelId.set(model.id); onParamChange()">
             <div class="model-radio">
@@ -173,6 +180,20 @@
                         </div>
                       }
                     </div>
+                    <button class="btn-ghost compare-btn"
+                            [class.active]="isInCompare(run.id)"
+                            (click)="toggleCompare(run, $event)"
+                            [title]="isInCompare(run.id) ? 'Aus Vergleich entfernen' : 'Zum Vergleich auswaehlen'">
+                      <!-- DNA-Doppelhelix-Icon -->
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 3c0 4 10 5 10 9s-10 5-10 9"
+                              stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M17 3c0 4-10 5-10 9s10 5 10 9"
+                              stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M8.5 5h7M8.5 9h7M8.5 15h7M8.5 19h7"
+                              stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                      </svg>
+                    </button>
                     <span class="run-avg">Ø {{ avgPUsed(run) | percent:'1.0-0' }}</span>
                     <span class="run-date">{{ run.createdAt | slice:0:10 }}</span>
                     <button class="btn-ghost del-btn"
@@ -307,4 +328,60 @@
 
     </div>
   </div>
+
+  <!-- ── Vergleichs-Panel (2 Runs ausgewaehlt) ─────────────────── -->
+  @if (compareRuns().length === 2) {
+    <div class="compare-overlay" (click)="closeCompare()">
+      <div class="compare-panel card" (click)="$event.stopPropagation()">
+        <div class="compare-header">
+          <h3>Vergleich</h3>
+          <button class="btn-ghost" (click)="closeCompare()" title="Schliessen">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M6 6l12 12M18 6l-12 12"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="compare-grid">
+          @for (run of compareRuns(); track run.id) {
+            <div class="compare-col">
+              <div class="compare-col-header">
+                <strong>{{ run.name }}</strong>
+                <p class="run-meta">{{ run.modelLabel }} · {{ run.horizons }} Tage · {{ run.historyDays }}d History</p>
+                <p class="run-meta">Ø {{ avgPUsed(run) | percent:'1.0-0' }}</p>
+              </div>
+              <div class="compare-days">
+                @for (day of run.result.days; track day.forecastDay) {
+                  <div class="compare-day">
+                    <span class="day-wd">{{ day.weekday }}</span>
+                    <span class="day-date">{{ day.date.slice(5) }}</span>
+                    <div class="day-bar">
+                      <div class="day-fill"
+                           [style.width.%]="day.pUsed * 100"
+                           [class.fill-blue]="day.pUsed >= 0.7"
+                           [class.fill-yellow]="day.pUsed >= 0.4 && day.pUsed < 0.7"
+                           [class.fill-green]="day.pUsed < 0.4"></div>
+                    </div>
+                    <span class="day-pct">{{ day.pUsed | percent:'1.0-0' }}</span>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- ── Notification (genau 1 Run ausgewaehlt) ──────────────────── -->
+  @if (compareIds().length === 1) {
+    <div class="compare-toast" role="status" aria-live="polite">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="dna-mini">
+        <path d="M7 3c0 4 10 5 10 9s-10 5-10 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M17 3c0 4-10 5-10 9s10 5 10 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M8.5 5h7M8.5 9h7M8.5 15h7M8.5 19h7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      <span>Wählen Sie einen zweiten Forecast für einen Vergleich aus</span>
+    </div>
+  }
 </div>

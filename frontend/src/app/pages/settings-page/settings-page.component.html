@@ -1,7 +1,7 @@
 <div class="page animate-in">
   <div>
     <h2 class="page-title">Einstellungen</h2>
-    <p class="page-sub">Backend-Verbindung und Standardparameter konfigurieren</p>
+    <p class="page-sub">Backend-Verbindung, Standardparameter und Daten-Import</p>
   </div>
 
   <div class="settings-grid">
@@ -30,13 +30,86 @@
       </div>
     </div>
 
-    <div class="card settings-card info-card">
-      <h4>Nächste Schritte</h4>
-      <ul>
-        <li>Python-Backend mit FastAPI starten</li>
-        <li>CSV-Upload direkt im Browser</li>
-        <li>Modell-Training über die UI triggern</li>
-      </ul>
+    <div class="card settings-card info-card import-card">
+      <div class="import-header">
+        <h4>Simulation importieren</h4>
+        <button class="btn-outlined" (click)="refresh()">Aktualisieren</button>
+      </div>
+      <p class="model-desc">
+        Eine Simulation ist ein Verzeichnis unter
+        <code>predictions/&lt;modell&gt;/&lt;datensatz&gt;_&lt;N&gt;d_T&lt;DD-MM-YYYY&gt;/</code>
+        mit Forecast-CSV, optionalen PNGs und einer notes.txt.
+      </p>
+
+      @switch (state()) {
+        @case ('loading') {
+          <p class="model-desc">Lade Runs vom Backend ...</p>
+        }
+        @case ('error') {
+          <p class="model-desc error-text">Backend nicht erreichbar: {{ error() }}</p>
+        }
+        @case ('ready') {
+          @if (runs().length === 0) {
+            <p class="model-desc">Keine Simulationen in <code>predictions/</code> gefunden.</p>
+          }
+        }
+      }
+
+      @if (runs().length > 0) {
+        <ul class="run-list">
+          @for (r of runs(); track r.model + '/' + r.run) {
+            <li class="run-item"
+                [class.selected]="selected()?.run === r.run && selected()?.model === r.model"
+                (click)="select(r)">
+              <div class="run-line">
+                <span class="run-model">{{ r.model }}</span>
+                <span class="run-meta">
+                  {{ r.dataset }}@if (r.days != null) { · {{ r.days }}d }@if (r.date) { · T{{ r.date }} }
+                </span>
+              </div>
+              <div class="run-sub">{{ r.artifactCount }} Artefakte</div>
+            </li>
+          }
+        </ul>
+      }
+
+      @if (selected(); as run) {
+        <div class="run-detail">
+          <div class="run-detail-header">
+            <strong>{{ run.model }} / {{ run.run }}</strong>
+            <button class="btn-primary" (click)="importSelected()" [disabled]="detailLoading()">
+              In Store importieren
+            </button>
+          </div>
+          @if (detailLoading()) {
+            <p class="model-desc">Lade Details ...</p>
+          } @else if (detailRowCount() > 0) {
+            <p class="model-desc">
+              {{ detailRowCount() }} Forecast-Zeile(n) aus <code>forecast.csv</code>.
+            </p>
+          }
+          @if (detailArtifacts().length > 0) {
+            <ul class="artifact-list">
+              @for (a of detailArtifacts(); track a.name) {
+                <li>
+                  <span class="artifact-kind">{{ a.kind }}</span>
+                  <a [href]="artifactUrl(a)" target="_blank" rel="noopener">{{ a.name }}</a>
+                  <span class="artifact-size">{{ a.size_kb }} KB</span>
+                </li>
+              }
+            </ul>
+          }
+          @if (detailNotes()) {
+            <pre class="notes">{{ detailNotes() }}</pre>
+          }
+          @if (importInfo()) {
+            <p class="model-desc success-text">{{ importInfo() }}</p>
+          }
+          @if (importError()) {
+            <p class="model-desc error-text">{{ importError() }}</p>
+          }
+        </div>
+      }
     </div>
   </div>
 </div>

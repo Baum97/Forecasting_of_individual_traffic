@@ -8,8 +8,9 @@ of *data quality* rather than algorithm choice.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import datetime
 from pathlib import Path
-from typing import Tuple
+from typing import Optional, Tuple
 
 import joblib
 import numpy as np
@@ -131,6 +132,33 @@ def evaluate(model: RandomForestClassifier, df: pd.DataFrame) -> dict:
         out["roc_auc"] = float(roc_auc_score(y, proba))
     else:
         out["roc_auc"] = float("nan")
+    return out
+
+
+PREDICTIONS_DIR = Path(__file__).resolve().parents[2] / "predictions"
+
+
+def run_output_dir(
+    model_name: str,
+    dataset: str,
+    forecast_days: Optional[int] = None,
+    base: Optional[Path] = None,
+    when: Optional[datetime] = None,
+) -> Path:
+    """Return predictions/<model>/<dataset>[_<N>d]_T<DD-MM-YYYY>/ and create it.
+
+    Note: ':' is not allowed in Windows paths, so the requested 'T<DD:MM:YYYY>'
+    tag uses '-' as separator instead.
+    """
+    base = base or PREDICTIONS_DIR
+    when = when or datetime.now()
+    date_tag = "T" + when.strftime("%d-%m-%Y")
+    parts = [dataset]
+    if forecast_days is not None:
+        parts.append(f"{forecast_days}d")
+    parts.append(date_tag)
+    out = base / model_name / "_".join(parts)
+    out.mkdir(parents=True, exist_ok=True)
     return out
 
 
