@@ -119,8 +119,20 @@
         </div>
       }
 
+      @if (selectedModelUnsupported()) {
+        <div class="run-error">
+          <strong>Modell nicht direkt aufrufbar</strong>
+          <p>
+            Das Driving-Classifier-Modell ist ein binaerer RandomForest und wird vom
+            <code>/api/forecast</code>-Endpunkt nicht unterstuetzt. Waehle ein
+            Forecaster-Modell (z.B. <code>car_full_forecaster</code>) oder nutze die
+            CLI <code>train_*.py</code>.
+          </p>
+        </div>
+      }
+
       <button class="btn-primary run-btn"
-              [disabled]="runState() === 'running'"
+              [disabled]="runState() === 'running' || selectedModelUnsupported()"
               (click)="runForecast()">
         @if (runState() === 'running') {
           <span class="spinner"></span>
@@ -130,6 +142,13 @@
           <span>Forecast starten</span>
         }
       </button>
+
+      @if (runState() === 'error' && runError()) {
+        <div class="run-error">
+          <strong>Forecast fehlgeschlagen</strong>
+          <p>{{ runError() }}</p>
+        </div>
+      }
 
     </aside>
 

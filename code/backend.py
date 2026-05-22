@@ -38,14 +38,40 @@ PRED_DIR = Path(__file__).resolve().parents[1] / "predictions"
 PRED_DIR.mkdir(exist_ok=True)
 
 
+_FORECASTER_META = {
+    "realworldev_forecaster": (
+        "Real-World EV Forecaster",
+        "1-7-Tage-Forecaster auf der realen EV-Timeline (cars-real-world-electric).",
+        "real_world",
+    ),
+    "emobpy_forecaster": (
+        "emobpy Forecaster",
+        "1-7-Tage-Forecaster ueber alle emobpy-Fahrzeuge (gemeinsam trainiert).",
+        "simulation",
+    ),
+    "ved_forecaster": (
+        "VED Forecaster",
+        "1-7-Tage-Forecaster ueber mehrere VED-Fahrzeuge (gemeinsam trainiert).",
+        "real_world",
+    ),
+    "routine_forecaster": (
+        "Routine Forecaster",
+        "1-7-Tage-Forecaster auf der synthetischen Routine-Zeitreihe.",
+        "simulation",
+    ),
+    "car_full_forecaster": (
+        "Car Full Forecaster (Legacy)",
+        "Aelterer Forecaster auf cars-real-world-electric — heute durch realworldev_forecaster ersetzt.",
+        "real_world",
+    ),
+}
+
+
 def _describe_model(stem: str) -> dict:
     """Leitet Label, Beschreibung und Typ aus dem Dateinamen ab."""
-    if stem == "car_full_forecaster":
-        return {
-            "label": "Car Full Forecaster",
-            "description": "CSV-basierter 1-7-Tage-Forecaster (Nutzung, Abfahrt, Rueckkehr) auf stuendlicher Real-World-Timeline.",
-            "type": "real_world",
-        }
+    if stem in _FORECASTER_META:
+        label, description, type_ = _FORECASTER_META[stem]
+        return {"label": label, "description": description, "type": type_}
     if stem.startswith("driving_"):
         source = stem.removeprefix("driving_")
         pretty = source.replace("_", " ").title()

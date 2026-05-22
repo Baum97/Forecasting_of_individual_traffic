@@ -453,6 +453,19 @@ input[type='range']:focus { box-shadow: none; }
   .page-header   { flex-direction: column; }
 }
 
+/* ── Forecast-Fehleranzeige ───────────────────────────────── */
+.run-error {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: rgba(217, 48, 37, 0.08);
+  border: 1px solid rgba(217, 48, 37, 0.3);
+  color: #b3261e;
+  border-radius: 8px;
+  font-size: 12px;
+}
+.run-error strong { display: block; margin-bottom: 4px; font-size: 13px; }
+.run-error p { margin: 0; word-break: break-word; }
+
 /* ── Vergleichs-Button (DNA-Doppelhelix) ────────────────────── */
 .compare-btn {
   padding: 4px;

@@ -167,6 +167,14 @@ export class ForecastPageComponent implements AfterViewInit, OnDestroy, OnInit {
     return list.find(m => m.id === this.selectedModelId()) ?? list[0];
   });
 
+  /**
+   * driving_* Modelle sind reine RandomForestClassifier und werden vom
+   * /api/forecast/{model_id}-Endpunkt aktuell nicht bedient.
+   */
+  selectedModelUnsupported = computed(() => {
+    return this.selectedModel()?.type === 'driving_classifier';
+  });
+
   private charts: Chart[] = [];
 
   ngOnInit(): void {
@@ -192,34 +200,51 @@ export class ForecastPageComponent implements AfterViewInit, OnDestroy, OnInit {
   // ── Forecast starten ─────────────────────────────────────────────────────
 
   runForecast(): void {
+    const model = this.selectedModel();
+    if (!model) {
+      this.runError.set('Kein Modell ausgewaehlt.');
+      this.runState.set('error');
+      return;
+    }
+
     this.runState.set('running');
+    this.runError.set(null);
     this.destroyCharts();
 
-    // Simuliert API-Aufruf (in echter App: HTTP → Python-Backend)
-    setTimeout(() => {
-      const result = generateDemoForecast(this.horizons());
-      const model = this.selectedModel();
-      if (!model) {
+    const modelId = this.selectedModelId();
+    const horizons = this.horizons();
+    // Datensatz-Label aus dem Eingabemodus + Modelltyp → fliesst in den Run-Ordnernamen ein.
+    const dataset = this.inputMode();
+
+    this.api.runForecast(modelId, horizons, dataset).subscribe({
+      next: (result) => {
+        const run = this.store.addRun({
+          modelId,
+          modelLabel: model.label,
+          inputMode: this.inputMode(),
+          horizons,
+          historyDays: this.historyDays(),
+          result,
+        });
+
+        this.activeRun.set(run);
+        this.activeDay.set(result.days[0] ?? null);
+        this.dupWarning.set(null);
+        this.runState.set('done');
+
+        setTimeout(() => this.buildCharts(), 80);
+      },
+      error: (err) => {
+        const detail =
+          err?.error?.detail ??
+          err?.message ??
+          'Backend nicht erreichbar (erwartet auf :8000).';
+        this.runError.set(
+          typeof detail === 'string' ? detail : JSON.stringify(detail)
+        );
         this.runState.set('error');
-        return;
-      }
-
-      const run = this.store.addRun({
-        modelId: this.selectedModelId(),
-        modelLabel: model.label,
-        inputMode: this.inputMode(),
-        horizons: this.horizons(),
-        historyDays: this.historyDays(),
-        result,
-      });
-
-      this.activeRun.set(run);
-      this.activeDay.set(result.days[0]);
-      this.dupWarning.set(null);
-      this.runState.set('done');
-
-      setTimeout(() => this.buildCharts(), 80);
-    }, 900);
+      },
+    });
   }
 
   /** Lädt einen bestehenden Run aus der History */
