@@ -9,6 +9,7 @@ import {
 } from '../../models/simulation.model';
 import { SimulationStoreService } from '../../services/simulation-store.service';
 import { ModelCatalogService } from '../../services/model-catalog.service';
+import { ForecastApiService } from '../../services/forecast-api.service';
 import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
@@ -100,6 +101,10 @@ export class ForecastPageComponent implements AfterViewInit, OnDestroy, OnInit {
 
   private readonly store = inject(SimulationStoreService);
   private readonly catalog = inject(ModelCatalogService);
+  private readonly api = inject(ForecastApiService);
+
+  /** Letzter Backend-Fehler — fuer die Anzeige im Template. */
+  runError = signal<string | null>(null);
 
   readonly models = this.catalog.models;
   readonly catalogState = this.catalog.state;

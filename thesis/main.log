@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  20 MAY 2026 14:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  22 MAY 2026 11:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1276,17 +1276,21 @@ Package tocbasic Info: character protrusion at lot deactivated on input line 79.
 
 ]
 No file main.acr.
-[7] (chapters/01einleitung.tex
+[7] (chapters/todo.tex [0
+
+
+
+]) (chapters/01einleitung.tex
 chapter 1.
-[0
 
-
-]
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.37 
-      [1]
+l.21 \section
+             {Problemstellung} [1
+
+
+] [2]
 Underfull \hbox (badness 7759) in paragraph at lines 45--46
 []\T1/lmr/m/n/12 (+20) Berücksichtigung von Da-ten-
  []
@@ -1296,12 +1300,12 @@ Underfull \hbox (badness 3449) in paragraph at lines 50--51
 []\T1/lmr/m/n/12 (+20) Identifikation der wich-tigs-ten
  []
 
-) (chapters/001inhaltsverzeichnis.tex) (chapters/002disclaimer.tex) (chapters/003glossar.tex) (chapters/02grundlagen.tex [2]
+) (chapters/001inhaltsverzeichnis.tex) (chapters/002disclaimer.tex) (chapters/003glossar.tex) (chapters/02grundlagen.tex [3]
 chapter 2.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 45.
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) (chapters/03methodik.tex [3
+)) (chapters/03methodik.tex [4
 
 {C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
 chapter 3.
@@ -1310,7 +1314,7 @@ Underfull \hbox (badness 5288) in paragraph at lines 7--8
 []\T1/lmr/bx/n/12 (+20) TODO: \T1/lmr/m/n/12 (+20) Ein-lei-ten-den Text ver-fas-sen.
  []
 
-) (chapters/04implementierung.tex [4
+) (chapters/04implementierung.tex [5
 
 ]
 chapter 4.
@@ -1322,26 +1326,26 @@ Underfull \hbox (badness 2213) in paragraph at lines 19--20
 ) (chapters/05evaluation.tex
 Underfull \vbox (badness 1546) has occurred while \output is active []
 
- [5
+ [6
 
 ]
 chapter 5.
-) (chapters/06diskussion.tex [6
+) (chapters/06diskussion.tex [7
 
 
 ]
 chapter 6.
-) (chapters/07fazit.tex [7
+) (chapters/07fazit.tex [8
 
 
 ]
 chapter 7.
 )
-Underfull \hbox (badness 1803) in paragraph at lines 29--104
+Underfull \hbox (badness 1803) in paragraph at lines 29--105
 []\T1/lmr/bx/n/12 (+20) TODO: \T1/lmr/m/n/12 (+20) Wel-che zu-künf-ti-gen Ar-bei-ten
  []
 
-[8
+[9
 
 
 ]
@@ -1349,7 +1353,7 @@ chapter without number
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 109.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 110.
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1357,12 +1361,12 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [9
+ [10
 
 
 ] (chapters/08anhang.tex
 chapter A.
-) [10
+) [11
 
 
 
@@ -1370,7 +1374,7 @@ chapter A.
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.122 \end{document}
+l.123 \end{document}
                      [1
 
 
@@ -1384,17 +1388,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40763 strings out of 467871
- 820962 string characters out of 5414504
- 1893573 words of memory out of 5000000
- 68871 multiletter control sequences out of 15000+600000
- 699767 words of font info for 169 fonts, out of 8000000 for 9000
+ 40794 strings out of 467871
+ 821802 string characters out of 5414504
+ 1893588 words of memory out of 5000000
+ 68893 multiletter control sequences out of 15000+600000
+ 702737 words of font info for 172 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,110p,11260b,2465s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (20 pages, 479980 bytes).
+Output written on main.pdf (21 pages, 482643 bytes).
 PDF statistics:
- 433 PDF objects out of 1000 (max. 8388607)
- 80 named destinations out of 1000 (max. 500000)
- 41875 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 447 PDF objects out of 1000 (max. 8388607)
+ 83 named destinations out of 1000 (max. 500000)
+ 43939 words of extra memory for PDF output out of 51595 (max. 10000000)
 
