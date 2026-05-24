@@ -20,6 +20,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Optional
 
+import joblib
 import numpy as np
 import pandas as pd
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
@@ -27,8 +28,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from model_scripts.base import run_output_dir
-from model_scripts.csv_forecaster import (
-    Config, FEATURE_COLS, Forecaster,
+from model_scripts.randomforest_forecaster import (
+    Config, FEATURE_COLS, RandomForestForecaster,
     load_csv, make_features,
 )
 
@@ -38,40 +39,51 @@ PRED_DIR = Path(__file__).resolve().parents[1] / "predictions"
 PRED_DIR.mkdir(exist_ok=True)
 
 
-_FORECASTER_META = {
-    "realworldev_forecaster": (
-        "Real-World EV Forecaster",
-        "1-7-Tage-Forecaster auf der realen EV-Timeline (cars-real-world-electric).",
-        "real_world",
-    ),
-    "emobpy_forecaster": (
-        "emobpy Forecaster",
-        "1-7-Tage-Forecaster ueber alle emobpy-Fahrzeuge (gemeinsam trainiert).",
-        "simulation",
-    ),
-    "ved_forecaster": (
-        "VED Forecaster",
-        "1-7-Tage-Forecaster ueber mehrere VED-Fahrzeuge (gemeinsam trainiert).",
-        "real_world",
-    ),
-    "routine_forecaster": (
-        "Routine Forecaster",
-        "1-7-Tage-Forecaster auf der synthetischen Routine-Zeitreihe.",
-        "simulation",
-    ),
-    "car_full_forecaster": (
-        "Car Full Forecaster (Legacy)",
-        "Aelterer Forecaster auf cars-real-world-electric — heute durch realworldev_forecaster ersetzt.",
-        "real_world",
-    ),
+# Quellen-Metadaten (Label + Typ) fuer das Frontend.
+_SOURCE_META = {
+    "realworldev": ("Real-World EV", "Echte EV-Timeline (cars-real-world-electric).", "real_world"),
+    "emobpy":      ("emobpy",        "Simulierte emobpy-Fahrzeuge.",                "simulation"),
+    "ved":         ("VED",           "Vehicle Energy Dataset (Univ. of Michigan).", "real_world"),
+    "routine":     ("Routine",       "Synthetische Routine-Zeitreihe.",             "simulation"),
 }
+
+# Lesbare Algo-Namen.
+_ALGO_LABELS = {"rf": "RandomForest", "lgbm": "LightGBM"}
 
 
 def _describe_model(stem: str) -> dict:
-    """Leitet Label, Beschreibung und Typ aus dem Dateinamen ab."""
-    if stem in _FORECASTER_META:
-        label, description, type_ = _FORECASTER_META[stem]
-        return {"label": label, "description": description, "type": type_}
+    """Leitet Label, Beschreibung und Typ aus dem Dateinamen ab.
+
+    Neues Namensschema: <source>_forecaster_<algo>
+    Legacy: <source>_forecaster (kein Algo-Suffix, defaultet auf rf)
+    Legacy: car_full_forecaster
+    Driving-Classifier: driving_<source>
+    """
+    # Legacy Sonderfall.
+    if stem == "car_full_forecaster":
+        return {
+            "label": "Car Full Forecaster (Legacy)",
+            "description": "Aelterer RF-Forecaster auf cars-real-world-electric.",
+            "type": "real_world",
+        }
+
+    if stem.endswith("_forecaster") or "_forecaster_" in stem:
+        # Splitten in source / algo.
+        if "_forecaster_" in stem:
+            source, algo = stem.split("_forecaster_", 1)
+        else:
+            source = stem.removesuffix("_forecaster")
+            algo = "rf"
+        src_label, src_desc, src_type = _SOURCE_META.get(
+            source, (source.title(), f"Datenquelle '{source}'.", "unknown")
+        )
+        algo_label = _ALGO_LABELS.get(algo, algo.upper())
+        return {
+            "label": f"{src_label} — {algo_label}",
+            "description": f"1-7-Tage-Forecaster ({algo_label}) auf {src_desc}",
+            "type": src_type,
+        }
+
     if stem.startswith("driving_"):
         source = stem.removeprefix("driving_")
         pretty = source.replace("_", " ").title()
@@ -204,18 +216,11 @@ def _predict_full(model: Forecaster, horizons: int) -> List[dict]:
         feat = make_features(model.daily, last_idx, model.cfg.history_days, offset)
         X = np.array([[feat[c] if not pd.isna(feat[c]) else 0.0 for c in FEATURE_COLS]])
 
-        p_used = float(model.clf.predict_proba(X)[0][1])
-
-        def quantiles(reg):
-            if reg is None:
-                return None, None, None
-            preds = np.array([t.predict(X)[0] for t in reg.estimators_])
-            return (float(preds.mean()),
-                    float(np.percentile(preds, 10)),
-                    float(np.percentile(preds, 90)))
-
-        dep, dep10, dep90 = quantiles(model.reg_dep)
-        ret, ret10, ret90 = quantiles(model.reg_ret)
+        # Algo-agnostisch: jede Forecaster-Klasse stellt predict_proba_day +
+        # predict_quantiles bereit (Schnittstelle aus forecaster_registry).
+        p_used = model.predict_proba_day(X)
+        dep, dep10, dep90 = model.predict_quantiles(X, "dep")
+        ret, ret10, ret90 = model.predict_quantiles(X, "ret")
         wd = target.weekday()
         hour_prof = model.profile[wd].tolist() if model.profile is not None else [p_used] * 24
 
@@ -263,7 +268,7 @@ def _persist_run_csv(model_name: str, dataset: str, horizons: int,
     return out
 
 
-def _to_result(model: Forecaster, model_id: str, horizons: int,
+def _to_result(model, model_id: str, horizons: int,
                dataset: str = "default") -> dict:
     days = _predict_full(model, horizons)
     csv_path = _persist_run_csv(model_id, dataset, horizons, days)
@@ -328,7 +333,9 @@ async def forecast_from_csv(
         hourly = load_csv(tmp_path, date_col, signal_col)
         tmp_path.unlink(missing_ok=True)
 
-        model = Forecaster(Config(history_days=history_days)).fit(hourly)
+        # CSV-Upload trainiert immer einen RandomForest-Forecaster — der
+        # `/api/forecast`-Endpunkt erlaubt aktuell keine Algo-Auswahl.
+        model = RandomForestForecaster(Config(history_days=history_days)).fit(hourly)
         model_id = f"upload_{uuid.uuid4().hex[:8]}"
         if save_model:
             model.save(MODELS_DIR / f"{model_id}.joblib")
@@ -347,5 +354,7 @@ def forecast_from_model(model_id: str, horizons: int = 7,
     path = MODELS_DIR / f"{model_id}.joblib"
     if not path.exists():
         raise HTTPException(status_code=404, detail=f"Modell '{model_id}' nicht gefunden")
-    model = Forecaster.load(path)
+    # Algo-agnostisch: joblib.load liefert die persistierte Klasse zurueck —
+    # egal ob RandomForestForecaster, LGBMForecaster oder spaeter weitere.
+    model = joblib.load(path)
     return _to_result(model, model_id, max(1, min(7, horizons)), dataset=dataset)

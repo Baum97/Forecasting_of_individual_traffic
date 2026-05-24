@@ -7,27 +7,34 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from model_scripts.csv_forecaster import Config, Forecaster
+from model_scripts.randomforest_forecaster import Config
+from model_scripts.forecaster_registry import available_algos, get_forecaster_class
 from model_scripts.data_adapters import load_real_world_ev
 
-MODEL_OUT = Path(__file__).resolve().parents[2] / "models" / "realworldev_forecaster.joblib"
+MODELS_DIR = Path(__file__).resolve().parents[2] / "models"
 SOURCE_NAME = "realworldev"
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--model", choices=available_algos(), default="rf",
+                        help="Algorithmus (siehe forecaster_registry.REGISTRY).")
     parser.add_argument("--history-days", type=int, default=60)
-    parser.add_argument("--model-out", type=Path, default=MODEL_OUT)
+    parser.add_argument("--model-out", type=Path, default=None,
+                        help="Default: models/<source>_forecaster_<algo>.joblib")
     args = parser.parse_args()
 
     print(f"[{SOURCE_NAME}] loading data...")
     df = load_real_world_ev().rename(columns={"timestamp": "datetime", "driving": "in_use"})
     print(f"[{SOURCE_NAME}] rows={len(df):,} vehicles={df['vehicle_id'].nunique()}")
 
-    print(f"[{SOURCE_NAME}] fitting Forecaster (history_days={args.history_days})...")
-    model = Forecaster(Config(history_days=args.history_days)).fit(df)
-    args.model_out.parent.mkdir(parents=True, exist_ok=True)
-    model.save(args.model_out)
+    Cls = get_forecaster_class(args.model)
+    print(f"[{SOURCE_NAME}] fitting {Cls.__name__} (history_days={args.history_days})...")
+    model = Cls(Config(history_days=args.history_days)).fit(df)
+
+    out = args.model_out or MODELS_DIR / f"{SOURCE_NAME}_forecaster_{args.model}.joblib"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    model.save(out)
 
 
 if __name__ == "__main__":
