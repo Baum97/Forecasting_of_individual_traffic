@@ -32,17 +32,22 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {0.0.2}Rolling}{0}{subsection.0.0.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {0.0.3}Feature Sicherung}{0}{subsection.0.0.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {0.0.4}Robustheit}{0}{subsection.0.0.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline 2026-05-26 --- Modul-Reorganisation in \texttt  {forecast/} und \texttt  {classifier/}}{0}{paragraph*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline 2026-05-26 --- Ablations-Registry und \texttt  {LGBMForecaster}}{0}{paragraph*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline 2026-05-26 --- Multi-Vehicle-Forecaster}{0}{paragraph*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline 2026-05-26 --- Run-Verzeichnis-Schema}{0}{paragraph*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline 2026-05-26 --- Forecaster-Familie pro Datenquelle}{1}{paragraph*.10}\protected@file@percent }
 \BKM@entry{id=9,dest={636861707465722E31},srcline={4}}{5C3337365C3337375C303030455C303030695C3030306E5C3030306C5C303030655C303030695C303030745C303030755C3030306E5C30303067}
 \BKM@entry{id=10,dest={73656374696F6E2E312E31},srcline={16}}{5C3337365C3337375C3030304D5C3030306F5C303030745C303030695C303030765C303030615C303030745C303030695C3030306F5C3030306E}
-\@writefile{toc}{\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Einleitung}{2}{chapter.1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{ch:einleitung}{{1}{1}{Einleitung}{chapter.1}{}}
-\newlabel{ch:einleitung@cref}{{[chapter][1][]1}{[1][1][]1}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}\protected@file@percent }
-\newlabel{sec:motivation}{{1.1}{1}{Motivation}{section.1.1}{}}
-\newlabel{sec:motivation@cref}{{[section][1][1]1.1}{[1][1][]1}{}{}{}}
+\newlabel{ch:einleitung}{{1}{2}{Einleitung}{chapter.1}{}}
+\newlabel{ch:einleitung@cref}{{[chapter][1][]1}{[1][2][]2}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Motivation}{2}{section.1.1}\protected@file@percent }
+\newlabel{sec:motivation}{{1.1}{2}{Motivation}{section.1.1}{}}
+\newlabel{sec:motivation@cref}{{[section][1][1]1.1}{[1][2][]2}{}{}{}}
 \BKM@entry{id=11,dest={73656374696F6E2E312E32},srcline={21}}{5C3337365C3337375C303030505C303030725C3030306F5C303030625C3030306C5C303030655C3030306D5C303030735C303030745C303030655C3030306C5C3030306C5C303030755C3030306E5C30303067}
 \abx@aux@cite{0}{emobpy_paper}
 \abx@aux@segm{0}{0}{emobpy_paper}
@@ -52,183 +57,183 @@
 \abx@aux@segm{0}{0}{emobpy_dataset}
 \abx@aux@cite{0}{realworld_ev_dataset}
 \abx@aux@segm{0}{0}{realworld_ev_dataset}
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}Problemstellung}{2}{section.1.2}\protected@file@percent }
-\newlabel{sec:problemstellung}{{1.2}{2}{Problemstellung}{section.1.2}{}}
-\newlabel{sec:problemstellung@cref}{{[section][2][1]1.2}{[1][2][]2}{}{}{}}
-\abx@aux@page{1}{2}
-\abx@aux@page{2}{2}
-\abx@aux@page{3}{2}
-\abx@aux@page{4}{2}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Problemstellung}{3}{section.1.2}\protected@file@percent }
+\newlabel{sec:problemstellung}{{1.2}{3}{Problemstellung}{section.1.2}{}}
+\newlabel{sec:problemstellung@cref}{{[section][2][1]1.2}{[1][3][]3}{}{}{}}
+\abx@aux@page{1}{3}
+\abx@aux@page{2}{3}
+\abx@aux@page{3}{3}
+\abx@aux@page{4}{3}
 \BKM@entry{id=12,dest={73656374696F6E2E312E33},srcline={31}}{5C3337365C3337375C3030305A5C303030695C303030655C3030306C5C303030735C303030655C303030745C3030307A5C303030755C3030306E5C30303067}
 \BKM@entry{id=13,dest={73656374696F6E2E312E34},srcline={39}}{5C3337365C3337375C303030465C3030306F5C303030725C303030735C303030635C303030685C303030755C3030306E5C303030675C303030735C303030665C303030725C303030615C303030675C303030655C3030306E}
 \BKM@entry{id=14,dest={73656374696F6E2E312E35},srcline={55}}{5C3337365C3337375C303030415C303030755C303030665C303030625C303030615C303030755C3030305C3034305C303030645C303030655C303030725C3030305C3034305C303030415C303030725C303030625C303030655C303030695C30303074}
-\@writefile{toc}{\contentsline {section}{\numberline {1.3}Zielsetzung}{3}{section.1.3}\protected@file@percent }
-\newlabel{sec:zielsetzung}{{1.3}{3}{Zielsetzung}{section.1.3}{}}
-\newlabel{sec:zielsetzung@cref}{{[section][3][1]1.3}{[1][3][]3}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.4}Forschungsfragen}{3}{section.1.4}\protected@file@percent }
-\newlabel{sec:forschungsfragen}{{1.4}{3}{Forschungsfragen}{section.1.4}{}}
-\newlabel{sec:forschungsfragen@cref}{{[section][4][1]1.4}{[1][3][]3}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.5}Aufbau der Arbeit}{3}{section.1.5}\protected@file@percent }
-\newlabel{sec:aufbau}{{1.5}{3}{Aufbau der Arbeit}{section.1.5}{}}
-\newlabel{sec:aufbau@cref}{{[section][5][1]1.5}{[1][3][]3}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}Zielsetzung}{4}{section.1.3}\protected@file@percent }
+\newlabel{sec:zielsetzung}{{1.3}{4}{Zielsetzung}{section.1.3}{}}
+\newlabel{sec:zielsetzung@cref}{{[section][3][1]1.3}{[1][4][]4}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.4}Forschungsfragen}{4}{section.1.4}\protected@file@percent }
+\newlabel{sec:forschungsfragen}{{1.4}{4}{Forschungsfragen}{section.1.4}{}}
+\newlabel{sec:forschungsfragen@cref}{{[section][4][1]1.4}{[1][4][]4}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.5}Aufbau der Arbeit}{4}{section.1.5}\protected@file@percent }
+\newlabel{sec:aufbau}{{1.5}{4}{Aufbau der Arbeit}{section.1.5}{}}
+\newlabel{sec:aufbau@cref}{{[section][5][1]1.5}{[1][4][]4}{}{}{}}
 \BKM@entry{id=15,dest={636861707465722E32},srcline={4}}{5C3337365C3337375C303030545C303030685C303030655C3030306F5C303030725C303030655C303030745C303030695C303030735C303030635C303030685C303030655C3030305C3034305C303030475C303030725C303030755C3030306E5C303030645C3030306C5C303030615C303030675C303030655C3030306E}
 \BKM@entry{id=16,dest={73656374696F6E2E322E31},srcline={12}}{5C3337365C3337375C303030455C303030725C303030665C303030615C303030735C303030735C303030655C3030306E5C3030305C3034305C303030765C3030306F5C3030306E5C3030305C3034305C3030304D5C3030306F5C303030625C303030695C3030306C5C303030695C303030745C3030305C3334345C303030745C303030735C303030645C303030615C303030745C303030655C3030306E}
 \BKM@entry{id=17,dest={73656374696F6E2E322E32},srcline={18}}{5C3337365C3337375C303030565C303030655C303030725C303030615C303030725C303030625C303030655C303030695C303030745C303030755C3030306E5C303030675C3030305C3034305C303030765C3030306F5C3030306E5C3030305C3034305C3030304D5C3030306F5C303030625C303030695C3030306C5C303030695C303030745C3030305C3334345C303030745C303030735C303030645C303030615C303030745C303030655C3030306E}
 \BKM@entry{id=18,dest={73656374696F6E2E322E33},srcline={22}}{5C3337365C3337375C303030425C303030655C303030775C303030655C303030725C303030745C303030755C3030306E5C303030675C3030305C3034305C303030645C303030655C303030725C3030305C3034305C303030445C303030615C303030745C303030655C3030306E5C303030715C303030755C303030615C3030306C5C303030695C303030745C3030305C3334345C30303074}
 \BKM@entry{id=19,dest={73656374696F6E2E322E34},srcline={28}}{5C3337365C3337375C303030535C303030745C303030615C3030306E5C303030645C3030305C3034305C303030645C303030655C303030725C3030305C3034305C303030465C3030306F5C303030725C303030735C303030635C303030685C303030755C3030306E5C30303067}
 \BKM@entry{id=20,dest={73656374696F6E2E322E35},srcline={34}}{5C3337365C3337375C303030565C303030655C303030725C303030775C303030615C3030306E5C303030645C303030745C303030655C3030305C3034305C303030415C303030725C303030625C303030655C303030695C303030745C303030655C3030306E}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Theoretische Grundlagen}{4}{chapter.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Theoretische Grundlagen}{5}{chapter.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{ch:grundlagen}{{2}{4}{Theoretische Grundlagen}{chapter.2}{}}
-\newlabel{ch:grundlagen@cref}{{[chapter][2][]2}{[1][4][]4}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Erfassen von Mobilitätsdaten}{4}{section.2.1}\protected@file@percent }
-\newlabel{sec:themenbereich1}{{2.1}{4}{Erfassen von Mobilitätsdaten}{section.2.1}{}}
-\newlabel{sec:themenbereich1@cref}{{[section][1][2]2.1}{[1][4][]4}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Verarbeitung von Mobilitätsdaten}{4}{section.2.2}\protected@file@percent }
-\newlabel{sec:themenbereich2}{{2.2}{4}{Verarbeitung von Mobilitätsdaten}{section.2.2}{}}
-\newlabel{sec:themenbereich2@cref}{{[section][2][2]2.2}{[1][4][]4}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Bewertung der Datenqualität}{4}{section.2.3}\protected@file@percent }
-\newlabel{sec:themenbereich3}{{2.3}{4}{Bewertung der Datenqualität}{section.2.3}{}}
-\newlabel{sec:themenbereich3@cref}{{[section][3][2]2.3}{[1][4][]4}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Stand der Forschung}{4}{section.2.4}\protected@file@percent }
-\newlabel{sec:stand_forschung}{{2.4}{4}{Stand der Forschung}{section.2.4}{}}
-\newlabel{sec:stand_forschung@cref}{{[section][4][2]2.4}{[1][4][]4}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}Verwandte Arbeiten}{4}{section.2.5}\protected@file@percent }
-\newlabel{sec:verwandte_arbeiten}{{2.5}{4}{Verwandte Arbeiten}{section.2.5}{}}
-\newlabel{sec:verwandte_arbeiten@cref}{{[section][5][2]2.5}{[1][4][]4}{}{}{}}
+\newlabel{ch:grundlagen}{{2}{5}{Theoretische Grundlagen}{chapter.2}{}}
+\newlabel{ch:grundlagen@cref}{{[chapter][2][]2}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Erfassen von Mobilitätsdaten}{5}{section.2.1}\protected@file@percent }
+\newlabel{sec:themenbereich1}{{2.1}{5}{Erfassen von Mobilitätsdaten}{section.2.1}{}}
+\newlabel{sec:themenbereich1@cref}{{[section][1][2]2.1}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Verarbeitung von Mobilitätsdaten}{5}{section.2.2}\protected@file@percent }
+\newlabel{sec:themenbereich2}{{2.2}{5}{Verarbeitung von Mobilitätsdaten}{section.2.2}{}}
+\newlabel{sec:themenbereich2@cref}{{[section][2][2]2.2}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Bewertung der Datenqualität}{5}{section.2.3}\protected@file@percent }
+\newlabel{sec:themenbereich3}{{2.3}{5}{Bewertung der Datenqualität}{section.2.3}{}}
+\newlabel{sec:themenbereich3@cref}{{[section][3][2]2.3}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Stand der Forschung}{5}{section.2.4}\protected@file@percent }
+\newlabel{sec:stand_forschung}{{2.4}{5}{Stand der Forschung}{section.2.4}{}}
+\newlabel{sec:stand_forschung@cref}{{[section][4][2]2.4}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Verwandte Arbeiten}{5}{section.2.5}\protected@file@percent }
+\newlabel{sec:verwandte_arbeiten}{{2.5}{5}{Verwandte Arbeiten}{section.2.5}{}}
+\newlabel{sec:verwandte_arbeiten@cref}{{[section][5][2]2.5}{[1][5][]5}{}{}{}}
 \BKM@entry{id=21,dest={73656374696F6E2E322E36},srcline={48}}{5C3337365C3337375C3030305A5C303030755C303030735C303030615C3030306D5C3030306D5C303030655C3030306E5C303030665C303030615C303030735C303030735C303030755C3030306E5C30303067}
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}Zusammenfassung}{5}{section.2.6}\protected@file@percent }
-\newlabel{sec:grundlagen_zusammenfassung}{{2.6}{5}{Zusammenfassung}{section.2.6}{}}
-\newlabel{sec:grundlagen_zusammenfassung@cref}{{[section][6][2]2.6}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}Zusammenfassung}{6}{section.2.6}\protected@file@percent }
+\newlabel{sec:grundlagen_zusammenfassung}{{2.6}{6}{Zusammenfassung}{section.2.6}{}}
+\newlabel{sec:grundlagen_zusammenfassung@cref}{{[section][6][2]2.6}{[1][6][]6}{}{}{}}
 \BKM@entry{id=22,dest={636861707465722E33},srcline={4}}{5C3337365C3337375C3030304D5C303030655C303030745C303030685C3030306F5C303030645C303030695C3030306B}
 \BKM@entry{id=23,dest={73656374696F6E2E332E31},srcline={23}}{5C3337365C3337375C303030465C3030306F5C303030725C303030735C303030635C303030685C303030755C3030306E5C303030675C303030735C303030645C303030655C303030735C303030695C303030675C3030306E}
 \BKM@entry{id=24,dest={73656374696F6E2E332E32},srcline={29}}{5C3337365C3337375C303030565C3030306F5C303030725C303030675C303030655C303030685C303030655C3030306E}
 \BKM@entry{id=25,dest={73656374696F6E2E332E33},srcline={35}}{5C3337365C3337375C303030445C303030615C303030745C303030655C3030306E5C303030655C303030725C303030685C303030655C303030625C303030755C3030306E5C30303067}
 \BKM@entry{id=26,dest={73656374696F6E2E332E34},srcline={41}}{5C3337365C3337375C303030445C303030615C303030745C303030655C3030306E5C303030615C3030306E5C303030615C3030306C5C303030795C303030735C30303065}
 \BKM@entry{id=27,dest={73656374696F6E2E332E35},srcline={47}}{5C3337365C3337375C3030305A5C303030755C303030735C303030615C3030306D5C3030306D5C303030655C3030306E5C303030665C303030615C303030735C303030735C303030755C3030306E5C30303067}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Methodik}{6}{chapter.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Methodik}{7}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{ch:methodik}{{3}{6}{Methodik}{chapter.3}{}}
-\newlabel{ch:methodik@cref}{{[chapter][3][]3}{[1][6][]6}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Forschungsdesign}{6}{section.3.1}\protected@file@percent }
-\newlabel{sec:forschungsdesign}{{3.1}{6}{Forschungsdesign}{section.3.1}{}}
-\newlabel{sec:forschungsdesign@cref}{{[section][1][3]3.1}{[1][6][]6}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Vorgehen}{6}{section.3.2}\protected@file@percent }
-\newlabel{sec:vorgehen}{{3.2}{6}{Vorgehen}{section.3.2}{}}
-\newlabel{sec:vorgehen@cref}{{[section][2][3]3.2}{[1][6][]6}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Datenerhebung}{6}{section.3.3}\protected@file@percent }
-\newlabel{sec:datenerhebung}{{3.3}{6}{Datenerhebung}{section.3.3}{}}
-\newlabel{sec:datenerhebung@cref}{{[section][3][3]3.3}{[1][6][]6}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Datenanalyse}{6}{section.3.4}\protected@file@percent }
-\newlabel{sec:datenanalyse}{{3.4}{6}{Datenanalyse}{section.3.4}{}}
-\newlabel{sec:datenanalyse@cref}{{[section][4][3]3.4}{[1][6][]6}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Zusammenfassung}{6}{section.3.5}\protected@file@percent }
-\newlabel{sec:methodik_zusammenfassung}{{3.5}{6}{Zusammenfassung}{section.3.5}{}}
-\newlabel{sec:methodik_zusammenfassung@cref}{{[section][5][3]3.5}{[1][6][]6}{}{}{}}
+\newlabel{ch:methodik}{{3}{7}{Methodik}{chapter.3}{}}
+\newlabel{ch:methodik@cref}{{[chapter][3][]3}{[1][7][]7}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Forschungsdesign}{7}{section.3.1}\protected@file@percent }
+\newlabel{sec:forschungsdesign}{{3.1}{7}{Forschungsdesign}{section.3.1}{}}
+\newlabel{sec:forschungsdesign@cref}{{[section][1][3]3.1}{[1][7][]7}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Vorgehen}{7}{section.3.2}\protected@file@percent }
+\newlabel{sec:vorgehen}{{3.2}{7}{Vorgehen}{section.3.2}{}}
+\newlabel{sec:vorgehen@cref}{{[section][2][3]3.2}{[1][7][]7}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Datenerhebung}{7}{section.3.3}\protected@file@percent }
+\newlabel{sec:datenerhebung}{{3.3}{7}{Datenerhebung}{section.3.3}{}}
+\newlabel{sec:datenerhebung@cref}{{[section][3][3]3.3}{[1][7][]7}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Datenanalyse}{7}{section.3.4}\protected@file@percent }
+\newlabel{sec:datenanalyse}{{3.4}{7}{Datenanalyse}{section.3.4}{}}
+\newlabel{sec:datenanalyse@cref}{{[section][4][3]3.4}{[1][7][]7}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Zusammenfassung}{7}{section.3.5}\protected@file@percent }
+\newlabel{sec:methodik_zusammenfassung}{{3.5}{7}{Zusammenfassung}{section.3.5}{}}
+\newlabel{sec:methodik_zusammenfassung@cref}{{[section][5][3]3.5}{[1][7][]7}{}{}{}}
 \BKM@entry{id=28,dest={636861707465722E34},srcline={4}}{5C3337365C3337375C303030495C3030306D5C303030705C3030306C5C303030655C3030306D5C303030655C3030306E5C303030745C303030695C303030655C303030725C303030755C3030306E5C30303067}
 \BKM@entry{id=29,dest={73656374696F6E2E342E31},srcline={10}}{5C3337365C3337375C303030535C303030795C303030735C303030745C303030655C3030306D5C303030615C303030725C303030635C303030685C303030695C303030745C303030655C3030306B5C303030745C303030755C30303072}
 \BKM@entry{id=30,dest={73656374696F6E2E342E32},srcline={16}}{5C3337365C3337375C303030545C303030655C303030635C303030685C3030306E5C3030306F5C3030306C5C3030306F5C303030675C303030695C303030655C303030615C303030755C303030735C303030775C303030615C303030685C3030306C}
 \BKM@entry{id=31,dest={73656374696F6E2E342E33},srcline={22}}{5C3337365C3337375C303030555C3030306D5C303030735C303030655C303030745C3030307A5C303030755C3030306E5C30303067}
 \BKM@entry{id=32,dest={73656374696F6E2E342E34},srcline={34}}{5C3337365C3337375C303030485C303030655C303030725C303030615C303030755C303030735C303030665C3030306F5C303030725C303030645C303030655C303030725C303030755C3030306E5C303030675C303030655C3030306E}
 \BKM@entry{id=33,dest={73656374696F6E2E342E35},srcline={40}}{5C3337365C3337375C3030305A5C303030755C303030735C303030615C3030306D5C3030306D5C303030655C3030306E5C303030665C303030615C303030735C303030735C303030755C3030306E5C30303067}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Implementierung}{7}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Implementierung}{8}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{ch:implementierung}{{4}{7}{Implementierung}{chapter.4}{}}
-\newlabel{ch:implementierung@cref}{{[chapter][4][]4}{[1][7][]7}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Systemarchitektur}{7}{section.4.1}\protected@file@percent }
-\newlabel{sec:systemarchitektur}{{4.1}{7}{Systemarchitektur}{section.4.1}{}}
-\newlabel{sec:systemarchitektur@cref}{{[section][1][4]4.1}{[1][7][]7}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Technologieauswahl}{7}{section.4.2}\protected@file@percent }
-\newlabel{sec:technologieauswahl}{{4.2}{7}{Technologieauswahl}{section.4.2}{}}
-\newlabel{sec:technologieauswahl@cref}{{[section][2][4]4.2}{[1][7][]7}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Umsetzung}{7}{section.4.3}\protected@file@percent }
-\newlabel{sec:umsetzung}{{4.3}{7}{Umsetzung}{section.4.3}{}}
-\newlabel{sec:umsetzung@cref}{{[section][3][4]4.3}{[1][7][]7}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Herausforderungen}{7}{section.4.4}\protected@file@percent }
-\newlabel{sec:herausforderungen}{{4.4}{7}{Herausforderungen}{section.4.4}{}}
-\newlabel{sec:herausforderungen@cref}{{[section][4][4]4.4}{[1][7][]7}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Zusammenfassung}{7}{section.4.5}\protected@file@percent }
-\newlabel{sec:implementierung_zusammenfassung}{{4.5}{7}{Zusammenfassung}{section.4.5}{}}
-\newlabel{sec:implementierung_zusammenfassung@cref}{{[section][5][4]4.5}{[1][7][]7}{}{}{}}
+\newlabel{ch:implementierung}{{4}{8}{Implementierung}{chapter.4}{}}
+\newlabel{ch:implementierung@cref}{{[chapter][4][]4}{[1][8][]8}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Systemarchitektur}{8}{section.4.1}\protected@file@percent }
+\newlabel{sec:systemarchitektur}{{4.1}{8}{Systemarchitektur}{section.4.1}{}}
+\newlabel{sec:systemarchitektur@cref}{{[section][1][4]4.1}{[1][8][]8}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Technologieauswahl}{8}{section.4.2}\protected@file@percent }
+\newlabel{sec:technologieauswahl}{{4.2}{8}{Technologieauswahl}{section.4.2}{}}
+\newlabel{sec:technologieauswahl@cref}{{[section][2][4]4.2}{[1][8][]8}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Umsetzung}{8}{section.4.3}\protected@file@percent }
+\newlabel{sec:umsetzung}{{4.3}{8}{Umsetzung}{section.4.3}{}}
+\newlabel{sec:umsetzung@cref}{{[section][3][4]4.3}{[1][8][]8}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Herausforderungen}{8}{section.4.4}\protected@file@percent }
+\newlabel{sec:herausforderungen}{{4.4}{8}{Herausforderungen}{section.4.4}{}}
+\newlabel{sec:herausforderungen@cref}{{[section][4][4]4.4}{[1][8][]8}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Zusammenfassung}{8}{section.4.5}\protected@file@percent }
+\newlabel{sec:implementierung_zusammenfassung}{{4.5}{8}{Zusammenfassung}{section.4.5}{}}
+\newlabel{sec:implementierung_zusammenfassung@cref}{{[section][5][4]4.5}{[1][8][]8}{}{}{}}
 \BKM@entry{id=34,dest={636861707465722E35},srcline={4}}{5C3337365C3337375C303030455C303030765C303030615C3030306C5C303030755C303030615C303030745C303030695C3030306F5C3030306E}
 \BKM@entry{id=35,dest={73656374696F6E2E352E31},srcline={10}}{5C3337365C3337375C303030455C303030765C303030615C3030306C5C303030755C303030615C303030745C303030695C3030306F5C3030306E5C303030735C303030645C303030655C303030735C303030695C303030675C3030306E}
 \BKM@entry{id=36,dest={73656374696F6E2E352E32},srcline={16}}{5C3337365C3337375C303030545C303030655C303030735C303030745C303030755C3030306D5C303030675C303030655C303030625C303030755C3030306E5C30303067}
 \BKM@entry{id=37,dest={73656374696F6E2E352E33},srcline={22}}{5C3337365C3337375C303030455C303030725C303030675C303030655C303030625C3030306E5C303030695C303030735C303030735C30303065}
 \BKM@entry{id=38,dest={73656374696F6E2E352E34},srcline={51}}{5C3337365C3337375C3030305A5C303030755C303030735C303030615C3030306D5C3030306D5C303030655C3030306E5C303030665C303030615C303030735C303030735C303030755C3030306E5C30303067}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Evaluation}{8}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Evaluation}{9}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{ch:evaluation}{{5}{8}{Evaluation}{chapter.5}{}}
-\newlabel{ch:evaluation@cref}{{[chapter][5][]5}{[1][8][]8}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Evaluationsdesign}{8}{section.5.1}\protected@file@percent }
-\newlabel{sec:evaluationsdesign}{{5.1}{8}{Evaluationsdesign}{section.5.1}{}}
-\newlabel{sec:evaluationsdesign@cref}{{[section][1][5]5.1}{[1][8][]8}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Testumgebung}{8}{section.5.2}\protected@file@percent }
-\newlabel{sec:testumgebung}{{5.2}{8}{Testumgebung}{section.5.2}{}}
-\newlabel{sec:testumgebung@cref}{{[section][2][5]5.2}{[1][8][]8}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Ergebnisse}{8}{section.5.3}\protected@file@percent }
-\newlabel{sec:ergebnisse}{{5.3}{8}{Ergebnisse}{section.5.3}{}}
-\newlabel{sec:ergebnisse@cref}{{[section][3][5]5.3}{[1][8][]8}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Zusammenfassung}{8}{section.5.4}\protected@file@percent }
-\newlabel{sec:evaluation_zusammenfassung}{{5.4}{8}{Zusammenfassung}{section.5.4}{}}
-\newlabel{sec:evaluation_zusammenfassung@cref}{{[section][4][5]5.4}{[1][8][]8}{}{}{}}
+\newlabel{ch:evaluation}{{5}{9}{Evaluation}{chapter.5}{}}
+\newlabel{ch:evaluation@cref}{{[chapter][5][]5}{[1][9][]9}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Evaluationsdesign}{9}{section.5.1}\protected@file@percent }
+\newlabel{sec:evaluationsdesign}{{5.1}{9}{Evaluationsdesign}{section.5.1}{}}
+\newlabel{sec:evaluationsdesign@cref}{{[section][1][5]5.1}{[1][9][]9}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Testumgebung}{9}{section.5.2}\protected@file@percent }
+\newlabel{sec:testumgebung}{{5.2}{9}{Testumgebung}{section.5.2}{}}
+\newlabel{sec:testumgebung@cref}{{[section][2][5]5.2}{[1][9][]9}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Ergebnisse}{9}{section.5.3}\protected@file@percent }
+\newlabel{sec:ergebnisse}{{5.3}{9}{Ergebnisse}{section.5.3}{}}
+\newlabel{sec:ergebnisse@cref}{{[section][3][5]5.3}{[1][9][]9}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Zusammenfassung}{9}{section.5.4}\protected@file@percent }
+\newlabel{sec:evaluation_zusammenfassung}{{5.4}{9}{Zusammenfassung}{section.5.4}{}}
+\newlabel{sec:evaluation_zusammenfassung@cref}{{[section][4][5]5.4}{[1][9][]9}{}{}{}}
 \BKM@entry{id=39,dest={636861707465722E36},srcline={4}}{5C3337365C3337375C303030445C303030695C303030735C3030306B5C303030755C303030735C303030735C303030695C3030306F5C3030306E}
 \BKM@entry{id=40,dest={73656374696F6E2E362E31},srcline={10}}{5C3337365C3337375C303030495C3030306E5C303030745C303030655C303030725C303030705C303030725C303030655C303030745C303030615C303030745C303030695C3030306F5C3030306E5C3030305C3034305C303030645C303030655C303030725C3030305C3034305C303030455C303030725C303030675C303030655C303030625C3030306E5C303030695C303030735C303030735C30303065}
 \BKM@entry{id=41,dest={73656374696F6E2E362E32},srcline={16}}{5C3337365C3337375C303030565C303030655C303030725C303030675C3030306C5C303030655C303030695C303030635C303030685C3030305C3034305C3030306D5C303030695C303030745C3030305C3034305C303030765C303030655C303030725C303030775C303030615C3030306E5C303030645C303030745C303030655C3030306E5C3030305C3034305C303030415C303030725C303030625C303030655C303030695C303030745C303030655C3030306E}
 \BKM@entry{id=42,dest={73656374696F6E2E362E33},srcline={22}}{5C3337365C3337375C3030304C5C303030695C3030306D5C303030695C303030745C303030615C303030745C303030695C3030306F5C3030306E5C303030655C3030306E}
 \BKM@entry{id=43,dest={73656374696F6E2E362E34},srcline={28}}{5C3337365C3337375C303030495C3030306D5C303030705C3030306C5C303030695C3030306B5C303030615C303030745C303030695C3030306F5C3030306E5C303030655C3030306E}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Diskussion}{9}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Diskussion}{10}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{ch:diskussion}{{6}{9}{Diskussion}{chapter.6}{}}
-\newlabel{ch:diskussion@cref}{{[chapter][6][]6}{[1][9][]9}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{9}{section.6.1}\protected@file@percent }
-\newlabel{sec:interpretation}{{6.1}{9}{Interpretation der Ergebnisse}{section.6.1}{}}
-\newlabel{sec:interpretation@cref}{{[section][1][6]6.1}{[1][9][]9}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{9}{section.6.2}\protected@file@percent }
-\newlabel{sec:vergleich}{{6.2}{9}{Vergleich mit verwandten Arbeiten}{section.6.2}{}}
-\newlabel{sec:vergleich@cref}{{[section][2][6]6.2}{[1][9][]9}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Limitationen}{9}{section.6.3}\protected@file@percent }
-\newlabel{sec:limitationen}{{6.3}{9}{Limitationen}{section.6.3}{}}
-\newlabel{sec:limitationen@cref}{{[section][3][6]6.3}{[1][9][]9}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Implikationen}{9}{section.6.4}\protected@file@percent }
-\newlabel{sec:implikationen}{{6.4}{9}{Implikationen}{section.6.4}{}}
-\newlabel{sec:implikationen@cref}{{[section][4][6]6.4}{[1][9][]9}{}{}{}}
+\newlabel{ch:diskussion}{{6}{10}{Diskussion}{chapter.6}{}}
+\newlabel{ch:diskussion@cref}{{[chapter][6][]6}{[1][10][]10}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{10}{section.6.1}\protected@file@percent }
+\newlabel{sec:interpretation}{{6.1}{10}{Interpretation der Ergebnisse}{section.6.1}{}}
+\newlabel{sec:interpretation@cref}{{[section][1][6]6.1}{[1][10][]10}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{10}{section.6.2}\protected@file@percent }
+\newlabel{sec:vergleich}{{6.2}{10}{Vergleich mit verwandten Arbeiten}{section.6.2}{}}
+\newlabel{sec:vergleich@cref}{{[section][2][6]6.2}{[1][10][]10}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Limitationen}{10}{section.6.3}\protected@file@percent }
+\newlabel{sec:limitationen}{{6.3}{10}{Limitationen}{section.6.3}{}}
+\newlabel{sec:limitationen@cref}{{[section][3][6]6.3}{[1][10][]10}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Implikationen}{10}{section.6.4}\protected@file@percent }
+\newlabel{sec:implikationen}{{6.4}{10}{Implikationen}{section.6.4}{}}
+\newlabel{sec:implikationen@cref}{{[section][4][6]6.4}{[1][10][]10}{}{}{}}
 \BKM@entry{id=44,dest={636861707465722E37},srcline={4}}{5C3337365C3337375C303030465C303030615C3030307A5C303030695C303030745C3030305C3034305C303030755C3030306E5C303030645C3030305C3034305C303030415C303030755C303030735C303030625C3030306C5C303030695C303030635C3030306B}
 \BKM@entry{id=45,dest={73656374696F6E2E372E31},srcline={8}}{5C3337365C3337375C3030305A5C303030755C303030735C303030615C3030306D5C3030306D5C303030655C3030306E5C303030665C303030615C303030735C303030735C303030755C3030306E5C30303067}
 \BKM@entry{id=46,dest={73656374696F6E2E372E32},srcline={14}}{5C3337365C3337375C303030425C303030655C303030615C3030306E5C303030745C303030775C3030306F5C303030725C303030745C303030755C3030306E5C303030675C3030305C3034305C303030645C303030655C303030725C3030305C3034305C303030465C3030306F5C303030725C303030735C303030635C303030685C303030755C3030306E5C303030675C303030735C303030665C303030725C303030615C303030675C303030655C3030306E}
 \BKM@entry{id=47,dest={73656374696F6E2E372E33},srcline={26}}{5C3337365C3337375C303030415C303030755C303030735C303030625C3030306C5C303030695C303030635C3030306B}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{10}{chapter.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{11}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{ch:fazit}{{7}{10}{Fazit und Ausblick}{chapter.7}{}}
-\newlabel{ch:fazit@cref}{{[chapter][7][]7}{[1][10][]10}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}Zusammenfassung}{10}{section.7.1}\protected@file@percent }
-\newlabel{sec:fazit_zusammenfassung}{{7.1}{10}{Zusammenfassung}{section.7.1}{}}
-\newlabel{sec:fazit_zusammenfassung@cref}{{[section][1][7]7.1}{[1][10][]10}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}Beantwortung der Forschungsfragen}{10}{section.7.2}\protected@file@percent }
-\newlabel{sec:beantwortung}{{7.2}{10}{Beantwortung der Forschungsfragen}{section.7.2}{}}
-\newlabel{sec:beantwortung@cref}{{[section][2][7]7.2}{[1][10][]10}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.3}Ausblick}{10}{section.7.3}\protected@file@percent }
-\newlabel{sec:ausblick}{{7.3}{10}{Ausblick}{section.7.3}{}}
-\newlabel{sec:ausblick@cref}{{[section][3][7]7.3}{[1][10][]10}{}{}{}}
-\BKM@entry{id=48,dest={636861707465722A2E36},srcline={110}}{5C3337365C3337375C3030304C5C303030695C303030745C303030655C303030725C303030615C303030745C303030755C303030725C303030765C303030655C303030725C3030307A5C303030655C303030695C303030635C303030685C3030306E5C303030695C30303073}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline Literaturverzeichnis}{11}{chapter*.6}\protected@file@percent }
+\newlabel{ch:fazit}{{7}{11}{Fazit und Ausblick}{chapter.7}{}}
+\newlabel{ch:fazit@cref}{{[chapter][7][]7}{[1][11][]11}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}Zusammenfassung}{11}{section.7.1}\protected@file@percent }
+\newlabel{sec:fazit_zusammenfassung}{{7.1}{11}{Zusammenfassung}{section.7.1}{}}
+\newlabel{sec:fazit_zusammenfassung@cref}{{[section][1][7]7.1}{[1][11][]11}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}Beantwortung der Forschungsfragen}{11}{section.7.2}\protected@file@percent }
+\newlabel{sec:beantwortung}{{7.2}{11}{Beantwortung der Forschungsfragen}{section.7.2}{}}
+\newlabel{sec:beantwortung@cref}{{[section][2][7]7.2}{[1][11][]11}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.3}Ausblick}{11}{section.7.3}\protected@file@percent }
+\newlabel{sec:ausblick}{{7.3}{11}{Ausblick}{section.7.3}{}}
+\newlabel{sec:ausblick@cref}{{[section][3][7]7.3}{[1][11][]11}{}{}{}}
+\BKM@entry{id=48,dest={636861707465722A2E3131},srcline={110}}{5C3337365C3337375C3030304C5C303030695C303030745C303030655C303030725C303030615C303030745C303030755C303030725C303030765C303030655C303030725C3030307A5C303030655C303030695C303030635C303030685C3030306E5C303030695C30303073}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Literaturverzeichnis}{12}{chapter*.11}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\abx@aux@page{5}{11}
-\abx@aux@page{6}{11}
-\abx@aux@page{7}{11}
+\abx@aux@page{5}{12}
+\abx@aux@page{6}{12}
+\abx@aux@page{7}{12}
 \BKM@entry{id=49,dest={617070656E6469782E41},srcline={4}}{5C3337365C3337375C303030415C3030306E5C303030685C303030615C3030306E5C30303067}
 \BKM@entry{id=50,dest={73656374696F6E2E412E31},srcline={8}}{5C3337365C3337375C3030305A5C303030755C303030735C3030305C3334345C303030745C3030307A5C3030306C5C303030695C303030635C303030685C303030655C3030305C3034305C303030415C303030625C303030625C303030695C3030306C5C303030645C303030755C3030306E5C303030675C303030655C3030306E}
 \BKM@entry{id=51,dest={73656374696F6E2E412E32},srcline={14}}{5C3337365C3337375C3030305A5C303030755C303030735C3030305C3334345C303030745C3030307A5C3030306C5C303030695C303030635C303030685C303030655C3030305C3034305C303030545C303030615C303030625C303030655C3030306C5C3030306C5C303030655C3030306E}
@@ -237,23 +242,23 @@
 \@writefile{lof}{\def \@chapapp {\appendixname }}
 \@writefile{lot}{\def \@chapapp {\appendixname }}
 \@writefile{lol}{\def \@chapapp {\appendixname }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Anhang}{12}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Anhang}{13}{appendix.A}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{ch:anhang}{{A}{12}{Anhang}{appendix.A}{}}
-\newlabel{ch:anhang@cref}{{[chapter][1][]A}{[1][12][]12}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{12}{section.A.1}\protected@file@percent }
-\newlabel{sec:anhang_abbildungen}{{A.1}{12}{Zusätzliche Abbildungen}{section.A.1}{}}
-\newlabel{sec:anhang_abbildungen@cref}{{[section][1][1]A.1}{[1][12][]12}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{12}{section.A.2}\protected@file@percent }
-\newlabel{sec:anhang_tabellen}{{A.2}{12}{Zusätzliche Tabellen}{section.A.2}{}}
-\newlabel{sec:anhang_tabellen@cref}{{[section][2][1]A.2}{[1][12][]12}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.3}Quellcode}{12}{section.A.3}\protected@file@percent }
-\newlabel{sec:anhang_quellcode}{{A.3}{12}{Quellcode}{section.A.3}{}}
-\newlabel{sec:anhang_quellcode@cref}{{[section][3][1]A.3}{[1][12][]12}{}{}{}}
-\BKM@entry{id=53,dest={636861707465722A2E37},srcline={5}}{5C3337365C3337375C303030455C303030695C303030645C303030655C303030735C303030735C303030745C303030615C303030745C303030745C3030306C5C303030695C303030635C303030685C303030655C3030305C3034305C303030455C303030725C3030306B5C3030306C5C3030305C3334345C303030725C303030755C3030306E5C30303067}
-\@writefile{toc}{\contentsline {chapter}{Eidesstattliche Erklärung}{i}{chapter*.7}\protected@file@percent }
+\newlabel{ch:anhang}{{A}{13}{Anhang}{appendix.A}{}}
+\newlabel{ch:anhang@cref}{{[chapter][1][]A}{[1][13][]13}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{13}{section.A.1}\protected@file@percent }
+\newlabel{sec:anhang_abbildungen}{{A.1}{13}{Zusätzliche Abbildungen}{section.A.1}{}}
+\newlabel{sec:anhang_abbildungen@cref}{{[section][1][1]A.1}{[1][13][]13}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{13}{section.A.2}\protected@file@percent }
+\newlabel{sec:anhang_tabellen}{{A.2}{13}{Zusätzliche Tabellen}{section.A.2}{}}
+\newlabel{sec:anhang_tabellen@cref}{{[section][2][1]A.2}{[1][13][]13}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.3}Quellcode}{13}{section.A.3}\protected@file@percent }
+\newlabel{sec:anhang_quellcode}{{A.3}{13}{Quellcode}{section.A.3}{}}
+\newlabel{sec:anhang_quellcode@cref}{{[section][3][1]A.3}{[1][13][]13}{}{}{}}
+\BKM@entry{id=53,dest={636861707465722A2E3132},srcline={5}}{5C3337365C3337375C303030455C303030695C303030645C303030655C303030735C303030735C303030745C303030615C303030745C303030745C3030306C5C303030695C303030635C303030685C303030655C3030305C3034305C303030455C303030725C3030306B5C3030306C5C3030305C3334345C303030725C303030755C3030306E5C30303067}
+\@writefile{toc}{\contentsline {chapter}{Eidesstattliche Erklärung}{i}{chapter*.12}\protected@file@percent }
 \global\csname @altsecnumformattrue\endcsname
 \abx@aux@read@bbl@mdfivesum{8A724A827242600D5BEB3EA432BAC14B}
 \abx@aux@defaultrefcontext{0}{emobpy_dataset}{nyt/global//global/global/global}
@@ -265,4 +270,4 @@
 \@writefile{toc}{\providecommand\tocbasic@end@toc@file{}\tocbasic@end@toc@file}
 \@writefile{lof}{\providecommand\tocbasic@end@toc@file{}\tocbasic@end@toc@file}
 \@writefile{lot}{\providecommand\tocbasic@end@toc@file{}\tocbasic@end@toc@file}
-\gdef \@abspage@last{22}
+\gdef \@abspage@last{23}

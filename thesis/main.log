@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  22 MAY 2026 12:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  26 MAY 2026 13:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1280,22 +1280,268 @@ No file main.acr.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 17.
  (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [0
+)
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 27.
+ (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 27.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--33
+[] \T1/lmss/bx/n/12 (+20) 2026-05-26 --- Modul-
+ []
 
 
-{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}
+Underfull \hbox (badness 10000) in paragraph at lines 27--33
+\T1/lmss/bx/n/12 (+20) Reorganisation in \T1/lmtt/b/n/12 forecast/
+ []
 
-]) (chapters/01einleitung.tex
-chapter 1.
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--33
+\T1/lmss/bx/n/12 (+20) und \T1/lmtt/b/n/12 classifier/[][] \T1/lmr/m/n/12 (+20) Die bei-den
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--33
+\T1/lmr/m/n/12 (+20) Mo-dell-fa-mi-li-en (bi-närer Driving-
+ []
+
+
+Underfull \hbox (badness 7631) in paragraph at lines 27--33
+\T1/lmr/m/n/12 (+20) Classifier vs. 1-7-Tage-Forecaster)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--33
+\T1/lmtt/m/n/12 code/model_scripts/ \T1/lmr/m/n/12 (+20) ver-scho-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--33
+\T1/lmr/m/n/12 (+20) ben. Ge-teil-te Hel-pers (\T1/lmtt/m/n/12 base.py\T1/lmr/m/n/12 (+20) ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--33
+\T1/lmtt/m/n/12 data_adapters.py\T1/lmr/m/n/12 (+20) ) blei-ben oben.
+ []
+
+
+Underfull \hbox (badness 4647) in paragraph at lines 27--33
+\T1/lmr/m/n/12 (+20) Be-grün-dung: kla-re Tren-nung der
+ []
+
+
+Underfull \hbox (badness 4479) in paragraph at lines 27--33
+\T1/lmr/m/n/12 (+20) For-schungs-schie-nen --- die Cross-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--33
+\T1/lmr/m/n/12 (+20) Validation- Me-tho-dik (Da-ten-qua-
+ []
+
+
+Underfull \hbox (badness 1622) in paragraph at lines 27--33
+\T1/lmr/m/n/12 (+20) li-tät, bi-när) hängt nicht mit der
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--44
+\T1/lmss/bx/n/12 (+20) und \T1/lmtt/b/n/12 LGBMForecaster[][] \T1/lmr/m/n/12 (+20) Ein-ge-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--44
+\T1/lmr/m/n/12 (+20) führt: \T1/lmtt/m/n/12 forecaster_registry.py
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--44
+\T1/lmr/m/n/12 (+20) mit Lazy-Import-Lookup \T1/lmtt/m/n/12 name
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--44
+\OMS/lmsy/m/n/12 !$ \T1/lmtt/m/n/12 Klasse\T1/lmr/m/n/12 (+20) . Ers-te Schwes-te-rim-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--44
+\T1/lmr/m/n/12 (+20) ple-men-tie-rung \T1/lmtt/m/n/12 LGBMForecaster
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--44
+\T1/lmr/m/n/12 (+20) mit na-ti-ver Quantil-Regression
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--44
+\T1/lmr/m/n/12 (+20) (drei se-pa-ra-te LGBM-Re-gres-so-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--44
+\T1/lmr/m/n/12 (+20) ren mit \T1/lmtt/m/n/12 objective="quantile"\T1/lmr/m/n/12 (+20) ,
+ []
+
+
+Underfull \hbox (badness 4634) in paragraph at lines 35--44
+\OMS/lmsy/m/n/12 !$ \T1/lmr/m/n/12 (+20) LSTM $\OMS/lmsy/m/n/12 !$ \T1/lmr/m/n/12 (+20) TFT) er-weiter-bar,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--44
+\T1/lmr/m/n/12 (+20) oh-ne Ba-ckend, Trai-nings-skrip-te
+ []
+
+
+Underfull \hbox (badness 5771) in paragraph at lines 35--44
+\T1/lmr/m/n/12 (+20) + \T1/lmtt/m/n/12 predict_quantiles \T1/lmr/m/n/12 (+20) ab-stra-hiert
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--44
+\T1/lmr/m/n/12 (+20) --- kei-ne Direkt-Inspektion von
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--55
+[] \T1/lmss/bx/n/12 (+20) 2026-05-26 --- Multi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--55
+\T1/lmss/bx/n/12 (+20) Vehicle-Forecaster[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--55
+\T1/lmtt/m/n/12 RandomForestForecaster.fit
+ []
+
+
+Underfull \hbox (badness 1137) in paragraph at lines 46--55
+\T1/lmr/m/n/12 (+20) ak-zep-tiert jetzt einen \T1/lmtt/m/n/12 vehicle_id\T1/lmr/m/n/12 (+20) -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--55
+\T1/lmr/m/n/12 (+20) mehrwertigen Eingabe-Frame.
+ []
+
+
+Underfull \hbox (badness 2165) in paragraph at lines 46--55
+\T1/lmr/m/n/12 (+20) Trai-nings-zei-len kom-men aus al-len
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--55
+\T1/lmr/m/n/12 (+20) ten nie Fahrzeug-Grenzen). Für
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--63
+[] \T1/lmss/bx/n/12 (+20) 2026-05-26 --- Run-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--63
+\T1/lmss/bx/n/12 (+20) Verzeichnis-Schema[][] \T1/lmr/m/n/12 (+20) Je-de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--63
+\T1/lmr/m/n/12 (+20) Forecast-Erzeugung schreibt in
+ []
+
+
+Overfull \hbox (130.0103pt too wide) in paragraph at lines 57--63
+\T1/lmtt/m/n/12 predictions/<modell>/<datensatz>_<N>d_T<DD-MM-YYYY>/\T1/lmr/m/n/12 (-20) .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--63
+\T1/lmr/m/n/12 (+20) Verzeichnis-Objekt (CSV, Plots,
+ []
+
+
+Underfull \hbox (badness 4967) in paragraph at lines 57--63
+\T1/lmr/m/n/12 (+20) in den Sto-re im-por-tiert wer-den.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--63
+\T1/lmr/m/n/12 (+20) Hin-weis: Dop-pel-punk-te sind in
+ []
+
+[0
+
+
+{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
+Underfull \hbox (badness 2735) in paragraph at lines 65--72
+\T1/lmss/bx/n/12 (+20) pro Da-ten-quel-le[][] \T1/lmr/m/n/12 (+20) Trai-nings-skrip-te
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--72
+\T1/lmtt/m/n/12 train_<source>_forecaster.py
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--72
+\T1/lmr/m/n/12 (+20) für al-le vier Quel-len er-gänzt.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--72
+\T1/lmtt/m/n/12 real_world_ev \T1/lmr/m/n/12 (+20) er-setzt das frü-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--72
+\T1/lmr/m/n/12 (+20) he-re \T1/lmtt/m/n/12 car_full_forecaster \T1/lmr/m/n/12 (+20) un-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--72
+\T1/lmr/m/n/12 (+20) ter kon-sis-ten-tem Na-mens-sche-ma
+ []
+
+
+Overfull \hbox (11.45024pt too wide) in paragraph at lines 65--72
+\T1/lmtt/m/n/12 <source>_forecaster_<algo>.joblib\T1/lmr/m/n/12 (-20) .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--72
+\T1/lmr/m/n/12 (+20) Compat er-hal-ten; ein Shim in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--72
+\T1/lmtt/m/n/12 model_scripts/csv_forecaster.py
+ []
+
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.21 \section
-             {Problemstellung} [1
+l.75 \clearpage
+                [1
+
+]) (chapters/01einleitung.tex
+chapter 1.
+[2
 
 
-] [2]
+] [3]
 Underfull \hbox (badness 1028) in paragraph at lines 43--45
 []\T1/lmr/m/n/12 (+20) Die Be-schaf-fung und Ana-ly-se
  []
@@ -1305,14 +1551,14 @@ Underfull \hbox (badness 3323) in paragraph at lines 58--59
 []\T1/lmr/bx/n/12 (+20) TODO: \T1/lmr/m/n/12 (+20) Kur-ze Be-schrei-bung der
  []
 
-) (chapters/001inhaltsverzeichnis.tex) (chapters/002disclaimer.tex) (chapters/003glossar.tex) (chapters/02grundlagen.tex [3]
+) (chapters/001inhaltsverzeichnis.tex) (chapters/002disclaimer.tex) (chapters/003glossar.tex) (chapters/02grundlagen.tex [4]
 chapter 2.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4
+ [5
 
-]) (chapters/03methodik.tex [5
+]) (chapters/03methodik.tex [6
 
 ]
 chapter 3.
@@ -1326,7 +1572,7 @@ Underfull \hbox (badness 5578) in paragraph at lines 26--27
 []\T1/lmr/bx/n/12 (+20) TODO: \T1/lmr/m/n/12 (+20) Das über-ge-ord-ne-te For-
  []
 
-) (chapters/04implementierung.tex [6
+) (chapters/04implementierung.tex [7
 
 ]
 chapter 4.
@@ -1335,11 +1581,11 @@ Underfull \hbox (badness 1546) in paragraph at lines 19--20
 \T1/lmr/m/n/12 (+20) Werk-zeu-ge wur-den ein-ge-setzt und
  []
 
-) (chapters/05evaluation.tex [7
+) (chapters/05evaluation.tex [8
 
 ]
 chapter 5.
-) (chapters/06diskussion.tex [8
+) (chapters/06diskussion.tex [9
 
 
 ]
@@ -1347,11 +1593,11 @@ chapter 6.
 ) (chapters/07fazit.tex
 Underfull \vbox (badness 1365) has occurred while \output is active []
 
- [9
+ [10
 
 ]
 chapter 7.
-) [10
+) [11
 
 
 ]
@@ -1364,20 +1610,12 @@ Overfull \hbox (25.01288pt too wide) in paragraph at lines 110--110
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 110.
-(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- [11
+[12
 
 
 ] (chapters/08anhang.tex
 chapter A.
-) [12
+) [13
 
 
 
@@ -1409,17 +1647,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40782 strings out of 467871
- 821666 string characters out of 5414504
- 1892600 words of memory out of 5000000
- 68894 multiletter control sequences out of 15000+600000
- 701977 words of font info for 164 fonts, out of 8000000 for 9000
+ 40812 strings out of 467871
+ 822327 string characters out of 5414504
+ 1892615 words of memory out of 5000000
+ 68914 multiletter control sequences out of 15000+600000
+ 702386 words of font info for 166 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,110p,11260b,2465s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (22 pages, 486123 bytes).
+<C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
+Output written on main.pdf (23 pages, 526544 bytes).
 PDF statistics:
- 462 PDF objects out of 1000 (max. 8388607)
- 86 named destinations out of 1000 (max. 500000)
- 43955 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 483 PDF objects out of 1000 (max. 8388607)
+ 92 named destinations out of 1000 (max. 500000)
+ 44467 words of extra memory for PDF output out of 51595 (max. 10000000)
 

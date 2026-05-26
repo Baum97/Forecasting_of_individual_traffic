@@ -445,7 +445,13 @@ INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.f
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ts1-lmr12.tfm
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtk10.tfm
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtt12.tfm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-ts1.enc
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathsy.enc
 INPUT .\chapters\01einleitung.tex
 INPUT .\chapters\01einleitung.tex
 INPUT .\chapters\01einleitung.tex
@@ -499,10 +505,6 @@ INPUT .\chapters\07fazit.tex
 INPUT chapters\07fazit.tex
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmri12.tfm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmcsc10.tfm
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtt12.tfm
 INPUT .\chapters\08anhang.tex
 INPUT .\chapters\08anhang.tex
 INPUT .\chapters\08anhang.tex
@@ -530,5 +532,9 @@ INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmro12.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmssbx10.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmssbx10.pfb
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmsy10.pfb
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmsy10.pfb
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtk10.pfb
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtk10.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt12.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt12.pfb

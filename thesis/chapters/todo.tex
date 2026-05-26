@@ -23,6 +23,53 @@
     \item Drop von Datenpunkten bei fehleraften werten
 \end{itemize}
 
+\paragraph{2026-05-26 --- Modul-Reorganisation in \texttt{forecast/} und \texttt{classifier/}}
+Die beiden Modellfamilien (binärer Driving-Classifier vs.\ 1-7-Tage-Forecaster)
+wurden in eigene Unterordner unter \texttt{code/model\_scripts/} verschoben.
+Geteilte Helpers (\texttt{base.py}, \texttt{data\_adapters.py}) bleiben oben.
+Begründung: klare Trennung der Forschungsschienen --- die Cross-Validation-
+Methodik (Datenqualität, binär) hängt nicht mit der Anwendungs-Schiene
+(Tages-Forecast, multi-vehicle, Quantile) zusammen.
+
+\paragraph{2026-05-26 --- Ablations-Registry und \texttt{LGBMForecaster}}
+Eingeführt: \texttt{forecaster\_registry.py} mit Lazy-Import-Lookup
+\texttt{name $\to$ Klasse}. Erste Schwesterimplementierung
+\texttt{LGBMForecaster} mit nativer Quantil-Regression (drei separate
+LGBMRegressoren mit \texttt{objective="quantile"}, \texttt{alpha=0.1/0.5/0.9})
+statt RF-Tree-Variance. Damit ist die Ablationsstudie
+(LogReg $\to$ RF $\to$ LightGBM $\to$ LSTM $\to$ TFT) erweiterbar, ohne
+Backend, Trainingsskripte oder Frontend zu ändern. Backend-Schnittstelle
+auf \texttt{predict\_proba\_day} + \texttt{predict\_quantiles} abstrahiert
+--- keine Direkt-Inspektion von \texttt{reg.estimators\_} mehr.
+
+\paragraph{2026-05-26 --- Multi-Vehicle-Forecaster}
+\texttt{RandomForestForecaster.fit} akzeptiert jetzt einen
+\texttt{vehicle\_id}-mehrwertigen Eingabe-Frame. Trainingszeilen kommen aus
+allen Fahrzeugen (Lag-Fenster überschreiten nie Fahrzeug-Grenzen). Für
+\texttt{predict()} wird das aktivste Fahrzeug mit jüngstem
+\texttt{timestamp.max()} als Default ausgewählt; dessen Daily-Slice wird
+in \texttt{self.daily} persistiert. Das 7$\times$24-Stundenprofil mittelt
+mit gleichem Gewicht über alle Fahrzeuge, damit langlebigere Zeitreihen
+nicht dominieren. Erlaubt einen einzigen Forecaster pro Multi-Vehicle-Quelle
+(\texttt{emobpy}, \texttt{ved}).
+
+\paragraph{2026-05-26 --- Run-Verzeichnis-Schema}
+Jede Forecast-Erzeugung schreibt in
+\texttt{predictions/<modell>/<datensatz>\_<N>d\_T<DD-MM-YYYY>/}. Ein Run
+ist damit ein vollständiges Verzeichnis-Objekt (CSV, Plots, Notizen) und
+kann über das Frontend in den Store importiert werden. Hinweis: Doppelpunkte
+sind in Windows-Pfaden verboten, deshalb \texttt{T<DD-MM-YYYY>} mit
+Bindestrich statt \texttt{TDD:MM:YYYY}.
+
+\paragraph{2026-05-26 --- Forecaster-Familie pro Datenquelle}
+Trainingsskripte
+\texttt{train\_<source>\_forecaster.py} für alle vier Quellen ergänzt.
+\texttt{real\_world\_ev} ersetzt das frühere \texttt{car\_full\_forecaster}
+unter konsistentem Namensschema \texttt{<source>\_forecaster\_<algo>.joblib}.
+Das alte joblib bleibt für Backward-Compat erhalten; ein Shim in
+\texttt{model\_scripts/csv\_forecaster.py} re-exportiert die Klasse unter
+dem alten Modulpfad, damit \texttt{joblib.load} weiterhin funktioniert.
 
 \color{black}
+
 \clearpage

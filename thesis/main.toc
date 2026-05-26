@@ -7,50 +7,55 @@
 \contentsline {subsection}{\numberline {0.0.2}Rolling}{0}{subsection.0.0.2}%
 \contentsline {subsection}{\numberline {0.0.3}Feature Sicherung}{0}{subsection.0.0.3}%
 \contentsline {subsection}{\numberline {0.0.4}Robustheit}{0}{subsection.0.0.4}%
-\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Problemstellung}{2}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Zielsetzung}{3}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Forschungsfragen}{3}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Aufbau der Arbeit}{3}{section.1.5}%
-\contentsline {chapter}{\numberline {2}Theoretische Grundlagen}{4}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Erfassen von Mobilitätsdaten}{4}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Verarbeitung von Mobilitätsdaten}{4}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Bewertung der Datenqualität}{4}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Stand der Forschung}{4}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Verwandte Arbeiten}{4}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Zusammenfassung}{5}{section.2.6}%
-\contentsline {chapter}{\numberline {3}Methodik}{6}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Forschungsdesign}{6}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Vorgehen}{6}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Datenerhebung}{6}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Datenanalyse}{6}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Zusammenfassung}{6}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Implementierung}{7}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Systemarchitektur}{7}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Technologieauswahl}{7}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Umsetzung}{7}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Herausforderungen}{7}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Zusammenfassung}{7}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Evaluation}{8}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Evaluationsdesign}{8}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Testumgebung}{8}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Ergebnisse}{8}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Zusammenfassung}{8}{section.5.4}%
-\contentsline {chapter}{\numberline {6}Diskussion}{9}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{9}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{9}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Limitationen}{9}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Implikationen}{9}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{10}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Zusammenfassung}{10}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Beantwortung der Forschungsfragen}{10}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Ausblick}{10}{section.7.3}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{11}{chapter*.6}%
+\contentsline {paragraph}{\nonumberline 2026-05-26 --- Modul-Reorganisation in \texttt {forecast/} und \texttt {classifier/}}{0}{paragraph*.6}%
+\contentsline {paragraph}{\nonumberline 2026-05-26 --- Ablations-Registry und \texttt {LGBMForecaster}}{0}{paragraph*.7}%
+\contentsline {paragraph}{\nonumberline 2026-05-26 --- Multi-Vehicle-Forecaster}{0}{paragraph*.8}%
+\contentsline {paragraph}{\nonumberline 2026-05-26 --- Run-Verzeichnis-Schema}{0}{paragraph*.9}%
+\contentsline {paragraph}{\nonumberline 2026-05-26 --- Forecaster-Familie pro Datenquelle}{1}{paragraph*.10}%
+\contentsline {chapter}{\numberline {1}Einleitung}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivation}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Problemstellung}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Zielsetzung}{4}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Forschungsfragen}{4}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Aufbau der Arbeit}{4}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Theoretische Grundlagen}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Erfassen von Mobilitätsdaten}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Verarbeitung von Mobilitätsdaten}{5}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Bewertung der Datenqualität}{5}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Stand der Forschung}{5}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Verwandte Arbeiten}{5}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Zusammenfassung}{6}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Methodik}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Forschungsdesign}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Vorgehen}{7}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Datenerhebung}{7}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Datenanalyse}{7}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Zusammenfassung}{7}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Implementierung}{8}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Systemarchitektur}{8}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Technologieauswahl}{8}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Umsetzung}{8}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Herausforderungen}{8}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Zusammenfassung}{8}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Evaluation}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Evaluationsdesign}{9}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Testumgebung}{9}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Ergebnisse}{9}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Zusammenfassung}{9}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Diskussion}{10}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{10}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{10}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Limitationen}{10}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Implikationen}{10}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{11}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Zusammenfassung}{11}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Beantwortung der Forschungsfragen}{11}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Ausblick}{11}{section.7.3}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{12}{chapter*.11}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\numberline {A}Anhang}{12}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{12}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{12}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Quellcode}{12}{section.A.3}%
-\contentsline {chapter}{Eidesstattliche Erklärung}{i}{chapter*.7}%
+\contentsline {chapter}{\numberline {A}Anhang}{13}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{13}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{13}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Quellcode}{13}{section.A.3}%
+\contentsline {chapter}{Eidesstattliche Erklärung}{i}{chapter*.12}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
