@@ -17,11 +17,13 @@ export class ForecastApiService {
   runForecast(
     modelId: string,
     horizons: number,
-    dataset: string
+    dataset: string,
+    mode: 'mc' | 'soft' = 'mc',
   ): Observable<ForecastResult> {
     const params = new HttpParams()
       .set('horizons', String(horizons))
-      .set('dataset', dataset);
+      .set('dataset', dataset)
+      .set('mode', mode);
     return this.http.post<ForecastResult>(
       `${API_BASE}/api/forecast/${modelId}`,
       null,

@@ -88,6 +88,24 @@
           </div>
         </div>
 
+        <div class="divider"></div>
+
+        <div class="field">
+          <label title="Wie die Vorhersage Stunde fuer Stunde weitergereicht wird.">
+            Lag-Propagation
+          </label>
+          <div class="toggle-group">
+            <button type="button"
+                    [class.active]="propagationMode() === 'mc'"
+                    title="Monte-Carlo: 100 unabhaengige Sample-Pfade, liefert P10/P90."
+                    (click)="propagationMode.set('mc')">Monte-Carlo</button>
+            <button type="button"
+                    [class.active]="propagationMode() === 'soft'"
+                    title="Soft: deterministische Wahrscheinlichkeits-Propagation, stabiler bei niedrigen Basisraten."
+                    (click)="propagationMode.set('soft')">Soft</button>
+          </div>
+        </div>
+
         @if (inputMode() === 'csv') {
           <div class="field" style="margin-top:12px">
             <label>CSV-Datei</label>
@@ -271,24 +289,54 @@
             <div class="detail-header">
               <div>
                 <h3>{{ activeDay()!.weekday }}, {{ activeDay()!.date }}</h3>
-                <p style="color:var(--ink-soft);font-size:13px">Tag +{{ activeDay()!.forecastDay }}</p>
+                <p style="color:var(--ink-soft);font-size:13px">
+                  Tag +{{ activeDay()!.forecastDay }}
+                  @if (activeDay()!.tripCount; as n) {
+                    · {{ n }} Trip{{ n === 1 ? '' : 's' }}
+                  }
+                </p>
               </div>
               <span class="chip" [ngClass]="pUsedClass(activeDay()!.pUsed)">
                 {{ pUsedLabel(activeDay()!.pUsed) }} - {{ activeDay()!.pUsed | percent:'1.0-0' }}
               </span>
             </div>
-            <div class="detail-grid">
-              <div class="detail-item">
-                <span class="detail-label">Abfahrt (erwartet)</span>
-                <span class="detail-val">{{ hourLabel(activeDay()!.depEst!) }}</span>
-                <span class="detail-range">P10 {{ hourLabel(activeDay()!.depP10!) }} - P90 {{ hourLabel(activeDay()!.depP90!) }}</span>
+
+            @if ((activeDay()!.trips?.length ?? 0) > 0) {
+              <div class="trips-grid">
+                @for (trip of activeDay()!.trips!; track trip.startH; let i = $index) {
+                  <div class="trip-card">
+                    <div class="trip-card-header">
+                      <span class="trip-num">Trip {{ i + 1 }}</span>
+                      <span class="trip-confidence-chip"
+                            [class.high]="trip.meanP >= 0.7"
+                            [class.mid]="trip.meanP >= 0.4 && trip.meanP < 0.7"
+                            [class.low]="trip.meanP < 0.4">
+                        {{ trip.meanP | percent:'1.0-0' }}
+                      </span>
+                    </div>
+                    <div class="trip-time-range">
+                      {{ hourLabel(trip.startH) }} - {{ hourLabel(trip.endH) }}
+                    </div>
+                    <div class="trip-meta">
+                      <span>Dauer {{ trip.durationH }}h</span>
+                      <span>Peak {{ trip.peakP | percent:'1.0-0' }}</span>
+                    </div>
+                    <div class="trip-band">
+                      P10-P90: {{ trip.p10 | percent:'1.0-0' }}-{{ trip.p90 | percent:'1.0-0' }}
+                    </div>
+                  </div>
+                }
               </div>
-              <div class="detail-item">
-                <span class="detail-label">Rückkehr (erwartet)</span>
-                <span class="detail-val">{{ hourLabel(activeDay()!.retEst!) }}</span>
-                <span class="detail-range">P10 {{ hourLabel(activeDay()!.retP10!) }} - P90 {{ hourLabel(activeDay()!.retP90!) }}</span>
-              </div>
-            </div>
+              <p class="trip-disclaimer">
+                Aufloesung: 1 Stunde (Daten sind stuendlich aggregiert).
+                Schwelle: p ≥ {{ activeDay()!.thresholdUsed! | percent:'1.0-0' }}
+              </p>
+            } @else {
+              <p class="trip-empty">
+                Voraussichtlich geparkt — keine Stunde ueberschreitet die
+                Aktiv-Schwelle ({{ activeDay()!.thresholdUsed! | percent:'1.0-0' }}).
+              </p>
+            }
           </div>
         }
 
@@ -322,8 +370,14 @@
           <div class="card chart-card">
             <div class="chart-header">
               <div>
-                <h4>Stündliches Nutzungsprofil</h4>
-                <p>Historische P(in_use | Wochentag, Stunde)</p>
+                <h4>Stunden-Forecast</h4>
+                <p>
+                  @if (activeRun()?.result?.hourlyGrid?.length) {
+                    P(Fahrt) pro Stunde im Forecast-Horizont — Farbe = Wahrscheinlichkeit, Saettigung = Konfidenz
+                  } @else {
+                    Historische P(in_use | Wochentag, Stunde)
+                  }
+                </p>
               </div>
             </div>
             <div class="chart-body chart-body-heatmap">

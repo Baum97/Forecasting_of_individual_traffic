@@ -23,6 +23,95 @@
     \item Drop von Datenpunkten bei fehleraften werten
 \end{itemize}
 
+\paragraph{2026-05-26 --- Multi-Trip-Aufloesung pro Tag}
+Die bisherige Tageskarte fasste einen Tag auf eine einzige
+Abfahrt/Rueckkehr-Spanne zusammen (\texttt{depEst} = erste aktive Stunde,
+\texttt{retEst} = letzte). Damit gingen die realistischen Tagesmuster eines
+Nutzers verloren: morgens zur Arbeit, mittags Lunch, abends Freizeit ---
+drei diskrete Trips, im Heatmap-Grid sichtbar, aber im Day-Card unsichtbar.
+
+Eingefuehrt: Backend-Helper \texttt{\_extract\_trips} extrahiert
+zusammenhaengende Aktiv-Bloecke aus dem stuendlichen Forecast-Grid
+(Threshold = adaptive Schwelle aus Fix~2). Jede Day-Card traegt jetzt
+\texttt{trips[]} mit \texttt{startH}, \texttt{endH}, \texttt{durationH},
+\texttt{peakP}, \texttt{meanP} und P10/P90 pro Block. Das Frontend rendert
+die Trips als horizontale Kartenleiste pro Tag.
+
+Limitierung: die Aufloesung bleibt bei 1 Stunde, weil
+\texttt{data\_adapters.py} die Zeitstempel beim Laden auf \texttt{.dt.floor("h")}
+diskretisiert. Sub-Stunden-Praezision waere nur ueber Aenderung der
+Datenpipeline (raw timestamps fuer routine und VED erhalten) oder durch
+Interpolation moeglich; letzteres haetten wir abgelehnt, weil es kuenstliche
+Genauigkeit suggerieren wuerde. UI macht das jetzt transparent
+(``Aufloesung: 1 Stunde'') statt \texttt{5.0} als Zeit-Wert zu zeigen.
+
+\paragraph{2026-05-26 --- Drei Fixes gegen Forecast-Kollaps bei niedriger Basisrate}
+Diagnose nach den ersten Hourly-Forecast-Laeufen: nur \texttt{routine}
+liefert sinnvolle Aktiv-Fenster, \texttt{emobpy}, \texttt{realworldev} und
+\texttt{ved} produzieren \texttt{pUsed=0.0} durchgaengig. Ursache war eine
+Kombination aus Klassen-Imbalance (Aktiv-Rate 3-10\%) und
+selbstverstaerkendem autoregressiven Kollaps im Monte-Carlo-Rollout: fruehe
+Bernoulli-Nullen erzeugen Lag-Werte gleich Null, was die Wahrscheinlichkeit
+weiter senkt. Drei Aenderungen:
+
+\begin{itemize}
+\item \textbf{Klassengewichtung}: \texttt{class\_weight="balanced"} im
+  Hourly-Classifier beider Forecaster (RF und LGBM). Hebt die
+  Minderheits-Klassen-Wahrscheinlichkeiten in den kalibrierten Bereich.
+\item \textbf{Adaptive Aggregations-Schwelle}: statt fixem
+  \texttt{p\_mean $\geq 0.5$} jetzt \texttt{p\_mean $\geq$ clamp(1.5
+  $\cdot$ base\_rate, 0.30, 0.60)}. Niedrigaktive Fahrzeuge erhalten
+  damit Sinn-Aussagen, hochaktive (Pendler) werden nicht uebersaettigt.
+\item \textbf{Soft-Mode}: optionaler deterministischer Rollout-Pfad. Statt
+  Bernoulli-Sampling wird die kontinuierliche Wahrscheinlichkeit selbst als
+  Lag weitergereicht. Verhindert den Sample-Kollaps, kostet aber die
+  Quantil-Streuung (P10 = P50 = P90 = mean). Frontend-Toggle in der
+  Sidebar; Default bleibt Monte-Carlo wegen statistischer Korrektheit.
+\end{itemize}
+
+Methodisch erlaubt der Toggle eine saubere Ablation: \emph{MC} ist die
+robuste statistische Variante, \emph{Soft} zeigt das Verhalten ohne
+Sampling-Rauschen. Bei niedrigen Basisraten konvergieren beide auf
+aehnliche Mittelwerte; bei hohen Basisraten unterscheiden sich nur die
+Quantile.
+
+\paragraph{2026-05-26 --- Auto-regressives Hourly-Forecasting (Hybrid-Pipeline)}
+Der bisherige Day-Forecast lieferte nur ein aggregiertes \texttt{pUsed} pro
+Tag und sagte damit \emph{nicht}, \emph{wann} ein Fahrzeug genutzt wird ---
+nur \emph{ob} der Tag im Schnitt aktiv ist. Eingefuehrt:
+\texttt{predict\_hourly\_mc} in \texttt{RandomForestForecaster} und
+\texttt{LGBMForecaster}. Beide trainieren ein stuendliches
+Schwesternmodell auf den gleichen Daten (Features aus \texttt{base.py}:
+\texttt{hour}, \texttt{weekday}, \texttt{is\_weekend}, Lags 1/2/24/168,
+Rolling-Mittel 24 h und 168 h) und persistieren die letzten 168 h des
+Default-Fahrzeugs als Startpunkt.
+
+Vorhersage erfolgt \emph{auto-regressiv} und \emph{Monte-Carlo}: 100
+unabhaengige Sample-Pfade rollen Stunde fuer Stunde vorwaerts, jeweils
+\texttt{Bernoulli(p)} aus der Modell-Wahrscheinlichkeit ziehen und den
+gezogenen Wert als \texttt{lag\_1} fuer die naechste Stunde
+weiterreichen. Pro Forecast-Stunde liefert das einen Mittelwert
+\texttt{p\_mean} sowie die Quantile \texttt{p10}, \texttt{p50},
+\texttt{p90}. Damit ist die Unsicherheit nicht mehr eine separate
+Annahme, sondern faellt aus der Sample-Streuung heraus.
+
+Backend (\texttt{\_to\_result}) ist hybrid: Stunden-Grid ist die Quelle der
+Wahrheit, Tageskarten werden daraus aggregiert (\texttt{pUsed} = Anteil
+Stunden mit \texttt{p\_mean $\geq 0.5$}; \texttt{depEst} / \texttt{retEst}
+= erste / letzte solche Stunde; P10/P90-Bands aus den entsprechenden
+Quantil-Schwellen). Legacy-\texttt{.joblib} ohne \texttt{hourly\_clf}
+fallen auf den alten Day-Pfad zurueck. Frontend zeigt im
+Stunden-Forecast-Panel eine Heatmap (Forecast-Tag $\times$ Stunde) mit
+Farbe = \texttt{p\_mean} und Saettigung = Konfidenz (eng = sicher, blass =
+breite Sample-Streuung).
+
+Methodisch hat dieser Schritt zwei Konsequenzen: (1) der Vergleich
+zwischen Datenquellen wird vergleichbar, weil alle nun dieselbe
+Output-Form haben (P-Vektor mit 168 Eintraegen + Quantile); (2) das
+``ich weiss nicht'' der Modelle wird explizit sichtbar --- breite P10/P90
+zeigen, wann der Forecast \emph{nicht} vertrauenswuerdig ist, was eine
+saubere Diskussionsgrundlage liefert.
+
 \paragraph{2026-05-26 --- Training-Reiter im Frontend}
 Neuer Tab \texttt{/training} neben Forecast und Einstellungen. Listet pro
 Datenquelle (\texttt{emobpy}, \texttt{realworldev}, \texttt{ved},

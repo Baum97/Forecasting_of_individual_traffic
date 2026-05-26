@@ -115,6 +115,10 @@ export class ForecastPageComponent implements AfterViewInit, OnDestroy, OnInit {
   horizons        = signal<number>(7);
   historyDays     = signal<number>(100);
   inputMode       = signal<'csv' | 'emobpy'>('emobpy');
+  /** Lag-Propagation: 'mc' = Monte-Carlo (statistisch sauber, mit Streuung),
+   *  'soft' = deterministische Wahrscheinlichkeits-Propagation (stabiler bei
+   *  niedrigen Basisraten, aber p10=p50=p90). */
+  propagationMode = signal<'mc' | 'soft'>('mc');
 
   // ── State ─────────────────────────────────────────────────────────────────
   runState      = signal<'idle' | 'running' | 'done' | 'error'>('idle');
@@ -216,7 +220,7 @@ export class ForecastPageComponent implements AfterViewInit, OnDestroy, OnInit {
     // Datensatz-Label aus dem Eingabemodus + Modelltyp → fliesst in den Run-Ordnernamen ein.
     const dataset = this.inputMode();
 
-    this.api.runForecast(modelId, horizons, dataset).subscribe({
+    this.api.runForecast(modelId, horizons, dataset, this.propagationMode()).subscribe({
       next: (result) => {
         const run = this.store.addRun({
           modelId,
@@ -288,7 +292,7 @@ export class ForecastPageComponent implements AfterViewInit, OnDestroy, OnInit {
     if (!r) return;
     this.buildUsageChart(r.days);
     this.buildTimeChart(r.days);
-    this.buildHeatmapChart(r.hourlyProfile);
+    this.buildHeatmapChart(r);
     this.buildTrendChart(r.rollingUsage);
   }
 
@@ -422,14 +426,64 @@ export class ForecastPageComponent implements AfterViewInit, OnDestroy, OnInit {
     this.charts.push(chart);
   }
 
-  private buildHeatmapChart(profile: number[][]): void {
+  private buildHeatmapChart(result: ForecastResult): void {
     if (!this.chartHeatmapRef) return;
     const ctx = this.chartHeatmapRef.nativeElement.getContext('2d')!;
-    const data: { x: number; y: number; v: number }[] = [];
-    for (let wd = 0; wd < 7; wd++) {
-      for (let h = 0; h < 24; h++) {
-        data.push({ x: wd, y: h, v: profile[wd][h] });
+
+    // Bevorzugt das Monte-Carlo-Grid (vorhergesagter Forecast), faellt sonst
+    // auf das historische 7x24-Profil zurueck (Legacy-Pfad).
+    const hasPredictedGrid = !!result.hourlyGrid && result.hourlyGrid.length > 0;
+
+    type Cell = {
+      x: number; y: number; v: number;
+      spread: number; weekday: number;
+      dateLabel: string;
+    };
+    const data: Cell[] = [];
+    let xMax: number;
+    let xLabels: (i: number) => string;
+
+    if (hasPredictedGrid) {
+      // Gruppen-Spalten = einzelne Forecast-Tage (1..N).
+      const uniqueDates = Array.from(
+        new Set(result.hourlyGrid!.map(h => h.date))
+      );
+      uniqueDates.sort();
+      const dateToIdx = new Map(uniqueDates.map((d, i) => [d, i]));
+
+      for (const cell of result.hourlyGrid!) {
+        const x = dateToIdx.get(cell.date) ?? 0;
+        data.push({
+          x,
+          y: cell.hour,
+          v: cell.pMean,
+          spread: Math.max(0, cell.p90 - cell.p10),
+          weekday: cell.weekday,
+          dateLabel: cell.date.slice(5),
+        });
       }
+      xMax = uniqueDates.length - 1;
+      xLabels = (i) => {
+        const date = uniqueDates[i];
+        if (!date) return '';
+        const wd = result.hourlyGrid!.find(h => h.date === date)?.weekday ?? 0;
+        return `${WEEKDAY_DE[wd]} ${date.slice(5)}`;
+      };
+    } else {
+      // Fallback: historisches 7x24-Profil (Wochentag × Stunde).
+      for (let wd = 0; wd < 7; wd++) {
+        for (let h = 0; h < 24; h++) {
+          data.push({
+            x: wd, y: h,
+            v: result.hourlyProfile[wd]?.[h] ?? 0,
+            spread: 0,
+            weekday: wd,
+            dateLabel: WEEKDAY_DE[wd],
+          });
+        }
+      }
+      xMax = 6;
+      xLabels = (i) => WEEKDAY_DE[i] ?? '';
     }
 
     const chart = new Chart(ctx, {
@@ -439,13 +493,20 @@ export class ForecastPageComponent implements AfterViewInit, OnDestroy, OnInit {
           label: 'P(in_use)',
           data: data as any,
           backgroundColor: (ctx) => {
-            const v = (ctx.raw as any)?.v ?? 0;
-            const alpha = 0.15 + v * 0.85;
-            if (v > 0.6) return `rgba(26,115,232,${alpha})`;
-            if (v > 0.3) return `rgba(251,188,4,${alpha})`;
-            return `rgba(52,168,83,${alpha})`;
+            const d = ctx.raw as Cell;
+            const v = d?.v ?? 0;
+            // Konfidenz aus der Streuung — schmaler Spread = sicher,
+            // breit = unsicher, also blasser.
+            const confidence = Math.max(0, 1 - (d?.spread ?? 0));
+            const alpha = 0.2 + confidence * 0.75;
+            // Farbe nach p_mean
+            if (v >= 0.6)  return `rgba(26,115,232,${alpha})`;   // blau = faehrt
+            if (v >= 0.35) return `rgba(251,188,4,${alpha})`;    // gelb = unklar
+            return `rgba(52,168,83,${alpha})`;                   // gruen = geparkt
           },
-          pointStyle: 'rect', pointRadius: 13, pointHoverRadius: 15,
+          pointStyle: 'rect',
+          pointRadius: hasPredictedGrid && xMax > 3 ? 10 : 13,
+          pointHoverRadius: 15,
         }],
       },
       options: {
@@ -457,8 +518,14 @@ export class ForecastPageComponent implements AfterViewInit, OnDestroy, OnInit {
             callbacks: {
               title: () => '',
               label: (item) => {
-                const d = item.raw as { x: number; y: number; v: number };
-                return `${WEEKDAY_DE[d.x]}, ${String(d.y).padStart(2, '0')}:00  →  ${(d.v * 100).toFixed(0)}%`;
+                const d = item.raw as Cell;
+                const hh = String(d.y).padStart(2, '0');
+                const pct = (d.v * 100).toFixed(0);
+                if (hasPredictedGrid) {
+                  const band = (d.spread * 100).toFixed(0);
+                  return `${d.dateLabel}, ${hh}:00  →  ${pct}%  (±${band}pp)`;
+                }
+                return `${WEEKDAY_DE[d.x]}, ${hh}:00  →  ${pct}%`;
               },
             },
             backgroundColor: '#202124', padding: 10, cornerRadius: 8,
@@ -466,13 +533,22 @@ export class ForecastPageComponent implements AfterViewInit, OnDestroy, OnInit {
         },
         scales: {
           x: {
-            min: -0.5, max: 6.5,
-            ticks: { callback: (v) => WEEKDAY_DE[+v] ?? '', stepSize: 1, color: '#5f6368', font: { size: 12 } },
+            min: -0.5, max: xMax + 0.5,
+            ticks: {
+              callback: (v) => xLabels(+v),
+              stepSize: 1,
+              color: '#5f6368',
+              font: { size: 11 },
+              maxRotation: 0,
+            },
             grid: { display: false }, border: { display: false },
           },
           y: {
             min: -0.5, max: 23.5,
-            ticks: { callback: (v) => +v % 2 === 0 ? `${String(+v).padStart(2, '0')}:00` : '', stepSize: 1, color: '#5f6368', font: { size: 11 } },
+            ticks: {
+              callback: (v) => +v % 2 === 0 ? `${String(+v).padStart(2, '0')}:00` : '',
+              stepSize: 1, color: '#5f6368', font: { size: 11 },
+            },
             grid: { color: '#f1f3f4' }, border: { display: false },
           },
         },
@@ -553,8 +629,12 @@ export class ForecastPageComponent implements AfterViewInit, OnDestroy, OnInit {
     return 'Unwahrscheinlich';
   }
 
-  hourLabel(h: number): string {
-    return `${String(Math.floor(h)).padStart(2, '0')}:00`;
+  hourLabel(h: number | null | undefined): string {
+    if (h == null) return '--:--';
+    // Daten sind stuendlich aggregiert; wir zeigen die Stunde ehrlich
+    // als HH:00 ohne Minutengenauigkeit zu suggerieren.
+    const hour = Math.max(0, Math.min(23, Math.floor(h)));
+    return `${String(hour).padStart(2, '0')}:00`;
   }
 
   avgPUsed(run: SimulationRun): number {

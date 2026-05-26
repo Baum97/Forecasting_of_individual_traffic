@@ -1,3 +1,13 @@
+## Test Modelle erstellen (per console)
+
+foreach ($algo in 'rf','lgbm') {                  
+>>   python code\model_scripts\forecast\train_realworldev_forecaster.py --model $algo
+>>   python code\model_scripts\forecast\train_routine_forecaster.py     --model $algo
+>>   python code\model_scripts\forecast\train_emobpy_forecaster.py      --model $algo --limit-vehicles 50
+>>   python code\model_scripts\forecast\train_ved_forecaster.py         --model $algo --history-days 15 --limit-vehicles 100
+>> }
+
+
 # E-Mobility Time Series Forecasting (1-7 Tage)
 
 Dieses Setup trainiert ein globales ML-Modell über viele Fahrzeuge und erstellt Vorhersagen für die nächsten 1 bis 7 Tage auf Basis von ca. 100 vergangenen Tagen.

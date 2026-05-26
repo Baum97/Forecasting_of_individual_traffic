@@ -13,6 +13,21 @@ export interface SimulationDefinition {
 
 // ── Forecast-Ergebnisse ──────────────────────────────────────────────────────
 
+/**
+ * Ein einzelner Trip = zusammenhaengender Block aktiver Stunden.
+ * Mehrere pro Tag moeglich (Pendel + Mittag + Freizeit).
+ */
+export interface TripBlock {
+  startH: number;
+  /** Exklusiv — Trip endet zu Beginn dieser Stunde. */
+  endH: number;
+  durationH: number;
+  peakP: number;
+  meanP: number;
+  p10: number;
+  p90: number;
+}
+
 export interface DayForecast {
   forecastDay: number;
   date: string;
@@ -25,6 +40,28 @@ export interface DayForecast {
   retP10: number | null;
   retP90: number | null;
   hourProfile: number[];
+  /** Alle erkannten Trips dieses Tages (Multi-Trip-Aufloesung). */
+  trips?: TripBlock[];
+  /** Anzahl Trips, primaer fuer schnelles Filtern im UI. */
+  tripCount?: number;
+  /** Adaptive Schwelle, mit der die Trips extrahiert wurden (zur Anzeige). */
+  thresholdUsed?: number;
+}
+
+/**
+ * Eine Stunde aus dem auto-regressiven Monte-Carlo-Forecast.
+ * pMean = Mittelwert ueber alle Sample-Pfade.
+ * p10/p90 = Streuung — schmal bei sicherem Modell, breit bei unsicherem.
+ */
+export interface HourlyForecast {
+  timestamp: string;
+  date: string;
+  hour: number;
+  weekday: number;
+  pMean: number;
+  p10: number;
+  p50: number;
+  p90: number;
 }
 
 export interface ForecastResult {
@@ -33,8 +70,11 @@ export interface ForecastResult {
   days: DayForecast[];
   rollingUsage: { date: string; roll7: number; roll14: number }[];
   hourlyProfile: number[][];
+  /** Monte-Carlo-Stunden-Forecast (Hybrid-Pipeline). Leer wenn das Modell
+      kein hourly_clf hat (Legacy-.joblib). */
+  hourlyGrid?: HourlyForecast[];
   metrics?: { accuracy: number; maeDepH: number; maeRetH: number };
-  /** Server-seitiger Pfad zur generierten Run-CSV (predictions/<model>/<dataset>_<N>d_T<DD-MM-YYYY>/forecast.csv). */
+  /** Server-seitiger Pfad zur generierten Run-CSV. */
   runCsvPath?: string;
 }
 

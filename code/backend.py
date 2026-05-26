@@ -208,7 +208,142 @@ def _load_run(model: str, run: str) -> dict:
 
 # ── Shape-Konvertierung: Forecaster → Frontend-JSON ──────────────────────────
 
-def _predict_full(model: Forecaster, horizons: int) -> List[dict]:
+WEEKDAYS_DE = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+
+
+def _hourly_grid_to_json(grid: pd.DataFrame) -> List[dict]:
+    """Wandelt das MC-Grid in eine schmale JSON-freundliche Liste."""
+    out: List[dict] = []
+    for _, r in grid.iterrows():
+        ts: pd.Timestamp = r["timestamp"]
+        out.append({
+            "timestamp": ts.isoformat(),
+            "date": ts.strftime("%Y-%m-%d"),
+            "hour": int(ts.hour),
+            "weekday": int(ts.weekday()),
+            "pMean": round(float(r["p_mean"]), 3),
+            "p10": round(float(r["p10"]), 3),
+            "p50": round(float(r["p50"]), 3),
+            "p90": round(float(r["p90"]), 3),
+        })
+    return out
+
+
+def _extract_trips(p_means: np.ndarray, p10s: np.ndarray, p90s: np.ndarray,
+                   threshold: float) -> List[dict]:
+    """Findet zusammenhaengende Aktiv-Bloecke in einem 24-h-Tag.
+
+    Eine Folge benachbarter Stunden mit p_mean >= threshold gilt als ein Trip.
+    Der Returns-Block beschreibt jeweils Start- und End-Stunde, Dauer,
+    Peak- und Mittel-Wahrscheinlichkeit sowie das pessimistischste/optimistischste
+    Quantil im Block.
+    """
+    active = p_means >= threshold
+    blocks: List[dict] = []
+    i, n = 0, len(active)
+    while i < n:
+        if not active[i]:
+            i += 1
+            continue
+        j = i + 1
+        while j < n and active[j]:
+            j += 1
+        blocks.append({
+            "startH": int(i),
+            "endH": int(j),            # exklusiv (Trip endet beim Beginn dieser Stunde)
+            "durationH": int(j - i),
+            "peakP": round(float(np.max(p_means[i:j])), 3),
+            "meanP": round(float(np.mean(p_means[i:j])), 3),
+            "p10":   round(float(np.min(p10s[i:j])), 3),
+            "p90":   round(float(np.max(p90s[i:j])), 3),
+        })
+        i = j
+    return blocks
+
+
+def _adaptive_threshold(base_rate: float) -> float:
+    """Pro-Fahrzeug-Aktivitaetsschwelle. Eine Stunde gilt als aktiv, wenn
+    ihre vorhergesagte Wahrscheinlichkeit deutlich ueber dem typischen
+    Aktivitaetsniveau dieses Fahrzeugs liegt.
+
+    Geclampt auf [0.30, 0.60]:
+    - Untergrenze 0.30 verhindert, dass bei sehr niedriger Basisrate jede
+      Zufallsanstiegung als 'aktiv' gilt.
+    - Obergrenze 0.60 verhindert, dass bei hoher Basisrate (Pendler) der
+      Forecast nichts mehr als aktiv markiert.
+    """
+    return max(0.30, min(0.60, base_rate * 1.5))
+
+
+def _aggregate_days_from_hourly(grid: pd.DataFrame, base_rate: float = 0.5) -> List[dict]:
+    """Tageskarten aus dem Stunden-Grid aggregieren (Hybrid-Pipeline).
+
+    - threshold = adaptive aus base_rate (siehe _adaptive_threshold).
+    - pUsed: Anteil der Stunden mit p_mean >= threshold (Aktivitaetsbreite).
+    - depEst / retEst: erste / letzte Stunde mit p_mean >= threshold.
+    - P10/P90 zu dep/ret aus den entsprechenden Quantilen (im 'soft'-Modus
+      identisch zu Est).
+    - hourProfile: p_mean pro Stunde fuer diesen Tag (24-Werte).
+    """
+    threshold = _adaptive_threshold(base_rate)
+
+    grid = grid.copy()
+    grid["date_str"] = grid["timestamp"].dt.strftime("%Y-%m-%d")
+    grid["hour"] = grid["timestamp"].dt.hour
+
+    out: List[dict] = []
+    for day_idx, (date_str, day_df) in enumerate(grid.groupby("date_str", sort=True), start=1):
+        day_df = day_df.sort_values("hour").reset_index(drop=True)
+        wd = day_df["timestamp"].iloc[0].weekday()
+
+        p_means = day_df["p_mean"].to_numpy()
+        p10s = day_df["p10"].to_numpy()
+        p90s = day_df["p90"].to_numpy()
+
+        active_mean = p_means >= threshold
+        active_low  = p10s   >= threshold  # konservativ: auch P10 hoch
+        active_high = p90s   >= threshold  # optimistisch: P90 reicht
+
+        def _first_or_none(mask):
+            idx = np.where(mask)[0]
+            return float(idx[0]) if len(idx) else None
+
+        def _last_or_none(mask):
+            idx = np.where(mask)[0]
+            return float(idx[-1]) if len(idx) else None
+
+        dep_est = _first_or_none(active_mean)
+        ret_est = _last_or_none(active_mean)
+        # P10-Band: enger (nur Stunden, die selbst im pessimistischen Quantil aktiv sind)
+        dep_p10 = _first_or_none(active_high)  # frueheste plausible Abfahrt
+        dep_p90 = _first_or_none(active_low)   # spaeteste konservative Abfahrt
+        ret_p10 = _last_or_none(active_low)    # frueheste konservative Rueckkehr
+        ret_p90 = _last_or_none(active_high)   # spaeteste plausible Rueckkehr
+
+        p_used = float(active_mean.mean()) if len(active_mean) else 0.0
+        trips = _extract_trips(p_means, p10s, p90s, threshold)
+
+        out.append({
+            "forecastDay": day_idx,
+            "date": date_str,
+            "weekday": WEEKDAYS_DE[wd],
+            "pUsed": round(p_used, 3),
+            "depEst": round(dep_est, 1) if dep_est is not None else None,
+            "depP10": round(dep_p10, 1) if dep_p10 is not None else None,
+            "depP90": round(dep_p90, 1) if dep_p90 is not None else None,
+            "retEst": round(ret_est, 1) if ret_est is not None else None,
+            "retP10": round(ret_p10, 1) if ret_p10 is not None else None,
+            "retP90": round(ret_p90, 1) if ret_p90 is not None else None,
+            "hourProfile": [round(float(v), 4) for v in p_means],
+            # Multi-Trip-Liste: jeder Eintrag {startH, endH, durationH, peakP, meanP, p10, p90}.
+            "trips": trips,
+            "tripCount": len(trips),
+            "thresholdUsed": round(threshold, 3),
+        })
+    return out
+
+
+def _predict_full(model, horizons: int) -> List[dict]:
     """Wie Forecaster.predict, ergaenzt aber P10/P90 aus den Estimator-Baeumen."""
     last_idx = len(model.daily) - 1
     last_date = model.daily["date"].iloc[last_idx]
@@ -273,8 +408,30 @@ def _persist_run_csv(model_name: str, dataset: str, horizons: int,
 
 
 def _to_result(model, model_id: str, horizons: int,
-               dataset: str = "default") -> dict:
-    days = _predict_full(model, horizons)
+               dataset: str = "default", mc_samples: int = 100,
+               mode: str = "mc") -> dict:
+    """Hybrid: wenn das Modell ein Hourly-Schwesternmodell hat, ist die
+    Stunden-Vorhersage die Quelle der Wahrheit; Tageskarten werden daraus
+    aggregiert. Sonst Fallback auf den alten Day-Pfad.
+
+    mode: 'mc' (Monte-Carlo, mit Streuung) oder 'soft' (deterministisch,
+          kontinuierliche Lag-Propagation, stabiler bei niedrigen Basisraten).
+    """
+    hourly_grid_json: List[dict] = []
+    if getattr(model, "hourly_clf", None) is not None:
+        grid = model.predict_hourly_mc(
+            n_days=horizons, n_samples=mc_samples, mode=mode,
+        )
+        # Basisrate des Default-Fahrzeugs aus self.daily holen.
+        try:
+            base_rate = float(model.daily["is_used"].mean()) if model.daily is not None else 0.3
+        except Exception:
+            base_rate = 0.3
+        days = _aggregate_days_from_hourly(grid, base_rate=base_rate)
+        hourly_grid_json = _hourly_grid_to_json(grid)
+    else:
+        days = _predict_full(model, horizons)
+
     csv_path = _persist_run_csv(model_id, dataset, horizons, days)
     return {
         "modelId": model_id,
@@ -282,7 +439,9 @@ def _to_result(model, model_id: str, horizons: int,
         "days": days,
         "rollingUsage": _rolling_usage(model.daily),
         "hourlyProfile": [[round(v, 4) for v in row] for row in model.profile],
+        "hourlyGrid": hourly_grid_json,
         "runCsvPath": str(csv_path),
+        "propagationMode": mode,
     }
 
 
@@ -353,15 +512,20 @@ async def forecast_from_csv(
 
 @app.post("/api/forecast/{model_id}")
 def forecast_from_model(model_id: str, horizons: int = 7,
-                        dataset: str = "default") -> dict:
-    """Forecast aus bereits gespeichertem Modell."""
+                        dataset: str = "default", mode: str = "mc") -> dict:
+    """Forecast aus bereits gespeichertem Modell.
+
+    mode: 'mc' (Monte-Carlo, Default) oder 'soft' (deterministische
+          kontinuierliche Lag-Propagation, stabiler bei niedrigen Basisraten).
+    """
     path = MODELS_DIR / f"{model_id}.joblib"
     if not path.exists():
         raise HTTPException(status_code=404, detail=f"Modell '{model_id}' nicht gefunden")
-    # Algo-agnostisch: joblib.load liefert die persistierte Klasse zurueck —
-    # egal ob RandomForestForecaster, LGBMForecaster oder spaeter weitere.
+    if mode not in {"mc", "soft"}:
+        raise HTTPException(status_code=400, detail=f"unbekannter Mode '{mode}'")
     model = joblib.load(path)
-    return _to_result(model, model_id, max(1, min(7, horizons)), dataset=dataset)
+    return _to_result(model, model_id, max(1, min(7, horizons)),
+                      dataset=dataset, mode=mode)
 
 
 # ── Training-Jobs (Subprocess) ───────────────────────────────────────────────

@@ -1,0 +1,8 @@
+forecastDay,date,weekday,pUsed,depEst,depP10,depP90,retEst,retP10,retP90,trips,tripCount,thresholdUsed
+1,2026-04-05,So,0.375,12.0,10.0,12.0,20.0,16.0,20.0,"[{'startH': 12, 'endH': 21, 'durationH': 9, 'peakP': 0.966, 'meanP': 0.79, 'p10': 0.0, 'p90': 0.999}]",1,0.6
+2,2026-04-06,Mo,0.375,5.0,5.0,5.0,20.0,20.0,20.0,"[{'startH': 5, 'endH': 7, 'durationH': 2, 'peakP': 1.0, 'meanP': 0.98, 'p10': 0.978, 'p90': 1.0}, {'startH': 14, 'endH': 21, 'durationH': 7, 'peakP': 0.987, 'meanP': 0.949, 'p10': 0.792, 'p90': 1.0}]",2,0.6
+3,2026-04-07,Di,0.375,5.0,5.0,5.0,20.0,19.0,20.0,"[{'startH': 5, 'endH': 7, 'durationH': 2, 'peakP': 1.0, 'meanP': 0.935, 'p10': 0.653, 'p90': 1.0}, {'startH': 14, 'endH': 21, 'durationH': 7, 'peakP': 0.995, 'meanP': 0.899, 'p10': 0.005, 'p90': 0.999}]",2,0.6
+4,2026-04-08,Mi,0.25,5.0,5.0,5.0,18.0,15.0,20.0,"[{'startH': 5, 'endH': 7, 'durationH': 2, 'peakP': 1.0, 'meanP': 0.882, 'p10': 0.042, 'p90': 1.0}, {'startH': 14, 'endH': 16, 'durationH': 2, 'peakP': 0.991, 'meanP': 0.956, 'p10': 0.768, 'p90': 0.995}, {'startH': 17, 'endH': 19, 'durationH': 2, 'peakP': 0.668, 'meanP': 0.662, 'p10': 0.016, 'p90': 0.997}]",3,0.6
+5,2026-04-09,Do,0.333,5.0,5.0,5.0,20.0,14.0,20.0,"[{'startH': 5, 'endH': 6, 'durationH': 1, 'peakP': 1.0, 'meanP': 1.0, 'p10': 1.0, 'p90': 1.0}, {'startH': 14, 'endH': 21, 'durationH': 7, 'peakP': 0.961, 'meanP': 0.814, 'p10': 0.008, 'p90': 0.999}]",2,0.6
+6,2026-04-10,Fr,0.333,5.0,5.0,5.0,20.0,19.0,20.0,"[{'startH': 5, 'endH': 7, 'durationH': 2, 'peakP': 1.0, 'meanP': 0.887, 'p10': 0.17, 'p90': 1.0}, {'startH': 15, 'endH': 21, 'durationH': 6, 'peakP': 0.955, 'meanP': 0.899, 'p10': 0.17, 'p90': 0.999}]",2,0.6
+7,2026-04-11,Sa,0.0,,10.0,,,,19.0,[],0,0.6

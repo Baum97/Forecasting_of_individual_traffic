@@ -50,19 +50,31 @@
 }
 
 /* ── Sidebar ────────────────────────────────────────────────── */
-.sidebar { display: grid; gap: 12px; }
-.sidebar-card { padding: 20px; }
+.sidebar { display: grid; gap: 12px; min-width: 0; }
+.sidebar-card {
+  padding: 20px;
+  /* Fixe Breite an die Grid-Spalte koppeln. min-width:0 verhindert,
+     dass langer Text die Spalte aufweitet. */
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
 
 /* Modell-Optionen */
 .model-option {
   display: flex;
   gap: 12px;
-  padding: 12px;
+  padding: 14px 12px;
   border-radius: var(--radius);
   cursor: pointer;
   border: 1px solid transparent;
   transition: background 150ms ease, border-color 150ms ease;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  /* Vollbreite und Wrap-Verhalten: nie ueber die Card-Breite hinauswachsen. */
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  align-items: flex-start;
 }
 
 .model-option:last-child { margin-bottom: 0; }
@@ -96,9 +108,30 @@
 }
 .radio-dot.active { background: var(--blue); }
 
-.model-info { display: flex; flex-direction: column; gap: 2px; }
-.model-name { font-size: 13px; font-weight: 500; color: var(--ink); }
-.model-desc { font-size: 11px; color: var(--ink-soft); line-height: 1.4; }
+.model-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  /* min-width:0 ist der Trick, der Flex-Children erlaubt zu schrumpfen
+     und Text zu umbrechen, statt den Container auseinanderzudruecken. */
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.model-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.model-desc {
+  font-size: 11px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
 
 /* Slider */
 .slider-wrap {
@@ -451,6 +484,75 @@ input[type='range']:focus { box-shadow: none; }
 @media (max-width: 640px) {
   .detail-grid   { grid-template-columns: 1fr; }
   .page-header   { flex-direction: column; }
+}
+
+/* ── Trip-Karten (Multi-Trip pro Tag) ─────────────────────── */
+.trips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+.trip-card {
+  border: 1px solid var(--border, #e0e3e7);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: var(--bg-soft, #f8f9fb);
+  display: grid;
+  gap: 6px;
+}
+.trip-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.trip-num {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ink-soft);
+}
+.trip-confidence-chip {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.trip-confidence-chip.high { background: rgba(26,115,232,0.12); color: #1a73e8; }
+.trip-confidence-chip.mid  { background: rgba(251,188,4,0.18); color: #b06000; }
+.trip-confidence-chip.low  { background: rgba(52,168,83,0.12); color: #137333; }
+
+.trip-time-range {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink, #202124);
+  letter-spacing: 0.3px;
+}
+.trip-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.trip-band {
+  font-size: 11px;
+  color: var(--ink-muted, #9aa0a6);
+}
+.trip-disclaimer {
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--ink-muted, #9aa0a6);
+  font-style: italic;
+}
+.trip-empty {
+  margin-top: 14px;
+  padding: 12px;
+  background: rgba(52, 168, 83, 0.06);
+  border: 1px dashed rgba(52, 168, 83, 0.3);
+  border-radius: 8px;
+  font-size: 12px;
+  color: #137333;
 }
 
 /* ── Forecast-Fehleranzeige ───────────────────────────────── */
