@@ -23,8 +23,8 @@ from importlib import import_module
 from typing import Type
 
 REGISTRY = {
-    "rf":   ("model_scripts.randomforest_forecaster", "RandomForestForecaster"),
-    "lgbm": ("model_scripts.lgbm_forecaster",         "LGBMForecaster"),
+    "rf":   ("model_scripts.forecast.randomforest_forecaster", "RandomForestForecaster"),
+    "lgbm": ("model_scripts.forecast.lgbm_forecaster",         "LGBMForecaster"),
 }
 
 

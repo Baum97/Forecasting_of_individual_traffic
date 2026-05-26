@@ -1,11 +1,11 @@
-"""Train the driving/parked classifier on the emobpy data source."""
+"""Train the driving/parked classifier on the synthetic routine data source."""
 from __future__ import annotations
 
 import argparse
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from model_scripts.base import (
     TrainConfig,
@@ -14,21 +14,19 @@ from model_scripts.base import (
     split_by_time,
     train_model,
 )
-from model_scripts.data_adapters import load_emobpy
+from model_scripts.data_adapters import load_routine
 
-MODEL_OUT = Path(__file__).resolve().parents[2] / "models" / "driving_emobpy.joblib"
-SOURCE_NAME = "emobpy"
+MODEL_OUT = Path(__file__).resolve().parents[3] / "models" / "driving_routine.joblib"
+SOURCE_NAME = "routine"
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--limit-vehicles", type=int, default=30,
-                        help="Use only the first N vehicles (full set = 200) for runtime control.")
     parser.add_argument("--model-out", type=Path, default=MODEL_OUT)
     args = parser.parse_args()
 
-    print(f"[{SOURCE_NAME}] loading data (limit_vehicles={args.limit_vehicles})...")
-    df = load_emobpy(limit_vehicles=args.limit_vehicles)
+    print(f"[{SOURCE_NAME}] loading data...")
+    df = load_routine()
     print(f"[{SOURCE_NAME}] rows={len(df):,} vehicles={df['vehicle_id'].nunique()} "
           f"positive_rate={df['driving'].mean():.3f}")
 

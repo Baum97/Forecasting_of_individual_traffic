@@ -5,7 +5,7 @@ import argparse
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from model_scripts.base import (
     TrainConfig,
@@ -16,7 +16,7 @@ from model_scripts.base import (
 )
 from model_scripts.data_adapters import load_ved
 
-MODEL_OUT = Path(__file__).resolve().parents[2] / "models" / "driving_ved.joblib"
+MODEL_OUT = Path(__file__).resolve().parents[3] / "models" / "driving_ved.joblib"
 SOURCE_NAME = "ved"
 
 

@@ -32,7 +32,8 @@ try:
     from model_scripts.base import run_output_dir
 except ImportError:
     import sys
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+    # parents[2] = code/  → macht das model_scripts-Package importierbar.
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
     from model_scripts.base import run_output_dir
 
 WEEKDAY_NAMES = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]

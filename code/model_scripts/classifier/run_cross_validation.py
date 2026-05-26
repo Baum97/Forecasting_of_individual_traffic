@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from model_scripts.base import (
     TrainConfig,
@@ -36,8 +36,8 @@ from model_scripts.data_adapters import (
     load_ved,
 )
 
-MODELS_DIR = Path(__file__).resolve().parents[2] / "models"
-PRED_DIR = Path(__file__).resolve().parents[2] / "predictions"
+MODELS_DIR = Path(__file__).resolve().parents[3] / "models"
+PRED_DIR = Path(__file__).resolve().parents[3] / "predictions"
 
 
 def build_datasets(emobpy_n: int, ved_n: int, ved_files: int) -> dict:

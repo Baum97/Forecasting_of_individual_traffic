@@ -1,18 +1,18 @@
-"""Train a Forecaster on the synthetic routine data source."""
+"""Train a Forecaster on the real-world EV data source."""
 from __future__ import annotations
 
 import argparse
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from model_scripts.randomforest_forecaster import Config
-from model_scripts.forecaster_registry import available_algos, get_forecaster_class
-from model_scripts.data_adapters import load_routine
+from model_scripts.forecast.randomforest_forecaster import Config
+from model_scripts.forecast.forecaster_registry import available_algos, get_forecaster_class
+from model_scripts.data_adapters import load_real_world_ev
 
-MODELS_DIR = Path(__file__).resolve().parents[2] / "models"
-SOURCE_NAME = "routine"
+MODELS_DIR = Path(__file__).resolve().parents[3] / "models"
+SOURCE_NAME = "realworldev"
 
 
 def main() -> None:
@@ -25,7 +25,7 @@ def main() -> None:
     args = parser.parse_args()
 
     print(f"[{SOURCE_NAME}] loading data...")
-    df = load_routine().rename(columns={"timestamp": "datetime", "driving": "in_use"})
+    df = load_real_world_ev().rename(columns={"timestamp": "datetime", "driving": "in_use"})
     print(f"[{SOURCE_NAME}] rows={len(df):,} vehicles={df['vehicle_id'].nunique()}")
 
     Cls = get_forecaster_class(args.model)

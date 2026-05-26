@@ -28,7 +28,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from model_scripts.base import run_output_dir
-from model_scripts.randomforest_forecaster import (
+from model_scripts.forecast.randomforest_forecaster import (
     Config, FEATURE_COLS, RandomForestForecaster,
     load_csv, make_features,
 )

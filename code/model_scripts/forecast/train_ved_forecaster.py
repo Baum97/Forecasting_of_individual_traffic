@@ -5,13 +5,13 @@ import argparse
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from model_scripts.randomforest_forecaster import Config
-from model_scripts.forecaster_registry import available_algos, get_forecaster_class
+from model_scripts.forecast.randomforest_forecaster import Config
+from model_scripts.forecast.forecaster_registry import available_algos, get_forecaster_class
 from model_scripts.data_adapters import load_ved
 
-MODELS_DIR = Path(__file__).resolve().parents[2] / "models"
+MODELS_DIR = Path(__file__).resolve().parents[3] / "models"
 SOURCE_NAME = "ved"
 
 

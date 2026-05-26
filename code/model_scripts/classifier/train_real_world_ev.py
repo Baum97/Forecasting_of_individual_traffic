@@ -1,11 +1,11 @@
-"""Train the driving/parked classifier on the synthetic routine data source."""
+"""Train the driving/parked classifier on the real-world EV data source."""
 from __future__ import annotations
 
 import argparse
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from model_scripts.base import (
     TrainConfig,
@@ -14,10 +14,10 @@ from model_scripts.base import (
     split_by_time,
     train_model,
 )
-from model_scripts.data_adapters import load_routine
+from model_scripts.data_adapters import load_real_world_ev
 
-MODEL_OUT = Path(__file__).resolve().parents[2] / "models" / "driving_routine.joblib"
-SOURCE_NAME = "routine"
+MODEL_OUT = Path(__file__).resolve().parents[3] / "models" / "driving_real_world_ev.joblib"
+SOURCE_NAME = "real_world_ev"
 
 
 def main() -> None:
@@ -26,7 +26,7 @@ def main() -> None:
     args = parser.parse_args()
 
     print(f"[{SOURCE_NAME}] loading data...")
-    df = load_routine()
+    df = load_real_world_ev()
     print(f"[{SOURCE_NAME}] rows={len(df):,} vehicles={df['vehicle_id'].nunique()} "
           f"positive_rate={df['driving'].mean():.3f}")
 

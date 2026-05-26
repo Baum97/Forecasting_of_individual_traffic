@@ -27,7 +27,7 @@ except ImportError as e:
         "lightgbm ist nicht installiert. Bitte 'pip install lightgbm' ausfuehren."
     ) from e
 
-from model_scripts.randomforest_forecaster import (
+from model_scripts.forecast.randomforest_forecaster import (
     Config,
     FEATURE_COLS,
     WEEKDAY_NAMES,
