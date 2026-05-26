@@ -10,6 +10,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'training',
+    loadComponent: () =>
+      import('./pages/training-page/training-page.component').then(
+        (m) => m.TrainingPageComponent
+      ),
+  },
+  {
     path: 'einstellungen',
     loadComponent: () =>
       import('./pages/settings-page/settings-page.component').then(

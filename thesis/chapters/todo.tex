@@ -23,6 +23,18 @@
     \item Drop von Datenpunkten bei fehleraften werten
 \end{itemize}
 
+\paragraph{2026-05-26 --- Training-Reiter im Frontend}
+Neuer Tab \texttt{/training} neben Forecast und Einstellungen. Listet pro
+Datenquelle (\texttt{emobpy}, \texttt{realworldev}, \texttt{ved},
+\texttt{routine}) und Algorithmus (\texttt{rf}, \texttt{lgbm}) eine
+deskriptive Auswahl, plus Eingaben fuer \texttt{history\_days} und (wo
+sinnvoll) \texttt{limit\_vehicles}. Triggert \texttt{POST /api/train}, das
+\texttt{train\_<source>\_forecaster.py} als Subprocess startet; Log-Output
+wird via Polling auf \texttt{GET /api/train/\{job\_id\}} in Echtzeit
+angezeigt. Damit kann die Ablationsstudie auch ohne Terminal-Zugriff
+ausgefuehrt werden, was den Dokumentationsaufwand fuer die Methodik-Sektion
+reduziert (jeder Lauf hat Job-ID + erhaltener Log).
+
 \paragraph{2026-05-26 --- Modul-Reorganisation in \texttt{forecast/} und \texttt{classifier/}}
 Die beiden Modellfamilien (binärer Driving-Classifier vs.\ 1-7-Tage-Forecaster)
 wurden in eigene Unterordner unter \texttt{code/model\_scripts/} verschoben.

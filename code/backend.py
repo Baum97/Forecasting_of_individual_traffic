@@ -15,10 +15,13 @@ from __future__ import annotations
 
 import io
 import re
+import subprocess
+import sys
+import threading
 import uuid
 from datetime import datetime
 from pathlib import Path
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 import joblib
 import numpy as np
@@ -26,6 +29,7 @@ import pandas as pd
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
 
 from model_scripts.base import run_output_dir
 from model_scripts.forecast.randomforest_forecaster import (
@@ -358,3 +362,108 @@ def forecast_from_model(model_id: str, horizons: int = 7,
     # egal ob RandomForestForecaster, LGBMForecaster oder spaeter weitere.
     model = joblib.load(path)
     return _to_result(model, model_id, max(1, min(7, horizons)), dataset=dataset)
+
+
+# ── Training-Jobs (Subprocess) ───────────────────────────────────────────────
+
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+_TRAIN_SCRIPTS = {
+    "emobpy":      _REPO_ROOT / "code" / "model_scripts" / "forecast" / "train_emobpy_forecaster.py",
+    "realworldev": _REPO_ROOT / "code" / "model_scripts" / "forecast" / "train_realworldev_forecaster.py",
+    "routine":     _REPO_ROOT / "code" / "model_scripts" / "forecast" / "train_routine_forecaster.py",
+    "ved":         _REPO_ROOT / "code" / "model_scripts" / "forecast" / "train_ved_forecaster.py",
+}
+_ALLOWED_ALGOS = {"rf", "lgbm"}
+
+# In-Memory-Jobs. Pro Job: status, log-Zeilen, exit_code, command. Nur fuer
+# Single-User-Setup gedacht — neustart-fluechtig.
+_JOBS: Dict[str, dict] = {}
+_JOBS_LOCK = threading.Lock()
+
+
+class TrainRequest(BaseModel):
+    source: str
+    algo: str
+    limit_vehicles: Optional[int] = None
+    history_days: Optional[int] = None
+
+
+def _run_training_job(job_id: str, cmd: List[str]) -> None:
+    """Hintergrund-Thread: subprocess starten, stdout/stderr in den Job pumpen."""
+    try:
+        proc = subprocess.Popen(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            bufsize=1,
+            cwd=str(_REPO_ROOT),
+        )
+        with _JOBS_LOCK:
+            _JOBS[job_id]["pid"] = proc.pid
+        assert proc.stdout is not None
+        for line in proc.stdout:
+            with _JOBS_LOCK:
+                _JOBS[job_id]["log"].append(line.rstrip("\n"))
+        proc.wait()
+        with _JOBS_LOCK:
+            _JOBS[job_id]["exit_code"] = proc.returncode
+            _JOBS[job_id]["status"] = "done" if proc.returncode == 0 else "error"
+    except Exception as e:
+        with _JOBS_LOCK:
+            _JOBS[job_id]["log"].append(f"[backend] subprocess fehlgeschlagen: {e}")
+            _JOBS[job_id]["status"] = "error"
+            _JOBS[job_id]["exit_code"] = -1
+
+
+@app.post("/api/train")
+def start_training(req: TrainRequest) -> dict:
+    """Startet ein train_<source>_forecaster.py in einem Hintergrund-Thread."""
+    if req.source not in _TRAIN_SCRIPTS:
+        raise HTTPException(status_code=400, detail=f"unbekannte Quelle '{req.source}'")
+    if req.algo not in _ALLOWED_ALGOS:
+        raise HTTPException(status_code=400, detail=f"unbekannter Algo '{req.algo}'")
+
+    script = _TRAIN_SCRIPTS[req.source]
+    if not script.exists():
+        raise HTTPException(status_code=500, detail=f"Skript fehlt: {script}")
+
+    cmd: List[str] = [sys.executable, str(script), "--model", req.algo]
+    if req.limit_vehicles is not None and req.source in {"emobpy", "ved"}:
+        cmd += ["--limit-vehicles", str(req.limit_vehicles)]
+    if req.history_days is not None:
+        cmd += ["--history-days", str(req.history_days)]
+
+    job_id = uuid.uuid4().hex[:12]
+    with _JOBS_LOCK:
+        _JOBS[job_id] = {
+            "status": "running",
+            "source": req.source,
+            "algo": req.algo,
+            "command": " ".join(cmd),
+            "log": [],
+            "exit_code": None,
+            "started_at": datetime.utcnow().isoformat() + "Z",
+        }
+
+    threading.Thread(target=_run_training_job, args=(job_id, cmd), daemon=True).start()
+    return {"job_id": job_id, "command": " ".join(cmd)}
+
+
+@app.get("/api/train/{job_id}")
+def get_training_status(job_id: str, offset: int = 0) -> dict:
+    """Status + neue Log-Zeilen ab `offset` zurueckgeben."""
+    with _JOBS_LOCK:
+        job = _JOBS.get(job_id)
+        if job is None:
+            raise HTTPException(status_code=404, detail=f"Job '{job_id}' nicht gefunden")
+        log = job["log"][offset:]
+        return {
+            "status": job["status"],
+            "exit_code": job["exit_code"],
+            "command": job["command"],
+            "source": job["source"],
+            "algo": job["algo"],
+            "log": log,
+            "log_offset": offset + len(log),
+        }

@@ -1,0 +1,111 @@
+<div class="training-page animate-in">
+  <div class="page-header">
+    <div>
+      <h2 class="page-title">Modelltraining</h2>
+      <p class="page-sub">Datenquelle, Algorithmus und Hyperparameter waehlen, Training starten</p>
+    </div>
+  </div>
+
+  <div class="layout">
+    <!-- Linke Spalte: Datenquelle -->
+    <section class="card panel">
+      <p class="section-title">Datenquelle</p>
+      @for (src of sources; track src.id) {
+        <label class="option" [class.selected]="selectedSourceId() === src.id"
+               (click)="selectSource(src)">
+          <div class="option-radio">
+            <div class="radio-dot" [class.active]="selectedSourceId() === src.id"></div>
+          </div>
+          <div class="option-info">
+            <span class="option-name">{{ src.label }}</span>
+            <span class="option-desc">{{ src.description }}</span>
+          </div>
+        </label>
+      }
+    </section>
+
+    <!-- Mittlere Spalte: Algorithmus -->
+    <section class="card panel">
+      <p class="section-title">Algorithmus</p>
+      @for (algo of algos; track algo.id) {
+        <label class="option" [class.selected]="selectedAlgoId() === algo.id"
+               (click)="selectAlgo(algo)">
+          <div class="option-radio">
+            <div class="radio-dot" [class.active]="selectedAlgoId() === algo.id"></div>
+          </div>
+          <div class="option-info">
+            <span class="option-name">{{ algo.label }}</span>
+            <span class="option-desc">{{ algo.description }}</span>
+          </div>
+        </label>
+      }
+    </section>
+
+    <!-- Rechte Spalte: Optionen + Start -->
+    <section class="card panel">
+      <p class="section-title">Hyperparameter</p>
+
+      <div class="field">
+        <label>History-Tage</label>
+        <input type="number" min="20" max="365"
+               [ngModel]="historyDays()"
+               (ngModelChange)="historyDays.set($event)" />
+      </div>
+
+      @if (selectedSource().supportsLimitVehicles) {
+        <div class="field">
+          <label>Fahrzeug-Limit</label>
+          <input type="number" min="1" max="200"
+                 [ngModel]="limitVehicles()"
+                 (ngModelChange)="limitVehicles.set($event)" />
+        </div>
+      }
+
+      <div class="cli-preview">
+        <span class="cli-label">CLI-Equivalent</span>
+        <code>{{ cliPreview() }}</code>
+      </div>
+
+      <button class="btn-primary"
+              (click)="startTraining()"
+              [disabled]="jobStatus()?.status === 'running'">
+        @if (jobStatus()?.status === 'running') {
+          <span class="spinner"></span>
+          <span>Training laeuft ...</span>
+        } @else {
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <span>Training starten</span>
+        }
+      </button>
+
+      @if (startError()) {
+        <div class="run-error">
+          <strong>Start fehlgeschlagen</strong>
+          <p>{{ startError() }}</p>
+        </div>
+      }
+    </section>
+  </div>
+
+  <!-- Log-Bereich: nur sichtbar wenn ein Job laeuft oder fertig ist -->
+  @if (jobStatus(); as status) {
+    <section class="card log-card">
+      <div class="log-header">
+        <div>
+          <strong>Job {{ jobId() }}</strong>
+          <span class="log-meta">{{ status.source }} / {{ status.algo }}</span>
+        </div>
+        <span class="status-chip"
+              [class.status-running]="status.status === 'running'"
+              [class.status-done]="status.status === 'done'"
+              [class.status-error]="status.status === 'error'">
+          {{ status.status }}
+          @if (status.exit_code !== null) {
+            <span class="exit-code">(exit {{ status.exit_code }})</span>
+          }
+        </span>
+      </div>
+      <pre class="log-output">{{ status.log.join('\n') }}</pre>
+    </section>
+  }
+</div>
