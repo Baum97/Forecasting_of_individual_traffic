@@ -1,40 +1,281 @@
-
-@article{pred_emob,
-    author  = {Kreft et. al., Markus},
-    title   = {Predictability of electric vehicle charging: Explaining extensive user behavior-specific heterogeneity},
-    year    = {2024},
-    doi     = {https://doi.org/10.1016/j.apenergy.2024.123544}
+% ============================================================
+%  1) THEORETISCHE GRUNDLAGEN – Grenzen der Vorhersagbarkeit
+% ============================================================
+ 
+@article{song2010limits,
+  title     = {Limits of Predictability in Human Mobility},
+  author    = {Song, Chaoming and Qu, Zehui and Blumm, Nicholas and Barab{\'a}si, Albert-L{\'a}szl{\'o}},
+  journal   = {Science},
+  volume    = {327},
+  number    = {5968},
+  pages     = {1018--1021},
+  year      = {2010},
+  publisher = {American Association for the Advancement of Science},
+  doi       = {10.1126/science.1177170}
 }
-
-@article{pred_echarging,
-  author = {Lee et. al., Yonggeon},
-  title = {Extending EV Battery Lifetime: Digital Phenotyping Approach for Departure Time Prediction},
-  year = {2024},
-  doi = {https://doi.org/10.1145/3699725},
+ 
+@article{lu2013approaching,
+  title     = {Approaching the Limit of Predictability in Human Mobility},
+  author    = {Lu, Xin and Wetter, Erik and Bharti, Nita and Tatem, Andrew J. and Bengtsson, Linus},
+  journal   = {Scientific Reports},
+  volume    = {3},
+  pages     = {2923},
+  year      = {2013},
+  publisher = {Nature Publishing Group},
+  doi       = {10.1038/srep02923}
 }
-
-@dataset{emobpy_dataset,
-  author    = {Gaete-Morales, Carlos and Kramer, Hendrik and Schill, Wolf-Peter and Zerrahn, Alexander},
-  title     = {An open tool for creating battery-electric vehicle time series from empirical data --- emobpy (data set)},
+ 
+ 
+% ============================================================
+%  2) EV-ABFAHRTSZEIT- & LADEVERHALTENSVORHERSAGE
+% ============================================================
+ 
+@article{frendo2021improving,
+  title     = {Improving Smart Charging Prioritization by Predicting Electric Vehicle Departure Time},
+  author    = {Frendo, Oliver and Gaertner, Nadine and Stuckenschmidt, Heiner},
+  journal   = {IEEE Transactions on Intelligent Transportation Systems},
+  volume    = {22},
+  number    = {10},
+  pages     = {6646--6653},
   year      = {2021},
-  publisher = {Zenodo},
-  doi       = {https://doi.org/10.5281/zenodo.4514928}
+  publisher = {IEEE},
+  doi       = {10.1109/TITS.2020.2988648}
 }
-
-@article{emobpy_paper,
-  author  = {Gaete-Morales, Carlos and Kramer, Hendrik and Schill, Wolf-Peter and Zerrahn, Alexander},
-  title   = {An open tool for creating battery-electric vehicle time series from empirical data, emobpy},
-  journal = {Scientific Data},
-  volume  = {8},
-  number  = {152},
-  year    = {2021},
-  doi     = {https://doi.org/10.1038/s41597-021-00932-9}
+ 
+@article{frendo2020datadriven,
+  title     = {Data-driven Smart Charging for Heterogeneous Electric Vehicle Fleets},
+  author    = {Frendo, Oliver and Graf, Jérôme and Gaertner, Nadine and Stuckenschmidt, Heiner},
+  journal   = {Energy and AI},
+  volume    = {1},
+  pages     = {100007},
+  year      = {2020},
+  publisher = {Elsevier},
+  doi       = {10.1016/j.egyai.2020.100007}
 }
-
-@dataset{realworld_ev_dataset,
-  author    = {Pozzato, Gabriele and Allam, Anirudh and Pulvirenti, Luca and Negoita, Alina and Paxton, William and Onori, Simona},
-  title     = {Real-world electric vehicle data driving and charging},
+ 
+@article{lindroth2024online,
+  title     = {Online Learning Models for Vehicle Usage Prediction During COVID-19},
+  author    = {Lindroth, Tobias and Svensson, Axel and {\AA}kerblom, Niklas and Pourabdollah, Mitra and Haghir Chehreghani, Morteza},
+  journal   = {IEEE Transactions on Intelligent Transportation Systems},
+  year      = {2024},
+  publisher = {IEEE},
+  doi       = {10.1109/TITS.2024.3361676},
+}
+ 
+@article{khwaja2021performance,
+  title     = {Performance Analysis of LSTMs for Daily Individual EV Charging Behavior Prediction},
+  author    = {Khwaja, Ahmed S. and Venkatesh, Bala and Anpalagan, Alagan},
+  journal   = {IEEE Access},
+  volume    = {9},
+  pages     = {154804--154814},
+  year      = {2021},
+  publisher = {IEEE},
+  doi       = {10.1109/ACCESS.2021.3128491}
+}
+ 
+@article{kreft2024predictability,
+  title     = {Predictability of Electric Vehicle Charging: Explaining Extensive User Behavior-Specific Heterogeneity},
+  author    = {Kreft, Markus and Brudermueller, Tobias and Fleisch, Elgar and Staake, Thorsten},
+  journal   = {Applied Energy},
+  volume    = {370},
+  pages     = {123544},
+  year      = {2024},
+  publisher = {Elsevier},
+  issn      = {0306-2619},
+  doi       = {10.1016/j.apenergy.2024.123544}
+}
+ 
+@article{alikhani2025comprehensive,
+  title         = {A Comprehensive Incremental and Ensemble Learning Approach for Forecasting Individual Electric Vehicle Charging Parameters},
+  author        = {Alikhani, Parnian and Brinkel, Nico and Schram, Wouter and Lampropoulos, Ioannis and van Sark, Wilfried},
+  journal       = {arXiv preprint arXiv:2508.17772},
+  year          = {2025},
+  eprint        = {2508.17772},
+  archivePrefix = {arXiv},
+  primaryClass  = {eess.SY}
+}
+ 
+@article{lee2025enabling,
+  title         = {Enabling Delayed-Full Charging Through Transformer-Based Real-Time-to-Departure Modeling for EV Battery Longevity},
+  author        = {Lee, and others},
+  journal       = {arXiv preprint arXiv:2512.07723},
+  year          = {2025},
+  eprint        = {2512.07723},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  note          = {Autoren bitte aus dem PDF vervollständigen}
+}
+ 
+@inproceedings{lee2024extending,
+  title     = {Extending EV Battery Lifetime: Digital Phenotyping Approach for Departure Time Prediction},
+  author    = {Lee, and others},
+  booktitle = {Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT)},
+  year      = {2024},
+  publisher = {ACM},
+  doi       = {10.1145/3699725},
+  note      = {Autoren bitte aus der Publikation vervollständigen}
+}
+ 
+ 
+% ============================================================
+%  3) INDIVIDUELLE MOBILITÄTSVORHERSAGE
+% ============================================================
+ 
+@inproceedings{personalized2023humob,
+  title     = {Personalized Human Mobility Prediction for the HuMob Challenge},
+  author    = {and others},
+  booktitle = {Proceedings of the 1st International Workshop on the Human Mobility Prediction Challenge (HuMob)},
   year      = {2023},
-  note      = {DOI noch zu ergaenzen --- siehe Originalquelle (Mendeley Data / Zenodo)},
-  doi       = {10.17632/7vdkzpnjgj.2}
+  note      = {arXiv:2310.12900; Autoren bitte aus dem Preprint vervollständigen}
+}
+ 
+@article{individual2021iohmm,
+  title         = {Individual Mobility Prediction: An Interpretable Activity-based Hidden Markov Approach},
+  author        = {and others},
+  journal       = {arXiv preprint arXiv:2101.03996},
+  year          = {2021},
+  eprint        = {2101.03996},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  note          = {Autoren bitte aus dem Preprint vervollständigen}
+}
+ 
+@article{collective2017traces,
+  title     = {Collective Prediction of Individual Mobility Traces for Users with Short Data History},
+  author    = {and others},
+  journal   = {PLOS ONE},
+  year      = {2017},
+  publisher = {Public Library of Science},
+}
+ 
+@article{individual2025activitychain,
+  title     = {Individual Mobility Prediction by Considering Current Traveling Features and Historical Activity Chain},
+  author    = {and others},
+  journal   = {Geo-spatial Information Science},
+  pages     = {2988--3015},
+  year      = {2025},
+  publisher = {Taylor \& Francis},
+  doi       = {10.1080/10095020.2025.2455005}
+}
+ 
+ 
+% ============================================================
+%  4) REGULARITÄT & HETEROGENITÄT VON MOBILITÄTSMUSTERN
+% ============================================================
+ 
+@article{ji2023rethinking,
+  title     = {Rethinking the Regularity in Mobility Patterns of Personal Vehicle Drivers: A Multi-city Comparison Using a Feature Engineering Approach},
+  author    = {Ji, and others},
+  journal   = {Transactions in GIS},
+  volume    = {27},
+  number    = {3},
+  pages     = {663--685},
+  year      = {2023},
+  publisher = {Wiley},
+  doi       = {10.1111/tgis.13043}
+}
+ 
+@article{characterizing2022privateev,
+  title     = {Characterizing Mobility Patterns of Private Electric Vehicle Users with Trajectory Data},
+  author    = {and others},
+  journal   = {Transportation Research Part C: Emerging Technologies},
+  year      = {2022},
+  publisher = {Elsevier},
+  doi       = {10.1016/j.trc.2022.103847},
+  note      = {Beijing-Datensatz, 76.774 private EVs}
+}
+ 
+ 
+% ============================================================
+%  5) DATENSÄTZE
+% ============================================================
+ 
+@article{oh2020ved,
+  title     = {Vehicle Energy Dataset (VED), A Large-scale Dataset for Vehicle Energy Consumption Research},
+  author    = {Oh, Geunseob and LeBlanc, David J. and Peng, Huei},
+  journal   = {IEEE Transactions on Intelligent Transportation Systems},
+  volume    = {23},
+  number    = {4},
+  pages     = {3302--3312},
+  year      = {2022},
+  publisher = {IEEE},
+  doi       = {10.1109/TITS.2020.3035596},
+  note      = {Daten: \url{https://github.com/gsoh/VED}}
+}
+ 
+@article{zhang2022eved,
+  title         = {Extended Vehicle Energy Dataset (eVED): An Enhanced Large-Scale Dataset for Deep Learning on Vehicle Trip Energy Consumption},
+  author        = {Zhang, Shiliang and Fatih, Dyako and Abdulqadir, Fahmi and Schwarz, Tobias and Ma, Xuehui},
+  journal       = {arXiv preprint arXiv:2203.08630},
+  year          = {2022},
+  eprint        = {2203.08630},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  note          = {Daten: \url{https://bitbucket.org/datarepo/eved-dataset}}
+}
+ 
+@misc{pozzato2023fielddata,
+  title        = {Data from: Analysis and Key Findings from Real-World Electric Vehicle Field Data},
+  author       = {Pozzato, Gabriele and Allam, Anirudh and Onori, Simona},
+  year         = {2023},
+  publisher    = {Mendeley Data},
+  doi          = {10.17632/7vdkzpnjgj.2},
+  note          = {Reale 1-Jahres-Felddaten eines Audi e-tron (CAN-Bus, SOC)}
+}
+ 
+@misc{emobpy_dataset,
+  title        = {emobpy: A Tool for Generating Battery Electric Vehicle Time Series},
+  author       = {Gaete-Morales, Carlos and Kramer, Hendrik and Schill, Wolf-Peter and Zerrahn, Alexander},
+  year         = {2020},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.3931663},
+  note          = {Synthetische BEV-Profile auf Basis deutscher Mobilitätsstatistik (MiD)}
+}
+ 
+@article{molloy2023mobis,
+  title     = {The MOBIS Dataset: A Large GPS Dataset of Mobility Behaviour in Switzerland},
+  author    = {Molloy, Joseph and others},
+  journal   = {Transportation},
+  volume    = {50},
+  number    = {5},
+  pages     = {1983--2007},
+  year      = {2023},
+  publisher = {Springer},
+  doi       = {10.1007/s11116-022-10299-4}
+}
+ 
+ 
+% ============================================================
+%  6) WEITERE LADEBEDARFS-/PERFORMANCE-VORHERSAGE (Kontext)
+% ============================================================
+ 
+@article{multistage2025prediction,
+  title     = {Multistage Prediction Approach of EVs Charging Performance in Smart Transportation Systems by Deep Learning Technique},
+  author    = {and others},
+  journal   = {Scientific Reports},
+  volume    = {15},
+  year      = {2025},
+  publisher = {Nature Publishing Group},
+  doi       = {10.1038/s41598-025-21625-y}
+}
+ 
+@article{evcharging2025forecasting,
+  title     = {EV Charging Forecasting Exploiting Traffic, Weather and User Information},
+  author    = {and others},
+  journal   = {International Journal of Machine Learning and Cybernetics},
+  year      = {2025},
+  publisher = {Springer},
+  doi       = {10.1007/s13042-025-02643-8}
+}
+ 
+@article{mlbased2024review,
+  title     = {Machine Learning-Based Methods for EV Charging Demand Forecasting: A Systematic Review},
+  author    = {and others},
+  journal   = {Energies},
+  volume    = {18},
+  number    = {17},
+  pages     = {4779},
+  year      = {2025},
+  publisher = {MDPI},
+  doi       = {10.3390/en18174779},
 }

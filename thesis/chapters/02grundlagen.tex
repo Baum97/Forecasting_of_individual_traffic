@@ -28,13 +28,79 @@ In diesem Kapitel werden die theoretischen Grundlagen für die vorliegende Arbei
 \section{Stand der Forschung}
 \label{sec:stand_forschung}
 
-\todo{Aktuellen Stand der Forschung zusammenfassen. Welche verwandten Arbeiten gibt es? Was wurde bereits untersucht?}
+Die Forschung zur Prognose individueller Fahrzeugnutzung lässt sich grob in
+mehrere Stränge gliedern, die sich in Zielgröße, Methodik und Datengrundlage
+unterscheiden. Tabelle~\ref{tab:forschungsstraenge} fasst diese Stränge als
+Übersicht zusammen; die folgenden Unterabschnitte vertiefen sie jeweils und
+arbeiten am Ende die für diese Arbeit zentrale Forschungslücke heraus.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.2cm} X X X@{}}
+    \toprule
+    \textbf{Forschungsstrang} & \textbf{Typische Methoden} &
+    \textbf{Datengrundlage} & \textbf{Offene Punkte} \\
+    \midrule
+    Mobilitäts- und Nutzungsforecast & Statistische Modelle (ARIMA),
+    Random Forest, neuronale Netze (LSTM) & Reale Telematik- und
+    Bewegungsdaten & Generalisierung über Fahrzeuge und Quellen hinweg \\
+    \addlinespace
+    Driving-/Parking-Klassifikation & Random Forest, SVM, Gradient
+    Boosting & EV-Flottendaten, stündliche Profile & Einfluss der
+    Datenqualität auf die Klassifikationsgüte \\
+    \addlinespace
+    EV-Last- und Ladeprognose & Gradient Boosting, Deep Learning &
+    Synthetische Daten (z.\,B.\ emobpy), reale EV-Daten & Vergleichbarkeit
+    synthetischer und realer Datengrundlagen \\
+    \addlinespace
+    Unsicherheits- und Quantilsprognose & Quantilsregression,
+    Quantile-Random-Forest & Heterogene Mobilitätsdaten & Kalibrierung
+    individueller Vorhersageintervalle (P10/P90) \\
+    \bottomrule
+  \end{tabularx}
+    \caption{Zentrale Forschungsstränge im Umfeld der individuellen
+    Fahrzeugnutzungsprognose.}
+    \label{tab:forschungsstraenge}
+\end{table}
+\todo{Aktuellen Stand der Forschung zusammenfassen. Welche verwandten Arbeiten gibt es? Was wurde bereits untersucht? Pro Tabellenzeile eine Subsection mit synthetisierter Quellenlage anlegen, abschließend Forschungslücke formulieren.}
+
+\subsection{Mobilitäts- und Nutzungsforecast}
+\label{subsec:mobilitaetsforecast}
+
+Ein zentraler Befund dieses Strangs betrifft die Heterogenität individuellen
+Fahrverhaltens. \textcite{ji2023rethinking} werten über vier Millionen Fahrten
+von 3743 privaten Fahrzeugführern in sechs US-Metropolregionen aus und zeigen,
+dass sich die Fahrer in fünf deutlich verschiedene Typen gliedern lassen
+(\Cref{tab:fahrertypen}), die sich vor allem in ihrer Pendelregelmäßigkeit und
+im Anteil nicht-arbeitsbezogener Fahrten unterscheiden. Diese Heterogenität
+erklärt, warum ein einzelnes, übergreifendes Modell dem Individualverkehr nur
+begrenzt gerecht wird, und motiviert eine individuelle bzw. quellenspezifische
+Modellierung.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabularx}{\textwidth}{lX}
+    \toprule
+    \textbf{Fahrertyp} & \textbf{Charakterisierung} \\
+    \midrule
+    Homebodies & Wenigfahrer, die nur kurz und selten das Haus verlassen; geringe Mobilität. \\
+    Gig Drivers & Fahrer mit hohem, auftragsgetriebenem Fahraufkommen (z.\,B.\ Liefer- und Fahrdienste) ohne festen Arbeitsort. \\
+    Movers & Individuen mit breit gestreutem Fahrverhalten und vielen wechselnden Zielen, ohne klares Muster. \\
+    Typical Drivers & Durchschnittsfahrer mit einer Mischung aus Arbeits- und Freizeitfahrten und mittlerer Regelmäßigkeit. \\
+    Work-focused Commuters & Berufspendler mit stark regelmäßigem Pendelmuster, wenig nicht-arbeitsbezogenen Fahrten und hoher Vorhersagbarkeit. \\
+    \bottomrule
+  \end{tabularx}
+  \caption{Fünf Fahrertypen des Individualverkehrs nach \textcite{ji2023rethinking}.}
+  \label{tab:fahrertypen}
+\end{table}
 
 % -----------------------------------------------------------------------------
 \section{Verwandte Arbeiten}
 \label{sec:verwandte_arbeiten}
 
 \todo{Verwandte Arbeiten vorstellen und voneinander abgrenzen. Wie unterscheidet sich die eigene Arbeit?}
+
+
 
 \textcolor{red}{
     \begin{itemize}

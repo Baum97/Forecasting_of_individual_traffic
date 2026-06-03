@@ -12,3 +12,11 @@ thesis/main.ist
 thesis/main.log
 thesis/main.synctex.gz
 thesis/main.fdb_latexmk
+models/ved_forecaster_rf.joblib
+models/ved_forecaster_lgbm.joblib
+models/routine_forecaster_rf.joblib
+models/routine_forecaster_lgbm.joblib
+models/realworldev_forecaster_rf.joblib
+models/realworldev_forecaster_lgbm.joblib
+models/emobpy_forecaster_rf.joblib
+models/emobpy_forecaster_lgbm.joblib
