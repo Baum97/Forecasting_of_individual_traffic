@@ -4,38 +4,146 @@
 \chapter{Theoretische Grundlagen}
 \label{ch:grundlagen}
 
-Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut. Zunächst wird betrachtet, wie Mobilitätsdaten verarbeitet werden (\Cref{sec:themenbereich2}) und anhand welcher Kriterien sich ihre Qualität bewerten lässt (\Cref{sec:themenbereich3}). Anschließend ordnet \Cref{sec:stand_forschung} den aktuellen Stand der Forschung ein und arbeitet die Forschungslücke heraus, von der sich diese Arbeit in \Cref{sec:verwandte_arbeiten} abgrenzt.
+Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut. Zunächst wird betrachtet, wie Mobilitätsdaten verarbeitet werden und anhand welcher Kriterien sich ihre Qualität bewerten lässt (\Cref{sec:themenbereich2}). Anschließend ordnet \Cref{sec:stand_forschung} den aktuellen Stand der Forschung ein und arbeitet die Forschungslücke heraus, von der sich diese Arbeit in \Cref{sec:verwandte_arbeiten} abgrenzt.
 
 % -----------------------------------------------------------------------------
+\section{Mobilitätsdaten}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/mobility1.png}
+    \caption{}
+    \label{fig:mobility1}
+  \end{subfigure}
+
+  \vspace{0.5cm}
+
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/mobility2.png}
+    \caption{}
+    \label{fig:mobility2}
+  \end{subfigure}
+  \caption{Beispielhafte Auszüge zweier Mobilitätsdatensätze.}
+  \label{fig:mobilitaetsdaten}
+\end{figure}
+
+Wenn von Mobilitätsdaten gesprochen wird, ist meist die Rede von Dateien, die Informationen in einer chronologischen Abfolge beinhalten. Diese Daten können in allerlei Formaten auftreten, mit beliebig vielen Einträgen und beliebig vielen Informationen pro Eintrag und sind nicht zwingend homogen. Tatsächlich gibt es kaum eine Studie in der die Datensätze im gleichen Format sind (siehe \cref{fig:mobilitaetsdaten}) -- in Abbildung (a) sieht man einen Standard Timestamp und, neben de physikalischen Werten, nur spärlich Informationen über das Auto oder den Zweck des Aufenthalts. Bei Abbildung (b) hingegen sieht man den Wochentag, die Zeit in Minuten, Tripzeit und den Zweck des Aufenthalts. Für diese Arbeit sind nur wenige Daten unabdingbar und diese sind in beiden Datensätzen enthalten, weswegen beide -- trotz ihres signifikanten Unterschieds -- relevant sind. 
+
+\section{Machine Learning}
+Das Prinzip des maschinellen Lernens besteht darin, einem Computer ein gewünschtes Verhalten anhand von Beispieldaten beizubringen, anstatt es durch einen fest vorgegebenen, regelbasierten
+Algorithmus explizit zu programmieren. Das Modell erkennt dabei statistische Muster in den Trainingsdaten und nutzt diese, um Vorhersagen für bislang ungesehene Eingaben zu treffen. Der Vorteil gegenüber einem starren Algorithmus liegt darin, dass komplexe Zusammenhänge -- wie das individuelle Mobilitätsverhalten -- erlernt werden können, ohne dass sie vorab vollständig bekannt sein müssen.
+
+Häufig wird maschinelles Lernen mit künstlichen neuronalen Netzen gleichgesetzt, deren Aufbau  vom menschlichen Gehirn inspiriert ist. Neuronale Netze bilden jedoch nur eine von vielen Verfahrensklassen. Die in dieser Arbeit eingesetzten Modelle -- Random Forest und Gradient Boosting (\Cref{sec:themenbereich2} und \Cref{ch:methodik}) -- beruhen stattdessen auf Entscheidungsbäumen und sind nicht biologisch motiviert.
+
+\subsection{Überwachtes Lernen}
+In dieser Arbeit kommt ausschließlich überwachtes Lernen zum Einsatz. Dabei lernt das Modell aus Beispielpaaren von Eingaben und zugehörigen, bekannten Zielwerten. Je nach Art des Zielwerts
+unterscheidet man zwei Aufgabentypen, die in dieser Arbeit beide vorkommen: Klassifikation, bei der eine diskrete Klasse vorhergesagt wird (etwa ob ein Fahrzeug in einer gegebenen Stunde fährt oder geparkt ist), und Regression, bei der ein kontinuierlicher Wert geschätzt wird (etwa die Abfahrts- oder Rückkehrzeit).
+\todo{korrigieren/überwachen}
+
 \section{Verarbeitung von Mobilitätsdaten}
 \label{sec:themenbereich2}
 
-% -----------------------------------------------------------------------------
-\section{Bewertung der Datenqualität}
-\label{sec:themenbereich3}
+Die Mobilitätsdaten bilden einen Hauptaspekt dieser Arbeit, da sie die
+Grundlage für das Training und die Validierung der Modelle darstellen.
+\Cref{fig:prozess_diagramm} zeigt den Ablauf, den die Daten von der Recherche
+bis zur Nutzung durchlaufen; jeder der sechs Abschnitte umfasst dabei mehrere
+Teilschritte. \Cref{tab:pipeline_schritte} fasst diese je Phase zusammen, die
+folgenden Absätze erläutern sie.
 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{images/prozess_diagramm.png}
+  \caption{Generalisierte Pipeline zur Verarbeitung von Mobilitätsdaten.}
+  \label{fig:prozess_diagramm}
+\end{figure}
 
+\begin{table}[htbp]
+  \centering
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3cm} X@{}}
+    \toprule
+    \textbf{Phase} & \textbf{Wesentliche Teilschritte} \\
+    \midrule
+    1 -- Recherche & Identifikation relevanter Studien und Datensätze;
+    Prüfung der thematischen Eignung. \\
+    \addlinespace
+    2 -- Beschaffung & Bezug der Daten unter Beachtung rechtlicher und datenschutzrechtlicher
+    Vorgaben. \\
+    \addlinespace
+    3 -- Bewertung & Beurteilung der Datenqualität anhand definierter
+    Kriterien. \\
+    \addlinespace
+    4 -- Verarbeitung & Bereinigung, Überführung in ein einheitliches Schema,
+    Feature-Engineering und gegebenenfalls Anonymisierung. \\
+    \addlinespace
+    5 -- Modellierung & Training und Validierung der Klassifikations- und
+    Prognosemodelle. \\
+    \addlinespace
+    6 -- Nutzung & Anwendung der Modelle zur Vorhersage und Bereitstellung
+    der Ergebnisse für nachfolgende Systeme. \\
+    \bottomrule
+  \end{tabularx}
+  \caption{Phasen der Mobilitätsdaten-Pipeline}
+  \label{tab:pipeline_schritte}
+\end{table}
+
+\paragraph{Recherche.}
+Der erste Schritt ist die Identifikation geeigneter Datenquellen. Dabei ist zu
+beachten, dass Mobilitätsdaten allein noch keine Relevanz bedeuten: Die Daten
+müssen einer Studie entstammen, die für die individuelle
+Fahrzeugnutzungsprognose einschlägig ist. Erst nach hinreichender Prüfung
+dieser thematischen Eignung werden die Daten weiterverfolgt.
+
+\paragraph{Beschaffung.}
+Geeignete Daten müssen anschließend bezogen werden, durch
+Download offener Datensätze, Anfrage bei datenhaltenden Dritten oder eigene
+Erhebung. Bereits hier sind rechtliche und datenschutzrechtliche
+Rahmenbedingungen zu berücksichtigen, da personenbezogene Bewegungsdaten
+besonders schützenswert sind. Da jedoch der zeitliche Rahmen der Arbeit nicht für eigene Erhebung ausreicht, sind die Daten auf öffentlich zugängliche oder Kooperationen beschränkt.
+
+\paragraph{Bewertung.}
+Vor der Weiterverarbeitung wird die Qualität der Daten beurteilt. Da der
+Begriff der Datenqualität in diesem Bereich nicht eindeutig definiert ist,
+wird er an konkreten Kriterien festgemacht: Vollständigkeit, zeitliche
+Auflösung und Umfangänglichkeit der Daten. Diese Bewertung entscheidet letztendlich darüber, ob ein Datensatz für ein zuverlässiges Modell geeignet ist.
+
+\paragraph{Verarbeitung.}
+Die als geeignet bewerteten Daten werden bereinigt und in ein einheitliches
+Schema überführt, sodass Quellen unterschiedlicher Herkunft vergleichbar
+werden. Anschließend werden aus den Rohdaten die für die Modelle benötigten
+Merkmale abgeleitet und bei Bedarf erfolgt zudem eine
+Anonymisierung.
+
+\paragraph{Modellierung.}
+Auf der aufbereiteten Datenbasis werden die Modelle trainiert und validiert.
+Dieser Schritt umfasst sowohl die Klassifikation des Fahrverhaltens als auch
+die eigentliche Prognose der Fahrzeugnutzung.
+
+\paragraph{Nutzung.}
+Abschließend werden die trainierten Modelle angewendet, um das individuelle
+Mobilitätsverhalten vorherzusagen. Die darus gewonnenen Prognosen werden dokumentiert und bereitgestellt. Sie liefern die Grundlage für Vorhersagen in der Fahrzeugnutzung und damit ein weiterer Schritt hin zu einem intelligenten Energiesystem.
 
 % -----------------------------------------------------------------------------
 \section{Stand der Forschung}
 \label{sec:stand_forschung}
 
 Die Forschung zur Prognose individueller Fahrzeugnutzung lässt sich grob in
-mehrere Stränge gliedern, die sich in Zielgröße, Methodik und Datengrundlage
-unterscheiden. Tabelle~\ref{tab:forschungsstraenge} fasst diese Stränge als
-Übersicht zusammen; die folgenden Unterabschnitte vertiefen sie jeweils und
-arbeiten am Ende die für diese Arbeit zentrale Forschungslücke heraus.
+mehrere Sektionen gliedern, die sich in Zielgröße, Methodik und Datengrundlage
+unterscheiden. Tabelle~\ref{tab:forschungssektionen} fasst diese Sektionen als
+Übersicht zusammen. Jeder dieser Sektionen beinhaltet Arbeiten, die zum Teil entweder relevant für diese Arbeit, oder zu Ihrer Eingrenzung dient. Die folgenden Unterabschnitte vertiefen die Sektionen jeweils und arbeiten am Ende die für diese Arbeit zentrale Forschungslücke heraus.
 
 \begin{table}[htbp]
   \centering
   \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.2cm} X X X@{}}
     \toprule
-    \textbf{Forschungsstrang} & \textbf{Typische Methoden} &
+    \textbf{Forschungsstrang} & \textbf{Typische\newline Methoden} &
     \textbf{Datengrundlage} & \textbf{Offene Punkte} \\
     \midrule
     Mobilitäts- und Nutzungsforecast & Statistische Modelle (ARIMA),
     Random Forest, neuronale Netze (LSTM) & Reale Telematik- und
-    Bewegungsdaten & Generalisierung über Fahrzeuge und Quellen hinweg \\
+\newline    Bewegungsdaten & Generalisierung über Fahrzeuge und Quellen hinweg \\
     \addlinespace
     Driving-/Parking-Klassifikation & Random Forest, SVM, Gradient
     Boosting & EV-Flottendaten, stündliche Profile & Einfluss der
@@ -46,20 +154,41 @@ arbeiten am Ende die für diese Arbeit zentrale Forschungslücke heraus.
     synthetischer und realer Datengrundlagen \\
     \addlinespace
     Unsicherheits- und Quantilsprognose & Quantilsregression,
-    Quantile-Random-Forest & Heterogene Mobilitätsdaten & Kalibrierung
+    Quantile-Random-Forest & Heterogene \newline Mobilitätsdaten & Kalibrierung
     individueller Vorhersageintervalle (P10/P90) \\
     \bottomrule
   \end{tabularx}
-    \caption{Zentrale Forschungsstränge im Umfeld der individuellen
+    \caption{Zentrale Forschungssektionen im Umfeld der individuellen
     Fahrzeugnutzungsprognose.}
-    \label{tab:forschungsstraenge}
+    \label{tab:forschungssektionen}
 \end{table}
+
+
+
 \todo{Aktuellen Stand der Forschung zusammenfassen. Welche verwandten Arbeiten gibt es? Was wurde bereits untersucht? Pro Tabellenzeile eine Subsection mit synthetisierter Quellenlage anlegen, abschließend Forschungslücke formulieren.}
+
+% -----------------------------------------------------------------------------
+\subsection{Verwandte Arbeiten}
+\label{sec:verwandte_arbeiten}
+
+\todo{Verwandte Arbeiten vorstellen und voneinander abgrenzen. Wie unterscheidet sich die eigene Arbeit?}
+
+
+
+\textcolor{red}{
+    \begin{itemize}
+        \item Forschungsarbeit/SUMO
+        \item ähnliche Studien
+        \item 
+    \end{itemize}
+}
+
+% -----------------------------------------------------------------------------
 
 \subsection{Mobilitäts- und Nutzungsforecast}
 \label{subsec:mobilitaetsforecast}
 
-Ein zentraler Befund dieses Strangs betrifft die Heterogenität individuellen
+Ein zentraler Befund dieser Sektion betrifft die Heterogenität individuellen
 Fahrverhaltens. \textcite{ji2023rethinking} werten über vier Millionen Fahrten
 von 3743 privaten Fahrzeugführern in sechs US-Metropolregionen aus und zeigen,
 dass sich die Fahrer in fünf deutlich verschiedene Typen gliedern lassen
@@ -76,31 +205,19 @@ Modellierung.
     \textbf{Fahrertyp} & \textbf{Charakterisierung} \\
     \midrule
     Homebodies & Wenigfahrer, die nur kurz und selten das Haus verlassen; geringe Mobilität. \\
+    \addlinespace
     Gig Drivers & Fahrer mit hohem, auftragsgetriebenem Fahraufkommen (z.\,B.\ Liefer- und Fahrdienste) ohne festen Arbeitsort. \\
+    \addlinespace
     Movers & Individuen mit breit gestreutem Fahrverhalten und vielen wechselnden Zielen, ohne klares Muster. \\
+    \addlinespace
     Typical Drivers & Durchschnittsfahrer mit einer Mischung aus Arbeits- und Freizeitfahrten und mittlerer Regelmäßigkeit. \\
+    \addlinespace
     Work-focused Commuters & Berufspendler mit stark regelmäßigem Pendelmuster, wenig nicht-arbeitsbezogenen Fahrten und hoher Vorhersagbarkeit. \\
     \bottomrule
   \end{tabularx}
   \caption{Fünf Fahrertypen des Individualverkehrs nach \textcite{ji2023rethinking}.}
   \label{tab:fahrertypen}
 \end{table}
-
-% -----------------------------------------------------------------------------
-\section{Verwandte Arbeiten}
-\label{sec:verwandte_arbeiten}
-
-\todo{Verwandte Arbeiten vorstellen und voneinander abgrenzen. Wie unterscheidet sich die eigene Arbeit?}
-
-
-
-\textcolor{red}{
-    \begin{itemize}
-        \item Forschungsarbeit/SUMO
-        \item ähnliche Studien
-        \item 
-    \end{itemize}
-}
 
 % -----------------------------------------------------------------------------
 \section{Zusammenfassung}
