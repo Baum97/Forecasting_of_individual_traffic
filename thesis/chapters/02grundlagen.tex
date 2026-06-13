@@ -4,17 +4,18 @@
 \chapter{Theoretische Grundlagen}
 \label{ch:grundlagen}
 
-Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut. Zunächst wird betrachtet, wie Mobilitätsdaten verarbeitet werden und anhand welcher Kriterien sich ihre Qualität bewerten lässt (\Cref{sec:themenbereich2}). Anschließend ordnet \Cref{sec:stand_forschung} den aktuellen Stand der Forschung ein und arbeitet die Forschungslücke heraus, von der sich diese Arbeit in \Cref{sec:verwandte_arbeiten} abgrenzt.
+Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut; Sowohl Begrifflichkeiten, als auch thematische Grundlagen werden erläutert. Als erstes wird festgelegt, was genau Mobilitätsdaten sind und wann sie relevant sind (\Cref{sec:themenbereich_mobdata}). Darauf folgt eine kurze Erläuterung zu Machine Learning und wieso die Verwendung in dieser Arbeit unerlässlich ist. Der vorletzte Punkt betrachtet, wie Mobilitätsdaten verarbeitet werden und anhand welcher Kriterien sich ihre Qualität bewerten lässt (\Cref{sec:themenbereich2}). Als letztes ordnet \Cref{sec:stand_forschung} den aktuellen Stand der Forschung ein und arbeitet die Forschungslücke heraus, von der sich diese Arbeit in \Cref{sec:verwandte_arbeiten} abgrenzt.
 
 % -----------------------------------------------------------------------------
 \section{Mobilitätsdaten}
+\label{sec:themenbereich_mobdata}
 
 \begin{figure}[htbp]
   \centering
   \begin{subfigure}{\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{images/mobility1.png}
-    \caption{}
+    \includegraphics[width=0.6\textwidth]{images/data_cars-real-world.png}
+    \caption{Datensatz: Cars Real World}
     \label{fig:mobility1}
   \end{subfigure}
 
@@ -22,17 +23,26 @@ Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut. Zun
 
   \begin{subfigure}{\textwidth}
     \centering
-    \includegraphics[width=0.7\textwidth]{images/mobility2.png}
-    \caption{}
+    \includegraphics[width=0.6\textwidth]{images/data_emobpy.png}
+    \caption{Datensatz: emobpy}
     \label{fig:mobility2}
   \end{subfigure}
   \caption{Beispielhafte Auszüge zweier Mobilitätsdatensätze.}
   \label{fig:mobilitaetsdaten}
 \end{figure}
 
-Wenn von Mobilitätsdaten gesprochen wird, ist meist die Rede von Dateien, die Informationen in einer chronologischen Abfolge beinhalten. Diese Daten können in allerlei Formaten auftreten, mit beliebig vielen Einträgen und beliebig vielen Informationen pro Eintrag und sind nicht zwingend homogen. Tatsächlich gibt es kaum eine Studie in der die Datensätze im gleichen Format sind (siehe \cref{fig:mobilitaetsdaten}) -- in Abbildung (a) sieht man einen Standard Timestamp und, neben de physikalischen Werten, nur spärlich Informationen über das Auto oder den Zweck des Aufenthalts. Bei Abbildung (b) hingegen sieht man den Wochentag, die Zeit in Minuten, Tripzeit und den Zweck des Aufenthalts. Für diese Arbeit sind nur wenige Daten unabdingbar und diese sind in beiden Datensätzen enthalten, weswegen beide -- trotz ihres signifikanten Unterschieds -- relevant sind. 
+Wenn von Mobilitätsdaten gesprochen wird, ist im digitalen Zusammenhang meist die Rede von Dateien, die Informationen in chronologischer Abfolge enthalten. Diese Daten können in den unterschiedlichsten Formaten auftreten -- mit beliebig vielen Einträgen und beliebig vielen Informationen pro Eintrag -- und sind nicht zwingend homogen. Tatsächlich gibt es kaum Studien, deren Datensätze im selben Format vorliegen (siehe \cref{fig:mobilitaetsdaten}): In \cref{fig:mobility1} finden sich neben einem üblichen Zeitstempel nur die physikalischen Messwerte und kaum Informationen über das Fahrzeug oder den Zweck des Aufenthalts. \cref{fig:mobility2} enthält dagegen Wochentag, Tageszeit in Minuten, Fahrtdauer und den Zweck des Aufenthalts. Für diese Arbeit sind jedoch nur wenige Felder unabdingbar -- im Wesentlichen Zeitstempel und Fahr- bzw.\ Parkzustand --, und diese sind in beiden Datensätzen enthalten. Trotz ihres erheblichen Unterschieds sind daher beide relevant.
 
 \section{Machine Learning}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{images/maschinelles-lernen.png}
+  \caption{Teilbereiche des maschinellen Lernens mit beispielhaften
+           Anwendungen (Quelle: \cite{wuttke2024ml}).}
+  \label{fig:ml_uebersicht}
+\end{figure}
+
 Das Prinzip des maschinellen Lernens besteht darin, einem Computer ein gewünschtes Verhalten anhand von Beispieldaten beizubringen, anstatt es durch einen fest vorgegebenen, regelbasierten
 Algorithmus explizit zu programmieren. Das Modell erkennt dabei statistische Muster in den Trainingsdaten und nutzt diese, um Vorhersagen für bislang ungesehene Eingaben zu treffen. Der Vorteil gegenüber einem starren Algorithmus liegt darin, dass komplexe Zusammenhänge -- wie das individuelle Mobilitätsverhalten -- erlernt werden können, ohne dass sie vorab vollständig bekannt sein müssen.
 
@@ -41,7 +51,25 @@ Häufig wird maschinelles Lernen mit künstlichen neuronalen Netzen gleichgesetz
 \subsection{Überwachtes Lernen}
 In dieser Arbeit kommt ausschließlich überwachtes Lernen zum Einsatz. Dabei lernt das Modell aus Beispielpaaren von Eingaben und zugehörigen, bekannten Zielwerten. Je nach Art des Zielwerts
 unterscheidet man zwei Aufgabentypen, die in dieser Arbeit beide vorkommen: Klassifikation, bei der eine diskrete Klasse vorhergesagt wird (etwa ob ein Fahrzeug in einer gegebenen Stunde fährt oder geparkt ist), und Regression, bei der ein kontinuierlicher Wert geschätzt wird (etwa die Abfahrts- oder Rückkehrzeit).
-\todo{korrigieren/überwachen}
+\todo{korrigieren/überwachen: hauptmerkmal klassifikation, da bestimme minutenzahl erstmal uninteressant und somit nur stunden für fährt= 1 oder 0}
+
+\subsection{Entscheidungsbäume}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\textwidth]{images/decisiontree.png}
+  \caption{Simpler binärer Entscheidungsbaum (Quelle: \cite{schilli2017entscheidungsbaeume}).}
+  \label{fig:decisiontree}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\textwidth]{images/decisiontree2.png}
+  \caption{Entscheidungsbaum mit Aufteilungskriterien (Gini-Index, Stichprobengröße und Klassenverteilung pro Knoten) (Quelle: \cite{schilli2017entscheidungsbaeume}).}
+  \label{fig:decisiontree2}
+\end{figure}
+
+
 
 \section{Verarbeitung von Mobilitätsdaten}
 \label{sec:themenbereich2}
@@ -89,39 +117,39 @@ folgenden Absätze erläutern sie.
   \label{tab:pipeline_schritte}
 \end{table}
 
-\paragraph{Recherche.}
+\paragraph{Recherche:}
 Der erste Schritt ist die Identifikation geeigneter Datenquellen. Dabei ist zu
 beachten, dass Mobilitätsdaten allein noch keine Relevanz bedeuten: Die Daten
 müssen einer Studie entstammen, die für die individuelle
 Fahrzeugnutzungsprognose einschlägig ist. Erst nach hinreichender Prüfung
 dieser thematischen Eignung werden die Daten weiterverfolgt.
 
-\paragraph{Beschaffung.}
+\paragraph{Beschaffung:}
 Geeignete Daten müssen anschließend bezogen werden, durch
 Download offener Datensätze, Anfrage bei datenhaltenden Dritten oder eigene
 Erhebung. Bereits hier sind rechtliche und datenschutzrechtliche
 Rahmenbedingungen zu berücksichtigen, da personenbezogene Bewegungsdaten
 besonders schützenswert sind. Da jedoch der zeitliche Rahmen der Arbeit nicht für eigene Erhebung ausreicht, sind die Daten auf öffentlich zugängliche oder Kooperationen beschränkt.
 
-\paragraph{Bewertung.}
+\paragraph{Bewertung:}
 Vor der Weiterverarbeitung wird die Qualität der Daten beurteilt. Da der
 Begriff der Datenqualität in diesem Bereich nicht eindeutig definiert ist,
 wird er an konkreten Kriterien festgemacht: Vollständigkeit, zeitliche
 Auflösung und Umfangänglichkeit der Daten. Diese Bewertung entscheidet letztendlich darüber, ob ein Datensatz für ein zuverlässiges Modell geeignet ist.
 
-\paragraph{Verarbeitung.}
+\paragraph{Verarbeitung:}
 Die als geeignet bewerteten Daten werden bereinigt und in ein einheitliches
 Schema überführt, sodass Quellen unterschiedlicher Herkunft vergleichbar
 werden. Anschließend werden aus den Rohdaten die für die Modelle benötigten
 Merkmale abgeleitet und bei Bedarf erfolgt zudem eine
 Anonymisierung.
 
-\paragraph{Modellierung.}
+\paragraph{Modellierung:}
 Auf der aufbereiteten Datenbasis werden die Modelle trainiert und validiert.
 Dieser Schritt umfasst sowohl die Klassifikation des Fahrverhaltens als auch
 die eigentliche Prognose der Fahrzeugnutzung.
 
-\paragraph{Nutzung.}
+\paragraph{Nutzung:}
 Abschließend werden die trainierten Modelle angewendet, um das individuelle
 Mobilitätsverhalten vorherzusagen. Die darus gewonnenen Prognosen werden dokumentiert und bereitgestellt. Sie liefern die Grundlage für Vorhersagen in der Fahrzeugnutzung und damit ein weiterer Schritt hin zu einem intelligenten Energiesystem.
 

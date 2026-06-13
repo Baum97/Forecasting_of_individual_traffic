@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  12 JUN 2026 17:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  13 JUN 2026 18:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1093,14 +1093,14 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(78.24507pt, 441.01773pt, 78.24507pt)
+* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
 * v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=441.01773pt
+* \textwidth=426.79135pt
 * \textheight=702.78308pt
-* \oddsidemargin=5.97508pt
-* \evensidemargin=5.97508pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
 * \topmargin=-41.0131pt
 * \headheight=18.125pt
 * \headsep=21.75pt
@@ -1280,11 +1280,16 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [0
+
+Overfull \hbox (2.87012pt too wide) in paragraph at lines 58--61
+\T1/lmr/m/n/12 (-20) Fo-re-cas-ter (RF und LGBM). Hebt die Minderheits-Klassen-Wahrscheinlichkeiten
+ []
+
+[0
 
 {C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
-Overfull \hbox (23.66226pt too wide) in paragraph at lines 89--97
-\T1/lmr/m/n/12 (-20) rol-len Stun-de fu-er Stun-de vor-waerts, je-weils \T1/lmtt/m/n/12 Bernoulli(p) \T1/lmr/m/n/12 (-20) aus der Modell-Wahrscheinlichkeit
+Overfull \hbox (5.23402pt too wide) in paragraph at lines 65--70
+[]\T1/lmr/bx/n/12 (-20) Soft-Mode\T1/lmr/m/n/12 (-20) : op-tio-na-ler de-ter-mi-nis-ti-scher Rollout-Pfad. Statt Bernoulli-Sampling
  []
 
 
@@ -1293,154 +1298,191 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
                    \relax 
 l.114 
        [1{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}]
-Overfull \hbox (49.46442pt too wide) in paragraph at lines 116--126
-\T1/lmr/m/n/12 (-20) (wo sinn-voll) \T1/lmtt/m/n/12 limit_vehicles\T1/lmr/m/n/12 (-20) . Trig-gert \T1/lmtt/m/n/12 POST /api/train\T1/lmr/m/n/12 (-20) , das \T1/lmtt/m/n/12 train_<source>_forecaster.py
+Overfull \hbox (86.86888pt too wide) in paragraph at lines 116--126
+\T1/lmr/m/n/12 (-20) und (wo sinn-voll) \T1/lmtt/m/n/12 limit_vehicles\T1/lmr/m/n/12 (-20) . Trig-gert \T1/lmtt/m/n/12 POST /api/train\T1/lmr/m/n/12 (-20) , das \T1/lmtt/m/n/12 train_<source>_forecaster.py
  []
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 128.
 
-Overfull \hbox (56.90944pt too wide) in paragraph at lines 136--145
+Overfull \hbox (71.13582pt too wide) in paragraph at lines 136--145
 [] \T1/lmss/bx/n/12 (-20) 2026-05-26 --- Ablations-Registry und \T1/lmtt/b/n/12 LGBMForecaster[][] \T1/lmr/m/n/12 (-20) Ein-ge-führt: \T1/lmtt/m/n/12 forecaster_registry.py
  []
 
 
-Overfull \hbox (29.38675pt too wide) in paragraph at lines 136--145
+Overfull \hbox (43.61313pt too wide) in paragraph at lines 136--145
 \T1/lmr/m/n/12 (-20) mit Lazy-Import-Lookup \T1/lmtt/m/n/12 name $\OMS/lmsy/m/n/12 !$ \T1/lmtt/m/n/12 Klasse\T1/lmr/m/n/12 (-20) . Ers-te Schwes-te-rim-ple-men-tie-rung \T1/lmtt/m/n/12 LGBMForecaster
  []
 
 
-Overfull \hbox (27.3566pt too wide) in paragraph at lines 136--145
+Overfull \hbox (41.58298pt too wide) in paragraph at lines 136--145
 \T1/lmr/m/n/12 (-20) mit na-ti-ver Quantil-Regression (drei se-pa-ra-te LGBM-Re-gres-so-ren mit \T1/lmtt/m/n/12 objective="quantile"\T1/lmr/m/n/12 (-20) ,
  []
 
 
-Overfull \hbox (15.18108pt too wide) in paragraph at lines 136--145
-\T1/lmr/m/n/12 (-20) Fron-tend zu än-dern. Backend-Schnittstelle auf \T1/lmtt/m/n/12 predict_proba_day \T1/lmr/m/n/12 (-20) + \T1/lmtt/m/n/12 predict_quantiles
+Overfull \hbox (3.40324pt too wide) in paragraph at lines 147--156
+\T1/lmr/m/n/12 (-20) aus-ge-wählt; des-sen Daily-Slice wird in \T1/lmtt/m/n/12 self.daily \T1/lmr/m/n/12 (-20) per-sis-tiert. Das 7$\OMS/lmsy/m/n/12 ^^B$\T1/lmr/m/n/12 (-20) 24-Stundenprofil
  []
 
-
-Overfull \hbox (284.64865pt too wide) in paragraph at lines 158--164
-[] \T1/lmss/bx/n/12 (-20) 2026-05-26 --- Run-Verzeichnis-Schema[][] \T1/lmr/m/n/12 (-20) Je-de Forecast-Erzeugung schreibt in \T1/lmtt/m/n/12 predictions/<modell>/<datensatz>_<N>d_T<DD-MM-YYYY>/\T1/lmr/m/n/12 (-20) .
- []
-
-
-Overfull \hbox (91.36626pt too wide) in paragraph at lines 166--173
+[2]
+Overfull \hbox (105.59264pt too wide) in paragraph at lines 166--173
 [] \T1/lmss/bx/n/12 (-20) 2026-05-26 --- Forecaster-Familie pro Da-ten-quel-le[][] \T1/lmr/m/n/12 (-20) Trai-nings-skrip-te \T1/lmtt/m/n/12 train_<source>_forecaster.py
  []
 
 
-Overfull \hbox (30.28177pt too wide) in paragraph at lines 166--173
+Overfull \hbox (8.7607pt too wide) in paragraph at lines 166--173
+\T1/lmr/m/n/12 (-20) für al-le vier Quel-len er-gänzt. \T1/lmtt/m/n/12 real_world_ev \T1/lmr/m/n/12 (-20) er-setzt das frü-he-re \T1/lmtt/m/n/12 car_full_forecaster
+ []
+
+
+Overfull \hbox (44.50815pt too wide) in paragraph at lines 166--173
 \T1/lmr/m/n/12 (-20) job-lib bleibt für Backward-Compat er-hal-ten; ein Shim in \T1/lmtt/m/n/12 model_scripts/csv_forecaster.py
  []
 
-[2] [3]) (chapters/01einleitung.tex
+[3]) (chapters/01einleitung.tex
 chapter 1.
 [4
 
 
 ] [5] [6]) (chapters/001inhaltsverzeichnis.tex) (chapters/002disclaimer.tex) (chapters/003glossar.tex) (chapters/02grundlagen.tex [7]
 chapter 2.
-<images/mobility1.png, id=235, 332.74312pt x 123.46124pt>
-File: images/mobility1.png Graphic file (type png)
-<use images/mobility1.png>
-Package pdftex.def Info: images/mobility1.png  used on input line 16.
-(pdftex.def)             Requested size: 264.61333pt x 98.18887pt.
-<images/mobility2.png, id=236, 395.97937pt x 97.11281pt>
-File: images/mobility2.png Graphic file (type png)
-<use images/mobility2.png>
-Package pdftex.def Info: images/mobility2.png  used on input line 25.
-(pdftex.def)             Requested size: 308.71106pt x 75.71211pt.
+<images/data_cars-real-world.png, id=252, 332.74312pt x 123.46124pt>
+File: images/data_cars-real-world.png Graphic file (type png)
+<use images/data_cars-real-world.png>
+Package pdftex.def Info: images/data_cars-real-world.png  used on input line 17.
+(pdftex.def)             Requested size: 256.07741pt x 95.02022pt.
+<images/data_emobpy.png, id=253, 316.18124pt x 108.405pt>
+File: images/data_emobpy.png Graphic file (type png)
+<use images/data_emobpy.png>
+Package pdftex.def Info: images/data_emobpy.png  used on input line 26.
+(pdftex.def)             Requested size: 256.07741pt x 87.80424pt.
 [8
 
- <./images/mobility1.png> <./images/mobility2.png>]
-<images/prozess_diagramm.png, id=249, 698.0625pt x 259.515pt>
+ <./images/data_cars-real-world.png> <./images/data_emobpy.png>]
+<images/maschinelles-lernen.png, id=264, 1028.84375pt x 866.23625pt>
+File: images/maschinelles-lernen.png Graphic file (type png)
+<use images/maschinelles-lernen.png>
+Package pdftex.def Info: images/maschinelles-lernen.png  used on input line 40.
+(pdftex.def)             Requested size: 426.79135pt x 359.33595pt.
+ [9 <./images/maschinelles-lernen.png>]
+<images/decisiontree.png, id=274, 628.3475pt x 505.89pt>
+File: images/decisiontree.png Graphic file (type png)
+<use images/decisiontree.png>
+Package pdftex.def Info: images/decisiontree.png  used on input line 60.
+(pdftex.def)             Requested size: 256.07741pt x 206.16571pt.
+<images/decisiontree2.png, id=277, 912.40875pt x 907.39pt>
+File: images/decisiontree2.png Graphic file (type png)
+<use images/decisiontree2.png>
+Package pdftex.def Info: images/decisiontree2.png  used on input line 67.
+(pdftex.def)             Requested size: 256.07741pt x 254.66283pt.
+ [10 <./images/decisiontree.png>]
+<images/prozess_diagramm.png, id=288, 698.0625pt x 259.515pt>
 File: images/prozess_diagramm.png Graphic file (type png)
 <use images/prozess_diagramm.png>
-Package pdftex.def Info: images/prozess_diagramm.png  used on input line 58.
-(pdftex.def)             Requested size: 441.01773pt x 163.9586pt.
- [9] [10 <./images/prozess_diagramm.png>]
-Overfull \hbox (8.68001pt too wide) in paragraph at lines 160--160
+Package pdftex.def Info: images/prozess_diagramm.png  used on input line 86.
+(pdftex.def)             Requested size: 426.79135pt x 158.67216pt.
+ [11 <./images/decisiontree2.png> <./images/prozess_diagramm.png>] [12]
+Overfull \hbox (8.68001pt too wide) in paragraph at lines 188--188
 []|\T1/lmr/bx/n/12 (-20) Forschungsstrang|  
  []
 
 
-Underfull \hbox (badness 3417) in paragraph at lines 160--160
-[]|\T1/lmr/m/n/12 (+20) Statistische Mo-del-
- []
-
-
-Underfull \hbox (badness 1622) in paragraph at lines 160--160
-\T1/lmr/m/n/12 (+20) le (ARI-MA), Ran-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 160--160
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
 []|\T1/lmr/m/n/12 (+20) Reale Telematik-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--160
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
+[]|\T1/lmr/m/n/12 (+20) Generalisierung
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
 []|\T1/lmr/m/n/12 (+20) Random Fo-rest,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--160
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
 \T1/lmr/m/n/12 (+20) SVM, Gra-di-ent
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--160
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
 []|\T1/lmr/m/n/12 (+20) EV-Flottendaten,
  []
 
 
-Underfull \hbox (badness 3668) in paragraph at lines 160--160
-[]|\T1/lmr/m/n/12 (+20) Gradient Boos-ting,
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
+[]|\T1/lmr/m/n/12 (+20) Einfluss der Da-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--160
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
+[]|\T1/lmr/m/n/12 (+20) Vergleichbarkeit
+ []
+
+
+Underfull \hbox (badness 5893) in paragraph at lines 188--188
+\T1/lmr/m/n/12 (+20) syn-the-ti-scher und
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
 []|\T1/lmr/m/n/12 (+20) Quantilsregression,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--160
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
 \T1/lmr/m/n/12 (+20) Quantile-Random-
  []
 
-[11] [12]) (chapters/03methodik.tex [13]
-chapter 3.
-[14
 
-]) (chapters/04implementierung.tex [15]
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
+[]|\T1/lmr/m/n/12 (+20) Kalibrierung
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
+\T1/lmr/m/n/12 (+20) in-di-vi-du-el-ler Vor-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
+\T1/lmr/m/n/12 (+20) her-sa-ge-in-ter-val-le
+ []
+
+[13]) (chapters/03methodik.tex [14]
+chapter 3.
+[15
+
+]) (chapters/04implementierung.tex [16]
 chapter 4.
-) (chapters/05evaluation.tex [16
+) (chapters/05evaluation.tex [17
 
 ]
 chapter 5.
-) (chapters/06diskussion.tex [17
+) (chapters/06diskussion.tex [18
 
 ]
 chapter 6.
-) (chapters/07fazit.tex [18
+) (chapters/07fazit.tex [19
 
 ]
 chapter 7.
-) [19
+) [20
 
 ]
 chapter without number
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
-(chapters/08anhang.tex [20
+(chapters/08anhang.tex [21
 
 ]
 chapter A.
-) (chapters/09erklaerung.tex [21
+) (chapters/09erklaerung.tex [22
 
-]) [22
+]) [23
 
 ] (main.aux)
  ***********
@@ -1452,17 +1494,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40921 strings out of 467871
- 823982 string characters out of 5414504
- 1896297 words of memory out of 5000000
- 68959 multiletter control sequences out of 15000+600000
- 707128 words of font info for 185 fonts, out of 8000000 for 9000
+ 40978 strings out of 467871
+ 825605 string characters out of 5414504
+ 1896169 words of memory out of 5000000
+ 69001 multiletter control sequences out of 15000+600000
+ 707568 words of font info for 189 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 108i,20n,110p,11260b,2952s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,20n,110p,11260b,3013s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (31 pages, 627416 bytes).
+Output written on main.pdf (32 pages, 1348027 bytes).
 PDF statistics:
- 580 PDF objects out of 1000 (max. 8388607)
- 117 named destinations out of 1000 (max. 500000)
- 46546 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 621 PDF objects out of 1000 (max. 8388607)
+ 124 named destinations out of 1000 (max. 500000)
+ 46569 words of extra memory for PDF output out of 51595 (max. 10000000)
 

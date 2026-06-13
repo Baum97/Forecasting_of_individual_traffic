@@ -55,6 +55,83 @@
       \verb 10.1111/tgis.13043
       \endverb
     \endentry
+    \entry{schilli2017entscheidungsbaeume}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1b16b4aa9f60cf3e53eb2982db961c4e}{%
+           family={Schilli},
+           familyi={S\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1b16b4aa9f60cf3e53eb2982db961c4e}
+      \strng{fullhash}{1b16b4aa9f60cf3e53eb2982db961c4e}
+      \strng{fullhashraw}{1b16b4aa9f60cf3e53eb2982db961c4e}
+      \strng{bibnamehash}{1b16b4aa9f60cf3e53eb2982db961c4e}
+      \strng{authorbibnamehash}{1b16b4aa9f60cf3e53eb2982db961c4e}
+      \strng{authornamehash}{1b16b4aa9f60cf3e53eb2982db961c4e}
+      \strng{authorfullhash}{1b16b4aa9f60cf3e53eb2982db961c4e}
+      \strng{authorfullhashraw}{1b16b4aa9f60cf3e53eb2982db961c4e}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Linux-Magazin}
+      \field{number}{08}
+      \field{title}{KI lernt mit Entscheidungsbaeumen}
+      \field{urlday}{13}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.linux-magazin.de/ausgaben/2017/08/snapshot/
+      \endverb
+      \verb{url}
+      \verb https://www.linux-magazin.de/ausgaben/2017/08/snapshot/
+      \endverb
+    \endentry
+    \entry{wuttke2024ml}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=57ec74023103a4c2e497f559ee78a3db}{%
+           family={Wuttke},
+           familyi={W\bibinitperiod},
+           given={Laurenz},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Datasolut GmbH}%
+      }
+      \strng{namehash}{57ec74023103a4c2e497f559ee78a3db}
+      \strng{fullhash}{57ec74023103a4c2e497f559ee78a3db}
+      \strng{fullhashraw}{57ec74023103a4c2e497f559ee78a3db}
+      \strng{bibnamehash}{57ec74023103a4c2e497f559ee78a3db}
+      \strng{authorbibnamehash}{57ec74023103a4c2e497f559ee78a3db}
+      \strng{authornamehash}{57ec74023103a4c2e497f559ee78a3db}
+      \strng{authorfullhash}{57ec74023103a4c2e497f559ee78a3db}
+      \strng{authorfullhashraw}{57ec74023103a4c2e497f559ee78a3db}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Machine Learning: Algorithmen, Methoden und Beispiele}
+      \field{urlday}{13}
+      \field{urlmonth}{6}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://datasolut.com/was-ist-machine-learning/
+      \endverb
+      \verb{url}
+      \verb https://datasolut.com/was-ist-machine-learning/
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

@@ -25,49 +25,50 @@
 \contentsline {chapter}{\numberline {2}Theoretische Grundlagen}{8}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Mobilitätsdaten}{8}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Machine Learning}{9}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Überwachtes Lernen}{9}{subsection.2.2.1}%
-\contentsline {section}{\numberline {2.3}Verarbeitung von Mobilitätsdaten}{9}{section.2.3}%
-\contentsline {paragraph}{\nonumberline Recherche.}{9}{paragraph*.18}%
-\contentsline {paragraph}{\nonumberline Beschaffung.}{11}{paragraph*.19}%
-\contentsline {paragraph}{\nonumberline Bewertung.}{11}{paragraph*.20}%
-\contentsline {paragraph}{\nonumberline Verarbeitung.}{11}{paragraph*.21}%
-\contentsline {paragraph}{\nonumberline Modellierung.}{11}{paragraph*.22}%
-\contentsline {paragraph}{\nonumberline Nutzung.}{11}{paragraph*.23}%
-\contentsline {section}{\numberline {2.4}Stand der Forschung}{11}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Verwandte Arbeiten}{12}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Mobilitäts- und Nutzungsforecast}{12}{subsection.2.4.2}%
-\contentsline {section}{\numberline {2.5}Zusammenfassung}{13}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Methodik}{14}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Forschungsdesign}{14}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Vorgehen}{14}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Datenerhebung}{14}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Datenanalyse}{15}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Zusammenfassung}{15}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Implementierung}{16}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Systemarchitektur}{16}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Technologieauswahl}{16}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Umsetzung}{16}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Herausforderungen}{16}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Zusammenfassung}{16}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Evaluation}{17}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Evaluationsdesign}{17}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Testumgebung}{17}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Ergebnisse}{17}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Zusammenfassung}{17}{section.5.4}%
-\contentsline {chapter}{\numberline {6}Diskussion}{18}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{18}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{18}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Limitationen}{18}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Implikationen}{18}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{19}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Zusammenfassung}{19}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Beantwortung der Forschungsfragen}{19}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Ausblick}{19}{section.7.3}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{20}{chapter*.26}%
+\contentsline {subsection}{\numberline {2.2.1}Überwachtes Lernen}{10}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Entscheidungsbäume}{10}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Verarbeitung von Mobilitätsdaten}{11}{section.2.3}%
+\contentsline {paragraph}{\nonumberline Recherche:}{11}{paragraph*.21}%
+\contentsline {paragraph}{\nonumberline Beschaffung:}{12}{paragraph*.22}%
+\contentsline {paragraph}{\nonumberline Bewertung:}{12}{paragraph*.23}%
+\contentsline {paragraph}{\nonumberline Verarbeitung:}{12}{paragraph*.24}%
+\contentsline {paragraph}{\nonumberline Modellierung:}{12}{paragraph*.25}%
+\contentsline {paragraph}{\nonumberline Nutzung:}{13}{paragraph*.26}%
+\contentsline {section}{\numberline {2.4}Stand der Forschung}{13}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Verwandte Arbeiten}{14}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Mobilitäts- und Nutzungsforecast}{14}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}Zusammenfassung}{14}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Methodik}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Forschungsdesign}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Vorgehen}{15}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Datenerhebung}{15}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Datenanalyse}{16}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Zusammenfassung}{16}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Implementierung}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Systemarchitektur}{17}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Technologieauswahl}{17}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Umsetzung}{17}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Herausforderungen}{17}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Zusammenfassung}{17}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Evaluation}{18}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Evaluationsdesign}{18}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Testumgebung}{18}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Ergebnisse}{18}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Zusammenfassung}{18}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Diskussion}{19}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{19}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{19}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Limitationen}{19}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Implikationen}{19}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{20}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Zusammenfassung}{20}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Beantwortung der Forschungsfragen}{20}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Ausblick}{20}{section.7.3}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{21}{chapter*.29}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\numberline {A}Anhang}{21}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{21}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{21}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Quellcode}{21}{section.A.3}%
-\contentsline {chapter}{Eidesstattliche Erklärung}{22}{chapter*.27}%
+\contentsline {chapter}{\numberline {A}Anhang}{22}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{22}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{22}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Quellcode}{22}{section.A.3}%
+\contentsline {chapter}{Eidesstattliche Erklärung}{23}{chapter*.30}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
