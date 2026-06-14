@@ -312,6 +312,9 @@ INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmr.fd
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmr.fd
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmr.fd
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr12.tfm
+INPUT .\main.aux
+INPUT .\main.aux
+INPUT main.aux
 OUTPUT main.aux
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-cmr.cfg
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-cmr.cfg
@@ -420,8 +423,17 @@ INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\microtype\m
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-msb.cfg
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT .\main.toc
+INPUT .\main.toc
+INPUT main.toc
 OUTPUT main.toc
+INPUT .\main.lof
+INPUT .\main.lof
+INPUT main.lof
 OUTPUT main.lof
+INPUT .\main.lot
+INPUT .\main.lot
+INPUT main.lot
 OUTPUT main.lot
 INPUT .\chapters\todo.tex
 INPUT .\chapters\todo.tex
@@ -491,9 +503,9 @@ INPUT .\images\maschinelles-lernen.png
 INPUT .\images\maschinelles-lernen.png
 INPUT .\images\maschinelles-lernen.png
 INPUT .\images\maschinelles-lernen.png
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathex.enc
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr8.tfm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr6.tfm
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathex.enc
 INPUT .\images\decisiontree.png
 INPUT .\images\decisiontree.png
 INPUT .\images\decisiontree.png
@@ -552,6 +564,7 @@ INPUT .\chapters\09erklaerung.tex
 INPUT .\chapters\09erklaerung.tex
 INPUT chapters\09erklaerung.tex
 INPUT main.aux
+INPUT main.run.xml
 OUTPUT main.run.xml
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx12.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx12.pfb

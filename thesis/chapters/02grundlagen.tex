@@ -56,7 +56,7 @@ unterscheidet man zwei Aufgabentypen, die in dieser Arbeit beide vorkommen: Klas
 
 \subsection{Merkmale und Feature Engineering}
 
-Bei Machine Learning ist oft die Rede von Feature Engineering, oder das umformen von Merkmalen. Ein Merkmal ist beispielsweise eine Spalte in einer Comma-Separated-Value Datei (siehe \cref{fig:mobilitaetsdaten}), hierbei könnte es sich um jede der Spalten handeln. Folglich ist der Zeitstempel, die Handlung, der Ort oder auch der Energiekonsum ein Merkmal bzw. Feature.
+Bei Machine Learning ist oft die Rede von Feature Engineering, oder das umformen von Merkmalen. Ein Merkmal ist beispielsweise eine Spalte in einer Comma-Separated-Value Datei (siehe \Cref{fig:mobilitaetsdaten}), hierbei könnte es sich um jede der Spalten handeln. Folglich ist der Zeitstempel, die Handlung, der Ort oder auch der Energiekonsum ein Merkmal bzw. Feature.
 
 In der Regel sind die Daten nicht in ihrer Rohform nicht direkt aussagekräftig, weswegen sie interpretiert werden müssen. Ein Zeitstempel (Beispiel: \texttt{2026-05-25 08:00:00}) hat ohne Kontext keinen bestimmten Wert, daher extrahiert man durch Feature Engineering die verborgenen Informationen und macht sie für das Modell zugänglich. Der genannte Zeitstempel bspw. ist im Kontext von Mobilität: 
 
@@ -86,7 +86,7 @@ Wenn ein Modell trainiert wird, passt es die eigenen internen Parameter an die T
 \subsubsection{Gini Index}
 
 Die allgemeine Form der Gini-Unreinheit für einen Knoten mit $C$ Klassen und
-den Klassenanteilen $p_i$ lautet:
+den Klassenanteilen $p_i$ lautet \parencite{breiman1984cart}:
 
 \begin{equation}
   G = 1 - \sum_{i=1}^{C} p_i^{2}
@@ -94,7 +94,7 @@ den Klassenanteilen $p_i$ lautet:
 \end{equation}
 
 Für den binären Fall mit zwei Klassen ($p_1 = p$, $p_0 = 1-p$) vereinfacht sich
-\eqref{eq:gini} zu:
+\eqref{eq:gini} zu \parencite{breiman1984cart}:
 
 \begin{equation}
   G = 1 - \left(p^{2} + (1-p)^{2}\right) = 2\,p\,(1-p)
@@ -102,7 +102,7 @@ Für den binären Fall mit zwei Klassen ($p_1 = p$, $p_0 = 1-p$) vereinfacht sic
 \end{equation}
 
 
-Hier spricht man von einer Unreinheit, eine Metrik, die benutzt wird, um auszudrücken, mit welcher Wahrscheinlichkeit ein Wert in eine falsche Klasse eingeteilt wird, wenn diese ein zufälliges Label in einem Baumknoten bekommen würden. 
+Hier spricht man von einer Unreinheit: einer Metrik, die ausdrückt, mit welcher Wahrscheinlichkeit ein Wert einer falschen Klasse zugeordnet würde, wenn er anhand der Klassenverteilung im Knoten ein zufälliges Label erhielte. Die gewichtete Unreinheit eines Splits ergibt sich aus den Unreinheiten der beiden Kindknoten \parencite{breiman1984cart}:
 
 \begin{equation}
   G_{\text{split}} = \frac{n_{\text{links}}}{n}\,G_{\text{links}}
@@ -110,10 +110,23 @@ Hier spricht man von einer Unreinheit, eine Metrik, die benutzt wird, um auszudr
   \label{eq:gini_split}
 \end{equation}
 
+In Formel \eqref{eq:gini_split} zeigt $n$ die Elemente im Elternknoten und $G$ die Unreinheit des jeweiligen Knoten an. Der Rest funktioniert analog, anhand der vorausgegangenen Formeln. Mit der Split-Formel lassen sich mehrere Iterationen pro Knoten vornehmen, wovon dann der reinste Split verwendet wird, um im Baum eine Rekursionsebene tiefer zu schreiten. Insgesamt funktioniert dieser Split $n-1$ mal.
+
 
 \subsection{Generalisierung}
 
+Das Prinzip der Generalisierung ist es, ein Modell so zu trainieren, dass es die Muster der Daten erkennt und deren Berechnung erlernt. Das bedeutet, dass das Modell auch mit neuen Daten -- die ungesehene Inhalte verwenden -- umgehen kann, die nah am gelernten Schema liegen.
+
+\subsubsection{Overfitting}
+
+Bei einem Modell das overfitted ist, sind Trainingsfehler unterrepräsentiert und Testfehler überrepräsentiert. Kurzum bedeutet das, dass das Modell die Daten zu gut kennt und diese quasi auswendig weiß, bei neuen Daten jedoch oft und stark abweicht.
+
+\subsubsection{Underfitting}
+
+Ein Modell das underfitted ist, schneidet weder beim Training, noch beim Test gut ab. Das Modell hat zu wenig Trainingsdaten genutzt, um zu lernen, was das eigentlich Arbeitsschema ist und schneidet damit dann auch bei den Testdaten überdurchschnittlich schlecht ab.
+
 \subsection{Validierung}
+
 
 
 \subsection{Bewertungsmetriken}
