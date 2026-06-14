@@ -15,7 +15,7 @@ Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut; Sow
   \begin{subfigure}{\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{images/data_cars-real-world.png}
-    \caption{Datensatz: Cars Real World}
+    \caption{Datensatz: Cars Real World Electric (\cite{pozzato2023fielddata})}
     \label{fig:mobility1}
   \end{subfigure}
 
@@ -24,14 +24,14 @@ Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut; Sow
   \begin{subfigure}{\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{images/data_emobpy.png}
-    \caption{Datensatz: emobpy}
+    \caption{Datensatz: emobpy (\cite{emobpy_dataset})}
     \label{fig:mobility2}
   \end{subfigure}
   \caption{Beispielhafte Auszüge zweier Mobilitätsdatensätze.}
   \label{fig:mobilitaetsdaten}
 \end{figure}
 
-Wenn von Mobilitätsdaten gesprochen wird, ist im digitalen Zusammenhang meist die Rede von Dateien, die Informationen in chronologischer Abfolge enthalten. Diese Daten können in den unterschiedlichsten Formaten auftreten -- mit beliebig vielen Einträgen und beliebig vielen Informationen pro Eintrag -- und sind nicht zwingend homogen. Tatsächlich gibt es kaum Studien, deren Datensätze im selben Format vorliegen (siehe \cref{fig:mobilitaetsdaten}): In \cref{fig:mobility1} finden sich neben einem üblichen Zeitstempel nur die physikalischen Messwerte und kaum Informationen über das Fahrzeug oder den Zweck des Aufenthalts. \cref{fig:mobility2} enthält dagegen Wochentag, Tageszeit in Minuten, Fahrtdauer und den Zweck des Aufenthalts. Für diese Arbeit sind jedoch nur wenige Felder unabdingbar -- im Wesentlichen Zeitstempel und Fahr- bzw.\ Parkzustand --, und diese sind in beiden Datensätzen enthalten. Trotz ihres erheblichen Unterschieds sind daher beide relevant.
+Wenn von Mobilitätsdaten gesprochen wird, ist im digitalen Rahmen meist die Rede von Dateien, die Informationen in chronologischer Abfolge enthalten. Diese Daten können in den unterschiedlichsten Formaten auftreten -- mit beliebig vielen Einträgen und beliebig vielen Informationen pro Eintrag -- und sind nicht zwingend homogen. Für das individuelle Fahr- und Nutzungsverhalten einzelner Fahrzeuge existiert -- anders als für ÖPNV- oder Sharing-Daten -- kein etabliertes Standardformat. Daraus folgt, dass sich Datensätze aus verschiedenen Studien erheblich in Schema und Granularität unterscheiden: In \cref{fig:mobility1} finden sich neben einem üblichen Zeitstempel nur die physikalischen Messwerte und kaum Informationen über das Fahrzeug oder den Zweck des Aufenthalts. \cref{fig:mobility2} enthält dagegen die Aktivität, gefahrene Distanz und den Energiekonsum. Für diese Arbeit sind jedoch nur wenige Felder unabdingbar -- im Wesentlichen Zeitstempel und Fahr- bzw.\ Parkzustand --, und diese sind in beiden Datensätzen enthalten. Trotz ihres erheblichen Unterschieds sind daher beide valide und relevant.
 
 \section{Machine Learning}
 
@@ -39,7 +39,7 @@ Wenn von Mobilitätsdaten gesprochen wird, ist im digitalen Zusammenhang meist d
   \centering
   \includegraphics[width=\textwidth]{images/maschinelles-lernen.png}
   \caption{Teilbereiche des maschinellen Lernens mit beispielhaften
-           Anwendungen (Quelle: \cite{wuttke2024ml}).}
+           Anwendungen (\cite{wuttke2024ml}).}
   \label{fig:ml_uebersicht}
 \end{figure}
 
@@ -47,27 +47,65 @@ Das Prinzip des maschinellen Lernens besteht darin, einem Computer ein gewünsch
 Algorithmus explizit zu programmieren. Das Modell erkennt dabei statistische Muster in den Trainingsdaten und nutzt diese, um Vorhersagen für bislang ungesehene Eingaben zu treffen. Der Vorteil gegenüber einem starren Algorithmus liegt darin, dass komplexe Zusammenhänge -- wie das individuelle Mobilitätsverhalten -- erlernt werden können, ohne dass sie vorab vollständig bekannt sein müssen.
 
 Häufig wird maschinelles Lernen mit künstlichen neuronalen Netzen gleichgesetzt, deren Aufbau  vom menschlichen Gehirn inspiriert ist. Neuronale Netze bilden jedoch nur eine von vielen Verfahrensklassen. Die in dieser Arbeit eingesetzten Modelle -- Random Forest und Gradient Boosting (\Cref{sec:themenbereich2} und \Cref{ch:methodik}) -- beruhen stattdessen auf Entscheidungsbäumen und sind nicht biologisch motiviert.
+\todo{erweitern mit neuen modellen etc}
 
 \subsection{Überwachtes Lernen}
 In dieser Arbeit kommt ausschließlich überwachtes Lernen zum Einsatz. Dabei lernt das Modell aus Beispielpaaren von Eingaben und zugehörigen, bekannten Zielwerten. Je nach Art des Zielwerts
 unterscheidet man zwei Aufgabentypen, die in dieser Arbeit beide vorkommen: Klassifikation, bei der eine diskrete Klasse vorhergesagt wird (etwa ob ein Fahrzeug in einer gegebenen Stunde fährt oder geparkt ist), und Regression, bei der ein kontinuierlicher Wert geschätzt wird (etwa die Abfahrts- oder Rückkehrzeit).
 \todo{korrigieren/überwachen: hauptmerkmal klassifikation, da bestimme minutenzahl erstmal uninteressant und somit nur stunden für fährt= 1 oder 0}
 
+\subsection{Merkmale und Feature Engineering}
+
+Bei Machine Learning ist oft die Rede von Feature Engineering, oder das umformen von Merkmalen. Ein Merkmal ist beispielsweise eine Spalte in einer Comma-Separated-Value Datei (siehe \cref{fig:mobilitaetsdaten}), hierbei könnte es sich um jede der Spalten handeln. Folglich ist der Zeitstempel, die Handlung, der Ort oder auch der Energiekonsum ein Merkmal bzw. Feature.
+
+In der Regel sind die Daten nicht in ihrer Rohform nicht direkt aussagekräftig, weswegen sie interpretiert werden müssen. Ein Zeitstempel (Beispiel: \texttt{2026-05-25 08:00:00}) hat ohne Kontext keinen bestimmten Wert, daher extrahiert man durch Feature Engineering die verborgenen Informationen und macht sie für das Modell zugänglich. Der genannte Zeitstempel bspw. ist im Kontext von Mobilität: 
+
+\begin{itemize}
+  \item Ein Montag --> Werktag
+  \item Acht Uhr --> Pendlerzeit
+\end{itemize}
+
+Ein Modell entdeckt Muster nicht von selbst, daher muss man die Informationen verwertbar machen. Tage die nicht auf einen Werktag fallen, oder eine andere Uhrzeit haben, die keine Pendlerzeit ist, kann je nach restlichem Informationsgehalt (Ort, Fahrtdistanz, Aufenthaltsdauer) zu einem jeweils anderem Ergebnis führen.
+
+\subsubsection{Lag-Merkmal}
+
+Ein Lag ist der Wert eines Merkmals aus einem früheren Zeitschritt. Lags sind teilweise periodisch und sind mit Stundenwerten gleichzusetzen. Ein \texttt{Lag\_1} beispielsweise ist das selbe Event, nur eine Stunde in der Vergangenheit, selbiges Schema gilt für einen \texttt{Lag\_168}, dieser liegt 168 Stunden in der Vergangenheit. Es gibt sehr spezifische Werte und diese erlauben auf bestimmte Muster Rückschlüsse. Lags von 1, 2, 24 und 168, wobei 24 Stunden einen Tag und 168 Stunden sieben Tage in der Vergangenheit abbilden. 
+
+Ein Risiko, das durch Lag auftreten kann, ist die Rechnung über mehr als ein Fahrzeug hinweg. Dadurch kann ein Verhalten auf ein anderes Fahrzeug interpretiert werden und falsche zugewiesene Verhaltensmuster errechnen. 
+
+\subsubsection{Rolling-Aggregate}
+
+Ein \enquote{Rolling Mean}, oder Rolling-Mittel, fasst ein Zeitfenster zu einer Kennzahl zusammen. So werden beispielsweise die letzten 24 Stunden oder 7 Tage Aktivitätsanteil zusammengefasst. 
+
+Data Leakage ist ein Risiko, das bei einem Rolling Mean auftreten kann, indem es die Zukunft einbezieht oder sogar den Zielwert selbst mit einrechnet. Dadurch lernt das Modell den tatsächlich gewünschten Wert und kann diesen, fälschlicherweise, richtig wiedergeben. Eine Falschimplementierung kann dazu führen, dass die Tests übermäßig gut abschneiden, im Realfall jedoch komplett versagen.
+
+\subsection{Training, Generalisierung und Validierung}
+
+\subsection{Bewertungsmetriken}
+
 \subsection{Entscheidungsbäume}
+
+Sie bilden einen Teil des maschinellen Lernens, sind jedoch grundlegend verschieden zu den menschlich inspirierten neuronalen Netzen. Des Weiteren lassen sich Entscheidungsbäume nicht konkret in unsupervised oder supervised Modelle klassifizieren, denn die Struktur diktiert letztenendes, welchem Paradigma das Modell unterliegt. 
+
+\subsection{Ensemble-Methoden: Random Forest und Gradient Boosting}
+
+\subsection{Unsicherheit und Quantilsregression}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.6\textwidth]{images/decisiontree.png}
-  \caption{Simpler binärer Entscheidungsbaum (Quelle: \cite{schilli2017entscheidungsbaeume}).}
+  \caption{Simpler binärer Entscheidungsbaum (\cite{schilli2017entscheidungsbaeume})}
   \label{fig:decisiontree}
 \end{figure}
+
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.6\textwidth]{images/decisiontree2.png}
-  \caption{Entscheidungsbaum mit Aufteilungskriterien (Gini-Index, Stichprobengröße und Klassenverteilung pro Knoten) (Quelle: \cite{schilli2017entscheidungsbaeume}).}
+  \caption{Entscheidungsbaum mit Aufteilungskriterien (Gini-Index, Stichprobengröße und Klassenverteilung pro Knoten) (\cite{schilli2017entscheidungsbaeume})}
   \label{fig:decisiontree2}
 \end{figure}
+
 
 
 

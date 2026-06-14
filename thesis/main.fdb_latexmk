@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1781366441.87071 "main.bcf" "main.bbl" "main" 1781366445.79173 0
-  "literatur.bib" 1781365987 11704 1c57bde1618d3d4c2073cae6c2f6fb48 ""
-  "main.bcf" 1781366445 109391 e5829cace471e4900a1d0257cf841669 "pdflatex"
+["biber main"] 1781433001.42601 "main.bcf" "main.bbl" "main" 1781433319.08081 0
+  "literatur.bib" 1781426004 11805 f5ff1ba8447f19c85889da1f32dd0ff6 ""
+  "main.bcf" 1781433318 109683 bcc353e805c152365b9b75a4c710fe36 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1781366443.21464 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1781366445.79229 0
+["pdflatex"] 1781433316.41694 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1781433319.08138 0
   "C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1779374017 368683 20af194610b55c11d3743ae29ed2ab48 ""
   "C:/Users/Administrator/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1776509242 13337359 a21bfb9d050a5bf8318e8708a258f339 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -212,7 +212,7 @@
   "chapters/003glossar.tex" 1774272499 0 d41d8cd98f00b204e9800998ecf8427e ""
   "chapters/00abstract.tex" 1774358317 1336 9daf1cd32b41fd8b8006de1056799233 ""
   "chapters/01einleitung.tex" 1781359025 8650 785f6ea2941ff2a2559c59532bcb2b2d ""
-  "chapters/02grundlagen.tex" 1781365913 14132 1b0a834dbdfe3172ed457675b2b31915 ""
+  "chapters/02grundlagen.tex" 1781433316 17597 4cff4051813f50e005aed52d4dd3669d ""
   "chapters/03methodik.tex" 1779273896 1969 61afb1dbce43004cced668b20dd64b63 ""
   "chapters/04implementierung.tex" 1775649193 1732 d1dd6351f53367c425aa0c543c6e06d9 ""
   "chapters/05evaluation.tex" 1775639238 1849 a6f71dacdb988856e61cdfede6e2ef0a ""
@@ -220,8 +220,8 @@
   "chapters/07fazit.tex" 1774272499 1179 ccfbb8377e80e2787287a9b9134f915d ""
   "chapters/08anhang.tex" 1774272499 836 905149679d91c86057df8b825dc25db8 ""
   "chapters/09erklaerung.tex" 1774272499 960 c11888ef4b7c695c95c94541ccbc1b64 ""
-  "chapters/todo.tex" 1781266720 9352 cf86e9d79fe8bd303ba409beafe28f65 ""
-  "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" 1781366441 3093 dc33d45a21078c6947bef6272d10afd1 ""
+  "chapters/todo.tex" 1781429906 9364 e72f5aebe595f55698de131b2dff2b2e ""
+  "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" 1781429885 3085 9ff2f67636b321f01e6f4ac1a528a585 ""
   "images/HochschuleEsslingen_Logo_4c_DE.png" 1774357426 49451 08690eb3f248fef595e496be388df455 ""
   "images/KEIM-quadr.png" 1774357312 198790 022e9ca48d40c806fe434878a352ed26 ""
   "images/data_cars-real-world.png" 1781359562 11543 a6ae9b72d37e4fb6e5d12c074f23f74e ""
@@ -230,15 +230,15 @@
   "images/decisiontree2.png" 1781366244 374010 54eef0c920d56af4cbd6956d31be6eb2 ""
   "images/maschinelles-lernen.png" 1781366137 329246 948b5fe45b62e29dd0cbdb90869cfc39 ""
   "images/prozess_diagramm.png" 1781259859 47620 fdda5bfadfaa718acb33d4656e5c7bec ""
-  "imports.tex" 1781363975 2515 edcd4c2c94e806dd950beeca9d39c33b ""
+  "imports.tex" 1781426639 2531 bb1236b514af0c846c64287208175c3e ""
   "main.acr" 0 -1 0 ""
-  "main.aux" 1781366445 36331 dc526bc22f884003ecedc90ca257aaf6 "pdflatex"
-  "main.bbl" 1781366443 5188 e91c25c369bbab5ff03cb1145f882db3 "biber main"
-  "main.lof" 1781366445 1241 a63245580473fa5f613167ed0582adf3 "pdflatex"
-  "main.lot" 1781366445 763 8c65e00c3a1271d7117f15bb55de2b9e "pdflatex"
-  "main.run.xml" 1781366445 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
-  "main.tex" 1781366441 3093 dc33d45a21078c6947bef6272d10afd1 ""
-  "main.toc" 1781366445 5883 1997cd62ec02a4e0d0968d37cc5a7a27 "pdflatex"
+  "main.aux" 1781433318 40816 b4810b6f70210cc80e0a89885fb3e508 "pdflatex"
+  "main.bbl" 1781433004 9521 165e8d8b939c4edf47ba43210ad77d05 "biber main"
+  "main.lof" 1781433318 1236 b382de258e2f1cf68dbbed875ac7f887 "pdflatex"
+  "main.lot" 1781433318 783 3e1ae41e51bdef93348480e2e9a29ca5 "pdflatex"
+  "main.run.xml" 1781433318 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
+  "main.tex" 1781429885 3085 9ff2f67636b321f01e6f4ac1a528a585 ""
+  "main.toc" 1781433318 6724 084f406f1bfe66a360ee76c71abfe4f1 "pdflatex"
   (generated)
   "main.acn"
   "main.aux"

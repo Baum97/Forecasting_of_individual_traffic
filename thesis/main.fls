@@ -441,6 +441,7 @@ INPUT .\chapters\todo.tex
 INPUT .\chapters\todo.tex
 INPUT chapters\todo.tex
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmssbx10.tfm
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmssbx10.tfm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
@@ -460,7 +461,6 @@ INPUT .\chapters\01einleitung.tex
 INPUT .\chapters\01einleitung.tex
 INPUT .\chapters\01einleitung.tex
 INPUT chapters\01einleitung.tex
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmssbx10.tfm
 INPUT .\chapters\001inhaltsverzeichnis.tex
 INPUT .\chapters\001inhaltsverzeichnis.tex
 INPUT .\chapters\001inhaltsverzeichnis.tex
