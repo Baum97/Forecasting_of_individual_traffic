@@ -1,12 +1,11 @@
 \babel@toc {ngerman}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Beispielhafte Auszüge zweier Mobilitätsdatensätze.}}{9}{figure.caption.15}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Teilbereiche des maschinellen Lernens mit beispielhaften Anwendungen (\blx@tocontentsinit {0}\cite {wuttke2024ml}).}}{10}{figure.caption.16}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Simpler binärer Entscheidungsbaum (\blx@tocontentsinit {0}\cite {schilli2017entscheidungsbaeume})}}{13}{figure.caption.19}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Entscheidungsbaum mit Aufteilungskriterien (Gini-Index, Stichprobengröße und Klassenverteilung pro Knoten) (\blx@tocontentsinit {0}\cite {schilli2017entscheidungsbaeume})}}{14}{figure.caption.20}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Generalisierte Pipeline zur Verarbeitung von Mobilitätsdaten.}}{14}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Beispielhafte Auszüge zweier Mobilitätsdatensätze.}}{9}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Teilbereiche des maschinellen Lernens mit beispielhaften Anwendungen (\blx@tocontentsinit {0}\cite {wuttke2024ml}).}}{10}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Simpler binärer Entscheidungsbaum (\blx@tocontentsinit {0}\cite {schilli2017entscheidungsbaeume})}}{13}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Entscheidungsbaum mit Aufteilungskriterien (Gini-Index, Stichprobengröße und Klassenverteilung pro Knoten) (\blx@tocontentsinit {0}\cite {schilli2017entscheidungsbaeume})}}{14}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Generalisierte Pipeline zur Verarbeitung von Mobilitätsdaten.}}{14}{figure.caption.23}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

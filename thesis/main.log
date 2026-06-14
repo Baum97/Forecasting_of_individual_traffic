@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  14 JUN 2026 12:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  14 JUN 2026 14:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1041,10 +1041,8 @@ Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 13.
  (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (main.aux
-Package babel Info: 'ngerman' activates 'ngerman' shorthands.
-(babel)             Reported on input line 18.
 )
+No file main.aux.
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -1065,6 +1063,8 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
+Package babel Info: 'ngerman' activates 'ngerman' shorthands.
+(babel)             Reported on input line 13.
 LaTeX Info: Redefining \microtypecontext on input line 13.
 Package microtype Info: Applying patch `item' on input line 13.
 Package microtype Info: Applying patch `toc' on input line 13.
@@ -1082,7 +1082,7 @@ Package microtype Info: Patching command `\showhyphens'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
- (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
 *geometry* driver: auto-detecting
@@ -1243,34 +1243,36 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 ]
 Package tocbasic Info: character protrusion at toc deactivated on input line 67.
- (main.toc [3
 
-] [4])
+No file main.toc.
 \tf@toc=\write7
 \openout7 = `main.toc'.
 
- [5]
+[3
+
+]
 Package tocbasic Info: character protrusion at lof deactivated on input line 71.
- (main.lof)
+
+No file main.lof.
 \tf@lof=\write8
 \openout8 = `main.lof'.
 
- [6
+[4
 
 ]
 Package tocbasic Info: character protrusion at lot deactivated on input line 75.
- (main.lot)
+
+No file main.lot.
 \tf@lot=\write9
 \openout9 = `main.lot'.
 
- [7
+[5
 
 ]
 No file main.acr.
 (chapters/todo.tex [0]
-chapter 1.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 16.
-(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+ (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 27.
@@ -1341,135 +1343,289 @@ Overfull \hbox (44.50815pt too wide) in paragraph at lines 165--172
  []
 
 [4]) (chapters/01einleitung.tex
-chapter 2.
+chapter 1.
 [5
 
 
-] [6] [7]) (chapters/001inhaltsverzeichnis.tex) (chapters/002disclaimer.tex) (chapters/003glossar.tex) (chapters/02grundlagen.tex [8]
-chapter 3.
-<images/data_cars-real-world.png, id=270, 332.74312pt x 123.46124pt>
+]
+
+LaTeX Warning: Reference `sec:stand_forschung' on page 1 undefined on input line 28.
+
+[6]
+
+LaTeX Warning: Reference `ch:einleitung' on page 1 undefined on input line 72.
+
+
+LaTeX Warning: Reference `ch:grundlagen' on page 1 undefined on input line 74.
+
+
+LaTeX Warning: Reference `ch:methodik' on page 1 undefined on input line 76.
+
+
+LaTeX Warning: Reference `ch:implementierung' on page 1 undefined on input line 78.
+
+[7]
+
+LaTeX Warning: Reference `ch:evaluation' on page 1 undefined on input line 80.
+
+
+LaTeX Warning: Reference `ch:diskussion' on page 1 undefined on input line 82.
+
+
+LaTeX Warning: Reference `ch:fazit' on page 1 undefined on input line 84.
+
+) (chapters/001inhaltsverzeichnis.tex) (chapters/002disclaimer.tex) (chapters/003glossar.tex) (chapters/02grundlagen.tex [8]
+chapter 2.
+
+LaTeX Warning: Reference `sec:themenbereich_mobdata' on page 1 undefined on input line 7.
+
+
+LaTeX Warning: Reference `sec:themenbereich2' on page 1 undefined on input line 7.
+
+
+LaTeX Warning: Reference `sec:stand_forschung' on page 1 undefined on input line 7.
+
+
+LaTeX Warning: Reference `sec:verwandte_arbeiten' on page 1 undefined on input line 7.
+
+<images/data_cars-real-world.png, id=114, 332.74312pt x 123.46124pt>
 File: images/data_cars-real-world.png Graphic file (type png)
 <use images/data_cars-real-world.png>
 Package pdftex.def Info: images/data_cars-real-world.png  used on input line 17.
 (pdftex.def)             Requested size: 256.07741pt x 95.02022pt.
-<images/data_emobpy.png, id=273, 316.18124pt x 108.405pt>
+<images/data_emobpy.png, id=117, 316.18124pt x 108.405pt>
 File: images/data_emobpy.png Graphic file (type png)
 <use images/data_emobpy.png>
 Package pdftex.def Info: images/data_emobpy.png  used on input line 26.
 (pdftex.def)             Requested size: 256.07741pt x 87.80424pt.
+
+LaTeX Warning: Reference `fig:mobility1' on page 1 undefined on input line 34.
+
+
+LaTeX Warning: Reference `fig:mobility2' on page 1 undefined on input line 34.
+
 [9
 
  <./images/data_cars-real-world.png> <./images/data_emobpy.png>]
-<images/maschinelles-lernen.png, id=287, 1028.84375pt x 866.23625pt>
+<images/maschinelles-lernen.png, id=132, 1028.84375pt x 866.23625pt>
 File: images/maschinelles-lernen.png Graphic file (type png)
 <use images/maschinelles-lernen.png>
 Package pdftex.def Info: images/maschinelles-lernen.png  used on input line 40.
 (pdftex.def)             Requested size: 426.79135pt x 359.33595pt.
- [10 <./images/maschinelles-lernen.png>] [11]
-<images/decisiontree.png, id=303, 628.3475pt x 505.89pt>
+ [10 <./images/maschinelles-lernen.png>]
+
+LaTeX Warning: Reference `sec:themenbereich2' on page 1 undefined on input line 49.
+
+
+LaTeX Warning: Reference `ch:methodik' on page 1 undefined on input line 49.
+
+
+LaTeX Warning: Reference `fig:mobilitaetsdaten' on page 1 undefined on input line 59.
+
+[11]
+chapters/02grundlagen.tex:90: Undefined control sequence.
+<argument> g__tocbasic_\@captype 
+                                 _caption_above_bool
+l.90   \caption{Gini Index für einzelnen Knoten}
+                                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+chapters/02grundlagen.tex:90: Undefined control sequence.
+<argument> g__tocbasic_\@captype 
+                                 _caption_above_bool
+l.90   \caption{Gini Index für einzelnen Knoten}
+                                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+chapters/02grundlagen.tex:90: Package caption Error: \caption outside float.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90   \caption{Gini Index für einzelnen Knoten}
+                                                 
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+chapters/02grundlagen.tex:98: Undefined control sequence.
+<argument> g__tocbasic_\@captype 
+                                 _caption_above_bool
+l.98   \caption{Gini Index für zwei Knoten}
+                                            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+chapters/02grundlagen.tex:98: Undefined control sequence.
+<argument> g__tocbasic_\@captype 
+                                 _caption_above_bool
+l.98   \caption{Gini Index für zwei Knoten}
+                                            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+chapters/02grundlagen.tex:98: Package caption Error: \caption outside float.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.98   \caption{Gini Index für zwei Knoten}
+                                            
+If you do not understand this error, please take a closer look
+at the documentation of the `caption' package, especially the
+section about errors.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[12{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
+<images/decisiontree.png, id=162, 628.3475pt x 505.89pt>
 File: images/decisiontree.png Graphic file (type png)
 <use images/decisiontree.png>
-Package pdftex.def Info: images/decisiontree.png  used on input line 96.
+Package pdftex.def Info: images/decisiontree.png  used on input line 129.
 (pdftex.def)             Requested size: 256.07741pt x 206.16571pt.
- [12]
-<images/decisiontree2.png, id=312, 912.40875pt x 907.39pt>
+<images/decisiontree2.png, id=165, 912.40875pt x 907.39pt>
 File: images/decisiontree2.png Graphic file (type png)
 <use images/decisiontree2.png>
-Package pdftex.def Info: images/decisiontree2.png  used on input line 104.
+Package pdftex.def Info: images/decisiontree2.png  used on input line 137.
 (pdftex.def)             Requested size: 256.07741pt x 254.66283pt.
-<images/prozess_diagramm.png, id=317, 698.0625pt x 259.515pt>
+
+
+LaTeX Warning: Reference `fig:prozess_diagramm' on page 1 undefined on input line 150.
+
+
+LaTeX Warning: Reference `tab:pipeline_schritte' on page 1 undefined on input line 152.
+
+[13 <./images/decisiontree.png>]
+<images/prozess_diagramm.png, id=184, 698.0625pt x 259.515pt>
 File: images/prozess_diagramm.png Graphic file (type png)
 <use images/prozess_diagramm.png>
-Package pdftex.def Info: images/prozess_diagramm.png  used on input line 124.
+Package pdftex.def Info: images/prozess_diagramm.png  used on input line 157.
 (pdftex.def)             Requested size: 426.79135pt x 158.67216pt.
- [13 <./images/decisiontree.png>] [14 <./images/decisiontree2.png> <./images/prozess_diagramm.png>] [15]
-Overfull \hbox (8.68001pt too wide) in paragraph at lines 226--226
+ [14 <./images/decisiontree2.png> <./images/prozess_diagramm.png>] [15]
+
+LaTeX Warning: Reference `tab:forschungssektionen' on page 16 undefined on input line 233.
+
+
+Overfull \hbox (8.68001pt too wide) in paragraph at lines 259--259
 []|\T1/lmr/bx/n/12 (-20) Forschungsstrang|  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
+Underfull \hbox (badness 10000) in paragraph at lines 259--259
 []|\T1/lmr/m/n/12 (+20) Reale Telematik-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
+Underfull \hbox (badness 10000) in paragraph at lines 259--259
 []|\T1/lmr/m/n/12 (+20) Generalisierung
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
+Underfull \hbox (badness 10000) in paragraph at lines 259--259
 []|\T1/lmr/m/n/12 (+20) Random Fo-rest,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
+Underfull \hbox (badness 10000) in paragraph at lines 259--259
 \T1/lmr/m/n/12 (+20) SVM, Gra-di-ent
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
+Underfull \hbox (badness 10000) in paragraph at lines 259--259
 []|\T1/lmr/m/n/12 (+20) EV-Flottendaten,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
+Underfull \hbox (badness 10000) in paragraph at lines 259--259
 []|\T1/lmr/m/n/12 (+20) Einfluss der Da-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
+Underfull \hbox (badness 10000) in paragraph at lines 259--259
 []|\T1/lmr/m/n/12 (+20) Vergleichbarkeit
  []
 
 
-Underfull \hbox (badness 5893) in paragraph at lines 226--226
+Underfull \hbox (badness 5893) in paragraph at lines 259--259
 \T1/lmr/m/n/12 (+20) syn-the-ti-scher und
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
+Underfull \hbox (badness 10000) in paragraph at lines 259--259
 []|\T1/lmr/m/n/12 (+20) Quantilsregression,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
+Underfull \hbox (badness 10000) in paragraph at lines 259--259
 \T1/lmr/m/n/12 (+20) Quantile-Random-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
+Underfull \hbox (badness 10000) in paragraph at lines 259--259
 []|\T1/lmr/m/n/12 (+20) Kalibrierung
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
+Underfull \hbox (badness 10000) in paragraph at lines 259--259
 \T1/lmr/m/n/12 (+20) in-di-vi-du-el-ler Vor-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
+Underfull \hbox (badness 10000) in paragraph at lines 259--259
 \T1/lmr/m/n/12 (+20) her-sa-ge-in-ter-val-le
  []
 
-[16]) (chapters/03methodik.tex [17]
-chapter 4.
+[16]
+
+LaTeX Warning: Reference `tab:fahrertypen' on page 1 undefined on input line 294.
+
+) (chapters/03methodik.tex [17]
+chapter 3.
 [18
 
 ]) (chapters/04implementierung.tex [19]
-chapter 5.
+chapter 4.
 ) (chapters/05evaluation.tex [20
 
 ]
-chapter 6.
+chapter 5.
 ) (chapters/06diskussion.tex [21
 
 ]
-chapter 7.
+chapter 6.
+
+LaTeX Warning: Reference `ch:evaluation' on page 1 undefined on input line 13.
+
+
+LaTeX Warning: Reference `sec:verwandte_arbeiten' on page 1 undefined on input line 23.
+
 ) (chapters/07fazit.tex [22
 
 ]
-chapter 8.
+chapter 7.
+
+LaTeX Warning: Reference `sec:forschungsfragen' on page 1 undefined on input line 17.
+
 ) [23
 
 ]
@@ -1490,22 +1646,34 @@ chapter A.
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41021 strings out of 467871
- 826670 string characters out of 5414504
- 1898454 words of memory out of 5000000
- 69028 multiletter control sequences out of 15000+600000
- 707697 words of font info for 190 fonts, out of 8000000 for 9000
+ 41019 strings out of 467871
+ 826388 string characters out of 5414504
+ 1890643 words of memory out of 5000000
+ 69021 multiletter control sequences out of 15000+600000
+ 713906 words of font info for 195 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 108i,20n,110p,11260b,3013s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (35 pages, 1365542 bytes).
+ 108i,20n,110p,11260b,2463s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
+Output written on main.pdf (33 pages, 1380372 bytes).
 PDF statistics:
- 681 PDF objects out of 1000 (max. 8388607)
- 138 named destinations out of 1000 (max. 500000)
- 46625 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 600 PDF objects out of 1000 (max. 8388607)
+ 142 named destinations out of 1000 (max. 500000)
+ 50729 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -79,7 +79,42 @@ Ein \enquote{Rolling Mean}, oder Rolling-Mittel, fasst ein Zeitfenster zu einer 
 
 Data Leakage ist ein Risiko, das bei einem Rolling Mean auftreten kann, indem es die Zukunft einbezieht oder sogar den Zielwert selbst mit einrechnet. Dadurch lernt das Modell den tatsächlich gewünschten Wert und kann diesen, fälschlicherweise, richtig wiedergeben. Eine Falschimplementierung kann dazu führen, dass die Tests übermäßig gut abschneiden, im Realfall jedoch komplett versagen.
 
-\subsection{Training, Generalisierung und Validierung}
+\subsection{Training}
+
+Wenn ein Modell trainiert wird, passt es die eigenen internen Parameter an die Trainingsdaten an, sodass Vorhersagen möglichst gut zu den gelernten Zielwerten passt. Formal wird dabei das Resultat einer Verlustfunktion minimiert, welche misst, wie weit die Vorhersage von der Wahrheit abweicht. Bei einem baumbasierten Modell werden konkret Splits gewählt für bestimmte Merkmale und Schwellen, die gewisse Zielgrößen im jeweiligen Knoten am besten trennen.
+
+\subsubsection{Gini Index}
+
+Die allgemeine Form der Gini-Unreinheit für einen Knoten mit $C$ Klassen und
+den Klassenanteilen $p_i$ lautet:
+
+\begin{equation}
+  G = 1 - \sum_{i=1}^{C} p_i^{2}
+  \label{eq:gini}
+\end{equation}
+
+Für den binären Fall mit zwei Klassen ($p_1 = p$, $p_0 = 1-p$) vereinfacht sich
+\eqref{eq:gini} zu:
+
+\begin{equation}
+  G = 1 - \left(p^{2} + (1-p)^{2}\right) = 2\,p\,(1-p)
+  \label{eq:gini_binaer}
+\end{equation}
+
+
+Hier spricht man von einer Unreinheit, eine Metrik, die benutzt wird, um auszudrücken, mit welcher Wahrscheinlichkeit ein Wert in eine falsche Klasse eingeteilt wird, wenn diese ein zufälliges Label in einem Baumknoten bekommen würden. 
+
+\begin{equation}
+  G_{\text{split}} = \frac{n_{\text{links}}}{n}\,G_{\text{links}}
+                   + \frac{n_{\text{rechts}}}{n}\,G_{\text{rechts}}
+  \label{eq:gini_split}
+\end{equation}
+
+
+\subsection{Generalisierung}
+
+\subsection{Validierung}
+
 
 \subsection{Bewertungsmetriken}
 

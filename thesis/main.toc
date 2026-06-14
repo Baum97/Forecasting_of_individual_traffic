@@ -1,83 +1,85 @@
 \babel@toc {ngerman}{}\relax 
 \contentsline {chapter}{Kurzfassung}{i}{chapter*.1}%
 \contentsline {chapter}{Abstract}{ii}{chapter*.2}%
-\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{vi}{chapter*.4}%
-\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{vii}{chapter*.5}%
-\contentsline {chapter}{\numberline {1}Logs}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}\textbf {TODO:}}{1}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Lag}{1}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Rolling}{1}{subsection.1.1.2}%
-\contentsline {subsection}{\numberline {1.1.3}Feature Sicherung}{1}{subsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.1.4}Robustheit}{1}{subsection.1.1.4}%
-\contentsline {paragraph}{\nonumberline 2026-05-26 --- Multi-Trip-Aufloesung pro Tag}{1}{paragraph*.6}%
-\contentsline {paragraph}{\nonumberline 2026-05-26 --- Drei Fixes gegen Forecast-Kollaps bei niedriger Basisrate}{2}{paragraph*.7}%
-\contentsline {paragraph}{\nonumberline 2026-05-26 --- Auto-regressives Hourly-Forecasting (Hybrid-Pipeline)}{2}{paragraph*.8}%
-\contentsline {paragraph}{\nonumberline 2026-05-26 --- Training-Reiter im Frontend}{3}{paragraph*.9}%
-\contentsline {paragraph}{\nonumberline 2026-05-26 --- Modul-Reorganisation in \texttt {forecast/} und \texttt {classifier/}}{3}{paragraph*.10}%
-\contentsline {paragraph}{\nonumberline 2026-05-26 --- Ablations-Registry und \texttt {LGBMForecaster}}{3}{paragraph*.11}%
-\contentsline {paragraph}{\nonumberline 2026-05-26 --- Multi-Vehicle-Forecaster}{4}{paragraph*.12}%
-\contentsline {paragraph}{\nonumberline 2026-05-26 --- Run-Verzeichnis-Schema}{4}{paragraph*.13}%
-\contentsline {paragraph}{\nonumberline 2026-05-26 --- Forecaster-Familie pro Datenquelle}{4}{paragraph*.14}%
-\contentsline {chapter}{\numberline {2}Einleitung}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Motivation}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Problemstellung}{6}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Zielsetzung}{7}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Forschungsfragen}{7}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Aufbau der Arbeit}{7}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Theoretische Grundlagen}{9}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Mobilitätsdaten}{9}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Machine Learning}{10}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Überwachtes Lernen}{11}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Merkmale und Feature Engineering}{11}{subsection.3.2.2}%
-\contentsline {subsubsection}{\nonumberline Lag-Merkmal}{12}{subsubsection*.17}%
-\contentsline {subsubsection}{\nonumberline Rolling-Aggregate}{12}{subsubsection*.18}%
-\contentsline {subsection}{\numberline {3.2.3}Training, Generalisierung und Validierung}{12}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Bewertungsmetriken}{12}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Entscheidungsbäume}{12}{subsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.6}Ensemble-Methoden: Random Forest und Gradient Boosting}{13}{subsection.3.2.6}%
-\contentsline {subsection}{\numberline {3.2.7}Unsicherheit und Quantilsregression}{13}{subsection.3.2.7}%
-\contentsline {section}{\numberline {3.3}Verarbeitung von Mobilitätsdaten}{13}{section.3.3}%
-\contentsline {paragraph}{\nonumberline Recherche:}{13}{paragraph*.23}%
-\contentsline {paragraph}{\nonumberline Beschaffung:}{13}{paragraph*.24}%
-\contentsline {paragraph}{\nonumberline Bewertung:}{15}{paragraph*.25}%
-\contentsline {paragraph}{\nonumberline Verarbeitung:}{15}{paragraph*.26}%
-\contentsline {paragraph}{\nonumberline Modellierung:}{15}{paragraph*.27}%
-\contentsline {paragraph}{\nonumberline Nutzung:}{15}{paragraph*.28}%
-\contentsline {section}{\numberline {3.4}Stand der Forschung}{15}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Verwandte Arbeiten}{16}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Mobilitäts- und Nutzungsforecast}{17}{subsection.3.4.2}%
-\contentsline {section}{\numberline {3.5}Zusammenfassung}{17}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Methodik}{18}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Forschungsdesign}{18}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Vorgehen}{18}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Datenerhebung}{18}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Datenanalyse}{19}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Zusammenfassung}{19}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Implementierung}{20}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Systemarchitektur}{20}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Technologieauswahl}{20}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Umsetzung}{20}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Herausforderungen}{20}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Zusammenfassung}{20}{section.5.5}%
-\contentsline {chapter}{\numberline {6}Evaluation}{21}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Evaluationsdesign}{21}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Testumgebung}{21}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Ergebnisse}{21}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Zusammenfassung}{21}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Diskussion}{22}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Interpretation der Ergebnisse}{22}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Vergleich mit verwandten Arbeiten}{22}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Limitationen}{22}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Implikationen}{22}{section.7.4}%
-\contentsline {chapter}{\numberline {8}Fazit und Ausblick}{23}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Zusammenfassung}{23}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Beantwortung der Forschungsfragen}{23}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Ausblick}{23}{section.8.3}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{24}{chapter*.31}%
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{iv}{chapter*.4}%
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{v}{chapter*.5}%
+\contentsline {section}{\numberline {0.1}\textbf {TODO:}}{1}{section.0.1}%
+\contentsline {subsection}{\numberline {0.1.1}Lag}{1}{subsection.0.1.1}%
+\contentsline {subsection}{\numberline {0.1.2}Rolling}{1}{subsection.0.1.2}%
+\contentsline {subsection}{\numberline {0.1.3}Feature Sicherung}{1}{subsection.0.1.3}%
+\contentsline {subsection}{\numberline {0.1.4}Robustheit}{1}{subsection.0.1.4}%
+\contentsline {paragraph}{\nonumberline 2026-05-26 --- Multi-Trip-Aufloesung pro Tag}{1}{paragraph*.7}%
+\contentsline {paragraph}{\nonumberline 2026-05-26 --- Drei Fixes gegen Forecast-Kollaps bei niedriger Basisrate}{2}{paragraph*.8}%
+\contentsline {paragraph}{\nonumberline 2026-05-26 --- Auto-regressives Hourly-Forecasting (Hybrid-Pipeline)}{2}{paragraph*.9}%
+\contentsline {paragraph}{\nonumberline 2026-05-26 --- Training-Reiter im Frontend}{3}{paragraph*.10}%
+\contentsline {paragraph}{\nonumberline 2026-05-26 --- Modul-Reorganisation in \texttt {forecast/} und \texttt {classifier/}}{3}{paragraph*.11}%
+\contentsline {paragraph}{\nonumberline 2026-05-26 --- Ablations-Registry und \texttt {LGBMForecaster}}{3}{paragraph*.12}%
+\contentsline {paragraph}{\nonumberline 2026-05-26 --- Multi-Vehicle-Forecaster}{4}{paragraph*.13}%
+\contentsline {paragraph}{\nonumberline 2026-05-26 --- Run-Verzeichnis-Schema}{4}{paragraph*.14}%
+\contentsline {paragraph}{\nonumberline 2026-05-26 --- Forecaster-Familie pro Datenquelle}{4}{paragraph*.15}%
+\contentsline {chapter}{\numberline {1}Einleitung}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivation}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Problemstellung}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Zielsetzung}{7}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Forschungsfragen}{7}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Aufbau der Arbeit}{7}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Theoretische Grundlagen}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Mobilitätsdaten}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Machine Learning}{10}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Überwachtes Lernen}{11}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Merkmale und Feature Engineering}{11}{subsection.2.2.2}%
+\contentsline {subsubsection}{\nonumberline Lag-Merkmal}{12}{subsubsection*.18}%
+\contentsline {subsubsection}{\nonumberline Rolling-Aggregate}{12}{subsubsection*.19}%
+\contentsline {subsection}{\numberline {2.2.3}Training}{12}{subsection.2.2.3}%
+\contentsline {subsubsection}{\nonumberline Gini Index}{12}{subsubsection*.20}%
+\contentsline {subsection}{\numberline {2.2.4}Generalisierung}{13}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Validierung}{13}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}Bewertungsmetriken}{13}{subsection.2.2.6}%
+\contentsline {subsection}{\numberline {2.2.7}Entscheidungsbäume}{13}{subsection.2.2.7}%
+\contentsline {subsection}{\numberline {2.2.8}Ensemble-Methoden: Random Forest und Gradient Boosting}{13}{subsection.2.2.8}%
+\contentsline {subsection}{\numberline {2.2.9}Unsicherheit und Quantilsregression}{13}{subsection.2.2.9}%
+\contentsline {section}{\numberline {2.3}Verarbeitung von Mobilitätsdaten}{14}{section.2.3}%
+\contentsline {paragraph}{\nonumberline Recherche:}{14}{paragraph*.25}%
+\contentsline {paragraph}{\nonumberline Beschaffung:}{15}{paragraph*.26}%
+\contentsline {paragraph}{\nonumberline Bewertung:}{15}{paragraph*.27}%
+\contentsline {paragraph}{\nonumberline Verarbeitung:}{15}{paragraph*.28}%
+\contentsline {paragraph}{\nonumberline Modellierung:}{15}{paragraph*.29}%
+\contentsline {paragraph}{\nonumberline Nutzung:}{16}{paragraph*.30}%
+\contentsline {section}{\numberline {2.4}Stand der Forschung}{16}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Verwandte Arbeiten}{17}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Mobilitäts- und Nutzungsforecast}{17}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}Zusammenfassung}{17}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Methodik}{18}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Forschungsdesign}{18}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Vorgehen}{18}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Datenerhebung}{18}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Datenanalyse}{19}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Zusammenfassung}{19}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Implementierung}{20}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Systemarchitektur}{20}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Technologieauswahl}{20}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Umsetzung}{20}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Herausforderungen}{20}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Zusammenfassung}{20}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Evaluation}{21}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Evaluationsdesign}{21}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Testumgebung}{21}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Ergebnisse}{21}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Zusammenfassung}{21}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Diskussion}{22}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{22}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{22}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Limitationen}{22}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Implikationen}{22}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{23}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Zusammenfassung}{23}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Beantwortung der Forschungsfragen}{23}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Ausblick}{23}{section.7.3}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{24}{chapter*.33}%
 \def \@chapapp {\appendixname }
 \contentsline {chapter}{\numberline {A}Anhang}{25}{appendix.A}%
 \contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{25}{section.A.1}%
 \contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{25}{section.A.2}%
 \contentsline {section}{\numberline {A.3}Quellcode}{25}{section.A.3}%
-\contentsline {chapter}{Eidesstattliche Erklärung}{26}{chapter*.32}%
+\contentsline {chapter}{Eidesstattliche Erklärung}{26}{chapter*.34}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
