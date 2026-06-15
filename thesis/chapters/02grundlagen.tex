@@ -44,19 +44,19 @@ Wenn von Mobilitätsdaten gesprochen wird, ist im digitalen Rahmen meist die Red
 \end{figure}
 
 Das Prinzip des maschinellen Lernens besteht darin, einem Computer ein gewünschtes Verhalten anhand von Beispieldaten beizubringen, anstatt es durch einen fest vorgegebenen, regelbasierten
-Algorithmus explizit zu programmieren. Das Modell erkennt dabei statistische Muster in den Trainingsdaten und nutzt diese, um Vorhersagen für bislang ungesehene Eingaben zu treffen. Der Vorteil gegenüber einem starren Algorithmus liegt darin, dass komplexe Zusammenhänge -- wie das individuelle Mobilitätsverhalten -- erlernt werden können, ohne dass sie vorab vollständig bekannt sein müssen.
+Algorithmus explizit zu programmieren \parencite{bishop2006prml}. Das Modell erkennt dabei statistische Muster in den Trainingsdaten und nutzt diese, um Vorhersagen für bislang ungesehene Eingaben zu treffen. Der Vorteil gegenüber einem starren Algorithmus liegt darin, dass komplexe Zusammenhänge -- wie das individuelle Mobilitätsverhalten -- erlernt werden können, ohne dass sie vorab vollständig bekannt sein müssen.
 
 Häufig wird maschinelles Lernen mit künstlichen neuronalen Netzen gleichgesetzt, deren Aufbau  vom menschlichen Gehirn inspiriert ist. Neuronale Netze bilden jedoch nur eine von vielen Verfahrensklassen. Die in dieser Arbeit eingesetzten Modelle -- Random Forest und Gradient Boosting (\Cref{sec:themenbereich2} und \Cref{ch:methodik}) -- beruhen stattdessen auf Entscheidungsbäumen und sind nicht biologisch motiviert.
 \todo{erweitern mit neuen modellen etc}
 
 \subsection{Überwachtes Lernen}
-In dieser Arbeit kommt ausschließlich überwachtes Lernen zum Einsatz. Dabei lernt das Modell aus Beispielpaaren von Eingaben und zugehörigen, bekannten Zielwerten. Je nach Art des Zielwerts
+In dieser Arbeit kommt ausschließlich überwachtes Lernen zum Einsatz \parencite{hastie2009elements}. Dabei lernt das Modell aus Beispielpaaren von Eingaben und zugehörigen, bekannten Zielwerten. Je nach Art des Zielwerts
 unterscheidet man zwei Aufgabentypen, die in dieser Arbeit beide vorkommen: Klassifikation, bei der eine diskrete Klasse vorhergesagt wird (etwa ob ein Fahrzeug in einer gegebenen Stunde fährt oder geparkt ist), und Regression, bei der ein kontinuierlicher Wert geschätzt wird (etwa die Abfahrts- oder Rückkehrzeit).
 \todo{korrigieren/überwachen: hauptmerkmal klassifikation, da bestimme minutenzahl erstmal uninteressant und somit nur stunden für fährt= 1 oder 0}
 
 \subsection{Merkmale und Feature Engineering}
 
-Bei Machine Learning ist oft die Rede von Feature Engineering, oder das umformen von Merkmalen. Ein Merkmal ist beispielsweise eine Spalte in einer Comma-Separated-Value Datei (siehe \Cref{fig:mobilitaetsdaten}), hierbei könnte es sich um jede der Spalten handeln. Folglich ist der Zeitstempel, die Handlung, der Ort oder auch der Energiekonsum ein Merkmal bzw. Feature.
+Bei Machine Learning ist oft die Rede von Feature Engineering, oder das umformen von Merkmalen \parencite{geron2022handson}. Ein Merkmal ist beispielsweise eine Spalte in einer Comma-Separated-Value Datei (siehe \Cref{fig:mobilitaetsdaten}), hierbei könnte es sich um jede der Spalten handeln. Folglich ist der Zeitstempel, die Handlung, der Ort oder auch der Energiekonsum ein Merkmal bzw. Feature.
 
 In der Regel sind die Daten nicht in ihrer Rohform nicht direkt aussagekräftig, weswegen sie interpretiert werden müssen. Ein Zeitstempel (Beispiel: \texttt{2026-05-25 08:00:00}) hat ohne Kontext keinen bestimmten Wert, daher extrahiert man durch Feature Engineering die verborgenen Informationen und macht sie für das Modell zugänglich. Der genannte Zeitstempel bspw. ist im Kontext von Mobilität: 
 
@@ -69,19 +69,19 @@ Ein Modell entdeckt Muster nicht von selbst, daher muss man die Informationen ve
 
 \subsubsection{Lag-Merkmal}
 
-Ein Lag ist der Wert eines Merkmals aus einem früheren Zeitschritt. Lags sind teilweise periodisch und sind mit Stundenwerten gleichzusetzen. Ein \texttt{Lag\_1} beispielsweise ist das selbe Event, nur eine Stunde in der Vergangenheit, selbiges Schema gilt für einen \texttt{Lag\_168}, dieser liegt 168 Stunden in der Vergangenheit. Es gibt sehr spezifische Werte und diese erlauben auf bestimmte Muster Rückschlüsse. Lags von 1, 2, 24 und 168, wobei 24 Stunden einen Tag und 168 Stunden sieben Tage in der Vergangenheit abbilden. 
+Ein Lag ist der Wert eines Merkmals aus einem früheren Zeitschritt \parencite{hyndman2021forecasting}. Lags sind teilweise periodisch und sind mit Stundenwerten gleichzusetzen. Ein \texttt{Lag\_1} beispielsweise ist das selbe Event, nur eine Stunde in der Vergangenheit, selbiges Schema gilt für einen \texttt{Lag\_168}, dieser liegt 168 Stunden in der Vergangenheit. Es gibt sehr spezifische Werte und diese erlauben auf bestimmte Muster Rückschlüsse. Lags von 1, 2, 24 und 168, wobei 24 Stunden einen Tag und 168 Stunden sieben Tage in der Vergangenheit abbilden. 
 
 Ein Risiko, das durch Lag auftreten kann, ist die Rechnung über mehr als ein Fahrzeug hinweg. Dadurch kann ein Verhalten auf ein anderes Fahrzeug interpretiert werden und falsche zugewiesene Verhaltensmuster errechnen. 
 
 \subsubsection{Rolling-Aggregate}
 
-Ein \enquote{Rolling Mean}, oder Rolling-Mittel, fasst ein Zeitfenster zu einer Kennzahl zusammen. So werden beispielsweise die letzten 24 Stunden oder 7 Tage Aktivitätsanteil zusammengefasst. 
+Ein \enquote{Rolling Mean}, oder Rolling-Mittel, fasst ein Zeitfenster zu einer Kennzahl zusammen \parencite{hyndman2021forecasting}. So werden beispielsweise die letzten 24 Stunden oder 7 Tage Aktivitätsanteil zusammengefasst. 
 
 Data Leakage ist ein Risiko, das bei einem Rolling Mean auftreten kann, indem es die Zukunft einbezieht oder sogar den Zielwert selbst mit einrechnet. Dadurch lernt das Modell den tatsächlich gewünschten Wert und kann diesen, fälschlicherweise, richtig wiedergeben. Eine Falschimplementierung kann dazu führen, dass die Tests übermäßig gut abschneiden, im Realfall jedoch komplett versagen.
 
 \subsection{Training}
 
-Wenn ein Modell trainiert wird, passt es die eigenen internen Parameter an die Trainingsdaten an, sodass Vorhersagen möglichst gut zu den gelernten Zielwerten passt. Formal wird dabei das Resultat einer Verlustfunktion minimiert, welche misst, wie weit die Vorhersage von der Wahrheit abweicht. Bei einem baumbasierten Modell werden konkret Splits gewählt für bestimmte Merkmale und Schwellen, die gewisse Zielgrößen im jeweiligen Knoten am besten trennen.
+Wenn ein Modell trainiert wird, passt es die eigenen internen Parameter an die Trainingsdaten an, sodass Vorhersagen möglichst gut zu den gelernten Zielwerten passt \parencite{bishop2006prml}. Formal wird dabei das Resultat einer Verlustfunktion minimiert, welche misst, wie weit die Vorhersage von der Wahrheit abweicht. Bei einem baumbasierten Modell werden konkret Splits gewählt für bestimmte Merkmale und Schwellen, die gewisse Zielgrößen im jeweiligen Knoten am besten trennen.
 
 \subsubsection{Gini Index}
 
@@ -94,7 +94,7 @@ den Klassenanteilen $p_i$ lautet \parencite{breiman1984cart}:
 \end{equation}
 
 Für den binären Fall mit zwei Klassen ($p_1 = p$, $p_0 = 1-p$) vereinfacht sich
-\eqref{eq:gini} zu \parencite{breiman1984cart}:
+\Cref{eq:gini} zu \parencite{breiman1984cart}:
 
 \begin{equation}
   G = 1 - \left(p^{2} + (1-p)^{2}\right) = 2\,p\,(1-p)
@@ -110,24 +110,54 @@ Hier spricht man von einer Unreinheit: einer Metrik, die ausdrückt, mit welcher
   \label{eq:gini_split}
 \end{equation}
 
-In Formel \eqref{eq:gini_split} zeigt $n$ die Elemente im Elternknoten und $G$ die Unreinheit des jeweiligen Knoten an. Der Rest funktioniert analog, anhand der vorausgegangenen Formeln. Mit der Split-Formel lassen sich mehrere Iterationen pro Knoten vornehmen, wovon dann der reinste Split verwendet wird, um im Baum eine Rekursionsebene tiefer zu schreiten. Insgesamt funktioniert dieser Split $n-1$ mal.
+In \Cref{eq:gini_split} zeigt $n$ die Elemente im Elternknoten und $G$ die Unreinheit des jeweiligen Knoten an. Der Rest funktioniert analog, anhand der vorausgegangenen Formeln. Mit der Split-Formel lassen sich mehrere Iterationen pro Knoten vornehmen, wovon dann der reinste Split verwendet wird, um im Baum eine Rekursionsebene tiefer zu schreiten. Insgesamt funktioniert dieser Split $n-1$ mal.
 
 
 \subsection{Generalisierung}
 
-Das Prinzip der Generalisierung ist es, ein Modell so zu trainieren, dass es die Muster der Daten erkennt und deren Berechnung erlernt. Das bedeutet, dass das Modell auch mit neuen Daten -- die ungesehene Inhalte verwenden -- umgehen kann, die nah am gelernten Schema liegen.
+Das Prinzip der Generalisierung ist es, ein Modell so zu trainieren, dass es die Muster der Daten erkennt und deren Berechnung erlernt \parencite{hastie2009elements}. Das bedeutet, dass das Modell auch mit neuen Daten -- die ungesehene Inhalte verwenden -- umgehen kann, die nah am gelernten Schema liegen. \Cref{tab:fitting} fasst zusammen, wie sich Unter-, gute und Überanpassung anhand von Trainings- und Testfehler unterscheiden lassen.
 
 \subsubsection{Overfitting}
 
-Bei einem Modell das overfitted ist, sind Trainingsfehler unterrepräsentiert und Testfehler überrepräsentiert. Kurzum bedeutet das, dass das Modell die Daten zu gut kennt und diese quasi auswendig weiß, bei neuen Daten jedoch oft und stark abweicht.
+Bei einem überangepassten Modell sind Trainingsfehler niedrig und Testfehler hoch. Kurzum bedeutet das, dass das Modell die Daten zu gut kennt und diese quasi auswendig weiß, bei neuen Daten jedoch oft und stark abweicht.
 
 \subsubsection{Underfitting}
 
-Ein Modell das underfitted ist, schneidet weder beim Training, noch beim Test gut ab. Das Modell hat zu wenig Trainingsdaten genutzt, um zu lernen, was das eigentlich Arbeitsschema ist und schneidet damit dann auch bei den Testdaten überdurchschnittlich schlecht ab.
+Ein Modell das unterangepasst ist, schneidet weder beim Training, noch beim Test gut ab. Hier ist das Modell zu simpel bzw. seine Kapazität zu gering, um das zugrunde liegende Muster zu erfassen. Fehler bleiben dadurch bei beiden Datensätzen hoch.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabularx}{\textwidth}{@{}l c c X@{}}
+    \toprule
+    \textbf{Anpassung} & \textbf{Trainingsfehler} & \textbf{Testfehler} &
+    \textbf{Charakteristik} \\
+    \midrule
+    Underfitting & hoch & hoch & Modell
+    zu simpel; das zugrunde liegende Muster wird nicht erfasst. \\
+    \addlinespace
+    Gute Anpassung & niedrig  & niedrig &
+    Kleine Generalisierungslücke; die Muster werden auf neue Daten
+    übertragen. \\
+    \addlinespace
+    Overfitting & sehr niedrig & hoch &
+    Große Generalisierungslücke; Trainingsdaten werden inklusive Rauschen
+    auswendig gelernt. \\
+    \bottomrule
+  \end{tabularx}
+  \caption{Charakterisierung von Anpassungen anhand von Fehlerwerten \cite{geron2022handson}.}
+  \label{tab:fitting}
+\end{table}
 
 \subsection{Validierung}
 
+Durch die Validierung ist es möglich der Genauigkeit des Modells einen numerischen Wert zuzuweisen, was funktioniert, indem man das Modell Daten bewerten lässt, die bisher nicht bekannt waren. 
 
+\begin{equation}
+  \text{CV}(\hat{f}) = \frac{1}{N}\sum_{i=1}^{N} L!\left(y_i,\ \hat{f}^{-\kappa(i)}(x_i)\right)
+  \label{eq:validify}  
+\end{equation}
+
+Die \Cref{eq:validify} beschreibt die Genauigkeit eines Modells auf einer bestimmten Menge Daten. Hierfür wird ein Datensatz in $K$ gleichgroße Mengen unterteilt -- auch \textit{Folds} genannt -- gefolgt von $K+1$ trainings. Da $K$ \textit{Folds} existieren, wird das Modell einmal mit jedem \textit{Fold} getestet und hat zur Grundlage die restlichen \textit{Folds}.
 
 \subsection{Bewertungsmetriken}
 
