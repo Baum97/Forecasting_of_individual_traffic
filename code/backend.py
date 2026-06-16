@@ -49,6 +49,7 @@ _SOURCE_META = {
     "emobpy":      ("emobpy",        "Simulierte emobpy-Fahrzeuge.",                "simulation"),
     "ved":         ("VED",           "Vehicle Energy Dataset (Univ. of Michigan).", "real_world"),
     "routine":     ("Routine",       "Synthetische Routine-Zeitreihe.",             "simulation"),
+    "yjmob":       ("YJMob100K",     "Menschliche Bewegungsdaten (Smartphone-GPS, kein Fahrzeug); driving = Bewegungs-Proxy.", "real_world"),
 }
 
 # Lesbare Algo-Namen.
@@ -536,6 +537,7 @@ _TRAIN_SCRIPTS = {
     "realworldev": _REPO_ROOT / "code" / "model_scripts" / "forecast" / "train_realworldev_forecaster.py",
     "routine":     _REPO_ROOT / "code" / "model_scripts" / "forecast" / "train_routine_forecaster.py",
     "ved":         _REPO_ROOT / "code" / "model_scripts" / "forecast" / "train_ved_forecaster.py",
+    "yjmob":       _REPO_ROOT / "code" / "model_scripts" / "forecast" / "train_yjmob_forecaster.py",
 }
 _ALLOWED_ALGOS = {"rf", "lgbm"}
 
@@ -593,7 +595,7 @@ def start_training(req: TrainRequest) -> dict:
         raise HTTPException(status_code=500, detail=f"Skript fehlt: {script}")
 
     cmd: List[str] = [sys.executable, str(script), "--model", req.algo]
-    if req.limit_vehicles is not None and req.source in {"emobpy", "ved"}:
+    if req.limit_vehicles is not None and req.source in {"emobpy", "ved", "yjmob"}:
         cmd += ["--limit-vehicles", str(req.limit_vehicles)]
     if req.history_days is not None:
         cmd += ["--history-days", str(req.history_days)]

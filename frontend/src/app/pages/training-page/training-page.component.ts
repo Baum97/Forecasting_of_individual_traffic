@@ -57,6 +57,15 @@ const SOURCES: SourceOption[] = [
     supportsLimitVehicles: false,
     defaultHistoryDays: 60,
   },
+  {
+    id: 'yjmob',
+    label: 'YJMob100K',
+    description:
+      'Anonymisierte Smartphone-Bewegungsdaten von Personen (kein Fahrzeug, kein Verkehrstraeger). driving ist ein abgeleiteter Bewegungs-Proxy; dient als Kontrast-Quelle mit deutlich hoeherer Aktiv-Rate.',
+    supportsLimitVehicles: true,
+    defaultHistoryDays: 60,
+    defaultLimitVehicles: 50,
+  },
 ];
 
 const ALGOS: AlgoOption[] = [

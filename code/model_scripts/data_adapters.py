@@ -11,6 +11,12 @@ Source mapping:
     real_world_ev -> data/cars-real-world-electric/car_full_timeline.csv
     ved           -> data/VED/VED_DynamicData_Part{1,2}/*.csv  (DayNum-based)
     routine       -> data/generated_trips/routine.csv          (single synthetic person)
+    yjmob         -> data/yjmob100k/task2_dataset_kotae.csv    (human GPS traces; driving = movement proxy)
+
+Hinweis zu yjmob: Smartphone-Bewegungsdaten von Personen (kein Fahrzeug,
+kein Verkehrstraeger). ``driving`` wird hier als Bewegungs-Proxy abgeleitet
+(Rasterzelle gewechselt = aktiv) und bedeutet "in Bewegung", nicht woertlich
+"faehrt".
 """
 from __future__ import annotations
 
@@ -124,6 +130,65 @@ def load_ved(
     return pd.concat(parts, ignore_index=True)[["vehicle_id", "timestamp", "driving"]]
 
 
+# YJMob100K (human mobility, smartphone GPS) ---------------------------------
+
+YJMOB_EPOCH = pd.Timestamp("2023-01-01")  # synthetisch; Datumsangaben anonymisiert
+
+
+def load_yjmob(
+    limit_vehicles: Optional[int] = 50,
+    src: Optional[Path] = None,
+) -> pd.DataFrame:
+    """YJMob100K Smartphone-Standortspuren (KEINE Fahrzeugdaten).
+
+    Rohspalten: uid, d (Tag), t (30-Min-Slot 0..47), x, y (200x200-Rasterzelle).
+    Es gibt kein driving-Label und kein Fahrzeug; ``driving`` wird als
+    Bewegungs-Proxy abgeleitet: Ein Slot gilt als aktiv, wenn sich die
+    Rasterzelle (x, y) gegenueber dem vorigen *beobachteten* Slot derselben
+    Person geaendert hat. Anschliessend auf ein Stundenraster aggregiert
+    (Stunde aktiv, wenn mind. ein 30-Min-Slot Bewegung zeigt). Stunden ohne
+    Beobachtung gelten als stationaer (0) -- eine bewusste Annahme.
+    """
+    if src is None:
+        src = DATA_ROOT / "yjmob100k" / "task2_dataset_kotae.csv"
+
+    df = pd.read_csv(src, usecols=["uid", "d", "t", "x", "y"])
+
+    if limit_vehicles is not None:
+        keep = sorted(df["uid"].unique())[:limit_vehicles]
+        df = df[df["uid"].isin(keep)]
+
+    df = df.sort_values(["uid", "d", "t"], kind="stable")
+
+    # Bewegungs-Proxy: Zelle gegenueber vorigem beobachteten Slot geaendert?
+    prev_x = df.groupby("uid")["x"].shift()
+    prev_y = df.groupby("uid")["y"].shift()
+    df["moved"] = (((df["x"] != prev_x) | (df["y"] != prev_y)) & prev_x.notna()).astype(int)
+
+    # 30-Min-Slot -> Stunden-Zeitstempel
+    df["timestamp"] = (
+        YJMOB_EPOCH
+        + pd.to_timedelta(df["d"], unit="D")
+        + pd.to_timedelta(df["t"].astype("int64") * 30, unit="min")
+    ).dt.floor("h")
+
+    # Stunde aktiv, wenn ein beobachteter Slot darin Bewegung zeigt
+    active = df.groupby(["uid", "timestamp"])["moved"].max().reset_index()
+
+    parts = []
+    for uid, grp in active.groupby("uid"):
+        ts_min = grp["timestamp"].min().normalize()
+        ts_max = (grp["timestamp"].max() + pd.Timedelta(hours=1)).normalize()
+        full = pd.date_range(ts_min, ts_max, freq="h", inclusive="left")
+        d = pd.DataFrame({"timestamp": full})
+        d["vehicle_id"] = f"yjmob_{uid}"
+        act = dict(zip(grp["timestamp"], grp["moved"]))
+        d["driving"] = d["timestamp"].map(act).fillna(0).astype(int)
+        parts.append(d)
+
+    return pd.concat(parts, ignore_index=True)[["vehicle_id", "timestamp", "driving"]]
+
+
 # Registry -------------------------------------------------------------------
 
 SOURCES = {
@@ -131,6 +196,7 @@ SOURCES = {
     "real_world_ev": load_real_world_ev,
     "ved": load_ved,
     "routine": load_routine,
+    "yjmob": load_yjmob,
 }
 
 

@@ -22,6 +22,24 @@
     \item Drop von Datenpunkten bei fehleraften werten
 \end{itemize}
 
+\subsection{YJMob100K}
+\begin{itemize}
+    \item Bewegungs-Proxy (Rasterzellenwechsel) als \texttt{driving}-Label methodisch begründen
+    \item Annahme "Stunde ohne Beobachtung = stationär" diskutieren
+    \item Entscheiden, ob yjmob in die 4x4-Cross-Validation-Matrix aufgenommen wird (Domänenunterschied: Aktiv-Rate ~48\% vs.\ 3--10\% bei EV-Quellen)
+    \item Als menschliche Bewegungsdaten deklarieren, nicht als Fahrzeug-/Driving-Quelle
+\end{itemize}
+
+\paragraph{2026-06-15 --- YJMob100K als zusaetzliche Quelle}
+Adapter \texttt{load\_yjmob} in \texttt{data\_adapters.py} ergaenzt (Registry-
+Key \texttt{yjmob}). YJMob100K sind anonymisierte Smartphone-Bewegungsdaten von
+Personen (kein Fahrzeug, kein Verkehrstraeger); \texttt{driving} wird daher als
+Bewegungs-Proxy aus Rasterzellenwechseln abgeleitet und auf das Stundenraster
+aggregiert. Begruendung: vergroessert die Quellenvielfalt fuer die
+4x4-Cross-Validation und liefert einen reinen Mobilitaets-ohne-Fahrzeugbezug-
+Kontrast; die deutlich hoehere Aktiv-Rate (~48\% vs.\ 3--10\% bei den
+EV-Quellen) ist methodisch als Domaenenunterschied zu diskutieren.
+
 \paragraph{2026-05-26 --- Multi-Trip-Aufloesung pro Tag}
 Die bisherige Tageskarte fasste einen Tag auf eine einzige
 Abfahrt/Rueckkehr-Spanne zusammen (\texttt{depEst} = erste aktive Stunde,

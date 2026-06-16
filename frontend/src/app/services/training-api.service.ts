@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 const API_BASE = 'http://localhost:8000';
 
 export interface TrainStartRequest {
-  source: 'emobpy' | 'realworldev' | 'routine' | 'ved';
+  source: 'emobpy' | 'realworldev' | 'routine' | 'ved' | 'yjmob';
   algo: 'rf' | 'lgbm';
   limit_vehicles?: number;
   history_days?: number;
