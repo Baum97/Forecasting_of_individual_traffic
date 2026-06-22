@@ -1,0 +1,151 @@
+% =============================================================================
+% IT-Innovation -- A3-Poster zur Masterarbeit (Querformat, 3 Spalten)
+% Editierbar: Texte/Bilder/Farben unten direkt anpassen.
+% Kompilieren:  pdflatex poster_a3.tex   (einmal genuegt; Bilder noetig)
+% Bilder werden aus ../thesis/images/ gezogen (siehe \graphicspath).
+% =============================================================================
+\documentclass[10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern}
+\usepackage[a3paper,landscape,margin=1.4cm]{geometry}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+\graphicspath{{../../thesis/images/}}
+
+% --- Farben (anpassbar) ------------------------------------------------------
+\definecolor{heblue}{RGB}{0,60,113}
+\definecolor{hegray}{RGB}{238,240,243}
+
+% --- Layout-Einstellungen ----------------------------------------------------
+\setlength{\columnsep}{1.1cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35em}
+\pagestyle{empty}
+
+% Abschnitts-Box: farbige Ueberschrift + Trennlinie
+\newcommand{\poster}[1]{%
+  \vspace{0.10em}%
+  {\color{heblue}\large\bfseries #1}\par\nobreak
+  {\color{heblue}\rule{\linewidth}{1.2pt}}\par\nobreak\vspace{0.25em}}
+
+% Bild + kleine Unterschrift (ohne float, multicol-tauglich)
+\newcommand{\posterfig}[3]{% #1 = datei, #2 = breite (0..1), #3 = caption
+  \par\nobreak\vspace{0.3em}%
+  \noindent\begin{minipage}{\linewidth}\centering
+    \includegraphics[width=#2\linewidth]{#1}\\[0.2em]
+    {\footnotesize #3}%
+  \end{minipage}\par\vspace{0.3em}}
+
+\begin{document}
+
+% --- Kopfbereich (volle Breite) ---------------------------------------------
+\noindent
+\begin{minipage}[c]{0.80\textwidth}
+  {\color{heblue}\Huge\bfseries Prognose individuellen Mobilitätsverhaltens}\\[0.3em]
+  {\LARGE auf Basis eines mit Bewegungsdaten trainierten Machine-Learning-Modells}\\[0.6em]
+  {\large Achim Baumgärtner
+   \quad\textbar\quad Betreuung: Gian Ledl-Truöl, Prof.\,Dr.\ Sonntag
+   \quad\textbar\quad Fakultät Informatik und Informationstechnik, Hochschule Esslingen}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.18\textwidth}
+  \raggedleft
+  \includegraphics[height=2.4cm]{HochschuleEsslingen_Logo_4c_DE.png}\\[0.5em]
+  \includegraphics[height=1.6cm]{KEIM-quadr.png}
+\end{minipage}
+
+\vspace{0.5em}
+{\color{heblue}\rule{\textwidth}{2.5pt}}
+\vspace{0.6em}
+
+% --- Drei Spalten ------------------------------------------------------------
+\begin{multicols}{3}
+\raggedcolumns
+
+\poster{Motivation}
+Der wachsende Anteil erneuerbarer Energien erzeugt ein Speicherproblem:
+überschüssiger Strom lässt sich bislang kaum wirtschaftlich speichern.
+\textbf{Elektrofahrzeuge} können als mobile, verteilte Speicher dienen und
+über \emph{Vehicle-to-Grid} (V2G) Energie ins Netz zurückspeisen. Voraussetzung
+ist, dass bekannt ist, \emph{wann} ein Fahrzeug genutzt wird und wann es dem Netz zur Verfügung steht -- eine Fehleinschätzung kann bis zur Nichtverfügbarkeit des Fahrzeugs führen.
+
+\poster{Problem \& Forschungslücke}
+Bestehende Arbeiten behandeln überwiegend das \emph{Lade}verhalten oder
+\emph{aggregierte} Gruppen. Das \textbf{individuelle} Fahrverhalten einzelner
+Fahrzeuge wird kaum modelliert, obwohl es stark heterogen ist~[1]. Zudem fehlt ein einheitliches Datenformat: Datensätze unterscheiden sich erheblich in Schema, Auflösung und Qualität.
+
+\poster{Forschungsfragen}
+\begin{enumerate}[leftmargin=1.3em,itemsep=0.15em,topsep=0.1em]
+  \item Wie zuverlässig lässt sich individuelles Mobilitätsverhalten über bis
+        zu sieben Tage vorhersagen, und wie unterscheiden sich die Lernverfahren?
+        Welchen Einfluss hat die \textbf{Datenqualität} -- getrennt vom \textbf{Algorithmus}?
+  \item Welche Anforderungen an die Datengrundlage ergeben sich, und wie lässt sich ihre Qualität bewerten?
+\end{enumerate}
+
+\poster{Ziele}
+\begin{itemize}[leftmargin=1.2em,itemsep=0.12em,topsep=0.1em]
+  \item ein zuverlässiges Prognosemodell für das individuelle Mobilitätsverhalten (1--7 Tage),
+  \item Vergleich mehrerer Lernverfahren hinsichtlich Genauigkeit,
+  \item Trennung des Daten- vom Algorithmus-Effekt,
+  \item kalibrierte Unsicherheit (P10/P90) als Entscheidungsgrundlage für die Netzsteuerung.
+\end{itemize}
+
+\poster{Daten}
+Fünf heterogene Quellen werden über einen Adapter auf ein einheitliches Schema (\texttt{vehicle\_id, timestamp, driving}) gebracht:
+
+\vspace{0.2em}
+{\footnotesize
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+\textbf{Quelle} & \textbf{Charakter} \\
+\midrule
+emobpy        & synthetische BEV-Profile~[2] \\
+real\_world\_ev & reale EV-Felddaten~[3] \\
+VED           & Fahrzeug-Energiedaten~[4] \\
+routine       & regelbasierte Referenz \\
+YJMob100K     & menschl.\ Bewegungsdaten (Kontrast)~[5] \\
+\bottomrule
+\end{tabularx}}
+
+\posterfig{data_emobpy.png}{0.5}{Beispiel: heterogene Rohdatenformate}
+
+\poster{Methodik}
+Zwei überwachte Teilaufgaben: \textbf{Klassifikation} (fährt vs.\ geparkt, pro Stunde) und \textbf{Regression} (Abfahrts-/Rückkehrzeit). Aus den Rohdaten werden Kalender-, Lag- und Rolling-Merkmale abgeleitet; Lags respektieren die Fahrzeuggrenzen (kein Datenleck).
+
+\posterfig{prozess_diagramm.png}{0.72}{Verarbeitungs-Pipeline der Mobilitätsdaten}
+
+Als Verfahren dienen baumbasierte Ensembles -- \textbf{Random Forest}~[6] als Baseline und \textbf{Gradient Boosting (LightGBM)}. Beide liefern Unsicherheits- bänder (P10/P90); ein autoregressives Monte-Carlo-Rollout erzeugt stundengenaue Prognosen. Das starke Klassenungleichgewicht (Fahrzeuge stehen meist) wird durch \textbf{Klassengewichtung} ausgeglichen.
+
+\posterfig{decisiontree2.png}{0.45}{Entscheidungsbaum: Split nach Gini-Unreinheit}
+
+\poster{Evaluationsdesign \& Ergebnis}
+Eine \textbf{Kreuzvalidierungs-Matrix} trainiert je Modell auf einer Quelle und testet auf \emph{allen}. Da Algorithmus und Merkmale konstant bleiben, isoliert sie den \textbf{Daten-} vom \textbf{Algorithmus-Effekt}. Alle Splits sind \textbf{zeitlich} (Vergangenheit\,$\rightarrow$\,Training, Zukunft\,$\rightarrow$\,Test), nie zufällig.
+
+\posterfig{../cv_f1_5x5.png}{0.68}{F1 der 5$\times$5-Kreuzvalidierung (Zeile:
+  trainiert, Spalte: getestet)}
+
+Die Diagonale (In-Domain) ist meist am stärksten. \texttt{VED} bleibt schwach (nur Fahrt-Logs, rekonstruierte Parkzeiten), während leicht prognostizierbare Quellen mit hoher Aktiv-Rate (\texttt{routine}, \texttt{YJMob}) hohe Werte erreichen -- der \textbf{Einfluss der Datenquelle} wird klar sichtbar.
+
+\poster{Fazit \& Ausblick}
+Die Arbeit schafft die Grundlage für eine vorausschauende, fahrzeugscharfe Steuerung von Energieflüssen. Da menschliche Mobilität eine prinzipielle Vorhersagbarkeitsgrenze besitzt~[7], steht nicht die perfekte Prognose im Fokus, sondern \textbf{belastbare, unsicherheitsbewusste} Aussagen. Ausblick: sequenzielle Modelle (LSTM, Transformer) und \"Ubertragbarkeit auf neue Nutzer.
+
+\poster{Quellen}
+{\footnotesize\setlength{\parskip}{0.15em}
+[1]~Ji et al., \emph{Rethinking the Regularity in Mobility Patterns}, T.\ in GIS, 2023.\par
+[2]~Gaete-Morales et al., \emph{emobpy}, Zenodo, 2020.\par
+[3]~Pozzato et al., \emph{Real-World EV Field Data}, Mendeley, 2023.\par
+[4]~Oh et al., \emph{Vehicle Energy Dataset (VED)}, IEEE T-ITS, 2022.\par
+[5]~Yabe et al., \emph{YJMob100K}, Scientific Data, 2024.\par
+[6]~Breiman, \emph{Random Forests}, Machine Learning, 2001.\par
+[7]~Song et al., \emph{Limits of Predictability in Human Mobility}, Science, 2010.\par}
+
+\end{multicols}
+\end{document}

@@ -102,6 +102,7 @@ def train_model(df: pd.DataFrame, cfg: TrainConfig | None = None) -> RandomFores
         n_estimators=cfg.n_estimators,
         min_samples_leaf=cfg.min_samples_leaf,
         max_depth=cfg.max_depth,
+        class_weight="balanced",
         random_state=cfg.random_state,
         n_jobs=cfg.n_jobs,
     )

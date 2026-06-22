@@ -34,13 +34,14 @@ from model_scripts.data_adapters import (
     load_real_world_ev,
     load_routine,
     load_ved,
+    load_yjmob,
 )
 
 MODELS_DIR = Path(__file__).resolve().parents[3] / "models"
 PRED_DIR = Path(__file__).resolve().parents[3] / "predictions"
 
 
-def build_datasets(emobpy_n: int, ved_n: int, ved_files: int) -> dict:
+def build_datasets(emobpy_n: int, ved_n: int, ved_files: int, yjmob_n: int) -> dict:
     print("loading datasets...")
     out = {}
     print(f"  emobpy (limit_vehicles={emobpy_n})...")
@@ -51,6 +52,8 @@ def build_datasets(emobpy_n: int, ved_n: int, ved_files: int) -> dict:
     out["ved"] = load_ved(limit_vehicles=ved_n, limit_files=ved_files)
     print(f"  routine...")
     out["routine"] = load_routine()
+    print(f"  yjmob (limit_vehicles={yjmob_n})...")
+    out["yjmob"] = load_yjmob(limit_vehicles=yjmob_n)
 
     for name, df in out.items():
         print(
@@ -63,7 +66,7 @@ def build_datasets(emobpy_n: int, ved_n: int, ved_files: int) -> dict:
 
 def heatmap(matrix: pd.DataFrame, metric: str, title: str, out_path: Path) -> None:
     pivot = matrix.pivot(index="model_trained_on", columns="evaluated_on", values=metric)
-    order = ["emobpy", "real_world_ev", "ved", "routine"]
+    order = ["emobpy", "real_world_ev", "ved", "routine", "yjmob"]
     pivot = pivot.reindex(index=order, columns=order)
 
     fig, ax = plt.subplots(figsize=(7, 5.5))
@@ -102,6 +105,7 @@ def main() -> None:
     parser.add_argument("--emobpy-vehicles", type=int, default=30)
     parser.add_argument("--ved-vehicles", type=int, default=15)
     parser.add_argument("--ved-files", type=int, default=4)
+    parser.add_argument("--yjmob-vehicles", type=int, default=50)
     parser.add_argument("--dataset-tag", default="all_sources",
                         help="Rahmenbedingung im Run-Ordnernamen.")
     parser.add_argument("--out-csv", type=Path, default=None)
@@ -122,7 +126,8 @@ def main() -> None:
         args.accuracy_heatmap_out = run_dir / "cross_validation_accuracy_heatmap.png"
     print(f"run output dir: {run_dir}")
 
-    datasets = build_datasets(args.emobpy_vehicles, args.ved_vehicles, args.ved_files)
+    datasets = build_datasets(args.emobpy_vehicles, args.ved_vehicles, args.ved_files,
+                              args.yjmob_vehicles)
     # Compute features on the full timeline first, then split.
     # Otherwise lag_168 (1 week) would invalidate short test sets like VED.
     prepared = {name: make_features(df) for name, df in datasets.items()}
@@ -160,7 +165,7 @@ def main() -> None:
 
     print("\n=== summary (F1) ===")
     pivot = matrix.pivot(index="model_trained_on", columns="evaluated_on", values="f1")
-    order = ["emobpy", "real_world_ev", "ved", "routine"]
+    order = ["emobpy", "real_world_ev", "ved", "routine", "yjmob"]
     print(pivot.reindex(index=order, columns=order).round(3).to_string())
 
 

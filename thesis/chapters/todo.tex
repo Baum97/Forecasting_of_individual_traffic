@@ -30,6 +30,17 @@
     \item Als menschliche Bewegungsdaten deklarieren, nicht als Fahrzeug-/Driving-Quelle
 \end{itemize}
 
+\paragraph{2026-06-19 --- Klassengewichtung in der Cross-Validation}
+\texttt{base.py:train\_model} (Pfad der 4x4-Matrix) trainiert den
+\texttt{RandomForestClassifier} nun mit \texttt{class\_weight="balanced"}.
+Begruendung: Bei niedrigen Aktiv-Raten (real\_world\_ev 2\%, ved 5\%, emobpy 10\%)
+sagte das Modell fast nur "geparkt" voraus -- hohe Accuracy, aber F1 der
+Minderheitsklasse nahe 0, selbst In-Domain. Damit war die Matrix kein fairer
+Vergleich. Mit Gewichtung steigen die In-Domain-F1 deutlich (emobpy 0{,}005 ->
+0{,}32, real\_world\_ev 0{,}44 -> 0{,}68) und werden interpretierbar. Damit ist
+die CV-Pipeline konsistent zum bereits gewichteten Hourly-Classifier des
+Forecasters.
+
 \paragraph{2026-06-15 --- YJMob100K als zusaetzliche Quelle}
 Adapter \texttt{load\_yjmob} in \texttt{data\_adapters.py} ergaenzt (Registry-
 Key \texttt{yjmob}). YJMob100K sind anonymisierte Smartphone-Bewegungsdaten von
