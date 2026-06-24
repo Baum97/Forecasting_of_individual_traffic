@@ -24,20 +24,35 @@
 
 \todo{Die Ergebnisse der Evaluation präsentieren. Tabellen und Grafiken verwenden.}
 
-% Beispiel für eine Tabelle:
-% \begin{table}[htbp]
-%     \centering
-%     \caption{Ergebnisse der Evaluation}
-%     \label{tab:ergebnisse}
-%     \begin{tabular}{lcc}
-%         \toprule
-%         \textbf{Metrik} & \textbf{Wert} & \textbf{Einheit} \\
-%         \midrule
-%         Genauigkeit & 95,3 & \% \\
-%         Laufzeit & 1,2 & s \\
-%         \bottomrule
-%     \end{tabular}
-% \end{table}
+\Cref{tab:cv_metrics} fasst die In-Distribution-Gütemaße des binären
+Driving-Classifiers je Datenquelle zusammen (Modell trainiert und getestet auf
+derselben Quelle, zeitlicher 80/20-Split). Verglichen werden RandomForest und
+LightGBM bei identischem Feature-Satz, sodass die Differenz allein den
+Algorithmus-Effekt widerspiegelt. Die Aktiv-Rate (Anteil der Fahrstunden)
+verdeutlicht die Klassen-Imbalance und damit, warum die Accuracy allein
+irreführt: Bei real\_world\_ev (2{,}3\,\% Aktiv-Rate) erreicht das Modell
+98\,\% Accuracy, der F1 der Minderheitsklasse liegt jedoch deutlich darunter.
+
+\begin{table}[htbp]
+    \centering
+    \caption{In-Distribution-Gütemaße des Driving-Classifiers je Datenquelle
+    (Acc.\ = Accuracy, AUC = ROC-AUC). Vergleich RandomForest und LightGBM bei
+    identischem Feature-Satz.}
+    \label{tab:cv_metrics}
+    \begin{tabular}{lc ccc ccc}
+        \toprule
+        & & \multicolumn{3}{c}{\textbf{RandomForest}} & \multicolumn{3}{c}{\textbf{LightGBM}} \\
+        \cmidrule(lr){3-5}\cmidrule(lr){6-8}
+        \textbf{Datenquelle} & \textbf{Aktiv-Rate} & Acc. & F1 & AUC & Acc. & F1 & AUC \\
+        \midrule
+        emobpy          & 0,096 & 0,697 & 0,319 & 0,798 & 0,641 & 0,307 & 0,809 \\
+        real\_world\_ev & 0,023 & 0,983 & 0,681 & 0,884 & 0,969 & 0,366 & 0,850 \\
+        ved             & 0,048 & 0,880 & 0,077 & 0,733 & 0,846 & 0,092 & 0,687 \\
+        routine         & 0,264 & 0,898 & 0,818 & 0,961 & 0,880 & 0,783 & 0,954 \\
+        yjmob           & 0,382 & 0,726 & 0,669 & 0,798 & 0,726 & 0,676 & 0,807 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 % Beispiel für eine Abbildung:
 % \begin{figure}[htbp]

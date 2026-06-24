@@ -30,6 +30,15 @@
     \item Als menschliche Bewegungsdaten deklarieren, nicht als Fahrzeug-/Driving-Quelle
 \end{itemize}
 
+\paragraph{2026-06-24 --- LightGBM-Variante in der Cross-Validation (Ablation)}
+\texttt{base.py:train\_model} akzeptiert nun einen \texttt{algo}-Parameter
+(\texttt{rf}/\texttt{lgbm}); \texttt{run\_cross\_validation.py} trainiert und
+evaluiert pro Quelle beide Algorithmen auf identischem Feature-Satz und schreibt
+eine \texttt{algo}-Spalte in die Ergebnis-Matrix (plus Heatmaps je Algorithmus).
+Begruendung: Damit laesst sich der Algorithmus-Effekt (RandomForest vs.\
+LightGBM) sauber gegen den Datenqualitaets-Effekt der 5x5-Matrix abgrenzen --
+Grundlage der geplanten Ablationsstudie.
+
 \paragraph{2026-06-19 --- Klassengewichtung in der Cross-Validation}
 \texttt{base.py:train\_model} (Pfad der 4x4-Matrix) trainiert den
 \texttt{RandomForestClassifier} nun mit \texttt{class\_weight="balanced"}.

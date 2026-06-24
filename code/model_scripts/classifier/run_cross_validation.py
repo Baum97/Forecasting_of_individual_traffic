@@ -3,10 +3,17 @@ Train one model per data source and evaluate every model on every source.
 
 Each dataset is split into train/test by time (80/20). Each model is fit on
 the train portion of its own source, then scored on the test portion of all
-four sources. The result is a 4x4 matrix of metrics plus an F1 heatmap.
+sources. The result is, per algorithm, a 5x5 matrix of metrics plus F1- and
+accuracy-heatmaps.
+
+By default the cross-validation runs for two algorithms (RandomForest and
+LightGBM, controlled via --algos), so the ablation study can compare the
+algorithm effect against an identical feature set. The output CSV carries an
+`algo` column to separate the matrices.
 
 Run from the project root:
-    python code/model_scripts/run_cross_validation.py
+    python code/model_scripts/classifier/run_cross_validation.py
+    python code/model_scripts/classifier/run_cross_validation.py --algos rf
 """
 from __future__ import annotations
 
@@ -106,12 +113,14 @@ def main() -> None:
     parser.add_argument("--ved-vehicles", type=int, default=15)
     parser.add_argument("--ved-files", type=int, default=4)
     parser.add_argument("--yjmob-vehicles", type=int, default=50)
+    parser.add_argument("--algos", default="rf,lgbm",
+                        help="Komma-Liste der Algorithmen (rf, lgbm).")
     parser.add_argument("--dataset-tag", default="all_sources",
                         help="Rahmenbedingung im Run-Ordnernamen.")
     parser.add_argument("--out-csv", type=Path, default=None)
-    parser.add_argument("--heatmap-out", type=Path, default=None)
-    parser.add_argument("--accuracy-heatmap-out", type=Path, default=None)
     args = parser.parse_args()
+
+    algos = [a.strip() for a in args.algos.split(",") if a.strip()]
 
     run_dir = run_output_dir(
         model_name="cross_validation",
@@ -120,11 +129,8 @@ def main() -> None:
     )
     if args.out_csv is None:
         args.out_csv = run_dir / "cross_validation_matrix.csv"
-    if args.heatmap_out is None:
-        args.heatmap_out = run_dir / "cross_validation_f1_heatmap.png"
-    if args.accuracy_heatmap_out is None:
-        args.accuracy_heatmap_out = run_dir / "cross_validation_accuracy_heatmap.png"
     print(f"run output dir: {run_dir}")
+    print(f"algorithms: {algos}")
 
     datasets = build_datasets(args.emobpy_vehicles, args.ved_vehicles, args.ved_files,
                               args.yjmob_vehicles)
@@ -134,24 +140,29 @@ def main() -> None:
     splits = {name: split_by_time(df) for name, df in prepared.items()}
 
     cfg = TrainConfig()
-    models = {}
-    for name, (train_df, _) in splits.items():
-        print(f"training model on {name}...")
-        models[name] = train_model(train_df, cfg)
-        save_model(models[name], MODELS_DIR / f"driving_{name}.joblib")
-
     rows = []
-    for model_name, model in models.items():
-        for data_name, (_, test_df) in splits.items():
-            print(f"evaluating {model_name:>14s} -> {data_name}")
-            metrics = evaluate(model, test_df)
-            metrics["model_trained_on"] = model_name
-            metrics["evaluated_on"] = data_name
-            rows.append(metrics)
+    for algo in algos:
+        print(f"\n========== algorithm: {algo} ==========")
+        models = {}
+        for name, (train_df, _) in splits.items():
+            print(f"training {algo} model on {name}...")
+            models[name] = train_model(train_df, cfg, algo=algo)
+            # rf behaelt den rueckwaertskompatiblen Namen; lgbm bekommt Suffix.
+            fname = f"driving_{name}.joblib" if algo == "rf" else f"driving_{name}_{algo}.joblib"
+            save_model(models[name], MODELS_DIR / fname)
+
+        for model_name, model in models.items():
+            for data_name, (_, test_df) in splits.items():
+                print(f"evaluating [{algo}] {model_name:>14s} -> {data_name}")
+                metrics = evaluate(model, test_df)
+                metrics["algo"] = algo
+                metrics["model_trained_on"] = model_name
+                metrics["evaluated_on"] = data_name
+                rows.append(metrics)
 
     matrix = pd.DataFrame(rows)
     column_order = [
-        "model_trained_on", "evaluated_on", "n", "positive_rate",
+        "algo", "model_trained_on", "evaluated_on", "n", "positive_rate",
         "accuracy", "f1", "precision", "recall", "roc_auc",
     ]
     matrix = matrix[[c for c in column_order if c in matrix.columns]]
@@ -159,14 +170,22 @@ def main() -> None:
     matrix.to_csv(args.out_csv, index=False)
     print(f"wrote {args.out_csv}")
 
-    heatmap(matrix, "f1", "F1 — driving classifier cross-validation", args.heatmap_out)
-    heatmap(matrix, "accuracy", "Accuracy — driving classifier cross-validation",
-            args.accuracy_heatmap_out)
-
-    print("\n=== summary (F1) ===")
-    pivot = matrix.pivot(index="model_trained_on", columns="evaluated_on", values="f1")
     order = ["emobpy", "real_world_ev", "ved", "routine", "yjmob"]
-    print(pivot.reindex(index=order, columns=order).round(3).to_string())
+    for algo in algos:
+        sub = matrix[matrix["algo"] == algo]
+        heatmap(sub, "f1", f"F1 — {algo} driving classifier cross-validation",
+                run_dir / f"cross_validation_f1_heatmap_{algo}.png")
+        heatmap(sub, "accuracy", f"Accuracy — {algo} driving classifier cross-validation",
+                run_dir / f"cross_validation_accuracy_heatmap_{algo}.png")
+
+        print(f"\n=== summary F1 [{algo}] ===")
+        pivot = sub.pivot(index="model_trained_on", columns="evaluated_on", values="f1")
+        print(pivot.reindex(index=order, columns=order).round(3).to_string())
+
+        print(f"\n=== diagonal (in-distribution) [{algo}] ===")
+        diag = sub[sub["model_trained_on"] == sub["evaluated_on"]]
+        print(diag.set_index("evaluated_on")[["positive_rate", "accuracy", "f1", "roc_auc"]]
+              .reindex(order).round(3).to_string())
 
 
 if __name__ == "__main__":

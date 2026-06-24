@@ -1,9 +1,12 @@
 """
 Shared training and evaluation logic for the binary "driving vs parked" task.
 
-All four per-source models use the same algorithm (RandomForestClassifier)
-and the same feature set, so the cross-validation matrix isolates the effect
-of *data quality* rather than algorithm choice.
+Per default every per-source model uses the same algorithm
+(RandomForestClassifier) and the same feature set, so the cross-validation
+matrix isolates the effect of *data quality* rather than algorithm choice.
+For the ablation study a second algorithm (LightGBM) can be selected via
+`train_model(..., algo="lgbm")`; the feature set stays identical so that the
+algorithm effect can be read off against the RandomForest baseline.
 """
 from __future__ import annotations
 
@@ -89,7 +92,15 @@ def split_by_time(df: pd.DataFrame, train_frac: float = 0.8) -> Tuple[pd.DataFra
     return df[df["timestamp"] <= cut].copy(), df[df["timestamp"] > cut].copy()
 
 
-def train_model(df: pd.DataFrame, cfg: TrainConfig | None = None) -> RandomForestClassifier:
+def train_model(df: pd.DataFrame, cfg: TrainConfig | None = None,
+                algo: str = "rf"):
+    """Fit the binary driving classifier.
+
+    algo='rf'   → RandomForestClassifier (default, cross-validation baseline)
+    algo='lgbm' → LightGBM (optional dependency, imported lazily). Same
+                  features and balanced class weights as the RF baseline, so
+                  the matrix isolates the algorithm effect.
+    """
     cfg = cfg or TrainConfig()
     feats = _ensure_features(df)
     X = feats[FEATURE_COLS].to_numpy()
@@ -98,14 +109,30 @@ def train_model(df: pd.DataFrame, cfg: TrainConfig | None = None) -> RandomFores
     if len(np.unique(y)) < 2:
         raise ValueError("training data has only one class — cannot fit classifier")
 
-    model = RandomForestClassifier(
-        n_estimators=cfg.n_estimators,
-        min_samples_leaf=cfg.min_samples_leaf,
-        max_depth=cfg.max_depth,
-        class_weight="balanced",
-        random_state=cfg.random_state,
-        n_jobs=cfg.n_jobs,
-    )
+    if algo == "rf":
+        model = RandomForestClassifier(
+            n_estimators=cfg.n_estimators,
+            min_samples_leaf=cfg.min_samples_leaf,
+            max_depth=cfg.max_depth,
+            class_weight="balanced",
+            random_state=cfg.random_state,
+            n_jobs=cfg.n_jobs,
+        )
+    elif algo == "lgbm":
+        # LightGBM ist optional — nur importieren, wenn tatsaechlich genutzt.
+        from lightgbm import LGBMClassifier
+        model = LGBMClassifier(
+            n_estimators=cfg.n_estimators,
+            min_child_samples=max(cfg.min_samples_leaf, 5),
+            max_depth=cfg.max_depth,
+            class_weight="balanced",
+            random_state=cfg.random_state,
+            n_jobs=cfg.n_jobs,
+            verbosity=-1,
+        )
+    else:
+        raise ValueError(f"unknown algo: {algo!r} (erwartet 'rf' oder 'lgbm')")
+
     model.fit(X, y)
     return model
 
