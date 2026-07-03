@@ -163,7 +163,7 @@ def main() -> None:
     matrix = pd.DataFrame(rows)
     column_order = [
         "algo", "model_trained_on", "evaluated_on", "n", "positive_rate",
-        "accuracy", "f1", "precision", "recall", "roc_auc",
+        "accuracy", "f1", "precision", "recall", "roc_auc", "pr_auc", "brier",
     ]
     matrix = matrix[[c for c in column_order if c in matrix.columns]]
     args.out_csv.parent.mkdir(parents=True, exist_ok=True)

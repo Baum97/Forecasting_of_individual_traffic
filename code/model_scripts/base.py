@@ -21,6 +21,8 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import (
     accuracy_score,
+    average_precision_score,
+    brier_score_loss,
     f1_score,
     precision_score,
     recall_score,
@@ -92,25 +94,12 @@ def split_by_time(df: pd.DataFrame, train_frac: float = 0.8) -> Tuple[pd.DataFra
     return df[df["timestamp"] <= cut].copy(), df[df["timestamp"] > cut].copy()
 
 
-def train_model(df: pd.DataFrame, cfg: TrainConfig | None = None,
-                algo: str = "rf"):
-    """Fit the binary driving classifier.
-
-    algo='rf'   → RandomForestClassifier (default, cross-validation baseline)
-    algo='lgbm' → LightGBM (optional dependency, imported lazily). Same
-                  features and balanced class weights as the RF baseline, so
-                  the matrix isolates the algorithm effect.
-    """
-    cfg = cfg or TrainConfig()
-    feats = _ensure_features(df)
-    X = feats[FEATURE_COLS].to_numpy()
-    y = feats["driving"].astype(int).to_numpy()
-
-    if len(np.unique(y)) < 2:
-        raise ValueError("training data has only one class — cannot fit classifier")
-
+def _build_classifier(algo: str, cfg: TrainConfig):
+    """Konstruiert den (ungefitteten) Klassifikator. Beide Algorithmen nutzen
+    denselben Feature-Satz und balancierte Klassengewichte, damit die Matrix
+    den Algorithmus-Effekt isoliert."""
     if algo == "rf":
-        model = RandomForestClassifier(
+        return RandomForestClassifier(
             n_estimators=cfg.n_estimators,
             min_samples_leaf=cfg.min_samples_leaf,
             max_depth=cfg.max_depth,
@@ -118,10 +107,10 @@ def train_model(df: pd.DataFrame, cfg: TrainConfig | None = None,
             random_state=cfg.random_state,
             n_jobs=cfg.n_jobs,
         )
-    elif algo == "lgbm":
+    if algo == "lgbm":
         # LightGBM ist optional — nur importieren, wenn tatsaechlich genutzt.
         from lightgbm import LGBMClassifier
-        model = LGBMClassifier(
+        return LGBMClassifier(
             n_estimators=cfg.n_estimators,
             min_child_samples=max(cfg.min_samples_leaf, 5),
             max_depth=cfg.max_depth,
@@ -130,9 +119,22 @@ def train_model(df: pd.DataFrame, cfg: TrainConfig | None = None,
             n_jobs=cfg.n_jobs,
             verbosity=-1,
         )
-    else:
-        raise ValueError(f"unknown algo: {algo!r} (erwartet 'rf' oder 'lgbm')")
+    raise ValueError(f"unknown algo: {algo!r} (erwartet 'rf' oder 'lgbm')")
 
+
+def train_model(df: pd.DataFrame, cfg: TrainConfig | None = None,
+                algo: str = "rf"):
+    """Fit the binary driving classifier (algo='rf'/'lgbm', siehe
+    _build_classifier). Vorhersagen nutzen die Standardschwelle 0.5."""
+    cfg = cfg or TrainConfig()
+    feats = _ensure_features(df)
+    X = feats[FEATURE_COLS].to_numpy()
+    y = feats["driving"].astype(int).to_numpy()
+
+    if len(np.unique(y)) < 2:
+        raise ValueError("training data has only one class — cannot fit classifier")
+
+    model = _build_classifier(algo, cfg)
     model.fit(X, y)
     return model
 
@@ -155,11 +157,19 @@ def evaluate(model: RandomForestClassifier, df: pd.DataFrame) -> dict:
         "recall": float(recall_score(y, preds, zero_division=0)),
     }
 
+    proba = model.predict_proba(X)[:, 1]
+    # Brier-Score = MSE der Wahrscheinlichkeiten (Kalibrierung); auch bei nur
+    # einer Klasse definiert.
+    out["brier"] = float(brier_score_loss(y, proba, pos_label=1))
+
     if len(np.unique(y)) > 1:
-        proba = model.predict_proba(X)[:, 1]
         out["roc_auc"] = float(roc_auc_score(y, proba))
+        # PR-AUC (Average Precision): imbalance-ehrliche Detektion der
+        # Minderheitsklasse; Zufalls-Baseline = positive_rate.
+        out["pr_auc"] = float(average_precision_score(y, proba))
     else:
         out["roc_auc"] = float("nan")
+        out["pr_auc"] = float("nan")
     return out
 
 

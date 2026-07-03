@@ -16,6 +16,7 @@
     \item Robustheit gegenüber unvollständigen Daten
     \item Robustheit gegenüber fehlerhaften Daten
     \item Robustheit gegenüber unregelmäßigen Daten
+    \item Unterschiede in den Fahrertypen -> unterschiedliche Modelle? Bzw, gibt es einen Fahrertype, der sich besonders schlecht vorhersagen lässt?
 \end{itemize}
 
 \begin{itemize}
@@ -29,6 +30,41 @@
     \item Entscheiden, ob yjmob in die 4x4-Cross-Validation-Matrix aufgenommen wird (Domänenunterschied: Aktiv-Rate ~48\% vs.\ 3--10\% bei EV-Quellen)
     \item Als menschliche Bewegungsdaten deklarieren, nicht als Fahrzeug-/Driving-Quelle
 \end{itemize}
+
+\paragraph{2026-07-02 --- LSTM-Forecaster (rekurrente Ablationsvariante)}
+Neue Schwesterklasse \texttt{LSTMForecaster} (PyTorch) in
+\texttt{forecast/lstm\_forecaster.py}, registriert als Algo \texttt{lstm}.
+Sie teilt die komplette Feature-Pipeline und Trip-Block-Logik mit dem RF-/
+LGBM-Forecaster, verarbeitet die sieben Tages-Lags (used/dep/ret) aber als
+Sequenz (7 Zeitschritte $\times$ 3 Kanaele) durch ein LSTM, waehrend die
+Kalender-/Rolling-Features als statischer Kontext an den MLP-Kopf gehen.
+Abfahrts-/Rueckkehrstunde via LSTM-Quantilsregression (Pinball-Loss,
+$\alpha=0{,}1/0{,}5/0{,}9$), konsistent zur LGBM-Variante. Damit erweitert
+sich die Ablationsstudie um ein rekurrentes neuronales Netz als dritten
+Algorithmus neben den beiden Baum-Ensembles; die Datenqualitaets-Isolation
+der Cross-Validation bleibt unberuehrt, da Features und Ziel identisch sind.
+
+\paragraph{2026-06-28 --- Schwellwert-Tuning evaluiert und verworfen (Negativ-Ergebnis)}
+Getestet wurde eine F1-optimale Entscheidungsschwelle pro Modell (kalibriert auf
+einem zeitlich abgetrennten Validierungsteil) zusammen mit einem moderaten
+Hyperparameter-Bump (300 statt 150 Baeume, \texttt{min\_samples\_leaf} 5 -> 2).
+Ergebnis: Die Rangfaehigkeit (ROC-/PR-AUC) blieb praktisch unveraendert
+(\(\pm 0{,}01\)); F1 stieg nur bei real\_world\_ev spuerbar (0{,}68 -> 0{,}72),
+waehrend bei der fast zufaelligen Quelle ved die Accuracy einbrach
+(0{,}88 -> 0{,}67) bei degenerierter Schwelle. Konsequenz: zurueckgenommen,
+\texttt{base.py} bleibt bei Schwelle 0{,}5 und der urspruenglichen
+Konfiguration. Befund fuer die Diskussion: Die In-Distribution-Guete ist
+datenbegrenzt, nicht durch Algorithmus/Schwelle hebbar -- empirische Stuetze der
+Datenqualitaets-These. Der eigentliche Hebel waere Per-Fahrzeug-Modellierung.
+
+\paragraph{2026-06-27 --- PR-AUC und Brier-Score als Evaluationsmetriken}
+\texttt{base.py:evaluate} berechnet nun zusaetzlich \emph{PR-AUC}
+(Average Precision) und den \emph{Brier-Score}; ein neues Eval-only-Skript
+\texttt{classifier/evaluate\_saved\_models.py} re-scort die gespeicherten
+Modelle ohne Neutraining. Begruendung: ROC-AUC ist bei starker Klassen-Imbalance
+(Aktiv-Rate 2--10\%) optimistisch; PR-AUC misst die Detektion der
+Minderheitsklasse ehrlicher (Baseline = Aktiv-Rate), der Brier-Score bewertet
+die fuer V2G entscheidende Wahrscheinlichkeits-Kalibrierung.
 
 \paragraph{2026-06-24 --- LightGBM-Variante in der Cross-Validation (Ablation)}
 \texttt{base.py:train\_model} akzeptiert nun einen \texttt{algo}-Parameter

@@ -25,6 +25,7 @@ from typing import Type
 REGISTRY = {
     "rf":   ("model_scripts.forecast.randomforest_forecaster", "RandomForestForecaster"),
     "lgbm": ("model_scripts.forecast.lgbm_forecaster",         "LGBMForecaster"),
+    "lstm": ("model_scripts.forecast.lstm_forecaster",         "LSTMForecaster"),
 }
 
 

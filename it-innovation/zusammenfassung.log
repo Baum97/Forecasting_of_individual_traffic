@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  20 JUN 2026 11:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  3 JUL 2026 16:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -479,7 +479,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 76.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 77.
  (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -490,7 +490,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 <../thesis/images/prozess_diagramm.png, id=1, 698.0625pt x 259.515pt>
 File: ../thesis/images/prozess_diagramm.png Graphic file (type png)
 <use ../thesis/images/prozess_diagramm.png>
-Package pdftex.def Info: ../thesis/images/prozess_diagramm.png  used on input line 79.
+Package pdftex.def Info: ../thesis/images/prozess_diagramm.png  used on input line 80.
 (pdftex.def)             Requested size: 214.0796pt x 79.58556pt.
  [1{C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}
 
@@ -500,19 +500,19 @@ Package pdftex.def Info: ../thesis/images/prozess_diagramm.png  used on input li
 <../thesis/images/decisiontree.png, id=14, 628.3475pt x 505.89pt>
 File: ../thesis/images/decisiontree.png Graphic file (type png)
 <use ../thesis/images/decisiontree.png>
-Package pdftex.def Info: ../thesis/images/decisiontree.png  used on input line 87.
+Package pdftex.def Info: ../thesis/images/decisiontree.png  used on input line 88.
 (pdftex.def)             Requested size: 111.90625pt x 90.09135pt.
 <cv_f1_5x5.png, id=15, 332.442pt x 265.9536pt>
 File: cv_f1_5x5.png Graphic file (type png)
 <use cv_f1_5x5.png>
-Package pdftex.def Info: cv_f1_5x5.png  used on input line 97.
+Package pdftex.def Info: cv_f1_5x5.png  used on input line 98.
 (pdftex.def)             Requested size: 194.61748pt x 155.69382pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 98.
+(Font)              <10> on input line 99.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 98.
+(Font)              <7> on input line 99.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 98.
+(Font)              <5> on input line 99.
  [2{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc} <../thesis/images/prozess_diagramm.png> <../thesis/images/decisiontree.png> <./cv_f1_5x5.png>] (zusammenfassung.aux)
  ***********
 LaTeX2e <2025-11-01>
@@ -520,10 +520,10 @@ L3 programming layer <2025-12-24>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 12885 strings out of 467871
- 260295 string characters out of 5414504
+ 12887 strings out of 467871
+ 260344 string characters out of 5414504
  848444 words of memory out of 5000000
- 41492 multiletter control sequences out of 15000+600000
+ 41494 multiletter control sequences out of 15000+600000
  705247 words of font info for 154 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,9n,107p,11278b,465s stack positions out of 10000i,1000n,20000p,200000b,200000s

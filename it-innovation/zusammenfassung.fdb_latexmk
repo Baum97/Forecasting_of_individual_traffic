@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1781947850.07059 "d:/Projects/Forecasting_of_individual_traffic/it-innovation/zusammenfassung.tex" "zusammenfassung.pdf" "zusammenfassung" 1781947851.03891 0
+["pdflatex"] 1783088522.24815 "d:/Projects/Forecasting_of_individual_traffic/it-innovation/zusammenfassung.tex" "zusammenfassung.pdf" "zusammenfassung" 1783088523.21275 0
   "../thesis/images/decisiontree.png" 1781366244 57058 e5e3ed5213ef6e1b18ad44c25b7f536d ""
   "../thesis/images/prozess_diagramm.png" 1781259859 47620 fdda5bfadfaa718acb33d4656e5c7bec ""
   "C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1781947092 368683 20af194610b55c11d3743ae29ed2ab48 ""
@@ -104,9 +104,9 @@
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/tools/array.sty" 1761901070 15651 9d7c62df82cb29a555c00550babfe364 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/tools/tabularx.sty" 1761901070 7243 a2c17f18e2c9b702b84fad03d5f9c78b ""
   "cv_f1_5x5.png" 1781881451 67104 eff7bfda8cef2a301560a484b9af2146 ""
-  "d:/Projects/Forecasting_of_individual_traffic/it-innovation/zusammenfassung.tex" 1781947849 10585 fcca4b553447bad696eff4867a06ad6a ""
-  "zusammenfassung.aux" 1781947850 1971 d0568dcd611b5f7493d2330016941957 "pdflatex"
-  "zusammenfassung.tex" 1781947849 10585 fcca4b553447bad696eff4867a06ad6a ""
+  "d:/Projects/Forecasting_of_individual_traffic/it-innovation/zusammenfassung.tex" 1783088520 10614 9f47763a060ea68b5baa72eb5e629c61 ""
+  "zusammenfassung.aux" 1783088523 2115 69ac666a7ae7a678f8a9049d0cb82209 "pdflatex"
+  "zusammenfassung.tex" 1783088520 10614 9f47763a060ea68b5baa72eb5e629c61 ""
   (generated)
   "zusammenfassung.aux"
   "zusammenfassung.log"

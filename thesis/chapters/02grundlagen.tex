@@ -4,7 +4,7 @@
 \chapter{Theoretische Grundlagen}
 \label{ch:grundlagen}
 
-Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut; Sowohl Begrifflichkeiten, als auch thematische Grundlagen werden erläutert. Als erstes wird festgelegt, was genau Mobilitätsdaten sind und wann sie relevant sind (\Cref{sec:themenbereich_mobdata}). Darauf folgt eine kurze Erläuterung zu Machine Learning und wieso die Verwendung in dieser Arbeit unerlässlich ist. Der vorletzte Punkt betrachtet, wie Mobilitätsdaten verarbeitet werden und anhand welcher Kriterien sich ihre Qualität bewerten lässt (\Cref{sec:themenbereich2}). Als letztes ordnet \Cref{sec:stand_forschung} den aktuellen Stand der Forschung ein und arbeitet die Forschungslücke heraus, von der sich diese Arbeit in \Cref{sec:verwandte_arbeiten} abgrenzt.
+Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut; Sowohl Begrifflichkeiten, als auch thematische Grundlagen werden erläutert. Als erstes wird festgelegt, was genau Mobilitätsdaten sind und wann sie relevant sind (\Cref{sec:themenbereich_mobdata}). Darauf folgt der Blick darauf, wie Mobilitätsdaten verarbeitet werden und anhand welcher Kriterien sich ihre Qualität bewerten lässt (\Cref{sec:themenbereich2}). Der vorletzte Punkt erläutert Machine Learning und wieso die Verwendung in dieser Arbeit unerlässlich ist. Als letztes ordnet \Cref{sec:stand_forschung} den aktuellen Stand der Forschung ein und arbeitet die Forschungslücke heraus, von der sich diese Arbeit in \Cref{sec:verwandte_arbeiten} abgrenzt.
 
 % -----------------------------------------------------------------------------
 \section{Mobilitätsdaten}
@@ -33,176 +33,25 @@ Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut; Sow
 
 Wenn von Mobilitätsdaten gesprochen wird, ist im digitalen Rahmen meist die Rede von Dateien, die Informationen in chronologischer Abfolge enthalten. Diese Daten können in den unterschiedlichsten Formaten auftreten -- mit beliebig vielen Einträgen und beliebig vielen Informationen pro Eintrag -- und sind nicht zwingend homogen. Für das individuelle Fahr- und Nutzungsverhalten einzelner Fahrzeuge existiert -- anders als für ÖPNV- oder Sharing-Daten -- kein etabliertes Standardformat. Daraus folgt, dass sich Datensätze aus verschiedenen Studien erheblich in Schema und Granularität unterscheiden: In \cref{fig:mobility1} finden sich neben einem üblichen Zeitstempel nur die physikalischen Messwerte und kaum Informationen über das Fahrzeug oder den Zweck des Aufenthalts. \cref{fig:mobility2} enthält dagegen die Aktivität, gefahrene Distanz und den Energiekonsum. Für diese Arbeit sind jedoch nur wenige Felder unabdingbar -- im Wesentlichen Zeitstempel und Fahr- bzw.\ Parkzustand --, und diese sind in beiden Datensätzen enthalten. Trotz ihres erheblichen Unterschieds sind daher beide valide und relevant.
 
-\section{Machine Learning}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=\textwidth]{images/maschinelles-lernen.png}
-  \caption{Teilbereiche des maschinellen Lernens mit beispielhaften
-           Anwendungen (\cite{wuttke2024ml}).}
-  \label{fig:ml_uebersicht}
-\end{figure}
-
-Das Prinzip des maschinellen Lernens besteht darin, einem Computer ein gewünschtes Verhalten anhand von Beispieldaten beizubringen, anstatt es durch einen fest vorgegebenen, regelbasierten
-Algorithmus explizit zu programmieren \parencite{bishop2006prml}. Das Modell erkennt dabei statistische Muster in den Trainingsdaten und nutzt diese, um Vorhersagen für bislang ungesehene Eingaben zu treffen. Der Vorteil gegenüber einem starren Algorithmus liegt darin, dass komplexe Zusammenhänge -- wie das individuelle Mobilitätsverhalten -- erlernt werden können, ohne dass sie vorab vollständig bekannt sein müssen.
-
-Häufig wird maschinelles Lernen mit künstlichen neuronalen Netzen gleichgesetzt, deren Aufbau  vom menschlichen Gehirn inspiriert ist. Neuronale Netze bilden jedoch nur eine von vielen Verfahrensklassen. Die in dieser Arbeit eingesetzten Modelle -- Random Forest und Gradient Boosting (\Cref{sec:themenbereich2} und \Cref{ch:methodik}) -- beruhen stattdessen auf Entscheidungsbäumen und sind nicht biologisch motiviert.
-\todo{erweitern mit neuen modellen etc}
-
-\subsection{Überwachtes Lernen}
-In dieser Arbeit kommt ausschließlich überwachtes Lernen zum Einsatz \parencite{hastie2009elements}. Dabei lernt das Modell aus Beispielpaaren von Eingaben und zugehörigen, bekannten Zielwerten. Je nach Art des Zielwerts
-unterscheidet man zwei Aufgabentypen, die in dieser Arbeit beide vorkommen: Klassifikation, bei der eine diskrete Klasse vorhergesagt wird (etwa ob ein Fahrzeug in einer gegebenen Stunde fährt oder geparkt ist), und Regression, bei der ein kontinuierlicher Wert geschätzt wird (etwa die Abfahrts- oder Rückkehrzeit).
-\todo{korrigieren/überwachen: hauptmerkmal klassifikation, da bestimme minutenzahl erstmal uninteressant und somit nur stunden für fährt= 1 oder 0}
-
-\subsection{Merkmale und Feature Engineering}
-
-Bei Machine Learning ist oft die Rede von Feature Engineering, oder das umformen von Merkmalen \parencite{geron2022handson}. Ein Merkmal ist beispielsweise eine Spalte in einer Comma-Separated-Value Datei (siehe \Cref{fig:mobilitaetsdaten}), hierbei könnte es sich um jede der Spalten handeln. Folglich ist der Zeitstempel, die Handlung, der Ort oder auch der Energiekonsum ein Merkmal bzw. Feature.
-
-In der Regel sind die Daten nicht in ihrer Rohform nicht direkt aussagekräftig, weswegen sie interpretiert werden müssen. Ein Zeitstempel (Beispiel: \texttt{2026-05-25 08:00:00}) hat ohne Kontext keinen bestimmten Wert, daher extrahiert man durch Feature Engineering die verborgenen Informationen und macht sie für das Modell zugänglich. Der genannte Zeitstempel bspw. ist im Kontext von Mobilität: 
-
-\begin{itemize}
-  \item Ein Montag --> Werktag
-  \item Acht Uhr --> Pendlerzeit
-\end{itemize}
-
-Ein Modell entdeckt Muster nicht von selbst, daher muss man die Informationen verwertbar machen. Tage die nicht auf einen Werktag fallen, oder eine andere Uhrzeit haben, die keine Pendlerzeit ist, kann je nach restlichem Informationsgehalt (Ort, Fahrtdistanz, Aufenthaltsdauer) zu einem jeweils anderem Ergebnis führen.
-
-\subsubsection{Lag-Merkmal}
-
-Ein Lag ist der Wert eines Merkmals aus einem früheren Zeitschritt \parencite{hyndman2021forecasting}. Lags sind teilweise periodisch und sind mit Stundenwerten gleichzusetzen. Ein \texttt{Lag\_1} beispielsweise ist das selbe Event, nur eine Stunde in der Vergangenheit, selbiges Schema gilt für einen \texttt{Lag\_168}, dieser liegt 168 Stunden in der Vergangenheit. Es gibt sehr spezifische Werte und diese erlauben auf bestimmte Muster Rückschlüsse. Lags von 1, 2, 24 und 168, wobei 24 Stunden einen Tag und 168 Stunden sieben Tage in der Vergangenheit abbilden. 
-
-Ein Risiko, das durch Lag auftreten kann, ist die Rechnung über mehr als ein Fahrzeug hinweg. Dadurch kann ein Verhalten auf ein anderes Fahrzeug interpretiert werden und falsche zugewiesene Verhaltensmuster errechnen. 
-
-\subsubsection{Rolling-Aggregate}
-
-Ein \enquote{Rolling Mean}, oder Rolling-Mittel, fasst ein Zeitfenster zu einer Kennzahl zusammen \parencite{hyndman2021forecasting}. So werden beispielsweise die letzten 24 Stunden oder 7 Tage Aktivitätsanteil zusammengefasst. 
-
-Data Leakage ist ein Risiko, das bei einem Rolling Mean auftreten kann, indem es die Zukunft einbezieht oder sogar den Zielwert selbst mit einrechnet. Dadurch lernt das Modell den tatsächlich gewünschten Wert und kann diesen, fälschlicherweise, richtig wiedergeben. Eine Falschimplementierung kann dazu führen, dass die Tests übermäßig gut abschneiden, im Realfall jedoch komplett versagen.
-
-\subsection{Training}
-
-Wenn ein Modell trainiert wird, passt es die eigenen internen Parameter an die Trainingsdaten an, sodass Vorhersagen möglichst gut zu den gelernten Zielwerten passt \parencite{bishop2006prml}. Formal wird dabei das Resultat einer Verlustfunktion minimiert, welche misst, wie weit die Vorhersage von der Wahrheit abweicht. Bei einem baumbasierten Modell werden konkret Splits gewählt für bestimmte Merkmale und Schwellen, die gewisse Zielgrößen im jeweiligen Knoten am besten trennen.
-
-\subsubsection{Gini Index}
-
-Die allgemeine Form der Gini-Unreinheit für einen Knoten mit $C$ Klassen und
-den Klassenanteilen $p_i$ lautet \parencite{breiman1984cart}:
-
-\begin{equation}
-  G = 1 - \sum_{i=1}^{C} p_i^{2}
-  \label{eq:gini}
-\end{equation}
-
-Für den binären Fall mit zwei Klassen ($p_1 = p$, $p_0 = 1-p$) vereinfacht sich
-\Cref{eq:gini} zu \parencite{breiman1984cart}:
-
-\begin{equation}
-  G = 1 - \left(p^{2} + (1-p)^{2}\right) = 2\,p\,(1-p)
-  \label{eq:gini_binaer}
-\end{equation}
-
-
-Hier spricht man von einer Unreinheit: einer Metrik, die ausdrückt, mit welcher Wahrscheinlichkeit ein Wert einer falschen Klasse zugeordnet würde, wenn er anhand der Klassenverteilung im Knoten ein zufälliges Label erhielte. Die gewichtete Unreinheit eines Splits ergibt sich aus den Unreinheiten der beiden Kindknoten \parencite{breiman1984cart}:
-
-\begin{equation}
-  G_{\text{split}} = \frac{n_{\text{links}}}{n}\,G_{\text{links}}
-                   + \frac{n_{\text{rechts}}}{n}\,G_{\text{rechts}}
-  \label{eq:gini_split}
-\end{equation}
-
-In \Cref{eq:gini_split} zeigt $n$ die Elemente im Elternknoten und $G$ die Unreinheit des jeweiligen Knoten an. Der Rest funktioniert analog, anhand der vorausgegangenen Formeln. Mit der Split-Formel lassen sich mehrere Iterationen pro Knoten vornehmen, wovon dann der reinste Split verwendet wird, um im Baum eine Rekursionsebene tiefer zu schreiten. Insgesamt funktioniert dieser Split $n-1$ mal.
-
-
-\subsection{Generalisierung}
-
-Das Prinzip der Generalisierung ist es, ein Modell so zu trainieren, dass es die Muster der Daten erkennt und deren Berechnung erlernt \parencite{hastie2009elements}. Das bedeutet, dass das Modell auch mit neuen Daten -- die ungesehene Inhalte verwenden -- umgehen kann, die nah am gelernten Schema liegen. \Cref{tab:fitting} fasst zusammen, wie sich Unter-, gute und Überanpassung anhand von Trainings- und Testfehler unterscheiden lassen.
-
-\subsubsection{Overfitting}
-
-Bei einem überangepassten Modell sind Trainingsfehler niedrig und Testfehler hoch. Kurzum bedeutet das, dass das Modell die Daten zu gut kennt und diese quasi auswendig weiß, bei neuen Daten jedoch oft und stark abweicht.
-
-\subsubsection{Underfitting}
-
-Ein Modell das unterangepasst ist, schneidet weder beim Training, noch beim Test gut ab. Hier ist das Modell zu simpel bzw. seine Kapazität zu gering, um das zugrunde liegende Muster zu erfassen. Fehler bleiben dadurch bei beiden Datensätzen hoch.
-
-\begin{table}[htbp]
-  \centering
-  \begin{tabularx}{\textwidth}{@{}l c c X@{}}
-    \toprule
-    \textbf{Anpassung} & \textbf{Trainingsfehler} & \textbf{Testfehler} &
-    \textbf{Charakteristik} \\
-    \midrule
-    Underfitting & hoch & hoch & Modell
-    zu simpel; das zugrunde liegende Muster wird nicht erfasst. \\
-    \addlinespace
-    Gute Anpassung & niedrig  & niedrig &
-    Kleine Generalisierungslücke; die Muster werden auf neue Daten
-    übertragen. \\
-    \addlinespace
-    Overfitting & sehr niedrig & hoch &
-    Große Generalisierungslücke; Trainingsdaten werden inklusive Rauschen
-    auswendig gelernt. \\
-    \bottomrule
-  \end{tabularx}
-  \caption{Charakterisierung von Anpassungen anhand von Fehlerwerten \cite{geron2022handson}.}
-  \label{tab:fitting}
-\end{table}
-
-\subsection{Validierung}
-
-Durch die Validierung ist es möglich der Genauigkeit des Modells einen numerischen Wert zuzuweisen, was funktioniert, indem man das Modell Daten bewerten lässt, die bisher nicht bekannt waren. 
-
-\begin{equation}
-  \text{CV}(\hat{f}) = \frac{1}{N}\sum_{i=1}^{N} L!\left(y_i,\ \hat{f}^{-\kappa(i)}(x_i)\right)
-  \label{eq:validify}  
-\end{equation}
-
-Die \Cref{eq:validify} beschreibt die Genauigkeit eines Modells auf einer bestimmten Menge Daten. Hierfür wird ein Datensatz in $K$ gleichgroße Mengen unterteilt -- auch \textit{Folds} genannt -- gefolgt von $K+1$ trainings. Da $K$ \textit{Folds} existieren, wird das Modell einmal mit jedem \textit{Fold} getestet und hat zur Grundlage die restlichen \textit{Folds}.
-
-\subsection{Bewertungsmetriken}
-
-\subsection{Entscheidungsbäume}
-
-Sie bilden einen Teil des maschinellen Lernens, sind jedoch grundlegend verschieden zu den menschlich inspirierten neuronalen Netzen. Des Weiteren lassen sich Entscheidungsbäume nicht konkret in unsupervised oder supervised Modelle klassifizieren, denn die Struktur diktiert letztenendes, welchem Paradigma das Modell unterliegt. 
-
-\subsection{Ensemble-Methoden: Random Forest und Gradient Boosting}
-
-\subsection{Unsicherheit und Quantilsregression}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.6\textwidth]{images/decisiontree.png}
-  \caption{Simpler binärer Entscheidungsbaum (\cite{schilli2017entscheidungsbaeume})}
-  \label{fig:decisiontree}
-\end{figure}
-
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.6\textwidth]{images/decisiontree2.png}
-  \caption{Entscheidungsbaum mit Aufteilungskriterien (Gini-Index, Stichprobengröße und Klassenverteilung pro Knoten) (\cite{schilli2017entscheidungsbaeume})}
-  \label{fig:decisiontree2}
-\end{figure}
-
-
-
-
 \section{Verarbeitung von Mobilitätsdaten}
 \label{sec:themenbereich2}
 
 Die Mobilitätsdaten bilden einen Hauptaspekt dieser Arbeit, da sie die
 Grundlage für das Training und die Validierung der Modelle darstellen.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{images/prozess_diagramm_v2.png}
+  \caption{Generalisierte Pipeline zur Verarbeitung von Mobilitätsdaten.}
+  \label{fig:prozess_diagramm}
+\end{figure}
+
 \Cref{fig:prozess_diagramm} zeigt den Ablauf, den die Daten von der Recherche
 bis zur Nutzung durchlaufen; jeder der sechs Abschnitte umfasst dabei mehrere
 Teilschritte. \Cref{tab:pipeline_schritte} fasst diese je Phase zusammen, die
 folgenden Absätze erläutern sie.
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=\textwidth]{images/prozess_diagramm.png}
-  \caption{Generalisierte Pipeline zur Verarbeitung von Mobilitätsdaten.}
-  \label{fig:prozess_diagramm}
-\end{figure}
+
 
 \begin{table}[htbp]
   \centering
@@ -269,6 +118,204 @@ die eigentliche Prognose der Fahrzeugnutzung.
 Abschließend werden die trainierten Modelle angewendet, um das individuelle
 Mobilitätsverhalten vorherzusagen. Die darus gewonnenen Prognosen werden dokumentiert und bereitgestellt. Sie liefern die Grundlage für Vorhersagen in der Fahrzeugnutzung und damit ein weiterer Schritt hin zu einem intelligenten Energiesystem.
 
+
+\section{Machine Learning}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{images/maschinelles-lernen.png}
+  \caption{Teilbereiche des maschinellen Lernens mit beispielhaften
+           Anwendungen (\cite{wuttke2024ml}).}
+  \label{fig:ml_uebersicht}
+\end{figure}
+
+Das Prinzip des maschinellen Lernens besteht darin, einem Computer ein gewünschtes Verhalten anhand von Beispieldaten beizubringen, anstatt es durch einen fest vorgegebenen, regelbasierten
+Algorithmus explizit zu programmieren \parencite{bishop2006prml}. Das Modell erkennt dabei statistische Muster in den Trainingsdaten und nutzt diese, um Vorhersagen für bislang ungesehene Eingaben zu treffen. Der Vorteil gegenüber einem starren Algorithmus liegt darin, dass komplexe Zusammenhänge -- wie das individuelle Mobilitätsverhalten -- erlernt werden können, ohne dass sie vorab vollständig bekannt sein müssen.
+
+Häufig wird maschinelles Lernen mit künstlichen neuronalen Netzen gleichgesetzt, deren Aufbau  vom menschlichen Gehirn inspiriert ist. Neuronale Netze bilden jedoch nur eine von vielen Verfahrensklassen. Die in dieser Arbeit eingesetzten Modelle -- Random Forest und Gradient Boosting (\Cref{sec:themenbereich2} und \Cref{ch:methodik}) -- beruhen stattdessen auf Entscheidungsbäumen und sind nicht biologisch motiviert.
+\todo{erweitern mit neuen modellen etc}
+
+\subsection{Überwachtes Lernen}
+In dieser Arbeit kommt ausschließlich überwachtes Lernen zum Einsatz \parencite{hastie2009elements}. Dabei lernt das Modell aus Beispielpaaren von Eingaben und zugehörigen, bekannten Zielwerten. Je nach Art des Zielwerts
+unterscheidet man zwei Aufgabentypen, die in dieser Arbeit beide vorkommen: Klassifikation, bei der eine diskrete Klasse vorhergesagt wird (etwa ob ein Fahrzeug in einer gegebenen Stunde fährt oder geparkt ist), und Regression, bei der ein kontinuierlicher Wert geschätzt wird (etwa die Abfahrts- oder Rückkehrzeit).
+\todo{korrigieren/überwachen: hauptmerkmal klassifikation, da bestimme minutenzahl erstmal uninteressant und somit nur stunden für fährt= 1 oder 0}
+
+\subsection{Merkmale und Feature Engineering}
+
+Bei Machine Learning ist oft die Rede von Feature Engineering, oder das umformen von Merkmalen \parencite{geron2022handson}. Ein Merkmal ist beispielsweise eine Spalte in einer Comma-Separated-Value Datei (siehe \Cref{fig:mobilitaetsdaten}), hierbei könnte es sich um jede der Spalten handeln. Folglich ist der Zeitstempel, die Handlung, der Ort oder auch der Energiekonsum ein Merkmal bzw. Feature.
+
+In der Regel sind die Daten nicht in ihrer Rohform nicht direkt aussagekräftig, weswegen sie interpretiert werden müssen. Ein Zeitstempel (Beispiel: \texttt{2026-05-25 08:00:00}) hat ohne Kontext keinen bestimmten Wert, daher extrahiert man durch Feature Engineering die verborgenen Informationen und macht sie für das Modell zugänglich. Der genannte Zeitstempel bspw. ist im Kontext von Mobilität: 
+
+\begin{itemize}
+  \item Ein Montag --> Werktag
+  \item Acht Uhr --> Pendlerzeit
+\end{itemize}
+
+Ein Modell entdeckt Muster nicht von selbst, daher muss man die Informationen verwertbar machen. Tage die nicht auf einen Werktag fallen, oder eine andere Uhrzeit haben, die keine Pendlerzeit ist, kann je nach restlichem Informationsgehalt (Ort, Fahrtdistanz, Aufenthaltsdauer) zu einem jeweils anderem Ergebnis führen.
+
+\subsubsection{Lag-Merkmal}
+
+Ein Lag ist der Wert eines Merkmals aus einem früheren Zeitschritt \parencite{hyndman2021forecasting}. Lags sind teilweise periodisch und sind mit Stundenwerten gleichzusetzen. Ein \texttt{Lag\_1} beispielsweise ist das selbe Event, nur eine Stunde in der Vergangenheit, selbiges Schema gilt für einen \texttt{Lag\_168}, dieser liegt 168 Stunden in der Vergangenheit. Es gibt sehr spezifische Werte und diese erlauben auf bestimmte Muster Rückschlüsse. Lags von 1, 2, 24 und 168, wobei 24 Stunden einen Tag und 168 Stunden sieben Tage in der Vergangenheit abbilden. 
+
+Ein Risiko, das durch Lag auftreten kann, ist die Rechnung über mehr als ein Fahrzeug hinweg. Dadurch kann ein Verhalten auf ein anderes Fahrzeug interpretiert werden und falsche zugewiesene Verhaltensmuster errechnen. 
+
+\subsubsection{Rolling-Aggregate}
+
+Ein \enquote{Rolling Mean}, oder Rolling-Mittel, fasst ein Zeitfenster zu einer Kennzahl zusammen \parencite{hyndman2021forecasting}. So werden beispielsweise die letzten 24 Stunden oder 7 Tage Aktivitätsanteil zusammengefasst. 
+
+Data Leakage ist ein Risiko, das bei einem Rolling Mean auftreten kann, indem es die Zukunft einbezieht oder sogar den Zielwert selbst mit einrechnet. Dadurch lernt das Modell den tatsächlich gewünschten Wert und kann diesen, fälschlicherweise, richtig wiedergeben. Eine Falschimplementierung kann dazu führen, dass die Tests übermäßig gut abschneiden, im Realfall jedoch komplett versagen.
+
+\subsection{Training}
+
+Wenn ein Modell trainiert wird, passt es die eigenen internen Parameter an die Trainingsdaten an, sodass Vorhersagen möglichst gut zu den gelernten Zielwerten passt \parencite{bishop2006prml}. Formal wird dabei das Resultat einer Verlustfunktion minimiert, welche misst, wie weit die Vorhersage von der Wahrheit abweicht. Bei einem baumbasierten Modell werden konkret Splits gewählt für bestimmte Merkmale und Schwellen, die gewisse Zielgrößen im jeweiligen Knoten am besten trennen (siehe \Cref{sec:gini}).
+
+\subsection{Generalisierung}
+
+Das Prinzip der Generalisierung ist es, ein Modell so zu trainieren, dass es die Muster der Daten erkennt und deren Berechnung erlernt \parencite{hastie2009elements}. Das bedeutet, dass das Modell auch mit neuen Daten -- die ungesehene Inhalte verwenden -- umgehen kann, die nah am gelernten Schema liegen. \Cref{tab:fitting} fasst zusammen, wie sich Unter-, gute und Überanpassung anhand von Trainings- und Testfehler unterscheiden lassen.
+
+\subsubsection{Overfitting}
+
+Bei einem überangepassten Modell sind Trainingsfehler niedrig und Testfehler hoch. Kurzum bedeutet das, dass das Modell die Daten zu gut kennt und diese quasi auswendig weiß, bei neuen Daten jedoch oft und stark abweicht.
+
+\subsubsection{Underfitting}
+
+Ein Modell das unterangepasst ist, schneidet weder beim Training, noch beim Test gut ab. Hier ist das Modell zu simpel bzw. seine Kapazität zu gering, um das zugrunde liegende Muster zu erfassen. Fehler bleiben dadurch bei beiden Datensätzen hoch.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabularx}{\textwidth}{@{}l c c X@{}}
+    \toprule
+    \textbf{Anpassung} & \textbf{Trainingsfehler} & \textbf{Testfehler} &
+    \textbf{Charakteristik} \\
+    \midrule
+    Underfitting & hoch & hoch & Modell
+    zu simpel; das zugrunde liegende Muster wird nicht erfasst. \\
+    \addlinespace
+    Gute Anpassung & niedrig  & niedrig &
+    Kleine Generalisierungslücke; die Muster werden auf neue Daten
+    übertragen. \\
+    \addlinespace
+    Overfitting & sehr niedrig & hoch &
+    Große Generalisierungslücke; Trainingsdaten werden inklusive Rauschen
+    auswendig gelernt. \\
+    \bottomrule
+  \end{tabularx}
+  \caption{Charakterisierung von Anpassungen anhand von Fehlerwerten \cite{geron2022handson}.}
+  \label{tab:fitting}
+\end{table}
+
+\subsection{Validierung}
+
+Durch die Validierung ist es möglich der Genauigkeit des Modells einen numerischen Wert zuzuweisen, was funktioniert, indem man das Modell Daten bewerten lässt, die bisher nicht bekannt waren. 
+
+\begin{equation}
+  \text{CV}(\hat{f}) = \frac{1}{N}\sum_{i=1}^{N} L!\left(y_i,\ \hat{f}^{-\kappa(i)}(x_i)\right)
+  \label{eq:validify}  
+\end{equation}
+
+Die \Cref{eq:validify} beschreibt die Genauigkeit eines Modells auf einer bestimmten Menge Daten. Hierfür wird ein Datensatz in $K$ gleichgroße Mengen unterteilt -- auch \textit{Folds} genannt -- gefolgt von $K$ trainings. Da $K$ \textit{Folds} existieren, wird das Modell einmal mit jedem \textit{Fold} getestet und hat zur Grundlage die restlichen \textit{Folds}.
+
+\subsection{Bewertungsmetriken}
+
+Die Güte des Modells wird durch die Bewertungsmetriken bestimmt, die sich je nach Art der Zielgröße unterscheiden. Bei Klassifikationsproblemen werden Metriken wie Genauigkeit, Präzision, Recall und F1-Score verwendet, bei Regressionsproblemen hingegen Metriken wie mittlerer absoluter Fehler (MAE), mittlerer quadratischer Fehler (MSE) und R². Abhängig von der Art des Problems und den Zielen der Analyse werden die entsprechenden Metriken ausgewählt, um die Leistung des Modells entsprechend zu bewerten.
+
+\subsection{Entscheidungsbäume}
+
+Sie bilden einen Teil des maschinellen Lernens, sind jedoch grundlegend verschieden zu den menschlich inspirierten neuronalen Netzen. Entscheidungsbäume imitieren ein regelbasiertes und hierarchisches Vorgehen. Getrieben von Daten entscheidet deren Label-Vollständigkeit, ob ein Baum supervised oder unsupervised trainiert wird. So sorgen Daten die gar nicht gelabelt sind dafür, dass ein Baum unsupervised trainiert wird. Das bedeutet, dass der Baum selbstständig Muster in den Daten erkennt und diese in einer Hierarchie abbildet. Bei einem (semi-)supervised Baum hingegen, werden die Daten entweder vollständig oder teilweise mit Labels versehen und der Baum lernt anhand dieser Labels die Abbildung auf die Zielwerte. Unabhängig davon entscheidet der Typ der Zielvariable, ob ein Baum regressiv oder klassifikatorisch trainiert wird.
+
+\subsubsection{Gini Index}
+\label{sec:gini}
+
+Die allgemeine Form der Gini-Unreinheit für einen Knoten mit $C$ Klassen und
+den Klassenanteilen $p_i$ lautet \parencite{breiman1984cart}:
+
+\begin{equation}
+  G = 1 - \sum_{i=1}^{C} p_i^{2}
+  \label{eq:gini}
+\end{equation}
+
+Für den binären Fall mit zwei Klassen ($p_1 = p$, $p_0 = 1-p$) vereinfacht sich
+\Cref{eq:gini} zu \parencite{breiman1984cart}:
+
+\begin{equation}
+  G = 1 - \left(p^{2} + (1-p)^{2}\right) = 2\,p\,(1-p)
+  \label{eq:gini_binaer}
+\end{equation}
+
+
+Hier spricht man von einer Unreinheit: einer Metrik, die ausdrückt, mit welcher Wahrscheinlichkeit ein Wert einer falschen Klasse zugeordnet würde, wenn er anhand der Klassenverteilung im Knoten ein zufälliges Label erhielte. Die gewichtete Unreinheit eines Splits ergibt sich aus den Unreinheiten der beiden Kindknoten \parencite{breiman1984cart}:
+
+\begin{equation}
+  G_{\text{split}} = \frac{n_{\text{links}}}{n}\,G_{\text{links}}
+                   + \frac{n_{\text{rechts}}}{n}\,G_{\text{rechts}}
+  \label{eq:gini_split}
+\end{equation}
+
+In \Cref{eq:gini_split} zeigt $n$ die Elemente im Elternknoten und $G$ die Unreinheit des jeweiligen Knoten an. Der Rest funktioniert analog, anhand der vorausgegangenen Formeln. Mit der Split-Formel lassen sich mehrere Iterationen pro Knoten vornehmen, wovon dann der reinste Split verwendet wird, um im Baum eine Rekursionsebene tiefer zu schreiten. Insgesamt funktioniert dieser Split $n-1$ mal.
+
+
+\subsubsection{Bagging und Boosting}
+
+Dieses Verfahren sorgt dafür, dass die Bäume von einer in der realen Trainingsmenge existierenden Untermenge Lernen. Es werden aus der Ursprungsmenge $N$ Stichproben gezogen, auf denen jeweils ein Classifier/Regressor trainiert wird (\cref{fig:baggingmethod}). Für jede Stichprobe wird ein Modell trainiert, das anschließend zu einem Ensemble aggregiert wird. Dadurch, dass alle Bäume auf unterschiedlichen Stichproben trainiert werden, wird die Varianz des Modells reduziert und die Vorhersagegenauigkeit verbessert. Bagging ist besonders effektiv bei Modellen, die zu Überanpassung neigen.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/baggingmethod.png}
+  \caption{Bagging: Aus den Trainingsdaten werden $N$ Bootstrap-Stichproben gezogen, auf denen jeweils ein Baum trainiert wird; deren Vorhersagen werden zu einem Ensemble aggregiert \parencite{baggingdiagram}.}
+  \label{fig:baggingmethod}
+\end{figure}
+
+Dieses Verfahren sorgt dafür, dass die Bäume auf den Residualfehlern der vorherigen Iteration trainiert werden (\cref{fig:boostingmethod}, \cite{boostingdiagram}). Dadurch wird die Vorhersagegenauigkeit des Modells verbessert. Im Gegensatz zu Bagging, bei dem die Bäume unabhängig voneinander trainiert werden, werden beim Boosting die Bäume sequentiell trainiert, wobei jeder Baum auf den Fehler des vorherigen Baums aufbaut. Dies ermöglicht es dem Modell, sich auf schwierige Beispiele zu konzentrieren und die Gesamtleistung zu verbessern. Im Kern besteht Boosting darin, schwache Lernalgorithmen zu kombinieren, um einen starken Lernalgorithmus durch gewichtete Aggregation zu erstellen. Boosting ist besonders effektiv bei Modellen, die zu Unteranpassung neigen.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/boostingmethod.png}
+  \caption{Boosting: Die Modelle werden nacheinander trainiert, wobei jedes folgende Modell auf den Fehlern des vorherigen Modells basiert \parencite{boostingdiagram}.}
+  \label{fig:boostingmethod}
+\end{figure}
+
+In der nachfolgenden Sektion werden der Random Forest \cref{sec:randomforest} und die Light Gradient Boosting Machine \cref{sec:lightgbm} vorgestellt, die auf den zuvor beschriebenen Prinzipien von Entscheidungsbäumen, Bagging und Boosting basieren. \cref{fig:treegrowth} veranschaulicht den zentralen Unterschied im Baumwachstum: LightGBM wächst \emph{leaf-wise} so, dass Knoten mit dem größten Fehlerbeitrag aufgeteilt werden, während klassische Verfahren, wie der Random Forest, \emph{level-wise} wachsen.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{images/treegrowth.jpg}
+  \caption{Baumwachstum in Ensemble-Verfahren \parencite{sciencedirect_lightgbm}.}
+  \label{fig:treegrowth}
+\end{figure}
+
+\subsection{Random Forest}
+\label{sec:randomforest}
+
+Ein Typ der Entscheidungsbaum-Modelle ist der Random Forest. Dieser besteht im Normalfall aus mehreren Entscheidungsbäumen, die, bei Bagging, jeweils auf einem zufälligen Teil der Trainingsdaten trainiert werden (\cref{fig:baggingmethod}). Die Vorhersagen einzelner Bäume werden anschließend zu einem Ensemble aggregiert, um die Gesamtvorhersage zu verbessern. Random Forest ist besonders effektiv bei Modellen, die zu Überanpassung neigen, da die Aggregation der Vorhersagen die Varianz reduziert und die Generalisierungsfähigkeit verbessert. 
+
+
+
+\subsection{Light Gradient Boosting Machine}
+\label{sec:lightgbm}
+
+Die Light Gradient Boosting Machine (LightGBM) ist ein Gradient-Boosting-Mechanismus, der auf Entscheidungsbäumen basiert, welche auf den Residualfehlern der vorherigen Iteration trainiert werden. In dieser Arbeit wird LightGBM ohne Bagging verwendet, aber mit Boosting, um die Vorhersagegenauigkeit zu verbessern. LightGBM ist besonders effektiv bei Modellen, die zu Unteranpassung neigen, da es die Vorhersagegenauigkeit verbessert, indem es sich auf die Fehler der vorherigen Iteration konzentriert und \emph{leaf-wise} (\cref{fig:treegrowth}) wächst.
+
+\subsection{Unsicherheit und Quantilsregression}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/decisiontree2_hires.png}
+  \caption{Entscheidungsbaum mit Aufteilungskriterien (Gini-Index, Stichprobengröße und Klassenverteilung pro Knoten). Eigene Darstellung nach \cite{schilli2017entscheidungsbaeume}.}
+  \label{fig:decisiontree2}
+\end{figure}
+
+\subsection{Long Short-Term Memory}
+Das LSTM ist ein rekurrentes neuronales Netz (RNN), mit einem Zellzustand und drei Gattern (Forget, Input, Output), die den Zustand der Zelle beeinflussen.
+ 
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/lstm.png}
+  \caption{Aufbau einer LSTM-Zelle: Der Zellzustand $C_t$ wird durch Forget-, Input- und Output-Gate gesteuert, die per $\sigma$- und $\tanh$-Aktivierung festlegen, was aus dem Gedächtnis verworfen, neu geschrieben und ausgelesen wird.}
+  \label{fig:lstm}
+\end{figure}
+
 % -----------------------------------------------------------------------------
 \section{Stand der Forschung}
 \label{sec:stand_forschung}
@@ -277,6 +324,8 @@ Die Forschung zur Prognose individueller Fahrzeugnutzung lässt sich grob in
 mehrere Sektionen gliedern, die sich in Zielgröße, Methodik und Datengrundlage
 unterscheiden. Tabelle~\ref{tab:forschungssektionen} fasst diese Sektionen als
 Übersicht zusammen. Jeder dieser Sektionen beinhaltet Arbeiten, die zum Teil entweder relevant für diese Arbeit, oder zu Ihrer Eingrenzung dient. Die folgenden Unterabschnitte vertiefen die Sektionen jeweils und arbeiten am Ende die für diese Arbeit zentrale Forschungslücke heraus.
+
+\vspace{1cm}
 
 \begin{table}[htbp]
   \centering
@@ -363,8 +412,3 @@ Modellierung.
   \label{tab:fahrertypen}
 \end{table}
 
-% -----------------------------------------------------------------------------
-\section{Zusammenfassung}
-\label{sec:grundlagen_zusammenfassung}
-
-\todo{Kurze Zusammenfassung der wichtigsten Erkenntnisse aus diesem Kapitel.}

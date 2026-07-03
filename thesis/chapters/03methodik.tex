@@ -19,6 +19,18 @@
     \end{itemize}
 }
 
+Das Ziel der Methodik ist es, die zuvor genannten Forschungsfragen in \cref{sec:forschungsfragen} zu beantworten. Um dies zu erreichen, werden verschiedene Machine-Learning-Modelle auf Basis von Entscheidungsbäumen und eines rekurrenten neuronalen Netzes implementiert und miteinander verglichen.
+
+Die Arbeit lässt sich in drei große Teile gliedern:
+\begin{itemize}
+    \item \textbf{Datenaufbereitung}: Das Erkundschaften der Datenlandschaft, die Transformation der Daten in ein geeignetes Format und die Auswahl relevanter Features.
+    \item \textbf{Machine Learning}: Die Auswahl und Implementierung verschiedener Machine-Learning-Modelle auf Grund ihrer unterschiedlichen Eigenschaften (leaf- und level-wise Wachstum, Bagging und Boosting, modellierte zeitliche Abhängigkiten).
+    \item \textbf{Ablationsexperimente}: Im Rahmen einer Ablationstudie werden verschiedene Modelle hinsichtlich ihrer Wertigkeit (in diesem Fall: Vorhersagegenauigkeit, Robustheit, Zuverlässigkeit) miteinander verglichen, um die besten Modelle zu identifizieren. 
+\end{itemize}
+
+Es bleibt zu beachten, dass die Ablation nicht unbedingt zur Abtragung aller nicht-primären Modelle führt, sondern eine eventuell Kooperation von Modellen auch eine Möglichkeit darstellt.
+
+
 % -----------------------------------------------------------------------------
 \section{Forschungsdesign}
 \label{sec:forschungsdesign}
@@ -43,8 +55,3 @@
 
 \todo{Wie wurden die erhobenen Daten analysiert? Welche Analysemethoden kommen zum Einsatz?}
 
-% -----------------------------------------------------------------------------
-\section{Zusammenfassung}
-\label{sec:methodik_zusammenfassung}
-
-\todo{Kurze Zusammenfassung der Methodik.}

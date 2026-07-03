@@ -81,6 +81,12 @@ const ALGOS: AlgoOption[] = [
     description:
       'Gradient Boosting mit sequenziellen Baeumen. Schnelleres Training, oft +2-5 Punkte F1 gegenueber RF. Liefert native Quantil-Regression (alpha=0.1/0.5/0.9).',
   },
+  {
+    id: 'lstm',
+    label: 'LSTM',
+    description:
+      'Rekurrentes neuronales Netz (PyTorch). Die 7 Tages-Lags werden als Sequenz gefuettert, die uebrigen Features als statischer Kontext. Quantile via Pinball-Loss (alpha=0.1/0.5/0.9). Deutlich laengeres Training auf CPU.',
+  },
 ];
 
 @Component({

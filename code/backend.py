@@ -53,7 +53,7 @@ _SOURCE_META = {
 }
 
 # Lesbare Algo-Namen.
-_ALGO_LABELS = {"rf": "RandomForest", "lgbm": "LightGBM"}
+_ALGO_LABELS = {"rf": "RandomForest", "lgbm": "LightGBM", "lstm": "LSTM"}
 
 
 def _describe_model(stem: str) -> dict:
@@ -539,7 +539,7 @@ _TRAIN_SCRIPTS = {
     "ved":         _REPO_ROOT / "code" / "model_scripts" / "forecast" / "train_ved_forecaster.py",
     "yjmob":       _REPO_ROOT / "code" / "model_scripts" / "forecast" / "train_yjmob_forecaster.py",
 }
-_ALLOWED_ALGOS = {"rf", "lgbm"}
+_ALLOWED_ALGOS = {"rf", "lgbm", "lstm"}
 
 # In-Memory-Jobs. Pro Job: status, log-Zeilen, exit_code, command. Nur fuer
 # Single-User-Setup gedacht — neustart-fluechtig.
