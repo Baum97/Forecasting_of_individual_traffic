@@ -7,6 +7,40 @@
 \todo{Einleitenden Text verfassen. Was wird in diesem Kapitel vorgestellt?}
 
 % -----------------------------------------------------------------------------
+
+\section{Anforderungen}
+%table einfügen für requirements
+
+Im folgenden werden die funktionalen und nicht-funktionalen Anforderungen an das System beschrieben. Diese Anforderungen bilden die Grundlage für die Implementierung und dienen als Referenzpunkt für die Bewertung des Systems. Die Anforderungen werden Anhand von Titel, Kürzel, Kurzbeschreibung und Priorität dargestellt. Die Priorität wird in drei Stufen unterteilt: \textit{hoch}, \textit{mittel} und \textit{niedrig}.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Anforderungen}
+    \label{tab:anforderungen}
+    \begin{tabular}{|l|l|l|l|}
+        \hline
+        \textbf{Titel} & \textbf{Kürzel} & \textbf{Kurzbeschreibung} & \textbf{Priorität} \\
+        \hline
+        \multicolumn{4}{|l|}{\textbf{Daten}} \\
+        \hline
+        Erhebung    & R-1.0 & Daten für die Erstellung von Modellen werden erfasst, auf das richtige Format überprüft und bereitgestellt. & hoch   \\
+        Aufbereitung & R-1.1 & Daten werden aufbereitet und in das richtige Format gebracht: Informationsgehalt und -qualität, Granularität & mittel \\
+        Speicherung  & R-1.2 & Daten werden dauerhaft persistiert. & niedrig \\
+        \hline
+        \multicolumn{4}{|l|}{\textbf{System}} \\
+        \hline
+        Systemstart      & R-2.0 & Funktionalität 4 & hoch   \\
+        Systemüberwachung & R-2.1 & Funktionalität 5 & mittel \\
+        \hline
+        \multicolumn{4}{|l|}{\textbf{Machine Learning Modelle}} \\
+        \hline
+        Modelltraining   & R-3.0 & Funktionalität 6 & hoch   \\
+        Modellevaluierung & R-3.1 & Funktionalität 7 & hoch \\
+         & & & \\
+        \hline
+    \end{tabular}
+\end{table}
+
 \section{Systemarchitektur}
 \label{sec:systemarchitektur}
 
