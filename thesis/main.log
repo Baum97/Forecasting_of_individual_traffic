@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  3 JUL 2026 16:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  9 JUL 2026 01:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1259,13 +1259,18 @@ Package tocbasic Info: character protrusion at lof deactivated on input line 71.
 
 {C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}]
 Package tocbasic Info: character protrusion at lot deactivated on input line 75.
- (main.lot)
+ (main.lot
+Overfull \hbox (10.46088pt too wide) in paragraph at lines 11--11
+ [][] [][]\T1/lmr/m/n/12 (-20) Modell (Ran-dom-Fo-rest) im Ver-gleich zu nai-ven Ba-se-li-nes, In-Distribution 
+ []
+
+)
 \tf@lot=\write9
 \openout9 = `main.lot'.
 
  [6
 
-]
+{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
 No file main.acr.
 (chapters/01einleitung.tex [0]
 chapter 1.
@@ -1278,12 +1283,12 @@ l.21 \section
 
 ] [2] [3]) (chapters/001inhaltsverzeichnis.tex) (chapters/002disclaimer.tex) (chapters/003glossar.tex) (chapters/02grundlagen.tex [4]
 chapter 2.
-<images/data_cars-real-world.png, id=251, 332.74312pt x 123.46124pt>
+<images/data_cars-real-world.png, id=272, 332.74312pt x 123.46124pt>
 File: images/data_cars-real-world.png Graphic file (type png)
 <use images/data_cars-real-world.png>
 Package pdftex.def Info: images/data_cars-real-world.png  used on input line 17.
 (pdftex.def)             Requested size: 256.07741pt x 95.02022pt.
-<images/data_emobpy.png, id=254, 316.18124pt x 108.405pt>
+<images/data_emobpy.png, id=275, 316.18124pt x 108.405pt>
 File: images/data_emobpy.png Graphic file (type png)
 <use images/data_emobpy.png>
 Package pdftex.def Info: images/data_emobpy.png  used on input line 26.
@@ -1291,13 +1296,13 @@ Package pdftex.def Info: images/data_emobpy.png  used on input line 26.
 [5
 
  <./images/data_cars-real-world.png> <./images/data_emobpy.png>]
-<images/prozess_diagramm_v2.png, id=269, 1055.142pt x 375.804pt>
+<images/prozess_diagramm_v2.png, id=290, 1055.142pt x 375.804pt>
 File: images/prozess_diagramm_v2.png Graphic file (type png)
 <use images/prozess_diagramm_v2.png>
 Package pdftex.def Info: images/prozess_diagramm_v2.png  used on input line 44.
 (pdftex.def)             Requested size: 426.79135pt x 152.00482pt.
  [6 <./images/prozess_diagramm_v2.png>]
-<images/maschinelles-lernen.png, id=279, 1028.84375pt x 866.23625pt>
+<images/maschinelles-lernen.png, id=300, 1028.84375pt x 866.23625pt>
 File: images/maschinelles-lernen.png Graphic file (type png)
 <use images/maschinelles-lernen.png>
 Package pdftex.def Info: images/maschinelles-lernen.png  used on input line 126.
@@ -1324,18 +1329,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 202--202
 []|\T1/lmr/m/n/12 (+20) Groÿe Ge-ne-ra-li-sie-rungs-lücke;
  []
 
-[11{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}] [12]
-<images/baggingmethod.png, id=354, 853.1875pt x 514.92375pt>
+[11{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}] [12]
+<images/baggingmethod.png, id=374, 853.1875pt x 514.92375pt>
 File: images/baggingmethod.png Graphic file (type png)
 <use images/baggingmethod.png>
 Package pdftex.def Info: images/baggingmethod.png  used on input line 263.
 (pdftex.def)             Requested size: 341.43437pt x 206.068pt.
-<images/boostingmethod.png, id=359, 102.3825pt x 67.2111pt>
+<images/boostingmethod.png, id=379, 102.3825pt x 67.2111pt>
 File: images/boostingmethod.png Graphic file (type png)
 <use images/boostingmethod.png>
 Package pdftex.def Info: images/boostingmethod.png  used on input line 272.
 (pdftex.def)             Requested size: 341.43437pt x 224.15712pt.
-<images/treegrowth.jpg, id=365, 342.12617pt x 90.77112pt>
+<images/treegrowth.jpg, id=385, 342.12617pt x 90.77112pt>
 File: images/treegrowth.jpg Graphic file (type jpg)
 <use images/treegrowth.jpg>
 Package pdftex.def Info: images/treegrowth.jpg  used on input line 281.
@@ -1346,105 +1351,117 @@ Overfull \hbox (24.45604pt too wide) in paragraph at lines 296--297
  []
 
 [14 <./images/boostingmethod.png> <./images/treegrowth.jpg>]
-<images/decisiontree2_hires.png, id=381, 578.16pt x 433.62pt>
+<images/decisiontree2_hires.png, id=401, 578.16pt x 433.62pt>
 File: images/decisiontree2_hires.png Graphic file (type png)
 <use images/decisiontree2_hires.png>
-Package pdftex.def Info: images/decisiontree2_hires.png  used on input line 302.
+Package pdftex.def Info: images/decisiontree2_hires.png  used on input line 304.
 (pdftex.def)             Requested size: 341.43437pt x 256.07178pt.
-<images/lstm.png, id=384, 1027.84pt x 587.19376pt>
+ [15 <./images/decisiontree2_hires.png>]
+<images/lstm.png, id=409, 1027.84pt x 587.19376pt>
 File: images/lstm.png Graphic file (type png)
 <use images/lstm.png>
-Package pdftex.def Info: images/lstm.png  used on input line 314.
+Package pdftex.def Info: images/lstm.png  used on input line 316.
 (pdftex.def)             Requested size: 341.43437pt x 195.05579pt.
- [15 <./images/decisiontree2_hires.png>]
-Overfull \hbox (8.68001pt too wide) in paragraph at lines 353--353
+
+Overfull \hbox (8.68001pt too wide) in paragraph at lines 358--358
 []|\T1/lmr/bx/n/12 (-20) Forschungsstrang|  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
 []|\T1/lmr/m/n/12 (+20) Reale Telematik-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
 []|\T1/lmr/m/n/12 (+20) Generalisierung
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
 []|\T1/lmr/m/n/12 (+20) Random Fo-rest,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
 \T1/lmr/m/n/12 (+20) SVM, Gra-di-ent
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
 []|\T1/lmr/m/n/12 (+20) EV-Flottendaten,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
 []|\T1/lmr/m/n/12 (+20) Einfluss der Da-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
 []|\T1/lmr/m/n/12 (+20) Vergleichbarkeit
  []
 
 
-Underfull \hbox (badness 5893) in paragraph at lines 353--353
+Underfull \hbox (badness 5893) in paragraph at lines 358--358
 \T1/lmr/m/n/12 (+20) syn-the-ti-scher und
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
 []|\T1/lmr/m/n/12 (+20) Quantilsregression,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
 \T1/lmr/m/n/12 (+20) Quantile-Random-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
 []|\T1/lmr/m/n/12 (+20) Kalibrierung
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
 \T1/lmr/m/n/12 (+20) in-di-vi-du-el-ler Vor-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
 \T1/lmr/m/n/12 (+20) her-sa-ge-in-ter-val-le
  []
 
-[16 <./images/lstm.png (PNG copy)>]) (chapters/03methodik.tex [17] [18]
+[16 <./images/lstm.png (PNG copy)>] [17]
+<images/fahrverhalten.png, id=425, 681.54625pt x 823.075pt>
+File: images/fahrverhalten.png Graphic file (type png)
+<use images/fahrverhalten.png>
+Package pdftex.def Info: images/fahrverhalten.png  used on input line 382.
+(pdftex.def)             Requested size: 298.75264pt x 360.79773pt.
+ [18 <./images/fahrverhalten.png (PNG copy)>]) (chapters/03methodik.tex [19]
 chapter 3.
-[19
+[20
 
-]) (chapters/04implementierung.tex [20]
+]) (chapters/04implementierung.tex [21]
 chapter 4.
-) (chapters/05evaluation.tex [21
+) (chapters/05evaluation.tex [22
 
 ]
 chapter 5.
-) (chapters/06diskussion.tex [22
 
-] [23]
+Underfull \hbox (badness 2573) in paragraph at lines 33--33
+[][][]|\T1/lmr/m/n/12 (+20) Mo-dell (Ran-dom-Fo-rest) im Ver-gleich zu nai-ven Ba-se-li-nes, In-
+ []
+
+) (chapters/06diskussion.tex [23
+
+] [24]
 chapter 6.
-) (chapters/07fazit.tex [24
+) (chapters/07fazit.tex [25
 
 ]
 chapter 7.
-) [25
+) [26
 
 ]
 chapter without number
@@ -1456,13 +1473,13 @@ Overfull \hbox (1.56348pt too wide) in paragraph at lines 104--104
 \T1/lmtt/m/n/12 gradient -[] boosting -[] machine -[] learning -[] method -[] The -[] ensemble -[] classifiers _
  []
 
-[26
+[27
 
-] (chapters/08anhang.tex [27]
+] (chapters/08anhang.tex [28]
 chapter A.
-) (chapters/09erklaerung.tex [28
+) (chapters/09erklaerung.tex [29
 
-]) [29
+]) [30
 
 ] (main.aux)
  ***********
@@ -1474,17 +1491,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41103 strings out of 467871
- 829057 string characters out of 5414504
- 1900868 words of memory out of 5000000
- 69103 multiletter control sequences out of 15000+600000
- 713331 words of font info for 191 fonts, out of 8000000 for 9000
+ 41138 strings out of 467871
+ 829866 string characters out of 5414504
+ 1911555 words of memory out of 5000000
+ 69127 multiletter control sequences out of 15000+600000
+ 713460 words of font info for 192 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,110p,11260b,3477s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (37 pages, 1460958 bytes).
+Output written on main.pdf (38 pages, 1616239 bytes).
 PDF statistics:
- 756 PDF objects out of 1000 (max. 8388607)
- 145 named destinations out of 1000 (max. 500000)
- 50168 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 802 PDF objects out of 1000 (max. 8388607)
+ 154 named destinations out of 1000 (max. 500000)
+ 50205 words of extra memory for PDF output out of 51595 (max. 10000000)
 

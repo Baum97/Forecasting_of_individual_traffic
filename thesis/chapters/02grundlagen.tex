@@ -297,6 +297,8 @@ Die Light Gradient Boosting Machine (LightGBM) ist ein Gradient-Boosting-Mechani
 
 \subsection{Unsicherheit und Quantilsregression}
 
+
+
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{images/decisiontree2_hires.png}
@@ -305,14 +307,14 @@ Die Light Gradient Boosting Machine (LightGBM) ist ein Gradient-Boosting-Mechani
 \end{figure}
 
 \subsection{Long Short-Term Memory}
-Das LSTM ist ein rekurrentes neuronales Netz (RNN), mit einem Zellzustand und drei Gattern (Forget, Input, Output), die den Zustand der Zelle beeinflussen.
+Das LSTM ist ein rekurrentes neuronales Netz (RNN), mit einem Zellzustand und drei Gattern (Forget, Input, Output), die den Zustand der Zelle beeinflussen. Es ist dazu entwickelt, Langzeitabhängigkeiten in Sequenzen zu lernen und ist besonders geeignet für Zeitreihenprognosen. Durch die Gatter kann das LSTM entscheiden, welche Informationen beibehalten werden und welche verworfen werden, wodurch es in der Lage ist, relevante Muster über längere Zeiträume hinweg zu erfassen. Das LSTM umgeht das Vanishing-Gradient-Problem, das bei traditionellen RNNs auftritt, indem es den Zellzustand über viele Zeitschritte hinweg beibehält und so die Weitergabe von Informationen über lange Sequenzen ermöglicht.
  
 
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{images/lstm.png}
-  \caption{Aufbau einer LSTM-Zelle: Der Zellzustand $C_t$ wird durch Forget-, Input- und Output-Gate gesteuert, die per $\sigma$- und $\tanh$-Aktivierung festlegen, was aus dem Gedächtnis verworfen, neu geschrieben und ausgelesen wird.}
+  \caption{Aufbau einer LSTM-Zelle: Der Zellzustand $C_t$ wird durch Forget-, Input- und Output-Gate gesteuert, die per $\sigma$- und $\tanh$-Aktivierung festlegen, was aus dem Gedächtnis verworfen, neu geschrieben und ausgelesen wird \parencite{dida_lstm}.}
   \label{fig:lstm}
 \end{figure}
 
@@ -322,12 +324,15 @@ Das LSTM ist ein rekurrentes neuronales Netz (RNN), mit einem Zellzustand und dr
 
 Die Forschung zur Prognose individueller Fahrzeugnutzung lässt sich grob in
 mehrere Sektionen gliedern, die sich in Zielgröße, Methodik und Datengrundlage
-unterscheiden. Tabelle~\ref{tab:forschungssektionen} fasst diese Sektionen als
+unterscheiden. Tabelle \ref{tab:forschungssektionen} fasst diese Sektionen als
 Übersicht zusammen. Jeder dieser Sektionen beinhaltet Arbeiten, die zum Teil entweder relevant für diese Arbeit, oder zu Ihrer Eingrenzung dient. Die folgenden Unterabschnitte vertiefen die Sektionen jeweils und arbeiten am Ende die für diese Arbeit zentrale Forschungslücke heraus.
 
 \vspace{1cm}
 
 \begin{table}[htbp]
+  \caption{Zentrale Forschungssektionen im Umfeld der individuellen
+  Fahrzeugnutzungsprognose.}
+  \label{tab:forschungssektionen}
   \centering
   \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.2cm} X X X@{}}
     \toprule
@@ -351,9 +356,7 @@ unterscheiden. Tabelle~\ref{tab:forschungssektionen} fasst diese Sektionen als
     individueller Vorhersageintervalle (P10/P90) \\
     \bottomrule
   \end{tabularx}
-    \caption{Zentrale Forschungssektionen im Umfeld der individuellen
-    Fahrzeugnutzungsprognose.}
-    \label{tab:forschungssektionen}
+
 \end{table}
 
 
@@ -366,7 +369,29 @@ unterscheiden. Tabelle~\ref{tab:forschungssektionen} fasst diese Sektionen als
 
 \todo{Verwandte Arbeiten vorstellen und voneinander abgrenzen. Wie unterscheidet sich die eigene Arbeit?}
 
+Um zu verdeutlichen, womit sich diese Arbeit im wesentlichen auseinandersetzt, werden im Folgenden verwandte Arbeiten vorgestellt und voneinander abgegrenzt. Die Auswahl der Arbeiten orientiert sich an den in \Cref{tab:forschungssektionen} dargestellten Forschungssträngen. Dabei werden sowohl die Zielsetzung, die Methodik als auch die Datengrundlage der jeweiligen Arbeiten betrachtet, um die Unterschiede und Gemeinsamkeiten herauszuarbeiten.
 
+\subsection{Mobilitäts- und Nutzungsforecasts}
+
+Diese Sektion befasst sich mit Arbeiten, die sich auf die Vorhersage mittels statistischer Modelle konzentrieren. Dazu zählen klassische Zeitreihenmodelle wie ARIMA, aber auch moderne Ansätze wie Random Forest und neuronale Netze, insbesondere LSTM. Die Daten bestehen zum Großteil aus realen Telematik- und Bewegungsdaten, die eine hohe Granularität aufweisen. Ein zentrales Ziel hierbei ist die Generalisierung über eins oder mehrere Fahrzeuge hinweg, um Vorhersagen für zukünftiges Fahrverhalten treffen zu können. Die Arbeiten haben den Zweck, die Genauigkeit der Vorhersagen zu maximieren und gleichzeitig die Interpretierbarkeit der Modelle zu gewährleisten. 
+
+Eine Studie beispielsweise befasst sich mit der Vorhersage von Fahrverhalten auf Grund von temperaturbedingter Batterieeffizienz -- denn besonders niedrige Temperaturen können die Effizienz der Batterien erheblich beeinflussen \cite{lindroth2024online}. Es werden Online-Lernmodelle verwendet um die Abfahrtszeit und die Distanz für den ersten Trip des Tages vorherzusagen. \Cref{fig:fahrverhalten} zeigt die zugrunde liegenden Verteilungen von Fahrdistanz und Abfahrtszeit, aufgeschlüsselt nach Wochentag. Es ist gut zu erkennen, dass die Fahrdistanz, unabhängig vom Wochentag, eine sehr ähnliche Verteilung aufweist, während die Abfahrtszeit stark vom Wochentag abhängt.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/fahrverhalten.png}
+  \caption{Verteilung der Fahrdistanz (a) und der Abfahrtszeit des ersten Tagestrips (b) nach Wochentag \parencite{lindroth2024online}.}
+  \label{fig:fahrverhalten}
+\end{figure}
+
+
+
+
+\subsection{Driving-/Parking-Klassifikation}
+
+\subsection{EV-Last- und Ladeprognose}
+
+\subsection{Unsicherheits- und Quantilsprognose}
 
 \textcolor{red}{
     \begin{itemize}

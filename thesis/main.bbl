@@ -101,6 +101,42 @@
       \field{title}{Classification and Regression Trees}
       \field{year}{1984}
     \endentry
+    \entry{dida_lstm}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b9343bdbf698cbc25b1528b0512e6210}{%
+           family={{dida}},
+           familyi={d\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {dida Datenschmiede GmbH}%
+      }
+      \strng{namehash}{b9343bdbf698cbc25b1528b0512e6210}
+      \strng{fullhash}{b9343bdbf698cbc25b1528b0512e6210}
+      \strng{fullhashraw}{b9343bdbf698cbc25b1528b0512e6210}
+      \strng{bibnamehash}{b9343bdbf698cbc25b1528b0512e6210}
+      \strng{authorbibnamehash}{b9343bdbf698cbc25b1528b0512e6210}
+      \strng{authornamehash}{b9343bdbf698cbc25b1528b0512e6210}
+      \strng{authorfullhash}{b9343bdbf698cbc25b1528b0512e6210}
+      \strng{authorfullhashraw}{b9343bdbf698cbc25b1528b0512e6210}
+      \field{sortinit}{d}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Abbildung}
+      \field{title}{Was ist ein LSTM neuronales Netzwerk?}
+      \field{urlday}{9}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://dida.do/de/was-ist-ein-lstm-neuronales-netzwerk
+      \endverb
+      \verb{url}
+      \verb https://dida.do/de/was-ist-ein-lstm-neuronales-netzwerk
+      \endverb
+    \endentry
     \entry{emobpy_dataset}{misc}{}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=bba098b0d0c1e9fb33028262fc12b816}{%
@@ -316,6 +352,63 @@
       \range{pages}{23}
       \verb{doi}
       \verb 10.1111/tgis.13043
+      \endverb
+    \endentry
+    \entry{lindroth2024online}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=337a27118f0587efb7bb021f377fbc60}{%
+           family={Lindroth},
+           familyi={L\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8aa296712906f57523599ffd711fb443}{%
+           family={Svensson},
+           familyi={S\bibinitperiod},
+           given={Axel},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0e26215f5ccc84422340ce1ff3e4f6ef}{%
+           family={{Å}kerblom},
+           familyi={Å\bibinitperiod},
+           given={Niklas},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ba2be20fd5f52f67ab4d0b15991029aa}{%
+           family={Pourabdollah},
+           familyi={P\bibinitperiod},
+           given={Mitra},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8bae96277e6cdab4a5146c31c0449285}{%
+           family={Haghir\bibnamedelima Chehreghani},
+           familyi={H\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={Morteza},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{4cd3bed9013bb2d86849e8c4aa0c7001}
+      \strng{fullhash}{a7a5f9e635014b9d187faa6d1840b0e1}
+      \strng{fullhashraw}{a7a5f9e635014b9d187faa6d1840b0e1}
+      \strng{bibnamehash}{a7a5f9e635014b9d187faa6d1840b0e1}
+      \strng{authorbibnamehash}{a7a5f9e635014b9d187faa6d1840b0e1}
+      \strng{authornamehash}{4cd3bed9013bb2d86849e8c4aa0c7001}
+      \strng{authorfullhash}{a7a5f9e635014b9d187faa6d1840b0e1}
+      \strng{authorfullhashraw}{a7a5f9e635014b9d187faa6d1840b0e1}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Intelligent Transportation Systems}
+      \field{title}{Online Learning Models for Vehicle Usage Prediction During COVID-19}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1109/TITS.2024.3361676
       \endverb
     \endentry
     \entry{pozzato2023fielddata}{misc}{}{}

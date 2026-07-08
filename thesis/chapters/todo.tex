@@ -44,6 +44,18 @@ sich die Ablationsstudie um ein rekurrentes neuronales Netz als dritten
 Algorithmus neben den beiden Baum-Ensembles; die Datenqualitaets-Isolation
 der Cross-Validation bleibt unberuehrt, da Features und Ziel identisch sind.
 
+\paragraph{2026-07-09 --- Naive Baselines als Skill-Referenz}
+Neues Eval-only-Skript \texttt{classifier/run\_baselines.py} scort drei naive
+Baselines (Majority ``immer geparkt'', Persistenz-168 = gleiche Stunde der
+Vorwoche, Klimatologie = P(fahren$\mid$Wochentag,Stunde) aus dem Train) auf
+demselben zeitlichen Test-Split wie die Cross-Validation. Begruendung: Eine
+absolute Accuracy/F1 ist ohne Referenz keine Aussage ueber \emph{Skill}; erst
+der Abstand Modell~$-$~Baseline zeigt echten Mehrwert. Kernbefund: In PR-AUC
+schlaegt das Modell die Baselines bei real\_world\_ev, routine und yjmob klar,
+bei ved kaum (0{,}091 vs.\ 0{,}083 Klimatologie) -- weitere Stuetze der
+Datenqualitaets-These. In Accuracy uebertrifft ``immer geparkt'' das Modell bei
+ved/emobpy, was den Accuracy-Trugschluss belegt.
+
 \paragraph{2026-06-28 --- Schwellwert-Tuning evaluiert und verworfen (Negativ-Ergebnis)}
 Getestet wurde eine F1-optimale Entscheidungsschwelle pro Modell (kalibriert auf
 einem zeitlich abgetrennten Validierungsteil) zusammen mit einem moderaten
