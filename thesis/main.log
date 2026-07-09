@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  9 JUL 2026 11:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  10 JUL 2026 00:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1432,13 +1432,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 358--358
 \T1/lmr/m/n/12 (+20) her-sa-ge-in-ter-val-le
  []
 
-[16 <./images/lstm.png (PNG copy)>] [17]
-<images/fahrverhalten.png, id=420, 681.54625pt x 823.075pt>
+[16 <./images/lstm.png (PNG copy)>]
+<images/fahrverhalten.png, id=414, 681.54625pt x 823.075pt>
 File: images/fahrverhalten.png Graphic file (type png)
 <use images/fahrverhalten.png>
-Package pdftex.def Info: images/fahrverhalten.png  used on input line 382.
+Package pdftex.def Info: images/fahrverhalten.png  used on input line 380.
 (pdftex.def)             Requested size: 298.75264pt x 360.79773pt.
- [18 <./images/fahrverhalten.png (PNG copy)>]) (chapters/03methodik.tex [19]
+ [17] [18 <./images/fahrverhalten.png (PNG copy)>]) (chapters/03methodik.tex [19]
 chapter 3.
 [20
 
@@ -1496,15 +1496,15 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41139 strings out of 467871
- 829924 string characters out of 5414504
+ 41137 strings out of 467871
+ 829900 string characters out of 5414504
  1911641 words of memory out of 5000000
  69125 multiletter control sequences out of 15000+600000
- 713460 words of font info for 192 fonts, out of 8000000 for 9000
+ 713363 words of font info for 191 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,110p,11260b,3477s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (39 pages, 1616409 bytes).
+Output written on main.pdf (39 pages, 1616242 bytes).
 PDF statistics:
  794 PDF objects out of 1000 (max. 8388607)
  157 named destinations out of 1000 (max. 500000)
