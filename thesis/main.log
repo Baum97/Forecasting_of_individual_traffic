@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  9 JUL 2026 01:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  9 JUL 2026 11:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1260,7 +1260,7 @@ Package tocbasic Info: character protrusion at lof deactivated on input line 71.
 {C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}]
 Package tocbasic Info: character protrusion at lot deactivated on input line 75.
  (main.lot
-Overfull \hbox (10.46088pt too wide) in paragraph at lines 11--11
+Overfull \hbox (10.46088pt too wide) in paragraph at lines 12--12
  [][] [][]\T1/lmr/m/n/12 (-20) Modell (Ran-dom-Fo-rest) im Ver-gleich zu nai-ven Ba-se-li-nes, In-Distribution 
  []
 
@@ -1283,12 +1283,12 @@ l.21 \section
 
 ] [2] [3]) (chapters/001inhaltsverzeichnis.tex) (chapters/002disclaimer.tex) (chapters/003glossar.tex) (chapters/02grundlagen.tex [4]
 chapter 2.
-<images/data_cars-real-world.png, id=272, 332.74312pt x 123.46124pt>
+<images/data_cars-real-world.png, id=266, 332.74312pt x 123.46124pt>
 File: images/data_cars-real-world.png Graphic file (type png)
 <use images/data_cars-real-world.png>
 Package pdftex.def Info: images/data_cars-real-world.png  used on input line 17.
 (pdftex.def)             Requested size: 256.07741pt x 95.02022pt.
-<images/data_emobpy.png, id=275, 316.18124pt x 108.405pt>
+<images/data_emobpy.png, id=269, 316.18124pt x 108.405pt>
 File: images/data_emobpy.png Graphic file (type png)
 <use images/data_emobpy.png>
 Package pdftex.def Info: images/data_emobpy.png  used on input line 26.
@@ -1296,13 +1296,13 @@ Package pdftex.def Info: images/data_emobpy.png  used on input line 26.
 [5
 
  <./images/data_cars-real-world.png> <./images/data_emobpy.png>]
-<images/prozess_diagramm_v2.png, id=290, 1055.142pt x 375.804pt>
+<images/prozess_diagramm_v2.png, id=284, 1055.142pt x 375.804pt>
 File: images/prozess_diagramm_v2.png Graphic file (type png)
 <use images/prozess_diagramm_v2.png>
 Package pdftex.def Info: images/prozess_diagramm_v2.png  used on input line 44.
 (pdftex.def)             Requested size: 426.79135pt x 152.00482pt.
  [6 <./images/prozess_diagramm_v2.png>]
-<images/maschinelles-lernen.png, id=300, 1028.84375pt x 866.23625pt>
+<images/maschinelles-lernen.png, id=294, 1028.84375pt x 866.23625pt>
 File: images/maschinelles-lernen.png Graphic file (type png)
 <use images/maschinelles-lernen.png>
 Package pdftex.def Info: images/maschinelles-lernen.png  used on input line 126.
@@ -1330,17 +1330,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 202--202
  []
 
 [11{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}] [12]
-<images/baggingmethod.png, id=374, 853.1875pt x 514.92375pt>
+<images/baggingmethod.png, id=368, 853.1875pt x 514.92375pt>
 File: images/baggingmethod.png Graphic file (type png)
 <use images/baggingmethod.png>
 Package pdftex.def Info: images/baggingmethod.png  used on input line 263.
 (pdftex.def)             Requested size: 341.43437pt x 206.068pt.
-<images/boostingmethod.png, id=379, 102.3825pt x 67.2111pt>
+<images/boostingmethod.png, id=373, 102.3825pt x 67.2111pt>
 File: images/boostingmethod.png Graphic file (type png)
 <use images/boostingmethod.png>
 Package pdftex.def Info: images/boostingmethod.png  used on input line 272.
 (pdftex.def)             Requested size: 341.43437pt x 224.15712pt.
-<images/treegrowth.jpg, id=385, 342.12617pt x 90.77112pt>
+<images/treegrowth.jpg, id=379, 342.12617pt x 90.77112pt>
 File: images/treegrowth.jpg Graphic file (type jpg)
 <use images/treegrowth.jpg>
 Package pdftex.def Info: images/treegrowth.jpg  used on input line 281.
@@ -1351,13 +1351,13 @@ Overfull \hbox (24.45604pt too wide) in paragraph at lines 296--297
  []
 
 [14 <./images/boostingmethod.png> <./images/treegrowth.jpg>]
-<images/decisiontree2_hires.png, id=401, 578.16pt x 433.62pt>
+<images/decisiontree2_hires.png, id=395, 578.16pt x 433.62pt>
 File: images/decisiontree2_hires.png Graphic file (type png)
 <use images/decisiontree2_hires.png>
 Package pdftex.def Info: images/decisiontree2_hires.png  used on input line 304.
 (pdftex.def)             Requested size: 341.43437pt x 256.07178pt.
  [15 <./images/decisiontree2_hires.png>]
-<images/lstm.png, id=409, 1027.84pt x 587.19376pt>
+<images/lstm.png, id=403, 1027.84pt x 587.19376pt>
 File: images/lstm.png Graphic file (type png)
 <use images/lstm.png>
 Package pdftex.def Info: images/lstm.png  used on input line 316.
@@ -1433,7 +1433,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 358--358
  []
 
 [16 <./images/lstm.png (PNG copy)>] [17]
-<images/fahrverhalten.png, id=425, 681.54625pt x 823.075pt>
+<images/fahrverhalten.png, id=420, 681.54625pt x 823.075pt>
 File: images/fahrverhalten.png Graphic file (type png)
 <use images/fahrverhalten.png>
 Package pdftex.def Info: images/fahrverhalten.png  used on input line 382.
@@ -1444,24 +1444,29 @@ chapter 3.
 
 ]) (chapters/04implementierung.tex [21]
 chapter 4.
-) (chapters/05evaluation.tex [22
 
-]
+Overfull \hbox (384.62483pt too wide) in paragraph at lines 20--42
+ [][] 
+ []
+
+[22
+
+]) (chapters/05evaluation.tex [23]
 chapter 5.
 
 Underfull \hbox (badness 2573) in paragraph at lines 33--33
 [][][]|\T1/lmr/m/n/12 (+20) Mo-dell (Ran-dom-Fo-rest) im Ver-gleich zu nai-ven Ba-se-li-nes, In-
  []
 
-) (chapters/06diskussion.tex [23
+) (chapters/06diskussion.tex [24
 
-] [24]
+] [25]
 chapter 6.
-) (chapters/07fazit.tex [25
+) (chapters/07fazit.tex [26
 
 ]
 chapter 7.
-) [26
+) [27
 
 ]
 chapter without number
@@ -1473,13 +1478,13 @@ Overfull \hbox (1.56348pt too wide) in paragraph at lines 104--104
 \T1/lmtt/m/n/12 gradient -[] boosting -[] machine -[] learning -[] method -[] The -[] ensemble -[] classifiers _
  []
 
-[27
+[28
 
-] (chapters/08anhang.tex [28]
+] (chapters/08anhang.tex [29]
 chapter A.
-) (chapters/09erklaerung.tex [29
+) (chapters/09erklaerung.tex [30
 
-]) [30
+]) [31
 
 ] (main.aux)
  ***********
@@ -1491,17 +1496,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41138 strings out of 467871
- 829866 string characters out of 5414504
- 1911555 words of memory out of 5000000
- 69127 multiletter control sequences out of 15000+600000
+ 41139 strings out of 467871
+ 829924 string characters out of 5414504
+ 1911641 words of memory out of 5000000
+ 69125 multiletter control sequences out of 15000+600000
  713460 words of font info for 192 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,110p,11260b,3477s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (38 pages, 1616239 bytes).
+Output written on main.pdf (39 pages, 1616409 bytes).
 PDF statistics:
- 802 PDF objects out of 1000 (max. 8388607)
- 154 named destinations out of 1000 (max. 500000)
- 50205 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 794 PDF objects out of 1000 (max. 8388607)
+ 157 named destinations out of 1000 (max. 500000)
+ 50173 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -9,7 +9,7 @@
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Baumwachstum in Ensemble-Verfahren \blx@tocontentsinit {0}\parencite {sciencedirect_lightgbm}.}}{14}{figure.caption.25}%
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Entscheidungsbaum mit Aufteilungskriterien (Gini-Index, Stichprobengröße und Klassenverteilung pro Knoten). Eigene Darstellung nach \blx@tocontentsinit {0}\cite {schilli2017entscheidungsbaeume}.}}{15}{figure.caption.26}%
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Aufbau einer LSTM-Zelle: Der Zellzustand $C_t$ wird durch Forget-, Input- und Output-Gate gesteuert, die per $\sigma $- und $\tanh $-Aktivierung festlegen, was aus dem Gedächtnis verworfen, neu geschrieben und ausgelesen wird \blx@tocontentsinit {0}\parencite {dida_lstm}.}}{16}{figure.caption.27}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Verteilung der Fahrdistanz (a) und der Abfahrtszeit des ersten Tagestrips (b) nach Wochentag \blx@tocontentsinit {0}\parencite {lindroth2024online}.}}{18}{figure.caption.29}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Verteilung der Fahrdistanz (a) und der Abfahrtszeit des ersten Tagestrips (b) nach Wochentag \blx@tocontentsinit {0}\parencite {lindroth2024online}.}}{18}{figure.caption.30}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
