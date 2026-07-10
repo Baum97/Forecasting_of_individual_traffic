@@ -354,6 +354,49 @@
       \verb 10.1111/tgis.13043
       \endverb
     \endentry
+    \entry{koenker1978regression}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=713ca648cccb03223d755f3f2ff51a5c}{%
+           family={Koenker},
+           familyi={K\bibinitperiod},
+           given={Roger},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c9f29d0eb68fa72d93bcdec3a7f8d124}{%
+           family={Bassett},
+           familyi={B\bibinitperiod},
+           given={Gilbert},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {JSTOR}%
+      }
+      \strng{namehash}{630678a1775b8ebd2bfd7868fa12f65f}
+      \strng{fullhash}{17a6c2dbc6141333000fcbaf65eb2c10}
+      \strng{fullhashraw}{17a6c2dbc6141333000fcbaf65eb2c10}
+      \strng{bibnamehash}{17a6c2dbc6141333000fcbaf65eb2c10}
+      \strng{authorbibnamehash}{17a6c2dbc6141333000fcbaf65eb2c10}
+      \strng{authornamehash}{630678a1775b8ebd2bfd7868fa12f65f}
+      \strng{authorfullhash}{17a6c2dbc6141333000fcbaf65eb2c10}
+      \strng{authorfullhashraw}{17a6c2dbc6141333000fcbaf65eb2c10}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Econometrica}
+      \field{number}{1}
+      \field{title}{Regression Quantiles}
+      \field{volume}{46}
+      \field{year}{1978}
+      \field{pages}{33\bibrangedash 50}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.2307/1913643
+      \endverb
+    \endentry
     \entry{lindroth2024online}{article}{}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=337a27118f0587efb7bb021f377fbc60}{%
@@ -410,6 +453,36 @@
       \verb{doi}
       \verb 10.1109/TITS.2024.3361676
       \endverb
+    \endentry
+    \entry{meinshausen2006qrf}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ab9469dddb5d18ec039f709e2d7c4e00}{%
+           family={Meinshausen},
+           familyi={M\bibinitperiod},
+           given={Nicolai},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ab9469dddb5d18ec039f709e2d7c4e00}
+      \strng{fullhash}{ab9469dddb5d18ec039f709e2d7c4e00}
+      \strng{fullhashraw}{ab9469dddb5d18ec039f709e2d7c4e00}
+      \strng{bibnamehash}{ab9469dddb5d18ec039f709e2d7c4e00}
+      \strng{authorbibnamehash}{ab9469dddb5d18ec039f709e2d7c4e00}
+      \strng{authornamehash}{ab9469dddb5d18ec039f709e2d7c4e00}
+      \strng{authorfullhash}{ab9469dddb5d18ec039f709e2d7c4e00}
+      \strng{authorfullhashraw}{ab9469dddb5d18ec039f709e2d7c4e00}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Machine Learning Research}
+      \field{title}{Quantile Regression Forests}
+      \field{volume}{7}
+      \field{year}{2006}
+      \field{pages}{983\bibrangedash 999}
+      \range{pages}{17}
     \endentry
     \entry{pozzato2023fielddata}{misc}{}{}
       \name{author}{3}{}{%

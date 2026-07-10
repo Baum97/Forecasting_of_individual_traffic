@@ -1,16 +1,16 @@
 \babel@toc {ngerman}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Phasen der Mobilitätsdaten-Pipeline}}{7}{table.caption.8}%
-\contentsline {table}{\numberline {2.2}{\ignorespaces Charakterisierung von Anpassungen anhand von Fehlerwerten \blx@tocontentsinit {0}\cite {geron2022handson}.}}{11}{table.caption.20}%
-\contentsline {table}{\numberline {2.3}{\ignorespaces Zentrale Forschungssektionen im Umfeld der individuellen Fahrzeugnutzungsprognose.}}{17}{table.caption.28}%
-\contentsline {table}{\numberline {2.4}{\ignorespaces Fünf Fahrertypen des Individualverkehrs nach \blx@tocontentsinit {0}\textcite {ji2023rethinking}.}}{19}{table.caption.35}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Phasen der Mobilitätsdaten-Pipeline}}{7}{table.caption.7}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Charakterisierung von Anpassungen anhand von Fehlerwerten \blx@tocontentsinit {0}\cite {geron2022handson}.}}{11}{table.caption.19}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Zentrale Forschungssektionen im Umfeld der individuellen Fahrzeugnutzungsprognose.}}{18}{table.caption.28}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces Fünf Fahrertypen des Individualverkehrs nach \blx@tocontentsinit {0}\textcite {ji2023rethinking}.}}{21}{table.caption.35}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Anforderungen}}{22}{table.caption.36}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Anforderungen}}{24}{table.caption.36}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Modell (RandomForest) im Vergleich zu naiven Baselines, In-Distribution je Datenquelle auf demselben zeitlichen Test-Split. Majority = \enquote {immer geparkt}; Persistenz-168 = gleiche Stunde der Vorwoche; Klimatologie = $P(\text {fahren}\mid \text {Wochentag},\text {Stunde})$ aus dem Trainingsteil.}}{25}{table.caption.37}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces In-Distribution-Gütemaße des Driving-Classifiers je Datenquelle (Acc.\ = Accuracy, ROC = ROC-AUC, PR = PR-AUC, Brier = Brier-Score, Aktiv-Rate = Anteil der Fahrstunden). Beide Algorithmen nutzen denselben Feature-Satz.}}{25}{table.caption.38}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Modell (RandomForest) im Vergleich zu naiven Baselines, In-Distribution je Datenquelle auf demselben zeitlichen Test-Split. Majority = \enquote {immer geparkt}; Persistenz-168 = gleiche Stunde der Vorwoche; Klimatologie = $P(\text {fahren}\mid \text {Wochentag},\text {Stunde})$ aus dem Trainingsteil.}}{27}{table.caption.37}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces In-Distribution-Gütemaße des Driving-Classifiers je Datenquelle (Acc.\ = Accuracy, ROC = ROC-AUC, PR = PR-AUC, Brier = Brier-Score, Aktiv-Rate = Anteil der Fahrstunden). Beide Algorithmen nutzen denselben Feature-Satz.}}{27}{table.caption.38}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

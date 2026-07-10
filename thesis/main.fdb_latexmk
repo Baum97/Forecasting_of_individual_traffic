@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1783553707.18034 "main.bcf" "main.bbl" "main" 1783636001.89995 0
-  "literatur.bib" 1783553388 15848 6eb18fd7e8bf1f83411e10a31bbdd3cd ""
-  "main.bcf" 1783636001 111250 348e736b6b2d5f697a66ef02d361348c "pdflatex"
+["biber main"] 1783674295.66184 "main.bcf" "main.bbl" "main" 1783675017.85248 0
+  "literatur.bib" 1783672390 16388 c3091c351b59435fe38cab330cf49a3f ""
+  "main.bcf" 1783675017 111555 a26ff45104fc9915a15af6df7b7c5304 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1783635998.63902 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1783636001.90053 0
+["pdflatex"] 1783675014.37622 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1783675017.85307 0
   "C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1781947092 368683 20af194610b55c11d3743ae29ed2ab48 ""
   "C:/Users/Administrator/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1776509242 13337359 a21bfb9d050a5bf8318e8708a258f339 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -215,9 +215,9 @@
   "chapters/001inhaltsverzeichnis.tex" 1774272499 0 d41d8cd98f00b204e9800998ecf8427e ""
   "chapters/002disclaimer.tex" 1774272499 0 d41d8cd98f00b204e9800998ecf8427e ""
   "chapters/003glossar.tex" 1774272499 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "chapters/00abstract.tex" 1781519923 1898 b478b75aa4b6a96a83d71b31f2554d66 ""
+  "chapters/00abstract.tex" 1783637035 1270 98f89cec0d478a817143b9c40c15f779 ""
   "chapters/01einleitung.tex" 1781359025 8650 785f6ea2941ff2a2559c59532bcb2b2d ""
-  "chapters/02grundlagen.tex" 1783635994 30226 026803a563176514e502543863da1424 ""
+  "chapters/02grundlagen.tex" 1783675010 34174 022d7046680e65b90b25864a819a6979 ""
   "chapters/03methodik.tex" 1783090290 3050 bda0345757e9a54d6ac59b7cc3ab7a78 ""
   "chapters/04implementierung.tex" 1783553936 3247 b165d4f722e473845b2bc3c31c205d79 ""
   "chapters/05evaluation.tex" 1783550402 5129 4302217ab529186449428e66bba90a1d ""
@@ -237,16 +237,17 @@
   "images/lstm.png" 1783089358 65774 26bafba79ee8b1b811f8450dd85741df ""
   "images/maschinelles-lernen.png" 1781366137 329246 948b5fe45b62e29dd0cbdb90869cfc39 ""
   "images/prozess_diagramm_v2.png" 1782988253 57330 d67d3f8b36b1d26480671375f5c12341 ""
+  "images/quantilregression.png" 1783670782 202415 beea8a3aad1306b3ebc91d2a47c17f42 ""
   "images/treegrowth.jpg" 1783085476 150030 cc8b67a85058cff95ca2603f034253ef ""
   "imports.tex" 1781426639 2531 bb1236b514af0c846c64287208175c3e ""
   "main.acr" 0 -1 0 ""
-  "main.aux" 1783636001 46162 279f58ad709eb6e1a23af861f287c068 "pdflatex"
-  "main.bbl" 1783553708 26683 7fe911d87f8224b2b910f353955528c7 "biber main"
-  "main.lof" 1783636001 2383 45bc63110771ea1e9f71bf8458c58861 "pdflatex"
-  "main.lot" 1783636001 1721 e19e112da4ea014f667bfbba7e99cd42 "pdflatex"
-  "main.run.xml" 1783636001 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
+  "main.aux" 1783675017 47836 44bb76d91706e25f466c50074184902b "pdflatex"
+  "main.bbl" 1783674297 29648 6bf3525950d21d1bb23f196f5a475d55 "biber main"
+  "main.lof" 1783675017 2761 8df4e8867ff0831cbb4125325231eb2a "pdflatex"
+  "main.lot" 1783675017 1721 15c479e93e0b2869f2a10e980425293b "pdflatex"
+  "main.run.xml" 1783675017 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
   "main.tex" 1782990332 3088 def1c01b8de5c0f379da9b9ae40cefba ""
-  "main.toc" 1783636001 5940 a467cb5c941a3e371bb4df63b1e5662d "pdflatex"
+  "main.toc" 1783675017 5888 1b55b1ce972d6a52a320d7a5c6981372 "pdflatex"
   (generated)
   "main.acn"
   "main.aux"

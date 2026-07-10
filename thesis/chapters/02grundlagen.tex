@@ -253,6 +253,15 @@ Hier spricht man von einer Unreinheit: einer Metrik, die ausdrückt, mit welcher
 
 In \Cref{eq:gini_split} zeigt $n$ die Elemente im Elternknoten und $G$ die Unreinheit des jeweiligen Knoten an. Der Rest funktioniert analog, anhand der vorausgegangenen Formeln. Mit der Split-Formel lassen sich mehrere Iterationen pro Knoten vornehmen, wovon dann der reinste Split verwendet wird, um im Baum eine Rekursionsebene tiefer zu schreiten. Insgesamt funktioniert dieser Split $n-1$ mal.
 
+\Cref{fig:decisiontree2} zeigt einen beispielhaften Entscheidungsbaum mit den je Knoten berechneten Gini-Werten, Stichprobengrößen und Klassenverteilungen.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/decisiontree2_hires.png}
+  \caption{Entscheidungsbaum mit Aufteilungskriterien (Gini-Index, Stichprobengröße und Klassenverteilung pro Knoten). Eigene Darstellung nach \cite{schilli2017entscheidungsbaeume}.}
+  \label{fig:decisiontree2}
+\end{figure}
+
 
 \subsubsection{Bagging und Boosting}
 
@@ -296,17 +305,43 @@ Ein Typ der Entscheidungsbaum-Modelle ist der Random Forest. Dieser besteht im N
 Die Light Gradient Boosting Machine (LightGBM) ist ein Gradient-Boosting-Mechanismus, der auf Entscheidungsbäumen basiert, welche auf den Residualfehlern der vorherigen Iteration trainiert werden. In dieser Arbeit wird LightGBM ohne Bagging verwendet, aber mit Boosting, um die Vorhersagegenauigkeit zu verbessern. LightGBM ist besonders effektiv bei Modellen, die zu Unteranpassung neigen, da es die Vorhersagegenauigkeit verbessert, indem es sich auf die Fehler der vorherigen Iteration konzentriert und \emph{leaf-wise} (\cref{fig:treegrowth}) wächst.
 
 \subsection{Unsicherheit und Quantilsregression}
+\label{sec:quantilregression}
 
+Es gibt zwei Arten der Unsicherheit, die man bei Prognosen betrachten kann:
+\begin{itemize}
+  \item \textbf{Aleatorische Unsicherheit}: Hier wird der Zufall im Prozess selbst betrachtet, der nicht durch weitere oder bessere Daten reduziert werden kann. Beispielsweise kann das Wetter nicht deterministisch vorhergesagt werden, da es intrinsisch zufällig ist. Unteranderem nennt man diese auch Datenunsicherheit.
+  \item \textbf{Epistemische Unsicherheit}: Hier wird die Unsicherheit betrachtet, die durch unvollständige Informationen oder unzureichendes Wissen über den Prozess entsteht. Diese Unsicherheit kann durch zusätzliche Daten oder bessere Modelle reduziert werden. Unteranderem nennt man diese auch Modellunsicherheit.
+\end{itemize}
 
+Eine Punktprognose ist für eine Unsicherheit nicht ausreichend, da sie nur einen Wert liefer und keine Informationen über die Streuung oder die Verteilung liefert. Während die klassische Regression den bedingten Mittelwert schätzt, sagt die Quantilsregression gezielt einzelne Quantile $Q_\tau$ der Zielverteilung vorher -- im Normalfall das 10., 50. und 90. Perzentil \parencite{koenker1978regression}. Zur Erreichung wird der asymmetrische Pinball-Verlust minimiert:
+
+\begin{equation}
+  \label{eq:pinball}
+  \rho_\tau(y-\hat y)=\max\!\big(\tau(y-\hat y),\,(\tau-1)(y-\hat y)\big)  
+\end{equation}
+
+Die Formel \ref{eq:pinball} ist definiert durch:
+\begin{itemize}
+  \item $y$ ist der tatsächlich beobachtete Wert
+  \item $\hat y$ ist der vorhergesagte Wert
+  \item $\tau$ ist das Quantil, das geschätzt werden soll, z. B. $0{,}1$, $0{,}5$, $0{,}9$
+  \item $\rho_\tau$ ist Strafe oder der Pinball-Verlust, der die Abweichung zwischen dem beobachteten Wert und dem vorhergesagten Quantil misst
+\end{itemize}
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.8\textwidth]{images/decisiontree2_hires.png}
-  \caption{Entscheidungsbaum mit Aufteilungskriterien (Gini-Index, Stichprobengröße und Klassenverteilung pro Knoten). Eigene Darstellung nach \cite{schilli2017entscheidungsbaeume}.}
-  \label{fig:decisiontree2}
+  \includegraphics[width=\textwidth]{images/quantilregression.png}
+  \caption{(a) Heteroskedastisches Prognoseband: Median (P50) und 80\,\%-Intervall (P10--P90), dessen Breite mit der Streuung wächst. (b) $\rho_\tau$ für $\tau=0{,}1/0{,}5/0{,}9$; die Asymmetrie schiebt die Schätzung an das jeweilige Quantil \parencite{koenker1978regression}.}
+  \label{fig:quantilregression}
 \end{figure}
 
+Beim Pinball-Verlust werden Unter- und Überschätzung je nach $\tau$ unterschiedlich gewichtet. Das Intervall zwischen $Q_{0{,}1}$ und $Q_{0{,}9}$ bildet somit ein 80\,\%-Prognoseband (\cref{fig:quantilregression}). Quantile werden in dieser Arbeit auf drei Wegen erzeugt: direkt per Pinball-Verlust im LightGBM-Forecaster, über die Streuung der Bäume im Random Forest \parencite{meinshausen2006qrf} sowie über die Pfad-Streuung des Monte-Carlo-Rollouts.
+
+
+
 \subsection{Long Short-Term Memory}
+\label{sec:lstm}
+
 Das LSTM ist ein rekurrentes neuronales Netz (RNN), mit einem Zellzustand und drei Gattern (Forget, Input, Output), die den Zustand der Zelle beeinflussen. Es ist dazu entwickelt, Langzeitabhängigkeiten in Sequenzen zu lernen und ist besonders geeignet für Zeitreihenprognosen. Durch die Gatter kann das LSTM entscheiden, welche Informationen beibehalten werden und welche verworfen werden, wodurch es in der Lage ist, relevante Muster über längere Zeiträume hinweg zu erfassen. Das LSTM umgeht das Vanishing-Gradient-Problem, das bei traditionellen RNNs auftritt, indem es den Zellzustand über viele Zeitschritte hinweg beibehält und so die Weitergabe von Informationen über lange Sequenzen ermöglicht.
  
 
@@ -318,6 +353,7 @@ Das LSTM ist ein rekurrentes neuronales Netz (RNN), mit einem Zellzustand und dr
   \label{fig:lstm}
 \end{figure}
 
+Die \cref{fig:lstm} stellt den Aufbau einer LSTM-Zelle dar, die aus dem Zellzustand $C_t$, drei Gattern (Forget, Input, Output) und den Aktivierungsfunktionen $\sigma$ und $\tanh$ besteht. $C_t$, der Zellzustand, ist für die Speicherung von Informationen verantwortlich, während die Gatter bestimmen, welche Informationen beibehalten, verworfen oder neu geschrieben werden. Die Aktivierungsfunktionen $\sigma$ und $\tanh$ steuern, wie die Informationen im Zellzustand verarbeitet werden und ermöglichen es dem LSTM auf diese Weise, relevante Muster in den Eingabesequenzen zu erkennen und somit Abhängigkeiten über längere Zeiträume zu erkennen. Zeitreihenprognosen, Sprachverarbeitung und Anomalieerkennung sind typische Aufgaben, bei denen LSTMs erfolgreich eingesetzt werden, da sie durch ihr Gedächtnis in der Lage sind, komplexe zeitliche Abhängigkeiten zu modellieren und Vorhersagen auf Basis historischer Daten zu treffen.
 % -----------------------------------------------------------------------------
 \section{Stand der Forschung}
 \label{sec:stand_forschung}
@@ -387,7 +423,7 @@ Eine Studie beispielsweise befasst sich mit der Vorhersage von Fahrverhalten auf
 
 \subsubsection{Driving-/Parking-Klassifikation}
 
-
+Die Identifikation von Fahr- und Parkzuständen ist ein zentraler Aspekt der individuellen Farzeugnutzungsprognose.
 
 \subsubsection{EV-Last- und Ladeprognose}
 
