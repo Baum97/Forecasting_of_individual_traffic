@@ -397,6 +397,49 @@
       \verb 10.2307/1913643
       \endverb
     \endentry
+    \entry{kumar2023driving}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=990308786c0c28bf822d9eac8419a24c}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Raman},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=05e82014cc50510c9d3f1332a4fb6d7a}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Anuj},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{e210636215a6d6f06919c8e1aa2ebd90}
+      \strng{fullhash}{1ef398e48452740bcc3c10d3b7eb3a15}
+      \strng{fullhashraw}{1ef398e48452740bcc3c10d3b7eb3a15}
+      \strng{bibnamehash}{1ef398e48452740bcc3c10d3b7eb3a15}
+      \strng{authorbibnamehash}{1ef398e48452740bcc3c10d3b7eb3a15}
+      \strng{authornamehash}{e210636215a6d6f06919c8e1aa2ebd90}
+      \strng{authorfullhash}{1ef398e48452740bcc3c10d3b7eb3a15}
+      \strng{authorfullhashraw}{1ef398e48452740bcc3c10d3b7eb3a15}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Journal of Supercomputing}
+      \field{number}{16}
+      \field{title}{Driving behavior analysis and classification by vehicle OBD data using machine learning}
+      \field{volume}{79}
+      \field{year}{2023}
+      \field{pages}{18800\bibrangedash 18819}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/s11227-023-05364-3
+      \endverb
+    \endentry
     \entry{lindroth2024online}{article}{}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=337a27118f0587efb7bb021f377fbc60}{%
@@ -483,6 +526,41 @@
       \field{year}{2006}
       \field{pages}{983\bibrangedash 999}
       \range{pages}{17}
+    \endentry
+    \entry{individual2025activitychain}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5659d6c77daafc2e631e8115c543ee26}{%
+           family={others},
+           familyi={o\bibinitperiod},
+           prefix={and},
+           prefixi={a\bibinitperiod},
+           prefixun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{5659d6c77daafc2e631e8115c543ee26}
+      \strng{fullhash}{5659d6c77daafc2e631e8115c543ee26}
+      \strng{fullhashraw}{5659d6c77daafc2e631e8115c543ee26}
+      \strng{bibnamehash}{5659d6c77daafc2e631e8115c543ee26}
+      \strng{authorbibnamehash}{5659d6c77daafc2e631e8115c543ee26}
+      \strng{authornamehash}{5659d6c77daafc2e631e8115c543ee26}
+      \strng{authorfullhash}{5659d6c77daafc2e631e8115c543ee26}
+      \strng{authorfullhashraw}{5659d6c77daafc2e631e8115c543ee26}
+      \field{sortinit}{o}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Geo-spatial Information Science}
+      \field{title}{Individual Mobility Prediction by Considering Current Traveling Features and Historical Activity Chain}
+      \field{year}{2025}
+      \field{pages}{2988\bibrangedash 3015}
+      \range{pages}{28}
+      \verb{doi}
+      \verb 10.1080/10095020.2025.2455005
+      \endverb
     \endentry
     \entry{pozzato2023fielddata}{misc}{}{}
       \name{author}{3}{}{%
@@ -681,6 +759,72 @@
       \endverb
       \verb{url}
       \verb https://www.sciencedirect.com/topics/engineering/light-gradient-boosting-machine
+      \endverb
+    \endentry
+    \entry{su2025parking}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=7ef2483217a4e33d5f48d09afa4c070a}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={Zhihan},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5c4f504de66599ffc9f79a22fdf04030}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Xiaochen},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2620b9afd37cca5b9b7354f67c036d4d}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Hao},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=228dd687961f3612985beeddec81f72a}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Tao},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=51a5a94caf822175a7e2f744cfb33e4d}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Xiaohua},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aefed70e3b6aeee186d622fd3721feb8}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={Yi},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{74ffeb6c2314ce40622d528890b1281f}
+      \strng{fullhash}{747b83df1116ac355c7763522b242b1f}
+      \strng{fullhashraw}{747b83df1116ac355c7763522b242b1f}
+      \strng{bibnamehash}{747b83df1116ac355c7763522b242b1f}
+      \strng{authorbibnamehash}{747b83df1116ac355c7763522b242b1f}
+      \strng{authornamehash}{74ffeb6c2314ce40622d528890b1281f}
+      \strng{authorfullhash}{747b83df1116ac355c7763522b242b1f}
+      \strng{authorfullhashraw}{747b83df1116ac355c7763522b242b1f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sustainable Cities and Society}
+      \field{title}{A vehicle trajectory-based parking location recognition and inference method: Considering both travel action and intention}
+      \field{volume}{119}
+      \field{year}{2025}
+      \field{pages}{106088}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.scs.2024.106088
       \endverb
     \endentry
     \entry{wuttke2024ml}{online}{}{}

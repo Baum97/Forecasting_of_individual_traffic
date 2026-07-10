@@ -257,24 +257,20 @@ In \Cref{eq:gini_split} zeigt $n$ die Elemente im Elternknoten und $G$ die Unrei
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.8\textwidth]{images/decisiontree2_hires.png}
-  \caption{Entscheidungsbaum mit Aufteilungskriterien (Gini-Index, Stichprobengröße und Klassenverteilung pro Knoten). Eigene Darstellung nach \cite{schilli2017entscheidungsbaeume}.}
+  \includegraphics[width=0.6\textwidth]{images/decisiontree2_hires.png}
+  \caption{Entscheidungsbaum mit Aufteilungskriterien (nach \cite{schilli2017entscheidungsbaeume}).}
   \label{fig:decisiontree2}
 \end{figure}
 
 
 \subsubsection{Bagging und Boosting}
-
-Dieses Verfahren sorgt dafür, dass die Bäume von einer in der realen Trainingsmenge existierenden Untermenge Lernen. Es werden aus der Ursprungsmenge $N$ Stichproben gezogen, auf denen jeweils ein Classifier/Regressor trainiert wird (\cref{fig:baggingmethod}). Für jede Stichprobe wird ein Modell trainiert, das anschließend zu einem Ensemble aggregiert wird. Dadurch, dass alle Bäume auf unterschiedlichen Stichproben trainiert werden, wird die Varianz des Modells reduziert und die Vorhersagegenauigkeit verbessert. Bagging ist besonders effektiv bei Modellen, die zu Überanpassung neigen.
-
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{images/baggingmethod.png}
   \caption{Bagging: Aus den Trainingsdaten werden $N$ Bootstrap-Stichproben gezogen, auf denen jeweils ein Baum trainiert wird; deren Vorhersagen werden zu einem Ensemble aggregiert \parencite{baggingdiagram}.}
   \label{fig:baggingmethod}
 \end{figure}
-
-Dieses Verfahren sorgt dafür, dass die Bäume auf den Residualfehlern der vorherigen Iteration trainiert werden (\cref{fig:boostingmethod}, \cite{boostingdiagram}). Dadurch wird die Vorhersagegenauigkeit des Modells verbessert. Im Gegensatz zu Bagging, bei dem die Bäume unabhängig voneinander trainiert werden, werden beim Boosting die Bäume sequentiell trainiert, wobei jeder Baum auf den Fehler des vorherigen Baums aufbaut. Dies ermöglicht es dem Modell, sich auf schwierige Beispiele zu konzentrieren und die Gesamtleistung zu verbessern. Im Kern besteht Boosting darin, schwache Lernalgorithmen zu kombinieren, um einen starken Lernalgorithmus durch gewichtete Aggregation zu erstellen. Boosting ist besonders effektiv bei Modellen, die zu Unteranpassung neigen.
+Das Baggingverfahren sorgt dafür, dass die Bäume von einer in der realen Trainingsmenge existierenden Untermenge Lernen. Es werden aus der Ursprungsmenge $N$ Stichproben gezogen, auf denen jeweils ein Classifier/Regressor trainiert wird (\cref{fig:baggingmethod}, \cite{boostingdiagram}). Für jede Stichprobe wird ein Modell trainiert, das anschließend zu einem Ensemble aggregiert wird. Dadurch, dass alle Bäume auf unterschiedlichen Stichproben trainiert werden, wird die Varianz des Modells reduziert und die Vorhersagegenauigkeit verbessert. Bagging ist besonders effektiv bei Modellen, die zu Überanpassung neigen.
 
 \begin{figure}[htbp]
   \centering
@@ -282,6 +278,10 @@ Dieses Verfahren sorgt dafür, dass die Bäume auf den Residualfehlern der vorhe
   \caption{Boosting: Die Modelle werden nacheinander trainiert, wobei jedes folgende Modell auf den Fehlern des vorherigen Modells basiert \parencite{boostingdiagram}.}
   \label{fig:boostingmethod}
 \end{figure}
+
+Boosting sorgt dafür, dass die Bäume auf den Residualfehlern der vorherigen Iteration trainiert werden (\cref{fig:boostingmethod}, \cite{boostingdiagram}). Dadurch wird die Vorhersagegenauigkeit des Modells verbessert. Im Gegensatz zu Bagging, bei dem die Bäume unabhängig voneinander trainiert werden, werden beim Boosting die Bäume sequentiell trainiert, wobei jeder Baum auf den Fehler des vorherigen Baums aufbaut. Dies ermöglicht es dem Modell, sich auf schwierige Beispiele zu konzentrieren und die Gesamtleistung zu verbessern. Im Kern besteht Boosting darin, schwache Lernalgorithmen zu kombinieren, um einen starken Lernalgorithmus durch gewichtete Aggregation zu erstellen. Boosting ist besonders effektiv bei Modellen, die zu Unteranpassung neigen.
+
+
 
 In der nachfolgenden Sektion werden der Random Forest \cref{sec:randomforest} und die Light Gradient Boosting Machine \cref{sec:lightgbm} vorgestellt, die auf den zuvor beschriebenen Prinzipien von Entscheidungsbäumen, Bagging und Boosting basieren. \cref{fig:treegrowth} veranschaulicht den zentralen Unterschied im Baumwachstum: LightGBM wächst \emph{leaf-wise} so, dass Knoten mit dem größten Fehlerbeitrag aufgeteilt werden, während klassische Verfahren, wie der Random Forest, \emph{level-wise} wachsen.
 
@@ -313,7 +313,7 @@ Es gibt zwei Arten der Unsicherheit, die man bei Prognosen betrachten kann:
   \item \textbf{Epistemische Unsicherheit}: Hier wird die Unsicherheit betrachtet, die durch unvollständige Informationen oder unzureichendes Wissen über den Prozess entsteht. Diese Unsicherheit kann durch zusätzliche Daten oder bessere Modelle reduziert werden. Unteranderem nennt man diese auch Modellunsicherheit.
 \end{itemize}
 
-Eine Punktprognose ist für eine Unsicherheit nicht ausreichend, da sie nur einen Wert liefer und keine Informationen über die Streuung oder die Verteilung liefert. Während die klassische Regression den bedingten Mittelwert schätzt, sagt die Quantilsregression gezielt einzelne Quantile $Q_\tau$ der Zielverteilung vorher -- im Normalfall das 10., 50. und 90. Perzentil \parencite{koenker1978regression}. Zur Erreichung wird der asymmetrische Pinball-Verlust minimiert:
+Eine Punktprognose ist für eine Unsicherheit nicht ausreichend, da sie nur einen Wert liefert und keine Informationen über die Streuung oder die Verteilung liefert. Während die klassische Regression den bedingten Mittelwert schätzt, sagt die Quantilsregression gezielt einzelne Quantile $Q_\tau$ der Zielverteilung vorher -- im Normalfall das 10., 50. und 90. Perzentil \parencite{koenker1978regression}. Zur Erreichung wird der asymmetrische Pinball-Verlust minimiert:
 
 \begin{equation}
   \label{eq:pinball}
@@ -395,21 +395,17 @@ unterscheiden. Tabelle \ref{tab:forschungssektionen} fasst diese Sektionen als
 
 \end{table}
 
-
-
-\todo{Aktuellen Stand der Forschung zusammenfassen. Welche verwandten Arbeiten gibt es? Was wurde bereits untersucht? Pro Tabellenzeile eine Subsection mit synthetisierter Quellenlage anlegen, abschließend Forschungslücke formulieren.}
-
 % -----------------------------------------------------------------------------
 \subsection{Verwandte Arbeiten}
 \label{sec:verwandte_arbeiten}
 
-Um zu verdeutlichen, womit sich diese Arbeit im wesentlichen auseinandersetzt, werden im Folgenden verwandte Arbeiten vorgestellt und voneinander abgegrenzt. Die Auswahl der Arbeiten orientiert sich an den in \Cref{tab:forschungssektionen} dargestellten Forschungssträngen. Dabei werden sowohl die Zielsetzung, die Methodik als auch die Datengrundlage der jeweiligen Arbeiten betrachtet, um die Unterschiede und Gemeinsamkeiten herauszuarbeiten.
+Um zu verdeutlichen, womit sich diese Arbeit im wesentlichen auseinandersetzt, werden im Folgenden verwandte Arbeiten vorgestellt und voneinander abgegrenzt. Die Auswahl der Arbeiten orientiert sich an den in \Cref{tab:forschungssektionen} dargestellten Forschungssträngen. Dabei werden sowohl die Zielsetzung, als auch die Methodik der jeweiligen Arbeiten betrachtet, um die Unterschiede und Gemeinsamkeiten herauszuarbeiten.
 
 \subsubsection{Mobilitäts- und Nutzungsforecasts}
 
 Klassische Zeitreihenmodelle wie ARIMA, aber auch moderne Ansätze wie Random Forest und neuronale Netze, insbesondere LSTM sind in Verwendung, um für Mobilitätsverhalten Prognosen zu erstellen. Die Daten bestehen zum Großteil aus realen Telematik- und Bewegungsdaten, die eine hohe Granularität aufweisen. Ein zentrales Ziel hierbei ist die Generalisierung über eins oder mehrere Fahrzeuge hinweg, um Vorhersagen für zukünftiges Fahrverhalten treffen zu können. Die Arbeiten haben den Zweck, die Genauigkeit der Vorhersagen zu maximieren und gleichzeitig die Interpretierbarkeit der Modelle zu gewährleisten. 
 
-Eine Studie beispielsweise befasst sich mit der Vorhersage von Fahrverhalten auf Grund von temperaturbedingter Batterieeffizienz -- denn besonders niedrige Temperaturen können die Effizienz der Batterien erheblich beeinflussen \cite{lindroth2024online}. Es werden Online-Lernmodelle verwendet um die Abfahrtszeit und die Distanz für den ersten Trip des Tages vorherzusagen. \Cref{fig:fahrverhalten} zeigt die zugrunde liegenden Verteilungen von Fahrdistanz und Abfahrtszeit, aufgeschlüsselt nach Wochentag. Es ist gut zu erkennen, dass die Fahrdistanz, unabhängig vom Wochentag, eine sehr ähnliche Verteilung aufweist, während die Abfahrtszeit stark vom Wochentag abhängt.
+Eine Studie beispielsweise befasst sich mit der Vorhersage von Fahrverhalten auf Grund von temperaturbedingter Batterieeffizienz -- denn besonders niedrige Temperaturen können die Effizienz der Batterien erheblich beeinflussen \cite{lindroth2024online}. Es werden Online-Lernmodelle verwendet um die Abfahrtszeit und die Distanz für den ersten Trip des Tages vorherzusagen. \Cref{fig:fahrverhalten} zeigt die zugrunde liegenden Verteilungen von Fahrdistanz und Abfahrtszeit, aufgeschlüsselt nach Wochentag. Es ist gut zu erkennen, dass die Fahrdistanz, unabhängig vom Wochentag, eine sehr ähnliche Verteilung aufweist, während die Abfahrtszeit stark vom Wochentag abhängt. Eine weitere Studie entwickelt ein LSTM-Modell mit raum-zeitlichen Bewertungsmechanismus, das die individuelle Fahrzeugnutzung vorhersagt. Reiseziele, aktuelle Fahrtdaten (Echtzeit-Bewegungen) und historische Bewegungsmuster werden hierbei als Datengrundlage verwendet \parencite{individual2025activitychain}. Die Ergebnisse zeigen, dass das Modell im Vergleich zu spezifischen Random Forest, Distant Neighboring Dependencies, Location Semantics and Location Importance -LSTM  und Intersection Transfer Preference  and Current Movement Mode um ca. 10-15\% übertrifft. 
 
 \begin{figure}[htbp]
   \centering
@@ -418,16 +414,17 @@ Eine Studie beispielsweise befasst sich mit der Vorhersage von Fahrverhalten auf
   \label{fig:fahrverhalten}
 \end{figure}
 
-
-
-
 \subsubsection{Driving-/Parking-Klassifikation}
 
-Die Identifikation von Fahr- und Parkzuständen ist ein zentraler Aspekt der individuellen Farzeugnutzungsprognose.
+Die Identifikation von Fahr- und Parkzuständen ist ein zentraler Aspekt der individuellen Farzeugnutzungsprognose, daher ist es wichtig diese beiden Klassen zuverlässig zu unterscheiden. In der Literatur werden hierfür unterschiedliche Methoden eingesetzt. Eine Studie versucht gezielt Fahrer in bestimmte Klassen zu unterteilen, um deren Fahrverhalten besser zu verstehen \parencite{kumar2023driving}. In der Studie werden IoT und Machine Learning verwendet, um Fahrverhalten anhand von OBD-II-Daten (bspw. Geschwindigkeit, Motordrehzahl, Bremsmuster) zu analysieren und das ohne zusätzliche Sensoren. Mithilfe von Support Vector Machines, AdaBoost und Random Forest werden die Fahrer in zehn Klassen unterteilt, die sich in Krafstoffverbrauch, Lenkstabilität, Geschwindigkeitsstabilität und Bremsverhalten unterscheiden. Eine weitere Studie untersucht die Klassifikation von Fahr- und Parkzuständen, um das Verhalten präziser zu verstehen und die Genauigkeit der Vorhersagen zu verbessern \parencite{su2025parking}. Die Methodik beinhaltet ein Clustering per DBSCAN, welches häufig besuchte Orte identifiziert und eine Ableitung von Gebäudekategorien vornimmt.
 
 \subsubsection{EV-Last- und Ladeprognose}
 
+
+
 \subsubsection{Unsicherheits- und Quantilsprognose}
+
+
 
 \textcolor{red}{
     \begin{itemize}

@@ -439,12 +439,12 @@ INPUT main.lot
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr8.tfm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr6.tfm
 OUTPUT main.lot
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathsy.enc
 INPUT .\chapters\01einleitung.tex
 INPUT .\chapters\01einleitung.tex
 INPUT .\chapters\01einleitung.tex
 INPUT .\chapters\01einleitung.tex
 INPUT chapters\01einleitung.tex
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathsy.enc
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmssbx10.tfm
 INPUT .\chapters\001inhaltsverzeichnis.tex
 INPUT .\chapters\001inhaltsverzeichnis.tex

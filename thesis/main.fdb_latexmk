@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1783674295.66184 "main.bcf" "main.bbl" "main" 1783675017.85248 0
-  "literatur.bib" 1783672390 16388 c3091c351b59435fe38cab330cf49a3f ""
-  "main.bcf" 1783675017 111555 a26ff45104fc9915a15af6df7b7c5304 "pdflatex"
+["biber main"] 1783683105.29581 "main.bcf" "main.bbl" "main" 1783683113.37929 0
+  "literatur.bib" 1783681264 17251 773a0a9a619db62993f55bbfe7dae8f7 ""
+  "main.bcf" 1783683112 111850 0f1f8b8338ecfa465b85df221223ffd3 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1783675014.37622 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1783675017.85307 0
+["pdflatex"] 1783683110.07526 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1783683113.37987 0
   "C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1781947092 368683 20af194610b55c11d3743ae29ed2ab48 ""
   "C:/Users/Administrator/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1776509242 13337359 a21bfb9d050a5bf8318e8708a258f339 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -217,7 +217,7 @@
   "chapters/003glossar.tex" 1774272499 0 d41d8cd98f00b204e9800998ecf8427e ""
   "chapters/00abstract.tex" 1783637035 1270 98f89cec0d478a817143b9c40c15f779 ""
   "chapters/01einleitung.tex" 1781359025 8650 785f6ea2941ff2a2559c59532bcb2b2d ""
-  "chapters/02grundlagen.tex" 1783675010 34174 022d7046680e65b90b25864a819a6979 ""
+  "chapters/02grundlagen.tex" 1783683101 35476 42ab795700fa7b3349b0b67774938c41 ""
   "chapters/03methodik.tex" 1783090290 3050 bda0345757e9a54d6ac59b7cc3ab7a78 ""
   "chapters/04implementierung.tex" 1783553936 3247 b165d4f722e473845b2bc3c31c205d79 ""
   "chapters/05evaluation.tex" 1783550402 5129 4302217ab529186449428e66bba90a1d ""
@@ -225,7 +225,7 @@
   "chapters/07fazit.tex" 1783090290 905 d0bf9d2406200c17ad5d37f9f326e798 ""
   "chapters/08anhang.tex" 1774272499 836 905149679d91c86057df8b825dc25db8 ""
   "chapters/09erklaerung.tex" 1774272499 960 c11888ef4b7c695c95c94541ccbc1b64 ""
-  "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" 1782990332 3088 def1c01b8de5c0f379da9b9ae40cefba ""
+  "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" 1783677622 3078 6715f8f73c8ca18b49377b25ee79ee3a ""
   "images/HochschuleEsslingen_Logo_4c_DE.png" 1774357426 49451 08690eb3f248fef595e496be388df455 ""
   "images/KEIM-quadr.png" 1774357312 198790 022e9ca48d40c806fe434878a352ed26 ""
   "images/baggingmethod.png" 1782989633 23136 ccb64022646bb8a8ec2f9d9067ac229f ""
@@ -241,13 +241,13 @@
   "images/treegrowth.jpg" 1783085476 150030 cc8b67a85058cff95ca2603f034253ef ""
   "imports.tex" 1781426639 2531 bb1236b514af0c846c64287208175c3e ""
   "main.acr" 0 -1 0 ""
-  "main.aux" 1783675017 47836 44bb76d91706e25f466c50074184902b "pdflatex"
-  "main.bbl" 1783674297 29648 6bf3525950d21d1bb23f196f5a475d55 "biber main"
-  "main.lof" 1783675017 2761 8df4e8867ff0831cbb4125325231eb2a "pdflatex"
-  "main.lot" 1783675017 1721 15c479e93e0b2869f2a10e980425293b "pdflatex"
-  "main.run.xml" 1783675017 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
-  "main.tex" 1782990332 3088 def1c01b8de5c0f379da9b9ae40cefba ""
-  "main.toc" 1783675017 5888 1b55b1ce972d6a52a320d7a5c6981372 "pdflatex"
+  "main.aux" 1783683112 48382 415f02d0883e314518001125bed65aa3 "pdflatex"
+  "main.bbl" 1783683106 35545 ca750c7cf75d976b5eb812bd2b4e2010 "biber main"
+  "main.lof" 1783683112 2677 9fdb7b782cdfa70fb81a73211bb758e5 "pdflatex"
+  "main.lot" 1783683112 1721 15c479e93e0b2869f2a10e980425293b "pdflatex"
+  "main.run.xml" 1783683112 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
+  "main.tex" 1783677622 3078 6715f8f73c8ca18b49377b25ee79ee3a ""
+  "main.toc" 1783683112 5888 57bc6f517af736f4997a5e10c0ab1b61 "pdflatex"
   (generated)
   "main.acn"
   "main.aux"
