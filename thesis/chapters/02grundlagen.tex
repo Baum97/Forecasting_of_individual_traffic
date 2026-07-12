@@ -370,9 +370,9 @@ unterscheiden. Tabelle \ref{tab:forschungssektionen} fasst diese Sektionen als
   Fahrzeugnutzungsprognose.}
   \label{tab:forschungssektionen}
   \centering
-  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.2cm} X X X@{}}
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.1cm} X X X@{}}
     \toprule
-    \textbf{Forschungsstrang} & \textbf{Typische\newline Methoden} &
+    \textbf{Forschungs\newline -strang} & \textbf{Typische\newline Methoden} &
     \textbf{Datengrundlage} & \textbf{Offene Punkte} \\
     \midrule
     Mobilitäts- und Nutzungsforecast & Statistische Modelle (ARIMA),
@@ -405,7 +405,7 @@ Um zu verdeutlichen, womit sich diese Arbeit im wesentlichen auseinandersetzt, w
 
 Klassische Zeitreihenmodelle wie ARIMA, aber auch moderne Ansätze wie Random Forest und neuronale Netze, insbesondere LSTM sind in Verwendung, um für Mobilitätsverhalten Prognosen zu erstellen. Die Daten bestehen zum Großteil aus realen Telematik- und Bewegungsdaten, die eine hohe Granularität aufweisen. Ein zentrales Ziel hierbei ist die Generalisierung über eins oder mehrere Fahrzeuge hinweg, um Vorhersagen für zukünftiges Fahrverhalten treffen zu können. Die Arbeiten haben den Zweck, die Genauigkeit der Vorhersagen zu maximieren und gleichzeitig die Interpretierbarkeit der Modelle zu gewährleisten. 
 
-Eine Studie beispielsweise befasst sich mit der Vorhersage von Fahrverhalten auf Grund von temperaturbedingter Batterieeffizienz -- denn besonders niedrige Temperaturen können die Effizienz der Batterien erheblich beeinflussen \cite{lindroth2024online}. Es werden Online-Lernmodelle verwendet um die Abfahrtszeit und die Distanz für den ersten Trip des Tages vorherzusagen. \Cref{fig:fahrverhalten} zeigt die zugrunde liegenden Verteilungen von Fahrdistanz und Abfahrtszeit, aufgeschlüsselt nach Wochentag. Es ist gut zu erkennen, dass die Fahrdistanz, unabhängig vom Wochentag, eine sehr ähnliche Verteilung aufweist, während die Abfahrtszeit stark vom Wochentag abhängt. Eine weitere Studie entwickelt ein LSTM-Modell mit raum-zeitlichen Bewertungsmechanismus, das die individuelle Fahrzeugnutzung vorhersagt. Reiseziele, aktuelle Fahrtdaten (Echtzeit-Bewegungen) und historische Bewegungsmuster werden hierbei als Datengrundlage verwendet \parencite{individual2025activitychain}. Die Ergebnisse zeigen, dass das Modell im Vergleich zu spezifischen Random Forest, Distant Neighboring Dependencies, Location Semantics and Location Importance -LSTM  und Intersection Transfer Preference  and Current Movement Mode um ca. 10-15\% übertrifft. 
+Eine Studie beispielsweise befasst sich mit der Vorhersage von Fahrverhalten auf Grund von temperaturbedingter Batterieeffizienz -- denn besonders niedrige Temperaturen können die Effizienz der Batterien erheblich beeinflussen \parencite{lindroth2024online}. Es werden Online-Lernmodelle verwendet um die Abfahrtszeit und die Distanz für den ersten Trip des Tages vorherzusagen. \Cref{fig:fahrverhalten} zeigt die zugrunde liegenden Verteilungen von Fahrdistanz und Abfahrtszeit, aufgeschlüsselt nach Wochentag. Es ist gut zu erkennen, dass die Fahrdistanz, unabhängig vom Wochentag, eine sehr ähnliche Verteilung aufweist, während die Abfahrtszeit stark vom Wochentag abhängt. Eine weitere Studie entwickelt ein LSTM-Modell mit raum-zeitlichen Bewertungsmechanismus, das die individuelle Fahrzeugnutzung vorhersagt. Reiseziele, aktuelle Fahrtdaten (Echtzeit-Bewegungen) und historische Bewegungsmuster werden hierbei als Datengrundlage verwendet \parencite{individual2025activitychain}. Die Ergebnisse zeigen, dass das Modell im Vergleich zu spezifischen Random Forest, Distant Neighboring Dependencies, Location Semantics and Location Importance -LSTM  und Intersection Transfer Preference  and Current Movement Mode um ca. 10-15\% übertrifft. 
 
 \begin{figure}[htbp]
   \centering
@@ -416,15 +416,39 @@ Eine Studie beispielsweise befasst sich mit der Vorhersage von Fahrverhalten auf
 
 \subsubsection{Driving-/Parking-Klassifikation}
 
-Die Identifikation von Fahr- und Parkzuständen ist ein zentraler Aspekt der individuellen Farzeugnutzungsprognose, daher ist es wichtig diese beiden Klassen zuverlässig zu unterscheiden. In der Literatur werden hierfür unterschiedliche Methoden eingesetzt. Eine Studie versucht gezielt Fahrer in bestimmte Klassen zu unterteilen, um deren Fahrverhalten besser zu verstehen \parencite{kumar2023driving}. In der Studie werden IoT und Machine Learning verwendet, um Fahrverhalten anhand von OBD-II-Daten (bspw. Geschwindigkeit, Motordrehzahl, Bremsmuster) zu analysieren und das ohne zusätzliche Sensoren. Mithilfe von Support Vector Machines, AdaBoost und Random Forest werden die Fahrer in zehn Klassen unterteilt, die sich in Krafstoffverbrauch, Lenkstabilität, Geschwindigkeitsstabilität und Bremsverhalten unterscheiden. Eine weitere Studie untersucht die Klassifikation von Fahr- und Parkzuständen, um das Verhalten präziser zu verstehen und die Genauigkeit der Vorhersagen zu verbessern \parencite{su2025parking}. Die Methodik beinhaltet ein Clustering per DBSCAN, welches häufig besuchte Orte identifiziert und eine Ableitung von Gebäudekategorien vornimmt.
+Die Identifikation von Fahr- und Parkzuständen ist ein zentraler Aspekt der individuellen Farzeugnutzungsprognose, daher ist es wichtig diese beiden Klassen zuverlässig zu unterscheiden. In der Literatur werden hierfür unterschiedliche Methoden eingesetzt. 
+Eine Studie versucht gezielt Fahrer in bestimmte Klassen zu unterteilen, um deren Fahrverhalten besser zu verstehen \parencite{kumar2023driving}. In der Studie werden IoT und Machine Learning verwendet, um Fahrverhalten anhand von OBD-II-Daten (bspw. Geschwindigkeit, Motordrehzahl, Bremsmuster) zu analysieren und das ohne zusätzliche Sensoren. Mithilfe von Support Vector Machines, AdaBoost und Random Forest werden die Fahrer in zehn Klassen unterteilt, die sich in Krafstoffverbrauch, Lenkstabilität, Geschwindigkeitsstabilität und Bremsverhalten unterscheiden. Eine weitere Studie untersucht die Klassifikation von Fahr- und Parkzuständen, um das Verhalten präziser zu verstehen und die Genauigkeit der Vorhersagen zu verbessern \parencite{su2025parking}. Die Methodik beinhaltet ein Clustering per DBSCAN, welches häufig besuchte Orte identifiziert und eine Ableitung von Gebäudekategorien vornimmt.
 
 \subsubsection{EV-Last- und Ladeprognose}
 
+Im Bereich der EV-Last- und Ladeprognose werden vielfältig Methoden angewandt, um die Ladebedarfe und Lastprofile von Elektrofahrzeugen zu prognostizieren. 
+Eine Studie verfolgt hierbei einen probabilistischen Ansatz und quantifiziert die Unsicherheit des Ladeverhaltens mittels Modellen wie GAMLSS oder QGAM, um die Ladebedarfe als vollständige Prognoseintervalle statt als reine Punktwerte vorherzusagen \parencite{amaraouali2025quantifying}. Eine weitere Studie entwickelt ein multivariates long short-term memory (LSTM) Modell mit einem Attention-Mechanismus, um den Ladebedarf in 15-Minuten-Intervallen vorherzusagen \parencite{sanami2025demand}. Des Weiteren erhält das Modell zusätzlich Informationen über das Wetter, Wochentag, Monat und Feiertage. Der Monat wirkt sich nicht nur auf die Durchschnittliche Temperatur aus, sondern auch auf die Ladeanfragen der Nutzer, wie man in \Cref{fig:sanami_tageszeit} sieht. Die \cref{fig:sanami_wochentag} ist in Bezug auf die Ladeanfragen pro Monat zwar nicht Aussagekräftig, jedoch zeigt sie, dass die Ladeanfragen sehr stark von Uhrzeiten abhängig sind. Man erkennt einen kleinen Anstieg der Ladeanfragen ab 5Uhr, der sich bis 12 Uhr fortsetzt, bevor die Anfragen abflachen und Nachmittags wieder abnehmen.
 
+Der Bereich der Ladeprognose ist bereits gut erforscht, 
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/chargingrequests_sanami.png}
+    \caption{Durchschnittliche Ladeanfragen je Tageszeit, aufgeschlüsselt nach Monat.}
+    \label{fig:sanami_tageszeit}
+  \end{subfigure}
+
+  \vspace{0.5cm}
+
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/weeklychargingrequests_sanami.png}
+    \caption{Ladeanfragen im Jahresverlauf, aufgeschlüsselt nach Wochentag.}
+    \label{fig:sanami_wochentag}
+  \end{subfigure}
+  \caption{Zeitliche Muster der Ladeanfragen im verwendeten Datensatz
+           \parencite{sanami2025demand}.}
+  \label{fig:sanami}
+\end{figure}
 
 \subsubsection{Unsicherheits- und Quantilsprognose}
-
-
 
 \textcolor{red}{
     \begin{itemize}

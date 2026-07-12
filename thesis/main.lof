@@ -11,6 +11,7 @@
 \contentsline {figure}{\numberline {2.8}{\ignorespaces (a) Heteroskedastisches Prognoseband: Median (P50) und 80\,\%-Intervall (P10--P90), dessen Breite mit der Streuung wächst. (b) $\rho _\tau $ für $\tau =0{,}1/0{,}5/0{,}9$; die Asymmetrie schiebt die Schätzung an das jeweilige Quantil \blx@tocontentsinit {0}\parencite {koenker1978regression}.}}{16}{figure.caption.26}%
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Aufbau einer LSTM-Zelle: Der Zellzustand $C_t$ wird durch Forget-, Input- und Output-Gate gesteuert, die per $\sigma $- und $\tanh $-Aktivierung festlegen, was aus dem Gedächtnis verworfen, neu geschrieben und ausgelesen wird \blx@tocontentsinit {0}\parencite {dida_lstm}.}}{17}{figure.caption.27}%
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Verteilung der Fahrdistanz (a) und der Abfahrtszeit des ersten Tagestrips (b) nach Wochentag \blx@tocontentsinit {0}\parencite {lindroth2024online}.}}{19}{figure.caption.30}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Zeitliche Muster der Ladeanfragen im verwendeten Datensatz \blx@tocontentsinit {0}\parencite {sanami2025demand}.}}{21}{figure.caption.33}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

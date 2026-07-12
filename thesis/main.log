@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  10 JUL 2026 13:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  12 JUL 2026 10:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1287,12 +1287,12 @@ l.21 \section
 
 ] [2] [3]) (chapters/001inhaltsverzeichnis.tex) (chapters/002disclaimer.tex) (chapters/003glossar.tex) (chapters/02grundlagen.tex [4]
 chapter 2.
-<images/data_cars-real-world.png, id=261, 332.74312pt x 123.46124pt>
+<images/data_cars-real-world.png, id=266, 332.74312pt x 123.46124pt>
 File: images/data_cars-real-world.png Graphic file (type png)
 <use images/data_cars-real-world.png>
 Package pdftex.def Info: images/data_cars-real-world.png  used on input line 17.
 (pdftex.def)             Requested size: 256.07741pt x 95.02022pt.
-<images/data_emobpy.png, id=264, 316.18124pt x 108.405pt>
+<images/data_emobpy.png, id=269, 316.18124pt x 108.405pt>
 File: images/data_emobpy.png Graphic file (type png)
 <use images/data_emobpy.png>
 Package pdftex.def Info: images/data_emobpy.png  used on input line 26.
@@ -1300,13 +1300,13 @@ Package pdftex.def Info: images/data_emobpy.png  used on input line 26.
 [5
 
  <./images/data_cars-real-world.png> <./images/data_emobpy.png>]
-<images/prozess_diagramm_v2.png, id=278, 1055.142pt x 375.804pt>
+<images/prozess_diagramm_v2.png, id=283, 1055.142pt x 375.804pt>
 File: images/prozess_diagramm_v2.png Graphic file (type png)
 <use images/prozess_diagramm_v2.png>
 Package pdftex.def Info: images/prozess_diagramm_v2.png  used on input line 44.
 (pdftex.def)             Requested size: 426.79135pt x 152.00482pt.
  [6 <./images/prozess_diagramm_v2.png>]
-<images/maschinelles-lernen.png, id=288, 1028.84375pt x 866.23625pt>
+<images/maschinelles-lernen.png, id=293, 1028.84375pt x 866.23625pt>
 File: images/maschinelles-lernen.png Graphic file (type png)
 <use images/maschinelles-lernen.png>
 Package pdftex.def Info: images/maschinelles-lernen.png  used on input line 126.
@@ -1334,24 +1334,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 202--202
  []
 
 [11{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
-<images/decisiontree2_hires.png, id=353, 578.16pt x 433.62pt>
+<images/decisiontree2_hires.png, id=358, 578.16pt x 433.62pt>
 File: images/decisiontree2_hires.png Graphic file (type png)
 <use images/decisiontree2_hires.png>
 Package pdftex.def Info: images/decisiontree2_hires.png  used on input line 260.
 (pdftex.def)             Requested size: 256.07741pt x 192.05714pt.
-<images/baggingmethod.png, id=356, 853.1875pt x 514.92375pt>
+<images/baggingmethod.png, id=361, 853.1875pt x 514.92375pt>
 File: images/baggingmethod.png Graphic file (type png)
 <use images/baggingmethod.png>
 Package pdftex.def Info: images/baggingmethod.png  used on input line 269.
 (pdftex.def)             Requested size: 341.43437pt x 206.068pt.
  [12]
-<images/boostingmethod.png, id=370, 102.3825pt x 67.2111pt>
+<images/boostingmethod.png, id=375, 102.3825pt x 67.2111pt>
 File: images/boostingmethod.png Graphic file (type png)
 <use images/boostingmethod.png>
 Package pdftex.def Info: images/boostingmethod.png  used on input line 277.
 (pdftex.def)             Requested size: 341.43437pt x 224.15712pt.
  [13 <./images/decisiontree2_hires.png> <./images/baggingmethod.png>]
-<images/treegrowth.jpg, id=386, 342.12617pt x 90.77112pt>
+<images/treegrowth.jpg, id=391, 342.12617pt x 90.77112pt>
 File: images/treegrowth.jpg Graphic file (type jpg)
 <use images/treegrowth.jpg>
 Package pdftex.def Info: images/treegrowth.jpg  used on input line 290.
@@ -1362,23 +1362,18 @@ Overfull \hbox (24.45604pt too wide) in paragraph at lines 305--306
  []
 
 [15 <./images/treegrowth.jpg>]
-<images/quantilregression.png, id=402, 794.97pt x 317.988pt>
+<images/quantilregression.png, id=407, 794.97pt x 317.988pt>
 File: images/quantilregression.png Graphic file (type png)
 <use images/quantilregression.png>
 Package pdftex.def Info: images/quantilregression.png  used on input line 333.
 (pdftex.def)             Requested size: 426.79135pt x 170.72113pt.
  [16 <./images/quantilregression.png>]
-<images/lstm.png, id=414, 1027.84pt x 587.19376pt>
+<images/lstm.png, id=419, 1027.84pt x 587.19376pt>
 File: images/lstm.png Graphic file (type png)
 <use images/lstm.png>
 Package pdftex.def Info: images/lstm.png  used on input line 351.
 (pdftex.def)             Requested size: 341.43437pt x 195.05579pt.
  [17 <./images/lstm.png (PNG copy)>]
-Overfull \hbox (8.68001pt too wide) in paragraph at lines 394--394
-[]|\T1/lmr/bx/n/12 (-20) Forschungsstrang|  
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 394--394
 []|\T1/lmr/m/n/12 (+20) Reale Telematik-
  []
@@ -1414,7 +1409,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 394--394
  []
 
 
-Underfull \hbox (badness 5893) in paragraph at lines 394--394
+Underfull \hbox (badness 10000) in paragraph at lines 394--394
 \T1/lmr/m/n/12 (+20) syn-the-ti-scher und
  []
 
@@ -1444,58 +1439,69 @@ Underfull \hbox (badness 10000) in paragraph at lines 394--394
  []
 
 [18]
-<images/fahrverhalten.png, id=432, 681.54625pt x 823.075pt>
+<images/fahrverhalten.png, id=437, 681.54625pt x 823.075pt>
 File: images/fahrverhalten.png Graphic file (type png)
 <use images/fahrverhalten.png>
 Package pdftex.def Info: images/fahrverhalten.png  used on input line 412.
 (pdftex.def)             Requested size: 298.75264pt x 360.79773pt.
- [19 <./images/fahrverhalten.png (PNG copy)>]) (chapters/03methodik.tex [20] [21]
+ [19 <./images/fahrverhalten.png (PNG copy)>]
+<images/chargingrequests_sanami.png, id=452, 663.98062pt x 364.36125pt>
+File: images/chargingrequests_sanami.png Graphic file (type png)
+<use images/chargingrequests_sanami.png>
+Package pdftex.def Info: images/chargingrequests_sanami.png  used on input line 433.
+(pdftex.def)             Requested size: 384.1096pt x 210.77925pt.
+<images/weeklychargingrequests_sanami.png, id=453, 839.38594pt x 470.50781pt>
+File: images/weeklychargingrequests_sanami.png Graphic file (type png)
+<use images/weeklychargingrequests_sanami.png>
+Package pdftex.def Info: images/weeklychargingrequests_sanami.png  used on input line 442.
+(pdftex.def)             Requested size: 384.1096pt x 215.30905pt.
+ [20] [21 <./images/chargingrequests_sanami.png> <./images/weeklychargingrequests_sanami.png>]) (chapters/03methodik.tex [22]
 chapter 3.
-[22
+[23
 
-]) (chapters/04implementierung.tex [23]
+]) (chapters/04implementierung.tex [24]
 chapter 4.
 
 Overfull \hbox (384.62483pt too wide) in paragraph at lines 20--42
  [][] 
  []
 
-[24
+[25
 
-]) (chapters/05evaluation.tex [25]
+]) (chapters/05evaluation.tex [26]
 chapter 5.
 
 Underfull \hbox (badness 2573) in paragraph at lines 33--33
 [][][]|\T1/lmr/m/n/12 (+20) Mo-dell (Ran-dom-Fo-rest) im Ver-gleich zu nai-ven Ba-se-li-nes, In-
  []
 
-) (chapters/06diskussion.tex [26
+) (chapters/06diskussion.tex [27
 
-] [27]
+] [28]
 chapter 6.
-) (chapters/07fazit.tex [28
+) (chapters/07fazit.tex [29
 
 ]
 chapter 7.
-) [29
+) [30
 
 ]
 chapter without number
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
-[30
+[31
 
 ]
 Overfull \hbox (1.56348pt too wide) in paragraph at lines 103--103
 \T1/lmtt/m/n/12 gradient -[] boosting -[] machine -[] learning -[] method -[] The -[] ensemble -[] classifiers _
  []
 
-(chapters/08anhang.tex [31]
+(chapters/08anhang.tex [32]
 chapter A.
-) (chapters/09erklaerung.tex [32
+) (chapters/09erklaerung.tex [33
 
-]) [33
+]) [34
 
 ] (main.aux)
  ***********
@@ -1507,17 +1513,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41190 strings out of 467871
- 831453 string characters out of 5414504
- 1912642 words of memory out of 5000000
- 69166 multiletter control sequences out of 15000+600000
- 713718 words of font info for 194 fonts, out of 8000000 for 9000
+ 41232 strings out of 467871
+ 832808 string characters out of 5414504
+ 1913567 words of memory out of 5000000
+ 69200 multiletter control sequences out of 15000+600000
+ 713948 words of font info for 196 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,113p,11260b,3477s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (39 pages, 1788962 bytes).
+Output written on main.pdf (40 pages, 2296401 bytes).
 PDF statistics:
- 818 PDF objects out of 1000 (max. 8388607)
- 163 named destinations out of 1000 (max. 500000)
- 50170 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 843 PDF objects out of 1000 (max. 8388607)
+ 167 named destinations out of 1000 (max. 500000)
+ 50180 words of extra memory for PDF output out of 51595 (max. 10000000)
 

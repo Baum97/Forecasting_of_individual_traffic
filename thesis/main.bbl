@@ -19,6 +19,61 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global/global}
+    \entry{amaraouali2025quantifying}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=3ddcdc097cd208e99aa0fc95dd7e9aad}{%
+           family={Amara-Ouali},
+           familyi={A\bibinithyphendelim O\bibinitperiod},
+           given={Yvenn},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6c8fff1d068f0606b3fc7ca59a05c170}{%
+           family={Hamrouche},
+           familyi={H\bibinitperiod},
+           given={Bachir},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=47aef594ffc790d9a1f8437c2997ebdd}{%
+           family={Principato},
+           familyi={P\bibinitperiod},
+           given={Guillaume},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ef4c50910d61493a4d6a6c2339c488ce}{%
+           family={Goude},
+           familyi={G\bibinitperiod},
+           given={Yannig},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI}%
+      }
+      \strng{namehash}{9a9167d89fe0b8be15ef401def8d84b7}
+      \strng{fullhash}{d8992efd3d52404ab507104d5639e4d9}
+      \strng{fullhashraw}{d8992efd3d52404ab507104d5639e4d9}
+      \strng{bibnamehash}{d8992efd3d52404ab507104d5639e4d9}
+      \strng{authorbibnamehash}{d8992efd3d52404ab507104d5639e4d9}
+      \strng{authornamehash}{9a9167d89fe0b8be15ef401def8d84b7}
+      \strng{authorfullhash}{d8992efd3d52404ab507104d5639e4d9}
+      \strng{authorfullhashraw}{d8992efd3d52404ab507104d5639e4d9}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{World Electric Vehicle Journal}
+      \field{number}{2}
+      \field{title}{Quantifying the Uncertainty of Electric Vehicle Charging with Probabilistic Load Forecasting}
+      \field{volume}{16}
+      \field{year}{2025}
+      \field{pages}{88}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/wevj16020088
+      \endverb
+    \endentry
     \entry{bishop2006prml}{book}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=9dfd0135a5e80aa6d81cea2c10fb7f73}{%
@@ -685,6 +740,64 @@
       \endverb
       \verb{url}
       \verb https://www.researchgate.net/figure/Diagram-of-the-bagging-technique-used-for-classification-or-regression-problems-in-ML_fig1_362065998
+      \endverb
+    \endentry
+    \entry{sanami2025demand}{misc}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=f9d93a10fb79c67fee1f107bc3ac2df4}{%
+           family={Sanami},
+           familyi={S\bibinitperiod},
+           given={Saba},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7aceb61c5631018dee83b4f75d8b7bfc}{%
+           family={Mosalli},
+           familyi={M\bibinitperiod},
+           given={Hesam},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d5372515c44ce22c5dbf22f363a2baf0}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Yu},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=13562034097469cba8f2f4c3ae53576a}{%
+           family={Yeh},
+           familyi={Y\bibinitperiod},
+           given={Hen-Geul},
+           giveni={H\bibinithyphendelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4abafb6b08ba086e2d44130974ca4c72}{%
+           family={Aghdam},
+           familyi={A\bibinitperiod},
+           given={Amir\bibnamedelima G.},
+           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f4afb528d2a5c26677f2baa847ec4e03}
+      \strng{fullhash}{6288648d470bcd2560644c491d3e0edb}
+      \strng{fullhashraw}{6288648d470bcd2560644c491d3e0edb}
+      \strng{bibnamehash}{6288648d470bcd2560644c491d3e0edb}
+      \strng{authorbibnamehash}{6288648d470bcd2560644c491d3e0edb}
+      \strng{authornamehash}{f4afb528d2a5c26677f2baa847ec4e03}
+      \strng{authorfullhash}{6288648d470bcd2560644c491d3e0edb}
+      \strng{authorfullhashraw}{6288648d470bcd2560644c491d3e0edb}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{Demand Forecasting for Electric Vehicle Charging Stations using Multivariate Time-Series Analysis}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.48550/arXiv.2502.16365
+      \endverb
+      \verb{eprint}
+      \verb 2502.16365
       \endverb
     \endentry
     \entry{schilli2017entscheidungsbaeume}{article}{}{}

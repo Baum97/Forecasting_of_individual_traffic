@@ -40,36 +40,36 @@
 \contentsline {subsubsection}{\nonumberline Mobilitäts- und Nutzungsforecasts}{18}{subsubsection*.29}%
 \contentsline {subsubsection}{\nonumberline Driving-/Parking-Klassifikation}{20}{subsubsection*.31}%
 \contentsline {subsubsection}{\nonumberline EV-Last- und Ladeprognose}{20}{subsubsection*.32}%
-\contentsline {subsubsection}{\nonumberline Unsicherheits- und Quantilsprognose}{20}{subsubsection*.33}%
-\contentsline {subsubsection}{\nonumberline Mobilitäts- und Nutzungsforecast}{20}{subsubsection*.34}%
-\contentsline {chapter}{\numberline {3}Methodik}{22}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Forschungsdesign}{23}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Vorgehen}{23}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Datenerhebung}{23}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Datenanalyse}{23}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Implementierung}{24}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Anforderungen}{24}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Systemarchitektur}{24}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Technologieauswahl}{24}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Umsetzung}{25}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Herausforderungen}{25}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Evaluation}{26}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Evaluationsdesign}{26}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Testumgebung}{26}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Ergebnisse}{26}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Diskussion}{28}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{28}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{28}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Limitationen}{28}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Implikationen}{28}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{29}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{29}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Ausblick}{29}{section.7.2}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{30}{chapter*.39}%
+\contentsline {subsubsection}{\nonumberline Unsicherheits- und Quantilsprognose}{20}{subsubsection*.34}%
+\contentsline {subsubsection}{\nonumberline Mobilitäts- und Nutzungsforecast}{22}{subsubsection*.35}%
+\contentsline {chapter}{\numberline {3}Methodik}{23}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Forschungsdesign}{24}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Vorgehen}{24}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Datenerhebung}{24}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Datenanalyse}{24}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Implementierung}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Anforderungen}{25}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Systemarchitektur}{25}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Technologieauswahl}{25}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Umsetzung}{26}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Herausforderungen}{26}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Evaluation}{27}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Evaluationsdesign}{27}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Testumgebung}{27}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Ergebnisse}{27}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Diskussion}{29}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{29}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{29}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Limitationen}{29}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Implikationen}{29}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{30}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{30}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Ausblick}{30}{section.7.2}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{31}{chapter*.40}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\numberline {A}Anhang}{32}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{32}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{32}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Quellcode}{32}{section.A.3}%
-\contentsline {chapter}{Eidesstattliche Erklärung}{33}{chapter*.40}%
+\contentsline {chapter}{\numberline {A}Anhang}{33}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{33}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{33}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Quellcode}{33}{section.A.3}%
+\contentsline {chapter}{Eidesstattliche Erklärung}{34}{chapter*.41}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
