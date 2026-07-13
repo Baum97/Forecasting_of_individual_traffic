@@ -422,9 +422,9 @@ Eine Studie versucht gezielt Fahrer in bestimmte Klassen zu unterteilen, um dere
 \subsubsection{EV-Last- und Ladeprognose}
 
 Im Bereich der EV-Last- und Ladeprognose werden vielfältig Methoden angewandt, um die Ladebedarfe und Lastprofile von Elektrofahrzeugen zu prognostizieren. 
-Eine Studie verfolgt hierbei einen probabilistischen Ansatz und quantifiziert die Unsicherheit des Ladeverhaltens mittels Modellen wie GAMLSS oder QGAM, um die Ladebedarfe als vollständige Prognoseintervalle statt als reine Punktwerte vorherzusagen \parencite{amaraouali2025quantifying}. Eine weitere Studie entwickelt ein multivariates long short-term memory (LSTM) Modell mit einem Attention-Mechanismus, um den Ladebedarf in 15-Minuten-Intervallen vorherzusagen \parencite{sanami2025demand}. Des Weiteren erhält das Modell zusätzlich Informationen über das Wetter, Wochentag, Monat und Feiertage. Der Monat wirkt sich nicht nur auf die Durchschnittliche Temperatur aus, sondern auch auf die Ladeanfragen der Nutzer, wie man in \Cref{fig:sanami_tageszeit} sieht. Die \cref{fig:sanami_wochentag} ist in Bezug auf die Ladeanfragen pro Monat zwar nicht Aussagekräftig, jedoch zeigt sie, dass die Ladeanfragen sehr stark von Uhrzeiten abhängig sind. Man erkennt einen kleinen Anstieg der Ladeanfragen ab 5Uhr, der sich bis 12 Uhr fortsetzt, bevor die Anfragen abflachen und Nachmittags wieder abnehmen.
+Eine Studie verfolgt hierbei einen probabilistischen Ansatz und quantifiziert die Unsicherheit des Ladeverhaltens mittels Modellen wie GAMLSS oder QGAM, um die Ladebedarfe als vollständige Prognoseintervalle statt als reine Punktwerte vorherzusagen \parencite{amaraouali2025quantifying}. Eine weitere Studie entwickelt ein multivariates long short-term memory (LSTM) Modell mit einem Attention-Mechanismus, um den Ladebedarf in 15-Minuten-Intervallen vorherzusagen \parencite{sanami2025demand}. Des Weiteren erhält das Modell zusätzlich Informationen über das Wetter, Wochentag, Monat und Feiertage. Der Monat wirkt sich nicht nur auf die Durchschnittliche Temperatur aus, sondern auch auf die Ladeanfragen der Nutzer, wie man in \Cref{fig:sanami_tageszeit} sieht. Die \cref{fig:sanami_wochentag} ist im Bezug auf die Ladeanfragen pro Monat nicht Aussagekräftig, jedoch zeigt sie, dass die Ladeanfragen sehr stark von Uhrzeiten abhängig sind. Man erkennt einen kleinen Anstieg der Ladeanfragen ab 5Uhr, der sich bis 12 Uhr fortsetzt, bevor die Anfragen abflachen und Nachmittags wieder abnehmen.
 
-Der Bereich der Ladeprognose ist bereits gut erforscht, 
+Der Bereich für EV-Last- und Ladeprognose ist gut erforscht und liefert ein solides Fundament auf dem diese Arbeit aufbaut. Die Methoden und Modelle, die in diesen Arbeiten verwendet werden, sind relevant für die Vorhersage von Ladebedarfen und Ladeanfragen, insbesondere im Hinblick auf die Unsicherheitsquantifizierung und äußere Einflussfaktoren wie Wetter, Wochentag und Feiertage. Die Ergebnisse dieser Studien zeigen, dass die Berücksichtigung von Unsicherheiten und externen Faktoren die Genauigkeit der Vorhersagen erheblich verbessern kann.
 
 \begin{figure}[htbp]
   \centering
@@ -450,13 +450,8 @@ Der Bereich der Ladeprognose ist bereits gut erforscht,
 
 \subsubsection{Unsicherheits- und Quantilsprognose}
 
-\textcolor{red}{
-    \begin{itemize}
-        \item Forschungsarbeit/SUMO
-        \item ähnliche Studien
-        \item 
-    \end{itemize}
-}
+Die Studie \cite{amaraouali2025quantifying} ist auch im Bereich der Unsicherheitsprognose relevant, da sie die Unsicherheit des Ladeverhaltens von Elektrofahrzeugen quantifiziert. Durch die Verwendung von probabilistischen Modellen wie GAMLSS oder QGAM werden Prognoseintervalle anstelle von Punktwerten erstellt, was eine umfassendere Darstellung der Unsicherheit ermöglicht. 
+Eine weitere Studie \parencite{ali2024location} befasst sich mit der Quantilsregression und deren Anwendung in der Vorhersage, gekoppelt mit einem Multi-Quantile Temporal Convolutional Network (MQ-TCN). Das Modell erzielte einen 93,62\% hohen Intervallabdeckungswahrscheinlichkeit Score (PICP), der bis zu 96,88\% steigt, mit nur zwei Wochen Trainingsdaten. Die Studie zeigt, dass die Quantilsregression in Kombination mit einem gut trainierten und konfigurierten neuronalen Netzwerk eine effektive Methode zur Vorhersage von Unsicherheiten in Mobilitätsdaten darstellt. Die Ergebnisse dieser Studien sind besonders relevant für die vorliegende Arbeit, da sie die Bedeutung der Quantilsregression und der Unsicherheitsprognose in der individuellen Fahrzeugnutzungsprognose unterstreichen.  
 
 % -----------------------------------------------------------------------------
 

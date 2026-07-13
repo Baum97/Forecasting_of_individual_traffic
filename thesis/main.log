@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  12 JUL 2026 10:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  14 JUL 2026 00:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1444,18 +1444,18 @@ File: images/fahrverhalten.png Graphic file (type png)
 <use images/fahrverhalten.png>
 Package pdftex.def Info: images/fahrverhalten.png  used on input line 412.
 (pdftex.def)             Requested size: 298.75264pt x 360.79773pt.
- [19 <./images/fahrverhalten.png (PNG copy)>]
-<images/chargingrequests_sanami.png, id=452, 663.98062pt x 364.36125pt>
+ [19 <./images/fahrverhalten.png (PNG copy)>] [20]
+<images/chargingrequests_sanami.png, id=462, 663.98062pt x 364.36125pt>
 File: images/chargingrequests_sanami.png Graphic file (type png)
 <use images/chargingrequests_sanami.png>
 Package pdftex.def Info: images/chargingrequests_sanami.png  used on input line 433.
 (pdftex.def)             Requested size: 384.1096pt x 210.77925pt.
-<images/weeklychargingrequests_sanami.png, id=453, 839.38594pt x 470.50781pt>
+<images/weeklychargingrequests_sanami.png, id=463, 839.38594pt x 470.50781pt>
 File: images/weeklychargingrequests_sanami.png Graphic file (type png)
 <use images/weeklychargingrequests_sanami.png>
 Package pdftex.def Info: images/weeklychargingrequests_sanami.png  used on input line 442.
 (pdftex.def)             Requested size: 384.1096pt x 215.30905pt.
- [20] [21 <./images/chargingrequests_sanami.png> <./images/weeklychargingrequests_sanami.png>]) (chapters/03methodik.tex [22]
+ [21 <./images/chargingrequests_sanami.png> <./images/weeklychargingrequests_sanami.png>]) (chapters/03methodik.tex [22]
 chapter 3.
 [23
 
@@ -1497,11 +1497,11 @@ Overfull \hbox (1.56348pt too wide) in paragraph at lines 103--103
 \T1/lmtt/m/n/12 gradient -[] boosting -[] machine -[] learning -[] method -[] The -[] ensemble -[] classifiers _
  []
 
-(chapters/08anhang.tex [32]
+[32] (chapters/08anhang.tex [33]
 chapter A.
-) (chapters/09erklaerung.tex [33
+) (chapters/09erklaerung.tex [34
 
-]) [34
+]) [35
 
 ] (main.aux)
  ***********
@@ -1513,17 +1513,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41232 strings out of 467871
- 832808 string characters out of 5414504
- 1913567 words of memory out of 5000000
- 69200 multiletter control sequences out of 15000+600000
- 713948 words of font info for 196 fonts, out of 8000000 for 9000
+ 41242 strings out of 467871
+ 833041 string characters out of 5414504
+ 1913648 words of memory out of 5000000
+ 69206 multiletter control sequences out of 15000+600000
+ 714039 words of font info for 197 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,113p,11260b,3477s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (40 pages, 2296401 bytes).
+Output written on main.pdf (41 pages, 2300795 bytes).
 PDF statistics:
- 843 PDF objects out of 1000 (max. 8388607)
- 167 named destinations out of 1000 (max. 500000)
+ 856 PDF objects out of 1000 (max. 8388607)
+ 169 named destinations out of 1000 (max. 500000)
  50180 words of extra memory for PDF output out of 51595 (max. 10000000)
 

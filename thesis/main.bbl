@@ -19,6 +19,58 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global/global}
+    \entry{ali2024location}{misc}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=520f0658492908e14061de6789f4a910}{%
+           family={Ali},
+           familyi={A\bibinitperiod},
+           given={Mohammad\bibnamedelima Wazed},
+           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=76e8d9ca2580bf503c7a5bc7c01dcbcd}{%
+           family={Mustafa},
+           familyi={M\bibinitperiod},
+           given={Asif\bibnamedelima bin},
+           giveni={A\bibinitperiod\bibinitdelim b\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e4994bc33e7a93087e8c4ea691697d26}{%
+           family={Shuvo},
+           familyi={S\bibinitperiod},
+           given={Md.\bibnamedelimi Aukerul\bibnamedelima Moin},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2f57ecdec6067f04b18f272cb1cf863f}{%
+           family={Sick},
+           familyi={S\bibinitperiod},
+           given={Bernhard},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9976dde1e545efcfd87d92ce3bf7409b}
+      \strng{fullhash}{bc6cf239c2b6bce0226e44ecbbc8e356}
+      \strng{fullhashraw}{bc6cf239c2b6bce0226e44ecbbc8e356}
+      \strng{bibnamehash}{bc6cf239c2b6bce0226e44ecbbc8e356}
+      \strng{authorbibnamehash}{bc6cf239c2b6bce0226e44ecbbc8e356}
+      \strng{authornamehash}{9976dde1e545efcfd87d92ce3bf7409b}
+      \strng{authorfullhash}{bc6cf239c2b6bce0226e44ecbbc8e356}
+      \strng{authorfullhashraw}{bc6cf239c2b6bce0226e44ecbbc8e356}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{Location based Probabilistic Load Forecasting of EV Charging Sites: Deep Transfer Learning with Multi-Quantile Temporal Convolutional Network}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.48550/arXiv.2409.11862
+      \endverb
+      \verb{eprint}
+      \verb 2409.11862
+      \endverb
+    \endentry
     \entry{amaraouali2025quantifying}{article}{}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=3ddcdc097cd208e99aa0fc95dd7e9aad}{%
@@ -581,6 +633,12 @@
       \field{year}{2006}
       \field{pages}{983\bibrangedash 999}
       \range{pages}{17}
+      \verb{urlraw}
+      \verb https://www.jmlr.org/papers/v7/meinshausen06a.html
+      \endverb
+      \verb{url}
+      \verb https://www.jmlr.org/papers/v7/meinshausen06a.html
+      \endverb
     \endentry
     \entry{individual2025activitychain}{article}{}{}
       \name{author}{1}{}{%
