@@ -58,12 +58,12 @@ Auf Grund der Studienlage und der darin stark repräsentierten Modellfamilien we
 
 \todo{Das übergeordnete Forschungsdesign beschreiben (z.\,B.\ qualitativ, quantitativ, Mixed-Methods, Design Science Research, etc.).}
 
-Die Arbeit folgt einem quantitativen Forschungsdesign, das auf der Analyse von Daten und der Anwendung von Machine-Learning-Methoden basiert. Das Ziel ist es, die Forschungsfragen durch die systematische Unterstützung von unterschiedlichen Datenquellen und Modellen zu beantworten. Die Methodik umfasst ein kontrolliertes Experiment, die Evaluierung der Modelle und die Durchführung einer Ablationsstudie mit numerischen Metriken und Prognosequantilen, um die Leistungsfähigkeit der Modelle zu bewerten. Für die Ablation werden die gelernten Modelle per Algorithmus- und Datenisolation untersucht, um die jeweiligen Effekte auf die Vorhersagegenauigkeit zu bestimmen. Die Ergebnisse werden statistisch analysiert um die Qualität der Modelle auf Grund ihrer Datenbasis und ihres Algorithmus zu bewerten. Im Zuge dieses Aufbaus können die Forschungsfragen wie folgt beantwortet werden:
+Die Arbeit folgt einem quantitativ-experimentellen Forschungsdesign, das auf der Analyse von Daten und der Anwendung von Machine-Learning-Methoden basiert. Das Ziel ist es, die Forschungsfragen durch die systematische Unterstützung von unterschiedlichen Datenquellen und Modellen zu beantworten. Die Methodik umfasst ein kontrolliertes Experiment, die Evaluierung der Modelle und die Durchführung einer Ablationsstudie mit numerischen Metriken und Prognosequantilen, um die Leistungsfähigkeit der Modelle zu bewerten. Für die Ablation werden die gelernten Modelle per Algorithmus- und Datenisolation untersucht, um die jeweiligen Effekte auf die Vorhersagegenauigkeit zu bestimmen. Die Ergebnisse werden statistisch analysiert um die Qualität der Modelle auf Grund ihrer Datenbasis und ihres Algorithmus zu bewerten. Im Zuge dieses Aufbaus können die Forschungsfragen wie folgt beantwortet werden:
 
 \begin{table}[htbp]
   \centering
   \caption{Forschungsfragen der Arbeit.}
-  \label{tab:forschungsfragen}
+  \label{tab:forschungsfragenlösungen}
   \begin{tabularx}{\textwidth}{@{}l || X@{}}
     \toprule
     \textbf{Nr.} & \textbf{Lösung der Forschungsfrage} \\
@@ -83,11 +83,11 @@ Die Arbeit folgt einem quantitativen Forschungsdesign, das auf der Analyse von D
     \multicolumn{2}{@{}l}{\textbf{Mobilitätsdaten}} \\
     \cmidrule{1-1}
     \addlinespace
-    FF2 & Anforderungn die sich ergeben, sind u.a. Anspruch an Qualität, Relevanz und Verwendbarkeit der Daten. \\
+    FF2 & Anforderungen die sich ergeben, sind u.a. Anspruch an Qualität, Relevanz und Verwendbarkeit der Daten. \\
     \addlinespace
-     FF2.1 &  \\
+     FF2.1 & Aufbereitung wirkt sich im Optimalfall nicht auf die Nutzbarkeit der Daten aus; Fehlerhafte Daten können optional für Robustheit beibehalten werden. In der Theorie hat die Anonymisierung bei korrekt optimierten Algorithmen -- bspw. durch Verschlüsselung mit CKKS (Cheon-Kim-Kim-Song), Fully Homomorphic Encryption -- einen geringen Einfluss auf die Nutzbarkeit der Daten.  \\
     \addlinespace
-     FF2.2 &  \\
+     FF2.2 & Die Qualität der Daten lässt sich oberflächlich durch ihre Kohärenz, Vollständigkeit und Reichhaltigkeit bewerten. Tiefergehend, lässt sich die Qualität der Daten anhand der Prognosequalität der Modelle interpretieren.  \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -110,6 +110,8 @@ Die Arbeit folgt einem quantitativen Forschungsdesign, das auf der Analyse von D
 
 \section{Modellauswahl}
 \label{sec:modellauswahl}
+
+
 
 % -----------------------------------------------------------------------------
 

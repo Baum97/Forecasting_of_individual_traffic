@@ -17,28 +17,31 @@ Im folgenden werden die funktionalen und nicht-funktionalen Anforderungen an das
     \centering
     \caption{Anforderungen}
     \label{tab:anforderungen}
-    \begin{tabular}{|l|l|l|l|}
+    \begin{tabularx}{\textwidth}{|l|l|X|l|}
         \hline
         \textbf{Titel} & \textbf{Kürzel} & \textbf{Kurzbeschreibung} & \textbf{Priorität} \\
-        \hline
+        \Xhline{1pt}
         \multicolumn{4}{|l|}{\textbf{Daten}} \\
-        \hline
+        \Xhline{1pt}
         Erhebung    & R-1.0 & Daten für die Erstellung von Modellen werden erfasst, auf das richtige Format überprüft und bereitgestellt. & hoch   \\
+        \hline
         Aufbereitung & R-1.1 & Daten werden aufbereitet und in das richtige Format gebracht: Informationsgehalt und -qualität, Granularität & mittel \\
+        \hline
         Speicherung  & R-1.2 & Daten werden dauerhaft persistiert. & niedrig \\
-        \hline
+        \Xhline{1pt}
         \multicolumn{4}{|l|}{\textbf{System}} \\
-        \hline
+        \Xhline{1pt}
         Systemstart      & R-2.0 & Funktionalität 4 & hoch   \\
+        \hline
         Systemüberwachung & R-2.1 & Funktionalität 5 & mittel \\
-        \hline
+        \Xhline{1pt}
         \multicolumn{4}{|l|}{\textbf{Machine Learning Modelle}} \\
-        \hline
+        \Xhline{1pt}
         Modelltraining   & R-3.0 & Funktionalität 6 & hoch   \\
-        Modellevaluierung & R-3.1 & Funktionalität 7 & hoch \\
-         & & & \\
         \hline
-    \end{tabular}
+        Modellevaluierung & R-3.1 & Funktionalität 7 & hoch \\
+        \hline
+    \end{tabularx}
 \end{table}
 
 \section{Systemarchitektur}
