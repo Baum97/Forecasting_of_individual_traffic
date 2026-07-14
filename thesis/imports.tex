@@ -13,6 +13,13 @@
 \usepackage[a4paper, left=3cm, right=3cm, top=2.5cm, bottom=2.5cm]{geometry}
 \usepackage{setspace}
 
+% Kleiner zusaetzlicher Abstand nach jeder Abschnittsueberschrift (KOMA afterskip)
+\RedeclareSectionCommand[afterskip=1.5em plus .2em]{section}
+
+% Halber Zeilenabstand zwischen Absaetzen; letzte Absatzzeile bleibt rechts frei,
+% damit Absatzwechsel im Fliesstext sichtbar sind (KOMA parskip)
+\KOMAoptions{parskip=half}
+
 % --- Kopf- und Fußzeilen ---
 \usepackage[headsepline]{scrlayer-scrpage}
 \pagestyle{scrheadings}

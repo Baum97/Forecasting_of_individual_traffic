@@ -133,12 +133,11 @@ Das Prinzip des maschinellen Lernens besteht darin, einem Computer ein gewünsch
 Algorithmus explizit zu programmieren \parencite{bishop2006prml}. Das Modell erkennt dabei statistische Muster in den Trainingsdaten und nutzt diese, um Vorhersagen für bislang ungesehene Eingaben zu treffen. Der Vorteil gegenüber einem starren Algorithmus liegt darin, dass komplexe Zusammenhänge -- wie das individuelle Mobilitätsverhalten -- erlernt werden können, ohne dass sie vorab vollständig bekannt sein müssen.
 
 Häufig wird maschinelles Lernen mit künstlichen neuronalen Netzen gleichgesetzt, deren Aufbau  vom menschlichen Gehirn inspiriert ist. Neuronale Netze bilden jedoch nur eine von vielen Verfahrensklassen. Die in dieser Arbeit eingesetzten Modelle -- Random Forest und Gradient Boosting (\Cref{sec:themenbereich2} und \Cref{ch:methodik}) -- beruhen stattdessen auf Entscheidungsbäumen und sind nicht biologisch motiviert.
-\todo{erweitern mit neuen modellen etc}
 
 \subsection{Überwachtes Lernen}
 In dieser Arbeit kommt ausschließlich überwachtes Lernen zum Einsatz \parencite{hastie2009elements}. Dabei lernt das Modell aus Beispielpaaren von Eingaben und zugehörigen, bekannten Zielwerten. Je nach Art des Zielwerts
 unterscheidet man zwei Aufgabentypen, die in dieser Arbeit beide vorkommen: Klassifikation, bei der eine diskrete Klasse vorhergesagt wird (etwa ob ein Fahrzeug in einer gegebenen Stunde fährt oder geparkt ist), und Regression, bei der ein kontinuierlicher Wert geschätzt wird (etwa die Abfahrts- oder Rückkehrzeit).
-\todo{korrigieren/überwachen: hauptmerkmal klassifikation, da bestimme minutenzahl erstmal uninteressant und somit nur stunden für fährt= 1 oder 0}
+
 
 \subsection{Merkmale und Feature Engineering}
 

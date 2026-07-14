@@ -1,0 +1,62 @@
+% Standalone-Workflow-Diagramm der Methodik.
+% Kompilieren:  pdflatex methodik_workflow.tex
+% PNG:          pdftoppm -png -r 300 methodik_workflow.pdf methodik_workflow
+\documentclass[border=12pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric}
+
+\definecolor{cData}{HTML}{DCE7F5}
+\definecolor{cDataB}{HTML}{5B7FB0}
+\definecolor{cModel}{HTML}{DDEFDD}
+\definecolor{cModelB}{HTML}{5A8F5A}
+\definecolor{cExp}{HTML}{FBE6D4}
+\definecolor{cExpB}{HTML}{D08A3E}
+\definecolor{cEval}{HTML}{EADCF2}
+\definecolor{cEvalB}{HTML}{8A5FA8}
+\definecolor{cRQ}{HTML}{7A7A7A}
+
+\begin{document}
+\begin{tikzpicture}[
+  node distance=10mm and 14mm,
+  font=\small\sffamily,
+  box/.style={draw, rounded corners=2pt, align=center, minimum height=9mm,
+              inner sep=6pt, line width=0.6pt},
+  data/.style={box, fill=cData, draw=cDataB},
+  model/.style={box, fill=cModel, draw=cModelB, minimum width=42mm},
+  exp/.style={box, fill=cExp, draw=cExpB, line width=1.5pt, text width=78mm},
+  eval/.style={box, fill=cEval, draw=cEvalB},
+  final/.style={box, fill=white, draw=black, line width=0.9pt},
+  rq/.style={font=\footnotesize\itshape\sffamily, text=cRQ, align=center},
+  arr/.style={-{Stealth[length=2.6mm]}, line width=0.7pt},
+]
+
+% --- Hauptstrang ------------------------------------------------------------
+\node[data] (src)   {5 Datenquellen\\ \texttt{emobpy} \textperiodcentered\ \texttt{real\_world\_ev} \textperiodcentered\ \texttt{ved} \textperiodcentered\ \texttt{routine} \textperiodcentered\ \texttt{yjmob100k}};
+\node[data, below=of src]    (schema) {Einheitliches Schema\\ \texttt{vehicle\_id,\ timestamp,\ driving}};
+\node[data, below=of schema] (qual)   {Qualitätsbewertung};
+\node[data, below=of qual]   (feat)   {Feature Engineering\\ Lag \textperiodcentered\ Rolling \textperiodcentered\ zeitliche Merkmale};
+
+% --- Verzweigung: geteilter Feature-Kern -----------------------------------
+\node[model, below left=17mm and -22mm of feat]  (clf) {Classifier\\ Random Forest};
+\node[model, below right=17mm and -22mm of feat] (fc)  {Forecaster\\ RF \textperiodcentered\ LGBM \textperiodcentered\ (LSTM)};
+
+\node[exp, below=40mm of feat] (exp) {Experimentaldesign\\ $5\times5$-CV-Matrix\\ (Isolation Daten- vs. Algorithmus-Effekt) + Ablationsstudie};
+\node[eval, below=of exp]      (evaln) {Bewertung\\ Metriken \textperiodcentered\ P10/P90-Quantile \textperiodcentered\ Robustheit};
+\node[final, below=of evaln]   (rqs)   {Evaluation};
+
+% --- Kanten -----------------------------------------------------------------
+\draw[arr] (src)   -- (schema) node[midway, right, rq] {\texttt{data\_adapters}};
+\draw[arr] (schema) -- (qual);
+\draw[arr] (qual)  -- (feat);
+\draw[arr] (feat.south) -- (clf.north);
+\draw[arr] (feat.south) -- (fc.north);
+\draw[arr] (clf.south) -- (clf.south |- exp.north);
+\draw[arr] (fc.south)  -- (fc.south  |- exp.north);
+\draw[arr] (exp)   -- (evaln);
+\draw[arr] (evaln) -- (rqs);
+
+\end{tikzpicture}
+\end{document}
