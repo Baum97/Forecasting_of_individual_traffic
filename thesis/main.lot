@@ -8,10 +8,10 @@
 \contentsline {table}{\numberline {2.4}{\ignorespaces Fünf Fahrertypen des Individualverkehrs nach \blx@tocontentsinit {0}\textcite {ji2023rethinking}.}}{25}{table.caption.37}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Anforderungen}}{29}{table.caption.39}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Anforderungen}}{30}{table.caption.41}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Modell (RandomForest) im Vergleich zu naiven Baselines, In-Distribution je Datenquelle auf demselben zeitlichen Test-Split. Majority = \enquote {immer geparkt}; Persistenz-168 = gleiche Stunde der Vorwoche; Klimatologie = $P(\text {fahren}\mid \text {Wochentag},\text {Stunde})$ aus dem Trainingsteil.}}{32}{table.caption.40}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces In-Distribution-Gütemaße des Driving-Classifiers je Datenquelle (Acc.\ = Accuracy, ROC = ROC-AUC, PR = PR-AUC, Brier = Brier-Score, Aktiv-Rate = Anteil der Fahrstunden). Beide Algorithmen nutzen denselben Feature-Satz.}}{32}{table.caption.41}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Modell (RandomForest) im Vergleich zu naiven Baselines, In-Distribution je Datenquelle auf demselben zeitlichen Test-Split. Majority = \enquote {immer geparkt}; Persistenz-168 = gleiche Stunde der Vorwoche; Klimatologie = $P(\text {fahren}\mid \text {Wochentag},\text {Stunde})$ aus dem Trainingsteil.}}{33}{table.caption.42}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces In-Distribution-Gütemaße des Driving-Classifiers je Datenquelle (Acc.\ = Accuracy, ROC = ROC-AUC, PR = PR-AUC, Brier = Brier-Score, Aktiv-Rate = Anteil der Fahrstunden). Beide Algorithmen nutzen denselben Feature-Satz.}}{33}{table.caption.43}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
