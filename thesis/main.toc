@@ -46,35 +46,35 @@
 \contentsline {subsubsection}{\nonumberline Datenquellen}{28}{subsubsection*.39}%
 \contentsline {subsubsection}{\nonumberline Modellfamilien}{28}{subsubsection*.40}%
 \contentsline {section}{\numberline {3.1}Forschungsdesign}{28}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Untersuchungsablauf}{29}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Datengrundlage und Quellen}{29}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Feature Engineering}{29}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Modellauswahl}{29}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Experimentaldesign}{29}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Bewertung}{29}{section.3.7}%
-\contentsline {chapter}{\numberline {4}Implementierung}{30}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Anforderungen}{30}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Systemarchitektur}{30}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Technologieauswahl}{31}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Umsetzung}{31}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Herausforderungen}{31}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Evaluation}{32}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Evaluationsdesign}{32}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Testumgebung}{32}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Ergebnisse}{32}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Diskussion}{34}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{34}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{34}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Limitationen}{34}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Implikationen}{35}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{36}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{36}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Ausblick}{36}{section.7.2}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{37}{chapter*.44}%
+\contentsline {section}{\numberline {3.2}Untersuchungsablauf}{30}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Datengrundlage und Quellen}{30}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Feature Engineering}{30}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Modellauswahl}{30}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Experimentaldesign}{30}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Bewertung}{30}{section.3.7}%
+\contentsline {chapter}{\numberline {4}Implementierung}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Anforderungen}{31}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Systemarchitektur}{31}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Technologieauswahl}{32}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Umsetzung}{32}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Herausforderungen}{32}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Evaluation}{33}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Evaluationsdesign}{33}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Testumgebung}{33}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Ergebnisse}{33}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Diskussion}{35}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{35}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{35}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Limitationen}{35}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Implikationen}{36}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{37}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{37}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Ausblick}{37}{section.7.2}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{38}{chapter*.45}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\numberline {A}Anhang}{40}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{40}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{40}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Quellcode}{40}{section.A.3}%
-\contentsline {chapter}{Eidesstattliche Erklärung}{41}{chapter*.45}%
+\contentsline {chapter}{\numberline {A}Anhang}{41}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{41}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{41}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Quellcode}{41}{section.A.3}%
+\contentsline {chapter}{Eidesstattliche Erklärung}{42}{chapter*.46}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

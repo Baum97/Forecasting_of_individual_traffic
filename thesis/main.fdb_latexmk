@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1784024676.67434 "main.bcf" "main.bbl" "main" 1784054943.30436 0
+["biber main"] 1784024676.67434 "main.bcf" "main.bbl" "main" 1784063982.50649 0
   "literatur.bib" 1783981519 18654 b3ced3913c41c31e26d85dd1fe09750b ""
-  "main.bcf" 1784054942 112299 5acdc0417e81fe81433a81e2bdd092b0 "pdflatex"
+  "main.bcf" 1784063981 112299 5acdc0417e81fe81433a81e2bdd092b0 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1784054939.79368 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1784054943.30496 0
+["pdflatex"] 1784063978.53985 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1784063982.50714 0
   "C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784020967 368683 20af194610b55c11d3743ae29ed2ab48 ""
   "C:/Users/Administrator/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1776509242 13337359 a21bfb9d050a5bf8318e8708a258f339 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -218,16 +218,16 @@
   "chapters/002disclaimer.tex" 1774272499 0 d41d8cd98f00b204e9800998ecf8427e ""
   "chapters/003glossar.tex" 1774272499 0 d41d8cd98f00b204e9800998ecf8427e ""
   "chapters/00abstract.tex" 1783637035 1270 98f89cec0d478a817143b9c40c15f779 ""
-  "chapters/01einleitung.tex" 1784027532 9430 c2ca69aa4065fb133de3acb0a24409ca ""
+  "chapters/01einleitung.tex" 1784063948 9447 cbc3730624892b47ed050786fe013b5b ""
   "chapters/02grundlagen.tex" 1784054800 38915 cc8e66b3fde0e93aa9ff056030fab225 ""
-  "chapters/03methodik.tex" 1784054935 5764 2035ebe6eb9fd13930f127d1da4033ad ""
+  "chapters/03methodik.tex" 1784063977 8065 cdcf4a236707ced204505e37feb5c280 ""
   "chapters/04implementierung.tex" 1783553936 3247 b165d4f722e473845b2bc3c31c205d79 ""
   "chapters/05evaluation.tex" 1784023925 5130 909cc6a8fdfe957631add7a178394b8a ""
   "chapters/06diskussion.tex" 1781364431 1926 cf0f4b74b2407b817dcd3e95fecacbed ""
   "chapters/07fazit.tex" 1783090290 905 d0bf9d2406200c17ad5d37f9f326e798 ""
   "chapters/08anhang.tex" 1774272499 836 905149679d91c86057df8b825dc25db8 ""
   "chapters/09erklaerung.tex" 1774272499 960 c11888ef4b7c695c95c94541ccbc1b64 ""
-  "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" 1784021339 3078 6715f8f73c8ca18b49377b25ee79ee3a ""
+  "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" 1784058617 3078 6715f8f73c8ca18b49377b25ee79ee3a ""
   "graphen/methodik/methodik_workflow.pdf" 1784023110 48115 ffd7e3af818cb243246ab3edc0c23bb2 ""
   "images/HochschuleEsslingen_Logo_4c_DE.png" 1774357426 49451 08690eb3f248fef595e496be388df455 ""
   "images/KEIM-quadr.png" 1774357312 198790 022e9ca48d40c806fe434878a352ed26 ""
@@ -246,13 +246,13 @@
   "images/weeklychargingrequests_sanami.png" 1783807209 354255 7315569e53df3a55aeb830d533c5d05c ""
   "imports.tex" 1784027163 2858 a2646b8e09569038f7c2d2f0d682eb5e ""
   "main.acr" 0 -1 0 ""
-  "main.aux" 1784054942 53747 6d51e9837190700bd8d29ff5bc6ce2a5 "pdflatex"
+  "main.aux" 1784063981 54069 cb2ba16b39641acacf5076f060726060 "pdflatex"
   "main.bbl" 1784024678 42711 bc099a4fd9c2e6abc9d5602303617121 "biber main"
-  "main.lof" 1784054942 3126 d0671ccb8ac2f524ebd80b90366580b7 "pdflatex"
-  "main.lot" 1784054942 1827 d5e420f62f643ff547dedfe875a9abee "pdflatex"
-  "main.run.xml" 1784054942 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
-  "main.tex" 1784021339 3078 6715f8f73c8ca18b49377b25ee79ee3a ""
-  "main.toc" 1784054942 6312 9b89ca8215c4d7f278ea3b8540dde12c "pdflatex"
+  "main.lof" 1784063981 3126 d0671ccb8ac2f524ebd80b90366580b7 "pdflatex"
+  "main.lot" 1784063981 1935 befe543828201adf7176b218ac70218d "pdflatex"
+  "main.run.xml" 1784063981 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
+  "main.tex" 1784058617 3078 6715f8f73c8ca18b49377b25ee79ee3a ""
+  "main.toc" 1784063981 6312 7ce3420119daf0b300564b5d522a5431 "pdflatex"
   (generated)
   "main.acn"
   "main.aux"
