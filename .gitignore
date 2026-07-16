@@ -37,3 +37,4 @@ cc_backtest.log
 *.fls
 *.fdb_latexmk
 *.aux
+thesis/**/*.log
