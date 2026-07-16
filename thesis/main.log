@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  16 JUL 2026 12:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  16 JUL 2026 15:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1269,7 +1269,7 @@ Overfull \hbox (4.45335pt too wide) in paragraph at lines 11--11
 {C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}] [5]
 Package tocbasic Info: character protrusion at lot deactivated on input line 75.
  (main.lot
-Overfull \hbox (10.46088pt too wide) in paragraph at lines 14--14
+Overfull \hbox (10.46088pt too wide) in paragraph at lines 15--15
  [][] [][]\T1/lmr/m/n/12 (-20) Modell (Ran-dom-Fo-rest) im Ver-gleich zu nai-ven Ba-se-li-nes, In-Distribution 
  []
 
@@ -1294,12 +1294,12 @@ l.21 \section
 
 ]
 chapter 2.
-<images/data_cars-real-world.png, id=288, 332.74312pt x 123.46124pt>
+<images/data_cars-real-world.png, id=291, 332.74312pt x 123.46124pt>
 File: images/data_cars-real-world.png Graphic file (type png)
 <use images/data_cars-real-world.png>
 Package pdftex.def Info: images/data_cars-real-world.png  used on input line 17.
 (pdftex.def)             Requested size: 256.07741pt x 95.02022pt.
-<images/data_emobpy.png, id=291, 316.18124pt x 108.405pt>
+<images/data_emobpy.png, id=294, 316.18124pt x 108.405pt>
 File: images/data_emobpy.png Graphic file (type png)
 <use images/data_emobpy.png>
 Package pdftex.def Info: images/data_emobpy.png  used on input line 26.
@@ -1307,13 +1307,13 @@ Package pdftex.def Info: images/data_emobpy.png  used on input line 26.
 [6
 
  <./images/data_cars-real-world.png> <./images/data_emobpy.png>]
-<images/prozess_diagramm_v2.png, id=306, 1055.142pt x 375.804pt>
+<images/prozess_diagramm_v2.png, id=309, 1055.142pt x 375.804pt>
 File: images/prozess_diagramm_v2.png Graphic file (type png)
 <use images/prozess_diagramm_v2.png>
 Package pdftex.def Info: images/prozess_diagramm_v2.png  used on input line 44.
 (pdftex.def)             Requested size: 426.79135pt x 152.00482pt.
  [7 <./images/prozess_diagramm_v2.png>] [8]
-<images/maschinelles-lernen.png, id=323, 1028.84375pt x 866.23625pt>
+<images/maschinelles-lernen.png, id=326, 1028.84375pt x 866.23625pt>
 File: images/maschinelles-lernen.png Graphic file (type png)
 <use images/maschinelles-lernen.png>
 Package pdftex.def Info: images/maschinelles-lernen.png  used on input line 126.
@@ -1341,23 +1341,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 201--201
  []
 
 [12{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}] [13]
-<images/decisiontree2_hires.png, id=387, 578.16pt x 433.62pt>
+<images/decisiontree2_hires.png, id=390, 578.16pt x 433.62pt>
 File: images/decisiontree2_hires.png Graphic file (type png)
 <use images/decisiontree2_hires.png>
 Package pdftex.def Info: images/decisiontree2_hires.png  used on input line 260.
 (pdftex.def)             Requested size: 256.07741pt x 192.05714pt.
-<images/baggingmethod.png, id=390, 853.1875pt x 514.92375pt>
+<images/baggingmethod.png, id=393, 853.1875pt x 514.92375pt>
 File: images/baggingmethod.png Graphic file (type png)
 <use images/baggingmethod.png>
 Package pdftex.def Info: images/baggingmethod.png  used on input line 269.
 (pdftex.def)             Requested size: 341.43437pt x 206.068pt.
  [14 <./images/decisiontree2_hires.png>]
-<images/boostingmethod.png, id=405, 102.3825pt x 67.2111pt>
+<images/boostingmethod.png, id=408, 102.3825pt x 67.2111pt>
 File: images/boostingmethod.png Graphic file (type png)
 <use images/boostingmethod.png>
 Package pdftex.def Info: images/boostingmethod.png  used on input line 277.
 (pdftex.def)             Requested size: 341.43437pt x 224.15712pt.
-<images/treegrowth.jpg, id=413, 342.12617pt x 90.77112pt>
+<images/treegrowth.jpg, id=416, 342.12617pt x 90.77112pt>
 File: images/treegrowth.jpg Graphic file (type jpg)
 <use images/treegrowth.jpg>
 Package pdftex.def Info: images/treegrowth.jpg  used on input line 290.
@@ -1368,13 +1368,13 @@ Overfull \hbox (24.45604pt too wide) in paragraph at lines 305--306
  []
 
 [17]
-<images/quantilregression.png, id=434, 794.97pt x 317.988pt>
+<images/quantilregression.png, id=437, 794.97pt x 317.988pt>
 File: images/quantilregression.png Graphic file (type png)
 <use images/quantilregression.png>
 Package pdftex.def Info: images/quantilregression.png  used on input line 333.
 (pdftex.def)             Requested size: 426.79135pt x 170.72113pt.
  [18 <./images/quantilregression.png>]
-<images/lstm.png, id=447, 1027.84pt x 587.19376pt>
+<images/lstm.png, id=450, 1027.84pt x 587.19376pt>
 File: images/lstm.png Graphic file (type png)
 <use images/lstm.png>
 Package pdftex.def Info: images/lstm.png  used on input line 351.
@@ -1445,18 +1445,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 394--394
  []
 
 [20]
-<images/fahrverhalten.png, id=465, 681.54625pt x 823.075pt>
+<images/fahrverhalten.png, id=468, 681.54625pt x 823.075pt>
 File: images/fahrverhalten.png Graphic file (type png)
 <use images/fahrverhalten.png>
 Package pdftex.def Info: images/fahrverhalten.png  used on input line 412.
 (pdftex.def)             Requested size: 298.75264pt x 360.79773pt.
  [21] [22 <./images/fahrverhalten.png (PNG copy)>]
-<images/chargingrequests_sanami.png, id=486, 663.98062pt x 364.36125pt>
+<images/chargingrequests_sanami.png, id=489, 663.98062pt x 364.36125pt>
 File: images/chargingrequests_sanami.png Graphic file (type png)
 <use images/chargingrequests_sanami.png>
 Package pdftex.def Info: images/chargingrequests_sanami.png  used on input line 433.
 (pdftex.def)             Requested size: 384.1096pt x 210.77925pt.
-<images/weeklychargingrequests_sanami.png, id=487, 839.38594pt x 470.50781pt>
+<images/weeklychargingrequests_sanami.png, id=490, 839.38594pt x 470.50781pt>
 File: images/weeklychargingrequests_sanami.png Graphic file (type png)
 <use images/weeklychargingrequests_sanami.png>
 Package pdftex.def Info: images/weeklychargingrequests_sanami.png  used on input line 442.
@@ -1466,18 +1466,18 @@ chapter 3.
 [26
 
 ]
-<graphen/variablendiagramm/variablendiagramm.pdf, id=532, 338.80879pt x 249.61658pt>
+<graphen/variablendiagramm/variablendiagramm.pdf, id=535, 338.80879pt x 249.61658pt>
 File: graphen/variablendiagramm/variablendiagramm.pdf Graphic file (type pdf)
 <use graphen/variablendiagramm/variablendiagramm.pdf>
 Package pdftex.def Info: graphen/variablendiagramm/variablendiagramm.pdf  used on input line 29.
 (pdftex.def)             Requested size: 341.43437pt x 251.56987pt.
  [27 <./graphen/variablendiagramm/variablendiagramm.pdf>] [28]
-<graphen/methodik/methodik_workflow.pdf, id=677, 281.25275pt x 516.01285pt>
+<graphen/methodik/methodik_workflow.pdf, id=680, 281.25275pt x 516.01285pt>
 File: graphen/methodik/methodik_workflow.pdf Graphic file (type pdf)
 <use graphen/methodik/methodik_workflow.pdf>
 Package pdftex.def Info: graphen/methodik/methodik_workflow.pdf  used on input line 76.
 (pdftex.def)             Requested size: 298.75264pt x 548.12057pt.
-) (chapters/04implementierung.tex [29] [30 <./graphen/methodik/methodik_workflow.pdf>] [31]
+ [29] [30 <./graphen/methodik/methodik_workflow.pdf>]) (chapters/04implementierung.tex [31]
 chapter 4.
 [32
 
@@ -1526,17 +1526,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41441 strings out of 467871
- 836246 string characters out of 5414504
- 1918698 words of memory out of 5000000
- 69395 multiletter control sequences out of 15000+600000
- 713752 words of font info for 194 fonts, out of 8000000 for 9000
+ 41448 strings out of 467871
+ 836351 string characters out of 5414504
+ 1918845 words of memory out of 5000000
+ 69397 multiletter control sequences out of 15000+600000
+ 713946 words of font info for 196 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,113p,11260b,3475s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (50 pages, 2411213 bytes).
+Output written on main.pdf (50 pages, 2413967 bytes).
 PDF statistics:
- 1188 PDF objects out of 1200 (max. 8388607)
- 181 named destinations out of 1000 (max. 500000)
+ 1192 PDF objects out of 1200 (max. 8388607)
+ 182 named destinations out of 1000 (max. 500000)
  50214 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -47,7 +47,7 @@
 \contentsline {paragraph}{\nonumberline Modellfamilien}{26}{paragraph*.39}%
 \contentsline {section}{\numberline {3.1}Forschungsdesign}{26}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Untersuchungsablauf}{27}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Datengrundlage und Quellen}{31}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Datengrundlage und Quellen}{29}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Feature Engineering}{31}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Modellauswahl}{31}{section.3.5}%
 \contentsline {section}{\numberline {3.6}Experimentaldesign}{31}{section.3.6}%
@@ -70,11 +70,11 @@
 \contentsline {chapter}{\numberline {7}Fazit und Ausblick}{38}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{38}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Ausblick}{38}{section.7.2}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{39}{chapter*.46}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{39}{chapter*.47}%
 \def \@chapapp {\appendixname }
 \contentsline {chapter}{\numberline {A}Anhang}{42}{appendix.A}%
 \contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{42}{section.A.1}%
 \contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{42}{section.A.2}%
 \contentsline {section}{\numberline {A.3}Quellcode}{42}{section.A.3}%
-\contentsline {chapter}{Eidesstattliche Erklärung}{43}{chapter*.47}%
+\contentsline {chapter}{Eidesstattliche Erklärung}{43}{chapter*.48}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

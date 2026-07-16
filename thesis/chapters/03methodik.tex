@@ -92,10 +92,43 @@ Die Arbeit lässt sich in drei große Teile gliedern:
 \section{Datengrundlage und Quellen}
 \label{sec:datengrundlage}
 
+Da die Daten einen großen Einfluss auf die Leistungsfähigkeit der Modelle haben, werden in dieser Arbeit fünf verschiedene Datenquellen verwendet, die unterschiedliche Aspekte des Problems abdecken. Jede Datenquelle wird auf ihre Eignung hin untersucht und in ein einheitliches Schema transformiert, sodass ein durchgehendes Feature-Set gewährleistet ist. Die Datenquellen werden hinsichtlich ihrer Herkunft, Struktur, Art der enhtaltenen Informationen und Zweck ihres Gebrauchs beschrieben. Die Auswahl ist auf ihre Relevanz für die Forschungsfragen und ihr Potenzial, vorliegende Mobilitätsfragen zu beantworten, begründet. Die Datenquellen sind in \cref{tab:datengrundlage} zusammengefasst.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Übersicht der fünf Datenquellen und ihrer identifizierenden Eigenschaften.}
+  \label{tab:datengrundlage}
+  \begin{tabular}{@{}l l l l@{}}
+    \toprule
+    \textbf{Quelle} & \textbf{Art} & \textbf{Träger} & \textbf{Umfang} \\
+    \midrule
+    \texttt{emobpy} & synthetisch & Fahrzeug & 200 Fzg., 1 Jahr \\
+    \addlinespace
+    \texttt{real\_world\_ev} & real & Fahrzeug & 1 Fzg. \\
+    \addlinespace
+    \texttt{ved} & real & Fahrzeug & \todo{n} Fzg. \\
+    \addlinespace
+    \texttt{routine} & synthetisch & Person & 1 Person \\
+    \addlinespace
+    \texttt{yjmob100k} & real & Person & \todo{n} Personen \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\todo{\begin{itemize}
+    \item \textbf{datenquellen}: Beschreibung der verschiedenen Datenquellen und ihre spezifischen Eigenschaften.
+    \item \textbf{aufbereitung}: Beschreibung der Schritte zur Datenaufbereitung, einschließlich der Transformation in ein einheitliches Schema und der Auswahl relevanter Features.
+    \item \textbf{qualität}: Bewertung der Qualität der Datenquellen, einschließlich Kohärenz, Vollständigkeit und Reichhaltigkeit.
+    \item \textbf{auswahlverfahren}:
+    \item \textbf{unterschiede}
+    \item \textbf{vergleichbarkeit}
+\end{itemize}}
 % -----------------------------------------------------------------------------
 
 \section{Feature Engineering}
 \label{sec:feature}
+
+
 
 % -----------------------------------------------------------------------------
 
