@@ -577,6 +577,12 @@ INPUT .\chapters\03methodik.tex
 INPUT .\chapters\03methodik.tex
 INPUT .\chapters\03methodik.tex
 INPUT chapters\03methodik.tex
+INPUT .\graphen\variablendiagramm\variablendiagramm.pdf
+INPUT .\graphen\variablendiagramm\variablendiagramm.pdf
+INPUT .\graphen\variablendiagramm\variablendiagramm.pdf
+INPUT .\graphen\variablendiagramm\variablendiagramm.pdf
+INPUT .\graphen\variablendiagramm\variablendiagramm.pdf
+INPUT .\graphen\variablendiagramm\variablendiagramm.pdf
 INPUT .\graphen\methodik\methodik_workflow.pdf
 INPUT .\graphen\methodik\methodik_workflow.pdf
 INPUT .\graphen\methodik\methodik_workflow.pdf
@@ -617,6 +623,8 @@ INPUT chapters\09erklaerung.tex
 INPUT main.aux
 INPUT main.run.xml
 OUTPUT main.run.xml
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr6.pfb
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr6.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr9.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr9.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy9.pfb

@@ -4,50 +4,16 @@
 \chapter{Methodik}
 \label{ch:methodik}
 
-%\textcolor{red}{
-%    \begin{itemize}
-%        \item verschiedene modelle gegenüberstellen
-%        \item finetuning von modellen
-%        \item datenlage
-%        \item preprocessing von daten
-%        \item behandlung von sonderbaren werten (entfernen, stärker %repräsentieren, etc.)
-%        \item robustheit von modell testen/erhöhen
-%        \item ausgesuchtes netz anpassen, architektur anpassen, etc.
-%        \item erklärung für modelle, versuche usw
-%    \end{itemize}
-%}
-
-Das Ziel der Methodik ist es, die zuvor genannten Forschungsfragen in \cref{sec:forschungsfragen} zu beantworten. Um dies zu erreichen, werden im Folgenden die methodischen Schritte beschrieben, die dafür durchgeführt werden. Die Methodik umfasst die Auswahl und Implementierung von Datenaufbereitung und Machine-Learning-Modellen, die Gegenüberstellung der Modelle, sowie die Durchführung von Ablationsexperimenten, um die besten Modelle zu identifizieren. Die Methodik ist in \cref{fig:methodik} schematisch dargestellt. Der Arbeitsfluss beginnt mit der Auswahl und Aufbereitung der Daten -- in diesem Fall fünf verschiedene Datenquellen -- welche in ein einheitliches Schema transformiert werden. Anschließen werden die Daten auf ihre Qualität hin bewertet und relevante Features extrahiert. Anschließend werden die Daten in zwei Modellfamilien eingespeist: Klassifikator und Zeitreihenprognose. Die Modelle werden dann in einem experimentellen Design evaluiert, das sowohl die Isolation von Daten- und Algorithmen-Effekten als auch eine Ablationsstudie umfasst. Das Isolieren der Daten- und Algorithmen-Effekte ist ein wichtiger Aspekt der Methode, um sicherstellen zu können, dass die Ergebnisse auf die jeweiligen Einflussfaktoren zurückgeführt werden können. Abschließend werden die Ergebnisse bewertet und die Forschungsfragen beantwortet.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.7\textwidth]{graphen/methodik/methodik_workflow.pdf}
-  \caption{Schematischer Workflow der Methodik: von den fünf Datenquellen über
-    den geteilten Feature-Kern und die beiden Modellfamilien bis zum
-    Experimentaldesign und der Bewertung.}
-  \label{fig:methodik}
-\end{figure}
-
-\vspace{1cm}
-
-Die Arbeit lässt sich in drei große Teile gliedern:
-\begin{itemize}
-    \item \textbf{Datenaufbereitung}: Das Erkundschaften der Datenlandschaft, die Transformation der Daten in ein geeignetes Format und die Auswahl relevanter Features.
-    \item \textbf{Machine Learning}: Die Auswahl und Implementierung verschiedener Machine-Learning-Modelle auf Grund ihrer unterschiedlichen Eigenschaften (leaf- und level-wise Wachstum, Bagging und Boosting, modellierte zeitliche Abhängigkeiten).
-    \item \textbf{Ablationsexperimente}: Im Rahmen einer Ablationstudie werden verschiedene Modelle hinsichtlich ihrer Wertigkeit (in diesem Fall: Vorhersagegenauigkeit, Robustheit, Zuverlässigkeit) miteinander verglichen, um die besten Modelle zu identifizieren. 
-\end{itemize}
-
-Es bleibt zu beachten, dass die Ablation nicht unbedingt zur Abtragung aller nicht-primären Modelle führt, sondern eine eventuelle Kooperation von Modellen auch eine Möglichkeit darstellt.
+Das Ziel der Methodik ist es, die zuvor genannten Forschungsfragen in \cref{sec:forschungsfragen} zu beantworten. Um dies zu erreichen, werden in \cref{sec:untersuchungsablauf}, \cref{fig:methodik} die methodischen Schritte beschrieben, die dafür durchgeführt werden. 
 
 
-
-\subsubsection{Datenquellen}
+\paragraph{Datenquellen}
 
 Die Varietät und Qualität der Datenquellen ist ein entscheidender Faktor für die Leistungsfähigkeit von Machine-Learning-Modellen. In dieser Arbeit werden fünf verschiedene Datenquellen verwendet, die unterschiedliche Aspekte des Problems abdecken. Jede Datenquelle wird auf ihre Eignung hin untersucht und in ein einheitliches Schema transformiert, um ein durchgehendes Feature-Set zu gewährleisten. Die Datenquellen werden in \cref{sec:datengrundlage} detailliert beschrieben, einschließlich ihrer Herkunft, Struktur und der Art der enthaltenen Informationen. Die Auswahl der Datenquellen (ersichtlich in \cref{fig:methodik}) basiert auf ihrer Relevanz für die Forschungsfragen und ihrer Fähigkeit, ein möglichst breites Spektrum an Mobilitätsfragen abzudecken. 
 
 
 
-\subsubsection{Modellfamilien}
+\paragraph{Modellfamilien}
 
 Auf Grund der Studienlage und der darin stark repräsentierten Modellfamilien werden in dieser Arbeit drei verschiedene Modelle verwendet, die jeweils unterschiedliche Eigenschaften aufweisen. Die Modelle sind Random Forest, LightGBM und LSTM -- welche in \cref{sec:randomforest}, \cref{sec:lightgbm} und \cref{sec:lstm} aufbereitet sind.
 
@@ -56,17 +22,24 @@ Auf Grund der Studienlage und der darin stark repräsentierten Modellfamilien we
 \section{Forschungsdesign}
 \label{sec:forschungsdesign}
 
-\todo{Das übergeordnete Forschungsdesign beschreiben (z.\,B.\ qualitativ, quantitativ, Mixed-Methods, Design Science Research, etc.).}
+Die Arbeit folgt einem quantitativ-experimentellen Forschungsdesign, das auf der Analyse von Daten und der Anwendung von Machine-Learning-Methoden basiert. Das Ziel ist es, die Forschungsfragen durch die systematische Gegenüberstellung von unterschiedlichen Datenquellen und Modellen zu beantworten. Da der Kern der Thesis die Erforschung eines Verfahrens ist, um die Prognosegüte von Modellen zu ermitteln, umfasst die Methodik ein kontrolliertes Experiment, die Evaluierung der Modelle und die Durchführung einer Ablationsstudie mit numerischen Metriken und Prognosequantilen, um die Leistungsfähigkeit der Modelle zu bewerten.
 
-Die Arbeit folgt einem quantitativ-experimentellen Forschungsdesign, das auf der Analyse von Daten und der Anwendung von Machine-Learning-Methoden basiert. Das Ziel ist es, die Forschungsfragen durch die systematische Unterstützung von unterschiedlichen Datenquellen und Modellen zu beantworten. Die Methodik umfasst ein kontrolliertes Experiment, die Evaluierung der Modelle und die Durchführung einer Ablationsstudie mit numerischen Metriken und Prognosequantilen, um die Leistungsfähigkeit der Modelle zu bewerten. Für die Ablation werden die gelernten Modelle per Algorithmus- und Datenisolation untersucht, um die jeweiligen Effekte auf die Vorhersagegenauigkeit zu bestimmen. Die Ergebnisse werden statistisch analysiert um die Qualität der Modelle auf Grund ihrer Datenbasis und ihres Algorithmus zu bewerten. Im Zuge dieses Aufbaus können folgende Hypothesen aufgestellt werden:
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{graphen/variablendiagramm/variablendiagramm.pdf}
+  \caption{Variablenstruktur des Forschungsdesigns: zwei veränderliche unabhängige Variablen (Daten, Algorithmus) und eine abhängige Variable (Prognosegüte). Konstante Hyperparameter und Trainingsprotokolle wirken als Kontrollvariablen.}
+  \label{fig:variablendesign}
+\end{figure}
+
+Die unabhängigen Variablen in der Experimentreihe sind die verschiedenen Datensätze, die jeweils unterschiedliche Informationen enthalten, und die unterschiedlichen Machine-Learning-Algorithmen. Die Hyperparameter werden je Modell einmalig festgelegt und während der Isolationsexperimente konstant gehalten; dadurch wirken sie, wie das Feature-Set und Trainingsprotokoll, als Kontrollvariablen (\cref{fig:variablendesign}). Die abhängige Variable ist die Prognosegüte, da diese von den unabhängigen Variablen beeinflusst wird. Für die Ablation werden die gelernten Modelle per Algorithmus- und Datenisolation untersucht, um die jeweiligen Effekte auf die Vorhersagegenauigkeit zu bestimmen. Die Ergebnisse werden statistisch analysiert, um die Qualität der Modelle auf Grund ihrer Datenbasis und ihres Algorithmus zu bewerten. Im Zuge dieses Aufbaus können folgende Hypothesen aufgestellt werden:
 
 \begin{table}[htbp]
   \centering
   \caption{Hypothesen zu den Forschungsfragen.}
-  \label{tab:forschungsfragenlösungen}
+  \label{tab:forschungsfragenhypothesen}
   \begin{tabularx}{\textwidth}{@{}l || X@{}}
     \toprule
-    \textbf{Nr.} & \textbf{Lösung der Forschungsfrage} \\
+    \textbf{Nr.} & \textbf{Hypothese der Forschungsfrage} \\
     \midrule
     \multicolumn{2}{@{}l}{\textbf{Mobilitätsprognose}} \\
     \cmidrule{1-1}
@@ -83,11 +56,11 @@ Die Arbeit folgt einem quantitativ-experimentellen Forschungsdesign, das auf der
     \multicolumn{2}{@{}l}{\textbf{Mobilitätsdaten}} \\
     \cmidrule{1-1}
     \addlinespace
-    FF2 & Anforderungen die sich ergeben, sind u.a. Anspruch an Form, Qualität, Relevanz und Verwendbarkeit der Daten. \\
+    FF2 & Anforderungen, die sich ergeben, sind u.a. Anspruch an Form, Qualität, Relevanz und Verwendbarkeit der Daten. \\
     \addlinespace
      FF2.1 & Aufbereitung wirkt sich im Optimalfall nicht auf die Nutzbarkeit der Daten aus; Fehlerhafte Daten können optional für Robustheit beibehalten werden.  \\
     \addlinespace
-     FF2.2 & Die Qualität der Daten lässt sich oberflächlich durch ihre Kohärenz, Vollständigkeit und Reichhaltigkeit bewerten. Tiefergehend, lässt sich die Qualität der Daten anhand der Prognosequalität der Modelle interpretieren.  \\
+     FF2.2 & Die Qualität der Daten lässt sich oberflächlich durch ihre Kohärenz, Vollständigkeit und Reichhaltigkeit bewerten. Tiefergehend lässt sich die Qualität der Daten anhand der Prognosequalität der Modelle interpretieren.  \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -95,6 +68,24 @@ Die Arbeit folgt einem quantitativ-experimentellen Forschungsdesign, das auf der
 
 \section{Untersuchungsablauf}
 \label{sec:untersuchungsablauf}
+
+Die Methodik umfasst die Auswahl und Implementierung von Datenaufbereitung und Machine-Learning-Modellen, die Gegenüberstellung der Modelle, sowie die Durchführung von Ablationsexperimenten, um die besten Modelle zu identifizieren. Die Methodik ist in \cref{fig:methodik} schematisch dargestellt. Der Arbeitsfluss beginnt mit der Auswahl und Aufbereitung der Daten -- in diesem Fall fünf verschiedene Datenquellen -- welche in ein einheitliches Schema transformiert werden. Als nächstes werden die Daten auf ihre Qualität hin bewertet und relevante Features extrahiert. Anschließend werden die Daten in Modelle eingespeist, die unterschiedliche Aufgaben erledigen: Klassifikator und Zeitreihenprognose. Die Modelle werden dann in einem experimentellen Design evaluiert, das sowohl die Isolation von Daten- und Algorithmen-Effekten als auch eine Ablationsstudie umfasst. Das Isolieren der Daten- und Algorithmen-Effekte ist ein wichtiger Aspekt der Methode, um sicherstellen zu können, dass die Ergebnisse auf die jeweiligen Einflussfaktoren zurückgeführt werden können. Abschließend werden die Ergebnisse bewertet und die Forschungsfragen beantwortet.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\textwidth]{graphen/methodik/methodik_workflow.pdf}
+  \caption{Schematischer Workflow der Methodik: von den fünf Datenquellen über
+    den geteilten Feature-Kern und die beiden Aufgabenmodelle bis zum
+    Experimentaldesign und der Bewertung.}
+  \label{fig:methodik}
+\end{figure}
+
+Die Arbeit lässt sich in drei große Teile gliedern:
+\begin{itemize}
+    \item \textbf{Datenaufbereitung}: Das Erkundschaften der Datenlandschaft, die Transformation der Daten in ein geeignetes Format und die Auswahl relevanter Features.
+    \item \textbf{Machine Learning}: Die Auswahl und Implementierung verschiedener Machine-Learning-Modelle auf Grund ihrer unterschiedlichen Eigenschaften (leaf- und level-wise Wachstum, Bagging und Boosting, modellierte zeitliche Abhängigkeiten).
+    \item \textbf{Ablationsexperimente}: Im Rahmen einer Ablationstudie werden verschiedene Modelle hinsichtlich ihrer Wertigkeit (in diesem Fall: Vorhersagegenauigkeit, Robustheit, Zuverlässigkeit) miteinander verglichen, um die besten Modelle zu identifizieren. 
+\end{itemize}
 
 % -----------------------------------------------------------------------------
 

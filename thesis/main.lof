@@ -13,7 +13,8 @@
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Verteilung der Fahrdistanz (a) und der Abfahrtszeit des ersten Tagestrips (b) nach Wochentag \blx@tocontentsinit {0}\parencite {lindroth2024online}.}}{22}{figure.caption.31}%
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Zeitliche Muster der Ladeanfragen im verwendeten Datensatz \blx@tocontentsinit {0}\parencite {sanami2025demand}.}}{24}{figure.caption.34}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Schematischer Workflow der Methodik: von den fünf Datenquellen über den geteilten Feature-Kern und die beiden Modellfamilien bis zum Experimentaldesign und der Bewertung.}}{27}{figure.caption.38}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Variablenstruktur des Forschungsdesigns: zwei veränderliche unabhängige Variablen (Daten, Algorithmus) und eine abhängige Variable (Prognosegüte). Konstante Hyperparameter und Trainingsprotokolle wirken als Kontrollvariablen.}}{27}{figure.caption.40}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Schematischer Workflow der Methodik: von den fünf Datenquellen über den geteilten Feature-Kern und die beiden Aufgabenmodelle bis zum Experimentaldesign und der Bewertung.}}{30}{figure.caption.42}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1784024676.67434 "main.bcf" "main.bbl" "main" 1784067456.56681 0
+["biber main"] 1784188785.02897 "main.bcf" "main.bbl" "main" 1784197668.10115 0
   "literatur.bib" 1783981519 18654 b3ced3913c41c31e26d85dd1fe09750b ""
-  "main.bcf" 1784067456 112299 5acdc0417e81fe81433a81e2bdd092b0 "pdflatex"
+  "main.bcf" 1784197667 112299 5acdc0417e81fe81433a81e2bdd092b0 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1784067451.97861 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1784067456.56737 0
+["pdflatex"] 1784197664.32216 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1784197668.10174 0
   "C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784064947 368683 20af194610b55c11d3743ae29ed2ab48 ""
   "C:/Users/Administrator/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1776509242 13337359 a21bfb9d050a5bf8318e8708a258f339 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -45,6 +45,7 @@
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/rm-lmr6.tfm" 1256929440 11836 e3b6ce3e601aec94f64a536e7f4224d5 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/rm-lmr8.tfm" 1256929440 11864 309fd7f43e4a0ba39f6f7644d76e8edf ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/ts1-lmr12.tfm" 1256929440 1596 1d4548788e389ded56d0b01b28377882 ""
+  "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1247596667 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1247596666 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb" 1247596666 32442 c975af247b6702f7ca0c299af3616b80 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb" 1256929440 116908 9a7a12d1e4df280ea0ab4aad83cdef88 ""
@@ -221,7 +222,7 @@
   "chapters/00abstract.tex" 1783637035 1270 98f89cec0d478a817143b9c40c15f779 ""
   "chapters/01einleitung.tex" 1784066617 9447 683c67cd3db03a9cd21bdd693d179583 ""
   "chapters/02grundlagen.tex" 1784054800 38915 cc8e66b3fde0e93aa9ff056030fab225 ""
-  "chapters/03methodik.tex" 1784067451 8473 f9045e3de9b1c10d70eccf4e8e55683c ""
+  "chapters/03methodik.tex" 1784197654 8757 a0629bfe2bbc6da4a8c1135cd656d9cd ""
   "chapters/04implementierung.tex" 1784064921 3342 74aab9dacca49b0bded37ceed971fba6 ""
   "chapters/05evaluation.tex" 1784023925 5130 909cc6a8fdfe957631add7a178394b8a ""
   "chapters/06diskussion.tex" 1781364431 1926 cf0f4b74b2407b817dcd3e95fecacbed ""
@@ -230,6 +231,7 @@
   "chapters/09erklaerung.tex" 1774272499 960 c11888ef4b7c695c95c94541ccbc1b64 ""
   "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" 1784058617 3078 6715f8f73c8ca18b49377b25ee79ee3a ""
   "graphen/methodik/methodik_workflow.pdf" 1784023110 48115 ffd7e3af818cb243246ab3edc0c23bb2 ""
+  "graphen/variablendiagramm/variablendiagramm.pdf" 1784188019 44770 55f276f85cfbbb508af9a7e9e52f8de2 ""
   "images/HochschuleEsslingen_Logo_4c_DE.png" 1774357426 49451 08690eb3f248fef595e496be388df455 ""
   "images/KEIM-quadr.png" 1774357312 198790 022e9ca48d40c806fe434878a352ed26 ""
   "images/baggingmethod.png" 1782989633 23136 ccb64022646bb8a8ec2f9d9067ac229f ""
@@ -247,13 +249,13 @@
   "images/weeklychargingrequests_sanami.png" 1783807209 354255 7315569e53df3a55aeb830d533c5d05c ""
   "imports.tex" 1784064901 2932 0bd1b6ca84dd7dec1ca4665688e80ae3 ""
   "main.acr" 0 -1 0 ""
-  "main.aux" 1784067456 54144 0f018876b2c21290d99522e34b03bf1a "pdflatex"
-  "main.bbl" 1784024678 42711 bc099a4fd9c2e6abc9d5602303617121 "biber main"
-  "main.lof" 1784067456 3126 d0671ccb8ac2f524ebd80b90366580b7 "pdflatex"
-  "main.lot" 1784067456 1942 73c59e11d45a40dc683240cf52da42b2 "pdflatex"
-  "main.run.xml" 1784067456 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
+  "main.aux" 1784197667 54851 fbdcc1de64d5388874ef05d172d33106 "pdflatex"
+  "main.bbl" 1784188786 42711 bc099a4fd9c2e6abc9d5602303617121 "biber main"
+  "main.lof" 1784197667 3438 0d744f40302c1b6d462bb6ca2462e948 "pdflatex"
+  "main.lot" 1784197667 1942 34e936faa97b66b9a6a2cfdf7fea87e6 "pdflatex"
+  "main.run.xml" 1784197667 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
   "main.tex" 1784058617 3078 6715f8f73c8ca18b49377b25ee79ee3a ""
-  "main.toc" 1784067456 6312 93fe18234c0d886d1a04628946bc675c "pdflatex"
+  "main.toc" 1784197667 6296 49690e3c7cc03979f4c4f8f689a26240 "pdflatex"
   (generated)
   "main.acn"
   "main.aux"

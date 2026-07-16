@@ -1,0 +1,50 @@
+% Standalone-Variablendiagramm (Forschungsdesign).
+% Kompilieren:  pdflatex variablendiagramm.tex
+% PNG:          pdftoppm -png -r 300 variablendiagramm.pdf variablendiagramm
+\documentclass[border=12pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc}
+
+\definecolor{cData}{HTML}{DCE7F5}
+\definecolor{cDataB}{HTML}{5B7FB0}
+\definecolor{cEval}{HTML}{EADCF2}
+\definecolor{cEvalB}{HTML}{8A5FA8}
+\definecolor{cCtrl}{HTML}{ECECEC}
+\definecolor{cCtrlB}{HTML}{9A9A9A}
+\definecolor{cLbl}{HTML}{6E6E6E}
+
+\begin{document}
+\begin{tikzpicture}[
+  font=\small\sffamily,
+  box/.style={draw, rounded corners=2pt, align=center, minimum height=11mm,
+              inner sep=6pt, line width=0.6pt},
+  uv/.style={box, fill=cData, draw=cDataB, text width=44mm},
+  av/.style={box, fill=cEval, draw=cEvalB, text width=40mm, minimum height=16mm},
+  ctrl/.style={box, fill=cCtrl, draw=cCtrlB, text width=92mm},
+  lbl/.style={font=\footnotesize\itshape\sffamily, text=cLbl},
+  arr/.style={-{Stealth[length=2.8mm]}, line width=0.8pt},
+  arrc/.style={-{Stealth[length=2.6mm]}, line width=0.7pt, dashed, draw=cCtrlB},
+]
+
+% --- Unabhaengige Variablen -------------------------------------------------
+\node[uv] (uva) {\textbf{UV$_1$: Datenquelle}\\ 5 Stufen\\ \footnotesize (emobpy, real\_world\_ev, ved, routine, yjmob100k)};
+\node[uv, below=16mm of uva] (uvb) {\textbf{UV$_2$: Algorithmus}\\ 3 Stufen\\ \footnotesize (Random Forest, LightGBM, LSTM)};
+
+% --- Abhaengige Variable (rechts, mittig) -----------------------------------
+\coordinate (mid) at ($(uva)!0.5!(uvb)$);
+\node[av, right=42mm of mid] (av) {\textbf{AV: Prognosegüte}\\ \footnotesize Klassifikationsmetriken,\\ \footnotesize P10/P90-Quantile};
+
+% --- Kontrollvariablen ------------------------------------------------------
+\node[ctrl, below=14mm of uvb.south west, anchor=north west] (ctrl)
+  {\textbf{Kontrollvariablen} (fixiert)\\ Hyperparameter \textperiodcentered\ Feature-Set \textperiodcentered\ Trainingsprotokoll};
+
+% --- Kanten -----------------------------------------------------------------
+\draw[arr] (uva.east) -- (av.west) node[pos=0.55, above, sloped, lbl] {variiert};
+\draw[arr] (uvb.east) -- (av.west) node[pos=0.55, below, sloped, lbl] {variiert};
+\draw[arrc] (ctrl.north) -- ++(0,20pt) -| (av.south) node[pos=0.4, above, lbl] {konstant gehalten};
+
+\end{tikzpicture}
+\end{document}
