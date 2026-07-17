@@ -282,6 +282,7 @@
       \strng{authornamehash}{f2b9f8c8606b08dcbe5dadab5b975794}
       \strng{authorfullhash}{cd40caba8a8be8d60e83297baf56f291}
       \strng{authorfullhashraw}{cd40caba8a8be8d60e83297baf56f291}
+      \field{extraname}{1}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{extradatescope}{labelyear}
@@ -293,6 +294,73 @@
       \field{year}{2020}
       \verb{doi}
       \verb 10.5281/zenodo.3931663
+      \endverb
+    \endentry
+    \entry{emobpy_nature}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=bba098b0d0c1e9fb33028262fc12b816}{%
+           family={Gaete-Morales},
+           familyi={G\bibinithyphendelim M\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d382d48e2e6dee854150615eb756c8ef}{%
+           family={Kramer},
+           familyi={K\bibinitperiod},
+           given={Hendrik},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=944845999de6f79c9161d41fdcbf59a8}{%
+           family={Schill},
+           familyi={S\bibinitperiod},
+           given={Wolf-Peter},
+           giveni={W\bibinithyphendelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=da35b10c66e05a9e7e21d7c5bd111f30}{%
+           family={Zerrahn},
+           familyi={Z\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{f2b9f8c8606b08dcbe5dadab5b975794}
+      \strng{fullhash}{cd40caba8a8be8d60e83297baf56f291}
+      \strng{fullhashraw}{cd40caba8a8be8d60e83297baf56f291}
+      \strng{bibnamehash}{cd40caba8a8be8d60e83297baf56f291}
+      \strng{authorbibnamehash}{cd40caba8a8be8d60e83297baf56f291}
+      \strng{authornamehash}{f2b9f8c8606b08dcbe5dadab5b975794}
+      \strng{authorfullhash}{cd40caba8a8be8d60e83297baf56f291}
+      \strng{authorfullhashraw}{cd40caba8a8be8d60e83297baf56f291}
+      \field{extraname}{2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific Data}
+      \field{note}{Peer-reviewtes Paper zum emobpy-Tool; Begleitsoftware siehe \cite{emobpy_dataset}}
+      \field{number}{1}
+      \field{title}{An open tool for creating battery-electric vehicle time series from empirical data, emobpy}
+      \field{urlday}{15}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{volume}{8}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \field{pages}{152}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/s41597-021-00932-9
+      \endverb
+      \verb{urlraw}
+      \verb https://www.nature.com/articles/s41597-021-00932-9
+      \endverb
+      \verb{url}
+      \verb https://www.nature.com/articles/s41597-021-00932-9
       \endverb
     \endentry
     \entry{geron2022handson}{book}{}{}
