@@ -38,3 +38,4 @@ cc_backtest.log
 *.fdb_latexmk
 *.aux
 thesis/**/*.log
+additional/
