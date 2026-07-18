@@ -708,6 +708,56 @@
       \verb https://www.jmlr.org/papers/v7/meinshausen06a.html
       \endverb
     \endentry
+    \entry{oh2020ved}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=52c585fbd9b6500225360d0c01ccf56b}{%
+           family={Oh},
+           familyi={O\bibinitperiod},
+           given={Geunseob},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=077a00d1a98245eec5183708111e4485}{%
+           family={LeBlanc},
+           familyi={L\bibinitperiod},
+           given={David\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3fad70f7cdacbeb2e82ce0f974435203}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={Huei},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{aaba6f58c482e42de48c105eecc715ca}
+      \strng{fullhash}{042adb43cd07f440f2ced8fba2cabab1}
+      \strng{fullhashraw}{042adb43cd07f440f2ced8fba2cabab1}
+      \strng{bibnamehash}{042adb43cd07f440f2ced8fba2cabab1}
+      \strng{authorbibnamehash}{042adb43cd07f440f2ced8fba2cabab1}
+      \strng{authornamehash}{aaba6f58c482e42de48c105eecc715ca}
+      \strng{authorfullhash}{042adb43cd07f440f2ced8fba2cabab1}
+      \strng{authorfullhashraw}{042adb43cd07f440f2ced8fba2cabab1}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Intelligent Transportation Systems}
+      \field{note}{Daten: \url{https://github.com/gsoh/VED}}
+      \field{number}{4}
+      \field{title}{Vehicle Energy Dataset (VED), A Large-scale Dataset for Vehicle Energy Consumption Research}
+      \field{volume}{23}
+      \field{year}{2022}
+      \field{pages}{3302\bibrangedash 3312}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1109/TITS.2020.3035596
+      \endverb
+    \endentry
     \entry{individual2025activitychain}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=5659d6c77daafc2e631e8115c543ee26}{%
@@ -1103,6 +1153,79 @@
       \endverb
       \verb{url}
       \verb https://datasolut.com/was-ist-machine-learning/
+      \endverb
+    \endentry
+    \entry{yjmob100k}{article}{}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=9ea35f7aab5949a87115bc80eb96dfe5}{%
+           family={Yabe},
+           familyi={Y\bibinitperiod},
+           given={Takahiro},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c0e175e5d6e72167fc664c30a7cdc5e5}{%
+           family={Tsubouchi},
+           familyi={T\bibinitperiod},
+           given={Kota},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c90a859f703561eeefb8ef2c1db4a986}{%
+           family={Shimizu},
+           familyi={S\bibinitperiod},
+           given={Toru},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e46b6eac04d8ab6790a4ebd2ade4d320}{%
+           family={Sekimoto},
+           familyi={S\bibinitperiod},
+           given={Yoshihide},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3997146b0b3a38d07611b1891d7e8c80}{%
+           family={Sezaki},
+           familyi={S\bibinitperiod},
+           given={Kaoru},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=980339ffe24072e0b0e8ce650502f628}{%
+           family={Moro},
+           familyi={M\bibinitperiod},
+           given={Esteban},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cfeba84379500ca15113b46bf96d3c2a}{%
+           family={Pentland},
+           familyi={P\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{edd30120c2a65ef925982d08546df5b0}
+      \strng{fullhash}{a0251ef8cb01e2934d8eb88f1383fc41}
+      \strng{fullhashraw}{a0251ef8cb01e2934d8eb88f1383fc41}
+      \strng{bibnamehash}{a0251ef8cb01e2934d8eb88f1383fc41}
+      \strng{authorbibnamehash}{a0251ef8cb01e2934d8eb88f1383fc41}
+      \strng{authornamehash}{edd30120c2a65ef925982d08546df5b0}
+      \strng{authorfullhash}{a0251ef8cb01e2934d8eb88f1383fc41}
+      \strng{authorfullhashraw}{a0251ef8cb01e2934d8eb88f1383fc41}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific Data}
+      \field{number}{1}
+      \field{title}{YJMob100K: City-scale and longitudinal dataset of anonymized human mobility trajectories}
+      \field{volume}{11}
+      \field{year}{2024}
+      \field{pages}{397}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/s41597-024-03237-9
       \endverb
     \endentry
   \enddatalist

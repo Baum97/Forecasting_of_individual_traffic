@@ -589,6 +589,7 @@ INPUT .\graphen\methodik\methodik_workflow.pdf
 INPUT .\graphen\methodik\methodik_workflow.pdf
 INPUT .\graphen\methodik\methodik_workflow.pdf
 INPUT .\graphen\methodik\methodik_workflow.pdf
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtk10.tfm
 INPUT .\chapters\04implementierung.tex
 INPUT .\chapters\04implementierung.tex
 INPUT .\chapters\04implementierung.tex
@@ -657,5 +658,7 @@ INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmsy10.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmsy8.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmsy8.pfb
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtk10.pfb
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtk10.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt12.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt12.pfb

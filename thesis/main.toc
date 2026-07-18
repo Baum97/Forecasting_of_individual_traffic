@@ -48,11 +48,11 @@
 \contentsline {section}{\numberline {3.1}Forschungsdesign}{26}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Untersuchungsablauf}{27}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Datengrundlage und Quellen}{29}{section.3.3}%
-\contentsline {paragraph}{\nonumberline emobpy}{31}{paragraph*.44}%
-\contentsline {paragraph}{\nonumberline real\_world\_ev}{31}{paragraph*.45}%
-\contentsline {paragraph}{\nonumberline VED}{31}{paragraph*.46}%
-\contentsline {paragraph}{\nonumberline Routine}{32}{paragraph*.47}%
-\contentsline {paragraph}{\nonumberline YJMOB100K}{32}{paragraph*.48}%
+\contentsline {paragraph}{\nonumberline \texttt {emobpy}}{31}{paragraph*.44}%
+\contentsline {paragraph}{\nonumberline \texttt {real\_world\_ev}}{31}{paragraph*.45}%
+\contentsline {paragraph}{\nonumberline \texttt {ved}}{31}{paragraph*.46}%
+\contentsline {paragraph}{\nonumberline \texttt {routine}}{32}{paragraph*.47}%
+\contentsline {paragraph}{\nonumberline \texttt {yjmob100k}}{32}{paragraph*.48}%
 \contentsline {section}{\numberline {3.4}Feature Engineering}{33}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Modellauswahl}{33}{section.3.5}%
 \contentsline {section}{\numberline {3.6}Experimentaldesign}{33}{section.3.6}%

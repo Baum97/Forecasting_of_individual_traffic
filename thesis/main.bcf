@@ -2425,7 +2425,10 @@
     <bcf:citekey order="59" intorder="1">ji2023rethinking</bcf:citekey>
     <bcf:citekey order="60" intorder="1">ji2023rethinking</bcf:citekey>
     <bcf:citekey order="61" intorder="1">emobpy_nature</bcf:citekey>
-    <bcf:citekey order="62" intorder="1">emobpy_dataset</bcf:citekey>
+    <bcf:citekey order="62" intorder="1">pozzato2023fielddata</bcf:citekey>
+    <bcf:citekey order="63" intorder="1">oh2020ved</bcf:citekey>
+    <bcf:citekey order="64" intorder="1">yjmob100k</bcf:citekey>
+    <bcf:citekey order="65" intorder="1">emobpy_dataset</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
