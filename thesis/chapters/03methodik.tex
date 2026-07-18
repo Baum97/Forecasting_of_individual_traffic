@@ -115,19 +115,22 @@ Da die Daten einen großen Einfluss auf die Leistungsfähigkeit der Modelle habe
   \end{tabular}
 \end{table}
 
-\paragraph{emobpy} ist ein Open-Source Python Tool, das vom DIW Berlin (Deutsches Institut für Wirtschaftsforschung) entwickelt wurde, um synthetische Mobilitätsdaten zu generieren. Die Daten werden auf Basis von realen Mobilitätsstatistiken und physikalischen Eigenschaften von Elektrofahrzeugen. Für die Illustration des Tools wurde ein Profil von 200 Fahrzeugen über ein Jahr in Deutschland simuliert \parencite{emobpy_nature}. Emobpy liefert eine \texttt{in\_use} Flag, weswegen die Identifikation des Fahrverhaltens direkt aus den Daten abgeleitet werden kann.
+\paragraph{emobpy} ist ein Open-Source Python Tool, das vom DIW Berlin (Deutsches Institut für Wirtschaftsforschung) entwickelt wurde, um synthetische Mobilitätsdaten zu generieren. Die Daten werden auf Basis von realen Mobilitätsstatistiken und physikalischen Eigenschaften von Elektrofahrzeugen erzeugt. Für die Illustration des Tools wurde ein Profil von 200 Fahrzeugen über ein Jahr in Deutschland simuliert \parencite{emobpy_nature}. Emobpy liefert eine \texttt{in\_use} Flag, weswegen die Identifikation des Fahrverhaltens direkt aus den Daten abgeleitet werden kann. Die Aktivitätsrate liegt im Median bei 9,66\%
 
-\paragraph{real\_world\_ev} ist ein Datensatz, der über ein Jahr hinweg Fahrdaten sammelt, um bei Elektrofahrzeugen das Widerstandsprofil der Batterie besser verstehen zu können. Die Daten liegen im \texttt{.mat} Format vor, weswegen diese in Python eingelesen, in ein einheitliches Schema transformiert und für die Modellierung in eine \texttt{.csv} Datei exportiert werden werden. Da es keine Flag wie \texttt{in\_use} gibt, die anzeigt, ob das Fahrzeug tatsächlich in Benutzung ist, wird die Fahraktivität über eine Ampere-Schwelle von 5 A bestimmt.
+\paragraph{real\_world\_ev} ist ein Datensatz, der über ein Jahr hinweg Fahrdaten sammelt, um bei Elektrofahrzeugen das Widerstandsprofil der Batterie besser verstehen zu können. Die Daten liegen im \texttt{.mat} Format vor, weswegen diese in Python eingelesen, in ein einheitliches Schema transformiert und für die Modellierung in eine \texttt{.csv} Datei exportiert werden. Da es keine Flag wie \texttt{is\_driving} gibt, die anzeigt, ob das Fahrzeug tatsächlich in Benutzung ist, wird die Fahraktivität über eine Ampere-Schwelle von 5A und dem Ladeprozess selbst bestimmt. Da dieser Datensatz nur ein Fahrzeug umfasst, liegt dessen Aktivitätsrate bei 5,54\%
 
-\paragraph{VED} ist ein Datensatz, der durch Universtität Michigan, dem Argonne National Lab und dem Idaho National Lab bereitgestellt wird. Die Daten stammen von 383 Fahrzeugen, welche in Ann Arbor, Michigan, USA über ein Jahr hinweg Fahrdaten gesammelt haben. Das Spezielle an VED ist, dass Fahrdaten nur aufgezeichnet werden, wenn das Fahrzeug in Benutzung ist -- wodurch ein Filter für Aktivitätsdaten nicht nötig ist. 
+\paragraph{VED} ist ein Datensatz, der durch Universität Michigan, das Argonne National Lab und das Idaho National Lab bereitgestellt wird. Die Daten stammen von 383 Fahrzeugen, welche in Ann Arbor, Michigan, USA über ein Jahr hinweg Fahrdaten gesammelt haben. Das Spezielle an VED ist, dass Fahrdaten nur aufgezeichnet werden, wenn das Fahrzeug in Benutzung ist -- wodurch ein Filter für Aktivitätsdaten nicht nötig ist. Der Datensatz hebt sich mit seiner stark unterschiedlichen Aktivitätsrate sehr stark ab; der Median liegt bei 0,99\%, die Spanne liegt jedoch bei 0-100\%. Die Unterschiede ergeben sich dadurch, dass manche Fahrzeuge keine aktiven Stunden aufzeichnen, andere Fahrzeuge nur einen einzelnen Tag, der nur aus Fahrten besteht.
 
-\paragraph{Routine} ist ein stark regelbasierter Algorithmus um synthetische Daten zu generieren. Routine wurde im Verlauf dieser Studie entwickelt um eine, an Deutschland arbeiternahe angelehnte, Alternative zur Hand zu haben. Die Tagesabläufe richten sich stark nach dem üblichen Muster:
+\paragraph{Routine} ist ein stark regelbasierter Algorithmus um synthetische Daten zu generieren. Routine wurde im Verlauf dieser Studie entwickelt, um eine Alternative zur Hand zu haben. Die Tagesabläufe richten sich stark nach dem üblichen Muster:
 \begin{itemize}
-  \item \texttt{Arbeit}: 3-Schicht Modelle
-  \item \texttt{Außerordentliches}: Trips die nicht zur Arbeit gehören. Freizeit, Einkauf, andere Aktivitäten
+  \item \texttt{Arbeit}: 3-Schicht-Modell
+  \item \texttt{Außerordentliches}: Trips, die nicht zur Arbeit gehören. Freizeit, Einkauf, andere Aktivitäten
   \item \texttt{Wochenende}: Keine oder weniger Arbeit. Unregelmäßiges Fahrverhalten.
   \item \texttt{Sonn- und Feiertage}: Keine Arbeit, wenige Freizeitmöglichkeiten. Somit geringstes Verkehrsaufkommen
 \end{itemize}
+Bei dem Routine Algorithmus ist die Aktivitätsrate unterschiedlich -- bei dem letzten generierten Datensatz sind es circa 25\%. Der Algorithmus erzeugt einzelne Personen die einen nachvollziehbaren Tagesablauf verfolgen.
+
+\paragraph{YJMOB100K} hebt sich von den anderen Datensätzen ab, da er Bewegungsdaten von Smartphones sammelt, statt Fahrzeugen selbst. Bildlich gesprochen wird ein Raster mit 500m Kantenlänge, also 250.000m² Fläche, auf die Karte gelegt und nur dann Bewegung erkannt, wenn eine Grenze zu einem anderen Raster überschritten wird. Durch diesen Unterschied und da diese Studie in einer Großstadt vollzogen wurde, ergibt sich eine höhere Median-Aktivitätsrate von 35,33\% und eine Spanne von 3,9-84,72\%. 
 
 \todo{\begin{itemize}
     \item \textbf{datenquellen}: Beschreibung der verschiedenen Datenquellen und ihre spezifischen Eigenschaften.
@@ -138,7 +141,9 @@ Da die Daten einen großen Einfluss auf die Leistungsfähigkeit der Modelle habe
     \item \textbf{vergleichbarkeit}
 \end{itemize}}
 
-Die Aufbereitung der Daten erfolgt in einem einheitlichen Muster durch einen Adapter. Die enthaltenen Informationen werden auf das wesentliche gekürzt: Fahrzeugidentifikationskennung und die Information, ob sich das Fahrzeug im moment im geparkten oder fahrenden Zustand befindet. Datensätze die keine konkrete Information darüber enthalten, ob ein Fahrzeug sich fortbewegt, werden durch andere Methoden identifiziert -- beim Datensatz real\_world\_ev wird beispielsweise die momentane Stromstärke verwendet, bei VED ist es der Eintrag selber, da nur Fahrten dokumentiert werden.
+Die Aufbereitung der Daten erfolgt in einem einheitlichen Muster -- durch einen Adapter. Die enthaltenen Informationen werden auf das Wesentliche gekürzt: Fahrzeugidentifikationskennung und die Information, ob sich das Fahrzeug im Moment im geparkten oder fahrenden Zustand befindet. Datensätze die keine konkrete Information darüber enthalten, ob ein Fahrzeug sich fortbewegt, werden durch andere Methoden identifiziert -- beim Datensatz real\_world\_ev wird beispielsweise die momentane Stromstärke verwendet, bei VED ist es der Eintrag selber, da nur Fahrten dokumentiert werden.
+
+Die Qualität der Datensätze lässt sich durch die Prognosegüte evaluieren, denn selbst wenn der Datensatz keine Fehler aufweist und laut Überprüfung optimal wäre, bestünde die Möglichkeit, dass die Varianz über die Fahrzeuge hinweg zu groß ist und somit für Anforderungen der individuellen Mobilitätsprognose nicht ausreicht.
 % -----------------------------------------------------------------------------
 
 \section{Feature Engineering}
