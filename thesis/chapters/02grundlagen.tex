@@ -132,7 +132,7 @@ Mobilitätsverhalten vorherzusagen. Die darus gewonnenen Prognosen werden dokume
 Das Prinzip des maschinellen Lernens besteht darin, einem Computer ein gewünschtes Verhalten anhand von Beispieldaten beizubringen, anstatt es durch einen fest vorgegebenen, regelbasierten
 Algorithmus explizit zu programmieren \parencite{bishop2006prml}. Das Modell erkennt dabei statistische Muster in den Trainingsdaten und nutzt diese, um Vorhersagen für bislang ungesehene Eingaben zu treffen. Der Vorteil gegenüber einem starren Algorithmus liegt darin, dass komplexe Zusammenhänge -- wie das individuelle Mobilitätsverhalten -- erlernt werden können, ohne dass sie vorab vollständig bekannt sein müssen.
 
-Häufig wird maschinelles Lernen mit künstlichen neuronalen Netzen gleichgesetzt, deren Aufbau  vom menschlichen Gehirn inspiriert ist. Neuronale Netze bilden jedoch nur eine von vielen Verfahrensklassen. Die in dieser Arbeit eingesetzten Modelle -- Random Forest und Gradient Boosting (\Cref{sec:themenbereich2} und \Cref{ch:methodik}) -- beruhen stattdessen auf Entscheidungsbäumen und sind nicht biologisch motiviert.
+Häufig wird maschinelles Lernen mit künstlichen neuronalen Netzen gleichgesetzt, deren Aufbau  vom menschlichen Gehirn inspiriert ist. Neuronale Netze bilden jedoch nur eine von vielen Verfahrensklassen. Die in dieser Arbeit eingesetzten Modelle -- Random Forest und Gradient Boosting (\Cref{sec:randomforest} und \Cref{sec:lightgbm}) -- beruhen stattdessen auf Entscheidungsbäumen und sind nicht biologisch motiviert.
 
 \subsection{Überwachtes Lernen}
 In dieser Arbeit kommt ausschließlich überwachtes Lernen zum Einsatz \parencite{hastie2009elements}. Dabei lernt das Modell aus Beispielpaaren von Eingaben und zugehörigen, bekannten Zielwerten. Je nach Art des Zielwerts
@@ -143,7 +143,7 @@ unterscheidet man zwei Aufgabentypen, die in dieser Arbeit beide vorkommen: Klas
 
 Bei Machine Learning ist oft die Rede von Feature Engineering, oder das umformen von Merkmalen \parencite{geron2022handson}. Ein Merkmal ist beispielsweise eine Spalte in einer Comma-Separated-Value Datei (siehe \Cref{fig:mobilitaetsdaten}), hierbei könnte es sich um jede der Spalten handeln. Folglich ist der Zeitstempel, die Handlung, der Ort oder auch der Energiekonsum ein Merkmal bzw. Feature.
 
-In der Regel sind die Daten nicht in ihrer Rohform nicht direkt aussagekräftig, weswegen sie interpretiert werden müssen. Ein Zeitstempel (Beispiel: \texttt{2026-05-25 08:00:00}) hat ohne Kontext keinen bestimmten Wert, daher extrahiert man durch Feature Engineering die verborgenen Informationen und macht sie für das Modell zugänglich. Der genannte Zeitstempel bspw. ist im Kontext von Mobilität: 
+In der Regel sind die Daten in ihrer Rohform nicht direkt aussagekräftig, weswegen sie interpretiert werden müssen. Ein Zeitstempel (Beispiel: \texttt{2026-05-25 08:00:00}) hat ohne Kontext keinen bestimmten Wert, daher extrahiert man durch Feature Engineering die verborgenen Informationen und macht sie für das Modell zugänglich. Der genannte Zeitstempel bspw. ist im Kontext von Mobilität: 
 
 \begin{itemize}
   \item Ein Montag --> Werktag
@@ -208,7 +208,7 @@ Ein Modell das unterangepasst ist, schneidet weder beim Training, noch beim Test
 Durch die Validierung ist es möglich der Genauigkeit des Modells einen numerischen Wert zuzuweisen, was funktioniert, indem man das Modell Daten bewerten lässt, die bisher nicht bekannt waren. 
 
 \begin{equation}
-  \text{CV}(\hat{f}) = \frac{1}{N}\sum_{i=1}^{N} L!\left(y_i,\ \hat{f}^{-\kappa(i)}(x_i)\right)
+  \text{CV}(\hat{f}) = \frac{1}{N}\sum_{i=1}^{N} L\left(y_i,\ \hat{f}^{-\kappa(i)}(x_i)\right)
   \label{eq:validify}  
 \end{equation}
 
@@ -270,7 +270,7 @@ In \Cref{eq:gini_split} zeigt $n$ die Elemente im Elternknoten und $G$ die Unrei
   \caption{Bagging: Aus den Trainingsdaten werden $N$ Bootstrap-Stichproben gezogen, auf denen jeweils ein Baum trainiert wird; deren Vorhersagen werden zu einem Ensemble aggregiert \parencite{baggingdiagram}.}
   \label{fig:baggingmethod}
 \end{figure}
-Das Baggingverfahren sorgt dafür, dass die Bäume von einer in der realen Trainingsmenge existierenden Untermenge Lernen. Es werden aus der Ursprungsmenge $N$ Stichproben gezogen, auf denen jeweils ein Classifier/Regressor trainiert wird (\cref{fig:baggingmethod}, \cite{boostingdiagram}). Für jede Stichprobe wird ein Modell trainiert, das anschließend zu einem Ensemble aggregiert wird. Dadurch, dass alle Bäume auf unterschiedlichen Stichproben trainiert werden, wird die Varianz des Modells reduziert und die Vorhersagegenauigkeit verbessert. Bagging ist besonders effektiv bei Modellen, die zu Überanpassung neigen.
+Das Baggingverfahren sorgt dafür, dass die Bäume von einer in der realen Trainingsmenge existierenden Untermenge Lernen. Es werden aus der Ursprungsmenge $N$ Stichproben gezogen, auf denen jeweils ein Classifier/Regressor trainiert wird (\cref{fig:baggingmethod}, \cite{baggingdiagram}). Für jede Stichprobe wird ein Modell trainiert, das anschließend zu einem Ensemble aggregiert wird. Dadurch, dass alle Bäume auf unterschiedlichen Stichproben trainiert werden, wird die Varianz des Modells reduziert und die Vorhersagegenauigkeit verbessert. Bagging ist besonders effektiv bei Modellen, die zu Überanpassung neigen.
 
 \begin{figure}[htbp]
   \centering

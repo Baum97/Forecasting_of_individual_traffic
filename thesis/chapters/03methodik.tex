@@ -110,7 +110,7 @@ Da die Daten einen großen Einfluss auf die Leistungsfähigkeit der Modelle habe
     \addlinespace
     \texttt{routine} & synthetisch & Person & 1 Person, dynamisch \\
     \addlinespace
-    \texttt{yjmob100k} & real & Person & 100.000 Personen, 75 Tage \\
+    \texttt{yjmob100k} & real & Person & 25.000 Personen, 75 Tage \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -142,8 +142,14 @@ Da die individuelle Mobilitätsprognose für möglichst viele unterschiedliche P
 
 \section{Feature Engineering}
 \label{sec:feature}
+Das stündliche Driving-Raster ist die Eingangs- und Zielstruktur, aus deren Vergangenheit Merkmale abgeleitet werden. Das Driving-Raster sorgt dafür, dass die Daten in einem festen Schema aufbereitet werden, um damit in einem geregelten Muster arbeiten zu können.
 
-
+Des Weiteren gehört zu den Features:
+\begin{itemize}
+  \item Hour, Weekday, Is\_weekend
+  \item Lag\_1, Lag\_2, Lag\_24, Lag\_168
+  \item Rolling\_mean\_24, Rolling\_mean\_168
+\end{itemize}
 
 % -----------------------------------------------------------------------------
 

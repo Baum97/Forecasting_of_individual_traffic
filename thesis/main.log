@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  18 JUL 2026 16:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  18 JUL 2026 17:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1480,42 +1480,62 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 118.
  [29] [30 <./graphen/methodik/methodik_workflow.pdf>] [31] [32]) (chapters/04implementierung.tex [33]
 chapter 4.
+
+Overfull \hbox (40.50572pt too wide) in paragraph at lines 49--50
+\T1/lmr/m/n/12 (-20) & logs; R-3.0 trai-ning = train_<source>_forecaster.py; R-3.1 eval = run_cross_validation.py
+ []
+
+
+Overfull \hbox (71.2505pt too wide) in paragraph at lines 49--50
+\T1/lmr/m/n/12 (-20) (5x5). aus-ser-dem: funk-tio-nal vs nicht-funktional sau-ber tren-nen -- perf/robustheit/reproduzierbarkeit
+ []
+
 [34
 
-]) (chapters/05evaluation.tex [35]
+]
+Overfull \hbox (66.74812pt too wide) in paragraph at lines 56--57
+\T1/lmr/m/n/12 (-20) cast, /runs) -> fron-tend (an-gu-lar, si-gnals). per-sis-tenz: mo-dels/<source>_forecaster_<algo>.joblib
+ []
+
+
+Overfull \hbox (106.55585pt too wide) in paragraph at lines 56--57
+\T1/lmr/m/n/12 (-20) (hel-per run_output_dir() in ba-se.py). duck ty-ping: forecaster-iface fit/predict/predict_quantiles/save/load,
+ []
+
+[35]) (chapters/05evaluation.tex [36]
 chapter 5.
 
 Underfull \hbox (badness 2573) in paragraph at lines 33--33
 [][][]|\T1/lmr/m/n/12 (+20) Mo-dell (Ran-dom-Fo-rest) im Ver-gleich zu nai-ven Ba-se-li-nes, In-
  []
 
-) (chapters/06diskussion.tex [36
+) (chapters/06diskussion.tex [37
 
-] [37]
+] [38]
 chapter 6.
-) (chapters/07fazit.tex [38
+) (chapters/07fazit.tex [39
 
-] [39]
+] [40]
 chapter 7.
-) [40
+) [41
 
 ]
 chapter without number
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
-[41
+[42
 
 ]
 Overfull \hbox (1.56348pt too wide) in paragraph at lines 103--103
 \T1/lmtt/m/n/12 gradient -[] boosting -[] machine -[] learning -[] method -[] The -[] ensemble -[] classifiers _
  []
 
-[42] (chapters/08anhang.tex [43]
+[43] (chapters/08anhang.tex [44]
 chapter A.
-) (chapters/09erklaerung.tex [44
+) (chapters/09erklaerung.tex [45
 
-]) [45
+]) [46
 
 ] (main.aux)
  ***********
@@ -1527,17 +1547,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41479 strings out of 467871
- 837039 string characters out of 5414504
- 1919055 words of memory out of 5000000
+ 41484 strings out of 467871
+ 837092 string characters out of 5414504
+ 1919025 words of memory out of 5000000
  69417 multiletter control sequences out of 15000+600000
- 714273 words of font info for 197 fonts, out of 8000000 for 9000
+ 714467 words of font info for 199 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,113p,11260b,3475s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (52 pages, 2453750 bytes).
+Output written on main.pdf (53 pages, 2458623 bytes).
 PDF statistics:
- 1226 PDF objects out of 1440 (max. 8388607)
- 192 named destinations out of 1000 (max. 500000)
+ 1231 PDF objects out of 1440 (max. 8388607)
+ 193 named destinations out of 1000 (max. 500000)
  50726 words of extra memory for PDF output out of 51595 (max. 10000000)
 
