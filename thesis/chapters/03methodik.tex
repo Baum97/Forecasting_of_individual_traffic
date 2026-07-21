@@ -144,12 +144,18 @@ Da die individuelle Mobilitätsprognose für möglichst viele unterschiedliche P
 \label{sec:feature}
 Das stündliche Driving-Raster ist die Eingangs- und Zielstruktur, aus deren Vergangenheit Merkmale abgeleitet werden. Das Driving-Raster sorgt dafür, dass die Daten in einem festen Schema aufbereitet werden, um damit in einem geregelten Muster arbeiten zu können.
 
-Des Weiteren gehört zu den Features:
+Aus diesem Raster werden die folgenden Features abgeleitet, die als Eingangsgrößen für die Modelle dienen:
 \begin{itemize}
   \item Hour, Weekday, Is\_weekend
   \item Lag\_1, Lag\_2, Lag\_24, Lag\_168
   \item Rolling\_mean\_24, Rolling\_mean\_168
 \end{itemize}
+
+Die aufgelisteten Features sind die Basis für die Modelle, um die Vorhersage zu treffen. Die Features Hour, Weekday und Is\_weekend sind zeitliche Markierungen, um die Tageszeit, den Wochentag und das Wochenende zu identifizieren. Die Identifikation dieser Merkmale ist wichtig, da das Mobilitätsverhalten stark von diesen Faktoren abhängt. So fährt man beispielsweise morgens zur Arbeit, jedoch an einem Sonntag nicht. 
+Die Lag-Features (Lag\_1, Lag\_2, Lag\_24, Lag\_168) repräsentieren die Aktivität in den vorherigen Stunden. Es sind spezifisch diese Stunden gewählt, da sie die zeitliche Abhängigkeit des Mobilitätsverhaltens am besten widerspiegeln. Dieses Feature ist entscheidend, um die zeitliche Abhängigkeit des Mobilitätsverhaltens zu erfassen. Durch sie können Muster und Trends in den Daten erkannt werden, die für die Vorhersage der zukünftigen Aktivität relevant sind. 
+Rolling-Mean-Features (Rolling\_mean\_24, Rolling\_mean\_168) repräsentieren den Durchschnitt der Aktivität über die letzten 24 bzw. 168 Stunden. Diese Features helfen dabei, das Aktivitätsmuster im Mobilitätsverhalten zu erkennen, die für die Vorhersage der zukünftigen Aktivität relevant sind.  
+
+Bei der Nutzung von historischen Zeitreihendaten ist es wichtig, deren chronologische Abfolge zu berücksichtigen. Ein potentielles Problem, das bei der Nutzung von solchen Daten auftreten kann, ist das sogenannte \emph{Data Leakage}. Data Leakage tritt auf, wenn Informationen aus der Zukunft in das Modelltraining einfließen, was zu einer unrealistischen Leistungsbewertung führt. Um dieses Problem zu vermeiden, werden die Daten in Trainings-, Validierungs- und Testsets aufgeteilt, wobei die chronologische Reihenfolge strikt eingehalten wird. Das bedeutet, dass das Modell nur auf Basis der historischen Daten trainiert wird und keine Informationen aus der Zukunft erhält. Dadurch wird sichergestellt, dass die Leistungsbewertung des Modells realistisch ist und die Vorhersagegüte nicht durch Data Leakage verfälscht wird.
 
 % -----------------------------------------------------------------------------
 
