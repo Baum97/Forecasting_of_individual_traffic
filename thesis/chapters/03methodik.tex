@@ -164,12 +164,18 @@ Bei der Nutzung von historischen Zeitreihendaten ist es wichtig, deren chronolog
 \section{Modellauswahl}
 \label{sec:modellauswahl}
 
+Bei der Modellauswahl ist vor Allem die Heterogenität der Modelle entscheidend, um die Forschugnsfragen zu beantworten. Die Modelle unterscheiden sich in ihrer Funktionsweise, ihren Stärken und Schwächen sowie in ihrer Fähigkeit, mit unterschiedlichen Arten von Daten umzugehen. Die Auswahl der Modelle basiert auf der Literaturrecherche und den spezifischen Anforderungen der Forschungsfragen. 
 
+\paragraph{Random Forest} Modelle zeichnen sich durch ihre Fähigkeit aus, komplexe nichtlineare Zusammenhänge zu modellieren und dabei eine hohe Robustheit gegenüber Rauschen in den Daten aufzuweisen. Durch das Bagging-Verfahren, bei dem mehrere Entscheidungsbäume auf unterschiedlichen Stichproben der selben Trainingsdaten trainiert werden, können Random Forests eine große Menge an Entscheidungsbäumen kombinieren, die jeweils unterschiedliche Aspekte der Daten erfassen. Die Vorhersagen der einzelnen Bäume werden dann aggregiert, um eine finale Vorhersage zu treffen. 
+
+\paragraph{LightGBM} ist ein Gradient-Boosting-Framework, das auf Entscheidungsbäumen basiert und für seine hohe Effizienz und Skalierbarkeit bekannt ist. Es verwendet eine spezielle Technik namens \emph{Leaf-wise Growth}, die es ermöglicht, tiefere Bäume zu erzeugen und dadurch komplexere Muster in den Daten zu erfassen. LightGBM ist besonders gut geeignet für große Datensätze und kann sowohl Klassifikations- als auch Regressionsaufgaben durchführen.
 
 % -----------------------------------------------------------------------------
 
 \section{Experimentaldesign}
 \label{sec:experimentaldesign}
+
+Beim Experimentaldesign werden die Modelle auf Basis der verschiedenen Datenquellen trainiert und getestet, um die Auswirkungen der Datenqualität und -quelle auf die Prognosegüte zu untersuchen. Im ganzen gibt es fünf verschiedene Datenquellen, die jeweils unterschiedliche Informationen enthalten. Für jede Datenquelle werden die Modelle trainiert und anschließend mit jeder Datenquelle getestet. Durch dieses Verfahren lässt sich die Prognosegüte der Modelle anhand von jeder Daternquelle darstellen -- jedes Modell schneidet durch seine unterschiedlichen Trainingsdaten unterschiedlich ab (\Cref{fig:cv_matrix} und \cref{fig:cv_matrix_lgbm}). 
 
 % -----------------------------------------------------------------------------
 
