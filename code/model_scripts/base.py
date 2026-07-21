@@ -119,14 +119,41 @@ def _build_classifier(algo: str, cfg: TrainConfig):
             n_jobs=cfg.n_jobs,
             verbosity=-1,
         )
-    raise ValueError(f"unknown algo: {algo!r} (erwartet 'rf' oder 'lgbm')")
+    if algo in ("lstm_tab", "lstm_seq"):
+        # torch ist optional — nur importieren, wenn tatsaechlich genutzt.
+        from model_scripts.classifier.lstm_classifier import (
+            LSTMConfig,
+            LSTMSequenceClassifier,
+            LSTMTabularClassifier,
+        )
+        lcfg = LSTMConfig(random_state=cfg.random_state)
+        if algo == "lstm_tab":
+            return LSTMTabularClassifier(lcfg)
+        return LSTMSequenceClassifier(lcfg)
+    raise ValueError(
+        f"unknown algo: {algo!r} (erwartet 'rf', 'lgbm', 'lstm_tab' oder 'lstm_seq')"
+    )
+
+
+def _with_features(df: pd.DataFrame) -> pd.DataFrame:
+    """Features sicherstellen, aber NaN-Zeilen behalten (Sequenzmodelle
+    brauchen die Vorgeschichte, die dropna verwerfen wuerde)."""
+    return df if set(FEATURE_COLS).issubset(df.columns) else make_features(df)
 
 
 def train_model(df: pd.DataFrame, cfg: TrainConfig | None = None,
                 algo: str = "rf"):
-    """Fit the binary driving classifier (algo='rf'/'lgbm', siehe
-    _build_classifier). Vorhersagen nutzen die Standardschwelle 0.5."""
+    """Fit the binary driving classifier (algo='rf'/'lgbm'/'lstm_tab'/
+    'lstm_seq', siehe _build_classifier). Vorhersagen nutzen die
+    Standardschwelle 0.5."""
     cfg = cfg or TrainConfig()
+    model = _build_classifier(algo, cfg)
+
+    # Sequenzmodelle bauen ihre Fenster aus der zusammenhaengenden Reihe und
+    # brauchen daher den Frame, nicht die Feature-Matrix.
+    if getattr(model, "needs_frame", False):
+        return model.fit_frame(_with_features(df))
+
     feats = _ensure_features(df)
     X = feats[FEATURE_COLS].to_numpy()
     y = feats["driving"].astype(int).to_numpy()
@@ -134,20 +161,27 @@ def train_model(df: pd.DataFrame, cfg: TrainConfig | None = None,
     if len(np.unique(y)) < 2:
         raise ValueError("training data has only one class — cannot fit classifier")
 
-    model = _build_classifier(algo, cfg)
     model.fit(X, y)
     return model
 
 
-def evaluate(model: RandomForestClassifier, df: pd.DataFrame) -> dict:
-    feats = _ensure_features(df)
-    X = feats[FEATURE_COLS].to_numpy()
+def evaluate(model, df: pd.DataFrame) -> dict:
+    if getattr(model, "needs_frame", False):
+        frame = _with_features(df)
+        feats = frame.sort_values(["vehicle_id", "timestamp"]).dropna(subset=FEATURE_COLS)
+        if len(feats) == 0:
+            return {"n": 0}
+        proba_all = model.predict_proba_frame(frame)
+        preds = (proba_all[:, 1] >= 0.5).astype(int)
+    else:
+        feats = _ensure_features(df)
+        if len(feats) == 0:
+            return {"n": 0}
+        X = feats[FEATURE_COLS].to_numpy()
+        proba_all = model.predict_proba(X)
+        preds = model.predict(X)
+
     y = feats["driving"].astype(int).to_numpy()
-
-    if len(y) == 0:
-        return {"n": 0}
-
-    preds = model.predict(X)
     out = {
         "n": int(len(y)),
         "positive_rate": float(y.mean()),
@@ -157,7 +191,7 @@ def evaluate(model: RandomForestClassifier, df: pd.DataFrame) -> dict:
         "recall": float(recall_score(y, preds, zero_division=0)),
     }
 
-    proba = model.predict_proba(X)[:, 1]
+    proba = proba_all[:, 1]
     # Brier-Score = MSE der Wahrscheinlichkeiten (Kalibrierung); auch bei nur
     # einer Klasse definiert.
     out["brier"] = float(brier_score_loss(y, proba, pos_label=1))

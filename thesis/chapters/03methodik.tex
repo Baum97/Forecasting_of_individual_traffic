@@ -157,7 +157,7 @@ Die Lag-Features (Lag\_1, Lag\_2, Lag\_24, Lag\_168) geben den Aktivitätszustan
 
 Rolling-Mean-Features (Rolling\_mean\_24, Rolling\_mean\_168) repräsentieren den Durchschnitt der Aktivität über die letzten 24 bzw. 168 Stunden. Diese Features helfen dabei, das Aktivitätsmuster im Mobilitätsverhalten zu erkennen, die für die Vorhersage der zukünftigen Aktivität relevant sind. 
 
-Bei der Nutzung von historischen Zeitreihendaten ist es wichtig, deren chronologische Abfolge zu berücksichtigen. Ein potentielles Problem, das bei der Nutzung von solchen Daten auftreten kann, ist das sogenannte \emph{Data Leakage}. Data Leakage tritt auf, wenn Informationen aus der Zukunft in das Modelltraining einfließen, was zu einer unrealistischen Leistungsbewertung führt. Um dieses Problem zu vermeiden, werden die Daten in Trainings-, Validierungs- und Testsets aufgeteilt, wobei die chronologische Reihenfolge strikt eingehalten wird. Das bedeutet, dass das Modell nur auf Basis der historischen Daten trainiert wird und keine Informationen aus der Zukunft erhält. Durch das Unterbinden von willkürlichen Daten-Splits wird sichergestellt, dass die Leistungsbewertung des Modells realistisch ist und die Vorhersagegüte nicht durch Data Leakage verfälscht wird.
+Bei der Nutzung von historischen Zeitreihendaten ist es wichtig, deren chronologische Abfolge zu berücksichtigen. Ein potentielles Problem, das bei der Nutzung von solchen Daten auftreten kann, ist das sogenannte \emph{Data Leakage}. Data Leakage tritt auf, wenn Informationen aus der Zukunft in das Modelltraining einfließen, was zu einer unrealistischen Leistungsbewertung führt. Um dieses Problem zu vermeiden, werden die Daten in Trainings- und Testsets aufgeteilt, wobei die chronologische Reihenfolge strikt eingehalten wird. Das bedeutet, dass das Modell nur auf Basis der historischen Daten trainiert wird und keine Informationen aus der Zukunft erhält. Durch das Unterbinden von willkürlichen Daten-Splits wird sichergestellt, dass die Leistungsbewertung des Modells realistisch ist und die Vorhersagegüte nicht durch Data Leakage verfälscht wird.
 
 % -----------------------------------------------------------------------------
 
@@ -170,16 +170,50 @@ Bei der Modellauswahl ist vor Allem die Heterogenität der Modelle entscheidend,
 
 \paragraph{LightGBM} ist ein Gradient-Boosting-Framework, das auf Entscheidungsbäumen basiert und für seine hohe Effizienz und Skalierbarkeit bekannt ist. Es verwendet eine spezielle Technik namens \emph{Leaf-wise Growth}, die es ermöglicht, tiefere Bäume zu erzeugen und dadurch komplexere Muster in den Daten zu erfassen. LightGBM ist besonders gut geeignet für große Datensätze und kann sowohl Klassifikations- als auch Regressionsaufgaben durchführen.
 
+\paragraph{LSTM} Beide vorgenannten Verfahren sehen die Zeitreihe ausschließlich in Gestalt der vorab konstruierten Merkmale; die zeitliche Ordnung geht dabei verloren. Ein rekurrentes Netz (\cref{sec:lstm}) verarbeitet die Historie dagegen als Sequenz und kann Abhängigkeiten selbst ableiten. Um beide Effekte -- Architektur und Repräsentation -- zu trennen, werden zwei Varianten geführt: Die erste erhält exakt denselben Merkmalssatz wie Random Forest und LightGBM und misst gegen diese den reinen \emph{Architektureffekt}. Die zweite erhält ein Fenster der letzten 168 rohen Stundenwerte und misst gegen die erste den \emph{Repräsentationseffekt}. Die Netze sind bewusst klein dimensioniert, da die Aktiv-Rate je nach Quelle nur 5--10\,\% beträgt und größere Netze unmittelbar überanpassen.
+
+Für die rekurrenten Varianten wird der Umfang einer Quelle vorab in \emph{Fahrzeugwochen} bemessen, nicht in Zeilen: Da sich die gleitenden Fenster fast alle Zeitschritte teilen, wächst die Zahl der Beobachtungen mit der Fensterzahl, die Zahl der tatsächlich unabhängigen Verlaufsmuster jedoch nur mit der abgedeckten Zeitspanne. Quellen unterhalb von 100 Fahrzeugwochen werden daher nicht als Trainingsquelle des LSTM zugelassen und bleiben in der Isolationsmatrix als Trainingszeile leer; als \emph{Test}quelle bleiben sie uneingeschränkt erhalten. Die Schranke ist vor Sichtung der Ergebnisse festgelegt worden, um eine nachträgliche Auswahl zugunsten günstiger Werte auszuschließen.
+
 % -----------------------------------------------------------------------------
 
 \section{Experimentaldesign}
 \label{sec:experimentaldesign}
 
-Beim Experimentaldesign werden die Modelle auf Basis der verschiedenen Datenquellen trainiert und getestet, um die Auswirkungen der Datenqualität und -quelle auf die Prognosegüte zu untersuchen. Im ganzen gibt es fünf verschiedene Datenquellen, die jeweils unterschiedliche Informationen enthalten. Für jede Datenquelle werden die Modelle trainiert und anschließend mit jeder Datenquelle getestet. Durch dieses Verfahren lässt sich die Prognosegüte der Modelle anhand von jeder Daternquelle darstellen -- jedes Modell schneidet durch seine unterschiedlichen Trainingsdaten unterschiedlich ab (\Cref{fig:cv_matrix} und \cref{fig:cv_matrix_lgbm}). 
+Beim Experimentaldesign werden die Modelle auf Basis der verschiedenen Datenquellen bei einem 80\% Training und 20\% Test, trainiert und getestet, um die Auswirkungen der Datenqualität und -quelle auf die Prognosegüte zu untersuchen. Im ganzen gibt es fünf verschiedene Datenquellen, die jeweils unterschiedliche Informationen enthalten. Für jede Datenquelle werden die Modelle trainiert und anschließend mit jeder Datenquelle getestet. Durch dieses Verfahren lässt sich die Prognosegüte der Modelle anhand von jeder Datenquelle darstellen -- jedes Modell schneidet durch seine unterschiedlichen Trainingsdaten unterschiedlich ab (\Cref{fig:cv_matrix} und \cref{fig:cv_matrix_lgbm}). Durch die Erstellung der unterschiedlichen Modelle bietet sich die Möglichkeit sowohl die Güte der Daten als auch die Güte der Modelle gegenüberzustellen, was sich durch eine Kreuzvalidierung darstellen lässt.
+
+Zusätzlich zur Kreuzvalidierung wird eine Ablationsstudie durchgeführt, um die Auswirkungen der Datenmerkmale auf die Prognosegüte zu untersuchen. Hierbei werden bestimmte Merkmale der Datenquelle ignoriert, oder gezielt isoliert, um den Einfluss der einzelnen Merkmale zu untersuchen. Merkmale wie die Tageszeit (lag\_emph{X}), der Wochentag, welcher durch den Timestamp abgeleitet wird, und die historischen Fahrten werden dabei gezielt untersucht. Dadurch lässt sich genauer bestimmen, welche Merkmale der Datenquelle einen signifikanten Einfluss auf die Prognosegüte haben und welche nicht. 
+
+Die Versuche kennzeichnen sich durch drei Merkmale:
+\begin{itemize}
+  \item \textbf{Datenquelle}: Die Daten werden einmalig geteilt und für alle Modelle identisch verwendet, um Vergleichbarkeiten und Differenzierungen zu gewährleisten.
+  \item \textbf{Architektur}: Drei Verfahren (Random Forest, LightGBM, LSTM) werden auf Basis der gleichen Daten trainiert und getestet, um den Algorithmuseffekt zu isolieren.
+  \item \textbf{Seeds}: Unterschiedliche zufällige Initialisierungen der Gewichte und Reihenfolge der Mini-Batches, wodurch jede Zelle der Kreuzvalidierung mit einem Durchschnittswert aus fünf Durchläufen versehen wird, statt einem einzelnen Wert. 
+\end{itemize}
+
+Es werden fünf Datenquellen verwendet, um fünf Trainings- und Testsets zu bilden, die jeweils unterschiedliche Informationen enthalten. Diese Daten bleiben für alle Architekturen und Modelle identisch, sodass die Ergebnisse der Modelle direkt miteinander vergleichbar sind. Bei der Untersuchung der Datenquellen wird die Qualität anhand der Architekturen und Modelle bewertet. Nun werden aus den drei Architekturen vier verschiedene Modelle (RF, LGBM, LSTM: Sequentiell, Tabellarisch) gebildet, die jeweils unterschiedliche Eigenschaften aufweisen (siehe Grundlagen \cref{sec:randomforest}, \cref{sec:lightgbm}, \cref{sec:lstm}) -- Bei den LSTM Modellen wird jedoch die Differenz zwischen dem sequentiellen und tabellarischen Modell als Repräsentation verwendet. 
+
+
 
 % -----------------------------------------------------------------------------
 
 \section{Bewertung}
 \label{sec:bewertung}
 
+Bei der Bewertung werden verschiedene Metriken verwendet, um die Vorhersagequalität der Modelle zu bewerten. Dadurch, dass Mobilitätsdaten stark unbalanciert sind, ist die Wahl der Metriken entscheidend, um die Prognosegüte korrekt zu bewerten.
 
+\paragraph{Accuracy} ist eine Metrik, die den Anteil der korrekt vorhergesagten Werte an der Gesamtzahl der Vorhersagen misst. 
+
+$ \text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}} $
+
+In diesem Fall ist die Accuracy nicht die beste Metrik, da die Daten stark unbalanciert sind und die Accuracy daher nicht die tatsächliche Vorhersagequalität widerspiegelt. Accuracy offenbart sich als unzureichend, da sie auf Grund der niedrigen Aktivitätsrate zwar oft eine hohe Genauigkeit aufweist, jedoch die Vorhersagequalität der positiven Klasse nicht korrekt widerspiegelt.
+
+
+\paragraph{Precision} wird dazu verwendet, um die Genauigkeit der positiven Vorhersagen zu messen. Sie gibt an, wie viele der als positiv vorhergesagten Werte tatsächlich positiv sind.
+
+$ \text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}} $
+
+\paragraph{Recall} dient dazu, die Fähigkeit des Modells zu messen, alle relevanten positiven Werte zu identifizieren. Der Unterschied zur Precision besteht darin, dass der Recall den Anteil der tatsächlich positiven Werte misst, die korrekt als positiv vorhergesagt wurden.
+
+$ \text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}} $
+
+\paragraph{F1-Score} ist eine Metrik, die sowohl Precision als auch Recall berücksichtigt und ein harmonisches Mittel dieser beiden Werte bildet.

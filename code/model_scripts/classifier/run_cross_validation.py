@@ -114,13 +114,33 @@ def main() -> None:
     parser.add_argument("--ved-files", type=int, default=4)
     parser.add_argument("--yjmob-vehicles", type=int, default=50)
     parser.add_argument("--algos", default="rf,lgbm",
-                        help="Komma-Liste der Algorithmen (rf, lgbm).")
+                        help="Komma-Liste der Algorithmen "
+                             "(rf, lgbm, lstm_tab, lstm_seq).")
+    parser.add_argument("--lstm-min-vehicle-weeks", type=int, default=100,
+                        help="Mindestumfang, ab dem eine Quelle als LSTM-"
+                             "Trainingsquelle zugelassen wird. Vorab "
+                             "festgelegtes Kriterium (siehe Methodik): "
+                             "Sequenzmodelle brauchen unabhaengige "
+                             "Fahrzeugwochen, nicht nur Zeilen. Quellen "
+                             "darunter bleiben als Trainingszeile leer, "
+                             "werden aber weiterhin evaluiert.")
+    parser.add_argument("--seeds", default="42",
+                        help="Komma-Liste der Zufallsinitialisierungen. Jeder "
+                             "Seed wiederholt den kompletten Lauf; berichtet "
+                             "werden Mittelwert und Standardabweichung ueber "
+                             "die Wiederholungen. Noetig, weil die Streuung "
+                             "der neuronalen Varianten sonst nicht von einem "
+                             "echten Effekt zu unterscheiden ist.")
+    parser.add_argument("--no-save-models", action="store_true",
+                        help="Modelle nicht nach models/ schreiben "
+                             "(Probelaeufe, die den Bestand nicht anfassen).")
     parser.add_argument("--dataset-tag", default="all_sources",
                         help="Rahmenbedingung im Run-Ordnernamen.")
     parser.add_argument("--out-csv", type=Path, default=None)
     args = parser.parse_args()
 
     algos = [a.strip() for a in args.algos.split(",") if a.strip()]
+    seeds = [int(s) for s in args.seeds.split(",") if s.strip()]
 
     run_dir = run_output_dir(
         model_name="cross_validation",
@@ -139,40 +159,93 @@ def main() -> None:
     prepared = {name: make_features(df) for name, df in datasets.items()}
     splits = {name: split_by_time(df) for name, df in prepared.items()}
 
-    cfg = TrainConfig()
+    # Umfang je Quelle in Fahrzeugwochen — massgeblich fuer Sequenzmodelle,
+    # weil sich ueberlappende Fenster fast alle Zeitschritte teilen.
+    vehicle_weeks = {
+        name: float(len(df) / 168.0) for name, df in prepared.items()
+    }
+    print("\nUmfang (Fahrzeugwochen):")
+    for name, w in vehicle_weeks.items():
+        print(f"  {name:15s} {w:8.1f}")
+
     rows = []
     for algo in algos:
         print(f"\n========== algorithm: {algo} ==========")
-        models = {}
-        for name, (train_df, _) in splits.items():
-            print(f"training {algo} model on {name}...")
-            models[name] = train_model(train_df, cfg, algo=algo)
-            # rf behaelt den rueckwaertskompatiblen Namen; lgbm bekommt Suffix.
-            fname = f"driving_{name}.joblib" if algo == "rf" else f"driving_{name}_{algo}.joblib"
-            save_model(models[name], MODELS_DIR / fname)
+        for seed in seeds:
+            cfg = TrainConfig(random_state=seed)
+            models = {}
+            for name, (train_df, _) in splits.items():
+                if algo.startswith("lstm") and vehicle_weeks[name] < args.lstm_min_vehicle_weeks:
+                    if seed == seeds[0]:
+                        print(f"skipping {algo} on {name}: {vehicle_weeks[name]:.1f} "
+                              f"< {args.lstm_min_vehicle_weeks} Fahrzeugwochen")
+                    continue
+                print(f"training {algo} model on {name} (seed {seed})...")
+                models[name] = train_model(train_df, cfg, algo=algo)
+                # Gespeichert wird nur die erste Wiederholung -- die Modelle
+                # dienen dem Backend, die Statistik kommt aus der CSV.
+                if seed == seeds[0] and not args.no_save_models:
+                    # rf behaelt den rueckwaertskompatiblen Namen.
+                    fname = (f"driving_{name}.joblib" if algo == "rf"
+                             else f"driving_{name}_{algo}.joblib")
+                    save_model(models[name], MODELS_DIR / fname)
 
-        for model_name, model in models.items():
-            for data_name, (_, test_df) in splits.items():
-                print(f"evaluating [{algo}] {model_name:>14s} -> {data_name}")
-                metrics = evaluate(model, test_df)
-                metrics["algo"] = algo
-                metrics["model_trained_on"] = model_name
-                metrics["evaluated_on"] = data_name
-                rows.append(metrics)
+            for model_name, model in models.items():
+                for data_name, (_, test_df) in splits.items():
+                    print(f"evaluating [{algo}/{seed}] {model_name:>14s} -> {data_name}")
+                    metrics = evaluate(model, test_df)
+                    metrics["algo"] = algo
+                    metrics["seed"] = seed
+                    metrics["model_trained_on"] = model_name
+                    metrics["evaluated_on"] = data_name
+                    rows.append(metrics)
 
-    matrix = pd.DataFrame(rows)
+    raw = pd.DataFrame(rows)
     column_order = [
-        "algo", "model_trained_on", "evaluated_on", "n", "positive_rate",
+        "algo", "seed", "model_trained_on", "evaluated_on", "n", "positive_rate",
         "accuracy", "f1", "precision", "recall", "roc_auc", "pr_auc", "brier",
     ]
-    matrix = matrix[[c for c in column_order if c in matrix.columns]]
+    raw = raw[[c for c in column_order if c in raw.columns]]
     args.out_csv.parent.mkdir(parents=True, exist_ok=True)
-    matrix.to_csv(args.out_csv, index=False)
+    raw.to_csv(args.out_csv, index=False)
     print(f"wrote {args.out_csv}")
 
+    # Aggregat ueber die Wiederholungen: Mittelwert und Standardabweichung.
+    # Die Heatmaps und die Thesis-Tabellen beziehen sich auf den Mittelwert,
+    # die Streuung entscheidet, ob ein Unterschied berichtbar ist.
+    metric_cols = [c for c in ("accuracy", "f1", "precision", "recall",
+                               "roc_auc", "pr_auc", "brier") if c in raw.columns]
+    keys = ["algo", "model_trained_on", "evaluated_on"]
+    agg = raw.groupby(keys, as_index=False).agg(
+        n_seeds=("seed", "nunique"),
+        n=("n", "first"),
+        positive_rate=("positive_rate", "first"),
+        **{f"{m}_{stat}": (m, stat)
+           for m in metric_cols for stat in ("mean", "std")},
+    )
+    agg_path = args.out_csv.with_name(
+        args.out_csv.stem + "_aggregated" + args.out_csv.suffix)
+    agg.to_csv(agg_path, index=False)
+    print(f"wrote {agg_path}")
+
+    # Fuer Heatmaps/Zusammenfassung: Mittelwert unter den Originalnamen.
+    matrix = agg.rename(columns={f"{m}_mean": m for m in metric_cols})
+
     order = ["emobpy", "real_world_ev", "ved", "routine", "yjmob"]
+    if len(seeds) > 1:
+        print(f"\n=== Streuung ueber {len(seeds)} Seeds "
+              f"(max. Standardabweichung je Algorithmus) ===")
+        for algo in algos:
+            sub = agg[agg["algo"] == algo]
+            if sub.empty:
+                continue
+            worst = {m: float(sub[f"{m}_std"].max()) for m in ("f1", "pr_auc", "roc_auc")}
+            print(f"  {algo:9s} " + "  ".join(f"{k}={v:.4f}" for k, v in worst.items()))
+
     for algo in algos:
         sub = matrix[matrix["algo"] == algo]
+        if sub.empty:
+            continue
         heatmap(sub, "f1", f"F1 — {algo} driving classifier cross-validation",
                 run_dir / f"cross_validation_f1_heatmap_{algo}.png")
         heatmap(sub, "accuracy", f"Accuracy — {algo} driving classifier cross-validation",
