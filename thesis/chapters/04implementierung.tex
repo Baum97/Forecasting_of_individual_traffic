@@ -4,10 +4,6 @@
 \chapter{Implementierung}
 \label{ch:implementierung}
 
-\todo{Einleitenden Text verfassen. Was wird in diesem Kapitel vorgestellt?}
-
-\todo{memo: kapitel = das WIE (code), nicht methodik wiederholen. bogen: anforderungen -> architektur -> tech -> umsetzung (kern: adapter, features, leakage, 5x5-cv, forecaster) -> herausforderungen.}
-
 Dieses Kapitel beschreibt und begründet die Implementierung des Systems. Es werden funktionale und nicht-funktionale Anforderungen, die Systemarchitektur, die Technologieauswahl, die Umsetzung der Kernkomponenten sowie die Herausforderungen bei der Implementierung erläutert. Das Ziel ist es, einen umfassenden Überblick zu dem Entwicklungsprozess und den getroffenen Entscheidungen zu geben, um die Nachvollziehbarkeit und Reproduzierbarkeit der Arbeit zu gewährleisten.
 
 % -----------------------------------------------------------------------------
@@ -17,6 +13,7 @@ Dieses Kapitel beschreibt und begründet die Implementierung des Systems. Es wer
 In \cref{tab:anforderungen} und \cref{tab:anforderungen-ml} werden die funktionalen und nicht-funktionalen Anforderungen an das System beschrieben. Diese Anforderungen bilden die Grundlage für die Implementierung und dienen als Referenzpunkt für die Bewertung des Systems. Die Anforderungen werden Anhand von Titel, Kürzel, Kurzbeschreibung, Typ (funktional/nicht-funktional) und Priorität dargestellt. Die Priorität wird in drei Stufen unterteilt: \textit{hoch}, \textit{mittel} und \textit{niedrig}.
 
 \begin{landscape}
+\querkopf
 \begin{table}[H]
     \centering
     \caption{Anforderungen an Daten und System}
@@ -55,6 +52,7 @@ In \cref{tab:anforderungen} und \cref{tab:anforderungen-ml} werden die funktiona
 \end{table}
 
 \newpage
+\querkopf
 
 \begin{table}[H]
     \centering
@@ -101,7 +99,7 @@ Der Arbeitsfluss des Systems lässt sich in \cref{fig:sequenzdiagramm} nachvollz
   \label{fig:sequenzdiagramm}
 \end{figure}
 
-
+Bei der Persistierung der Modelle und Resultate der Prognosen wird ein hierarchisches Verzeichnislayout verwendet, das in \cref{fig:persistenzlayout} dargestellt ist. Die Modelle werden in einem separaten Verzeichnis gespeichert, während die Vorhersagen in Unterverzeichnissen nach Modell, Run und Zeitstempel organisiert sind. Dieses Layout ermöglicht eine einfache Navigation und Verwaltung der Daten, da die Modelle und Vorhersagen klar voneinander getrennt sind. Die hierarchische Struktur der Daten erleichtert nicht nur die Identifizierung und den Zugriff auf die relevanten Informationen, sondern unterstützt auch Eindeutigkeit durch Run-IDs und Zeitstempel. Dadurch kann in der Benutzeroberfläche eine nachvollziehbare Darstellung der bisherigen Prognosen und Modelle gewährleistet werden, was die Analyse und Interpretation der Ergebnisse erleichtert.
 
 \begin{figure}[htbp]
   \centering
