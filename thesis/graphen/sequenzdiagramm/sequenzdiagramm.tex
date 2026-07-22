@@ -1,0 +1,53 @@
+% Standalone-Sequenzdiagramm eines Forecast-Requests (dynamisches Verhalten).
+% Kompilieren:  pdflatex sequenzdiagramm.tex
+% PNG:          pdftoppm -png -r 300 sequenzdiagramm.pdf sequenzdiagramm
+\documentclass[border=12pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc}
+
+\definecolor{cModel}{HTML}{DDEFDD}
+\definecolor{cModelB}{HTML}{5A8F5A}
+\definecolor{cExp}{HTML}{FBE6D4}
+\definecolor{cExpB}{HTML}{D08A3E}
+\definecolor{cEval}{HTML}{EADCF2}
+\definecolor{cEvalB}{HTML}{8A5FA8}
+\definecolor{cStore}{HTML}{EFEFEF}
+\definecolor{cStoreB}{HTML}{7A7A7A}
+
+\begin{document}
+\begin{tikzpicture}[
+  font=\fontsize{11.2}{13.2}\selectfont\sffamily,
+  head/.style={draw, rounded corners=2pt, align=center, minimum height=9mm,
+               inner sep=5pt, line width=0.7pt, minimum width=24mm},
+  life/.style={draw=cStoreB, dashed, line width=0.5pt},
+  msg/.style={-{Stealth[length=2.4mm]}, line width=0.7pt},
+  ret/.style={-{Stealth[length=2.4mm]}, line width=0.6pt, dashed},
+  mlbl/.style={font=\fontsize{9.4}{11}\selectfont\sffamily, align=center, inner sep=1.5pt,
+               fill=white},
+]
+
+% --- Lebenslinien-Koepfe (x-Positionen in cm) -------------------------------
+\def\xF{0}    \def\xB{3.3}  \def\xR{6.6}  \def\xC{9.9} \def\xS{13.2}
+\node[head, fill=cEval, draw=cEvalB]  (F) at (\xF,0) {Frontend\\ \fontsize{9.4}{11}\selectfont Angular};
+\node[head, fill=cExp,  draw=cExpB]   (B) at (\xB,0) {Backend\\ \fontsize{9.4}{11}\selectfont FastAPI};
+\node[head, fill=cModel,draw=cModelB] (R) at (\xR,0) {Registry};
+\node[head, fill=cModel,draw=cModelB] (C) at (\xC,0) {Forecaster};
+\node[head, fill=cStore,draw=cStoreB] (S) at (\xS,0) {Persistenz\\ \fontsize{9.4}{11}\selectfont Dateisystem};
+
+% --- Lebenslinien -----------------------------------------------------------
+\foreach \n in {F,B,R,C,S} { \draw[life] (\n.south) -- ($(\n.south)+(0,-98mm)$); }
+
+% --- Nachrichten (fallende y-Niveaus, 13mm pro Stufe) -----------------------
+\draw[msg] ($(F.south)+(0,-14mm)$) -- node[mlbl,above]{\texttt{GET /api/forecast}\\ (model, source, days)} ($(B.south)+(0,-14mm)$);
+\draw[msg] ($(B.south)+(0,-27mm)$) -- node[mlbl,above]{\texttt{load(\dots.joblib)}} ($(R.south)+(0,-27mm)$);
+\draw[ret] ($(R.south)+(0,-40mm)$) -- node[mlbl,above]{Forecaster-Instanz} ($(B.south)+(0,-40mm)$);
+\draw[msg] ($(B.south)+(0,-53mm)$) -- node[mlbl,above]{\texttt{predict(n\_days,}\\ \texttt{threshold)}} ($(C.south)+(0,-53mm)$);
+\draw[ret] ($(C.south)+(0,-66mm)$) -- node[mlbl,above]{DataFrame\\ Trips, P10/P90} ($(B.south)+(0,-66mm)$);
+\draw[msg] ($(B.south)+(0,-79mm)$) -- node[mlbl,above]{\texttt{forecast.csv} schreiben} ($(S.south)+(0,-79mm)$);
+\draw[ret] ($(B.south)+(0,-92mm)$) -- node[mlbl,above]{JSON\\ (Tageskarten, Quantile)} ($(F.south)+(0,-92mm)$);
+
+\end{tikzpicture}
+\end{document}

@@ -6,12 +6,15 @@
 
 \todo{Einleitenden Text verfassen. Was wird in diesem Kapitel vorgestellt?}
 
+\todo{memo: kapitel = das WIE (code), nicht methodik wiederholen. bogen: anforderungen -> architektur -> tech -> umsetzung (kern: adapter, features, leakage, 5x5-cv, forecaster) -> herausforderungen.}
+
+Dieses Kapitel beschreibt und begründet die Implementierung des Systems. Es werden funktionale und nicht-funktionale Anforderungen, die Systemarchitektur, die Technologieauswahl, die Umsetzung der Kernkomponenten sowie die Herausforderungen bei der Implementierung erläutert. Das Ziel ist es, einen umfassenden Überblick zu dem Entwicklungsprozess und den getroffenen Entscheidungen zu geben, um die Nachvollziehbarkeit und Reproduzierbarkeit der Arbeit zu gewährleisten.
+
 % -----------------------------------------------------------------------------
 
 \section{Anforderungen}
-%table einfügen für requirements
 
-Im folgenden werden die funktionalen und nicht-funktionalen Anforderungen an das System beschrieben. Diese Anforderungen bilden die Grundlage für die Implementierung und dienen als Referenzpunkt für die Bewertung des Systems. Die Anforderungen werden Anhand von Titel, Kürzel, Kurzbeschreibung und Priorität dargestellt. Die Priorität wird in drei Stufen unterteilt: \textit{hoch}, \textit{mittel} und \textit{niedrig}.
+In \cref{tab:anforderungen} werden die funktionalen und nicht-funktionalen Anforderungen an das System beschrieben. Diese Anforderungen bilden die Grundlage für die Implementierung und dienen als Referenzpunkt für die Bewertung des Systems. Die Anforderungen werden Anhand von Titel, Kürzel, Kurzbeschreibung und Priorität dargestellt. Die Priorität wird in drei Stufen unterteilt: \textit{hoch}, \textit{mittel} und \textit{niedrig}.
 
 \begin{table}[htbp]
     \centering
@@ -23,23 +26,35 @@ Im folgenden werden die funktionalen und nicht-funktionalen Anforderungen an das
         \Xhline{1pt}
         \multicolumn{4}{|l|}{\textbf{Daten}} \\
         \Xhline{1pt}
-        Erhebung    & R-1.0 & Daten für die Erstellung von Modellen werden erfasst, auf das richtige Format überprüft und bereitgestellt. & hoch   \\
+        Recherche    & R-1.0 & Daten für die Erstellung von Modellen werden erfasst, auf das richtige Format überprüft und bereitgestellt. & hoch   \\
         \hline
-        Aufbereitung & R-1.1 & Daten werden aufbereitet und in das richtige Format gebracht: Informationsgehalt und -qualität, Granularität & mittel \\
+        Aufbereitung & R-1.1 & Daten werden aufbereitet und in das richtige Format gebracht: Informationsgehalt und -qualität, Granularität. Daten müssen in Schema \texttt{vehicle\_id, timestamp, driving} passen. & hoch \\
         \hline
-        Speicherung  & R-1.2 & Daten werden dauerhaft persistiert. & niedrig \\
+        Datenvielfalt      & R-1.2 & Mehr als zwei aussagekräftige Datensätze, für einen umfangreichen Vergleich. & hoch   \\
+        \hline
+        Speicherung  & R-1.3 & Daten werden dauerhaft persistiert. & niedrig \\
+        \hline
+        Zuverlässigkeit      & R-1.4 & Die Datensätze müssen ein chronologisch-temporales Format haben, das produktiv Modelle trainiert. & hoch   \\
         \Xhline{1pt}
         \multicolumn{4}{|l|}{\textbf{System}} \\
         \Xhline{1pt}
-        Systemstart      & R-2.0 & Funktionalität 4 & hoch   \\
+        Verfügbarkeit      & R-2.0 & Gewährleistung der Funktionalitäten. & hoch   \\
         \hline
-        Systemüberwachung & R-2.1 & Funktionalität 5 & mittel \\
+        Replikation      & R-2.1 & Versuche sollten deterministisch sein und replizierbar. & mittel   \\
+        \hline
+        User Interface      & R-2.2 & Eine Benutzeroberfläche die zur vereinfachten Bedienung und Darstellung des Systemsdient. & niedrig   \\
+        \hline
+        Logging & R-2.3 & Bearbeitungsschritte, Resultate und Fehler werden protokolliert. & mittel \\
         \Xhline{1pt}
         \multicolumn{4}{|l|}{\textbf{Machine Learning Modelle}} \\
         \Xhline{1pt}
-        Modelltraining   & R-3.0 & Funktionalität 6 & hoch   \\
+        Modellauswahl   & R-3.0 & Modelle die für das Aufgabengebiet geeignet sind. & hoch   \\
         \hline
-        Modellevaluierung & R-3.1 & Funktionalität 7 & hoch \\
+        Modellvergleich & R-3.1 & Ein umfassender Vergleich der ausgewählten Modelle. & hoch \\
+        \hline
+        Prognosegüte & R-3.2 & Die Fähigkeit der Modelle, zukünftige Werte präzise vorherzusagen. & hoch \\
+        \hline
+        Modellevaluierung & R-3.3 & Die Bewertung der Leistung der Modelle anhand einer 5x5 Kreuzvalidierung  & hoch \\
         \hline
     \end{tabularx}
 \end{table}
@@ -49,17 +64,44 @@ Im folgenden werden die funktionalen und nicht-funktionalen Anforderungen an das
 
 \todo{Die Gesamtarchitektur des Systems beschreiben. Welche Komponenten gibt es und wie interagieren sie?}
 
+\todo{memo: komponentenkette: data\_adapters.py (loader je quelle) -> base.py (make\_features / FEATURE\_COLS) -> classifier/ (driving) + forecast/ (rf, lgbm) -> forecaster\_registry (name->klasse, lazy) -> backend.py (fastapi: /api/models, /forecast, /runs) -> frontend (angular, signals). persistenz: models/<source>\_forecaster\_<algo>.joblib + driving\_<source>.joblib; runs unter predictions/<model>/<run>/forecast.csv (helper run\_output\_dir() in base.py). duck typing: forecaster-iface fit/predict/predict\_quantiles/save/load, KEIN baseclass. -> eigenes komponentendiagramm zeichnen (stil wie fig:methodik).}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{graphen/komponentendiagramm/komponentendiagramm.pdf}
+  \caption{Statische Komponentenstruktur}
+  \label{fig:komponentendiagramm}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{graphen/sequenzdiagramm/sequenzdiagramm.pdf}
+  \caption{Dynamischer Ablauf eines Forecast-Requests}
+  \label{fig:sequenzdiagramm}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{graphen/persistenzlayout/persistenzlayout.pdf}
+  \caption{Persistenzlayout}
+  \label{fig:persistenzlayout}
+\end{figure}
+
 % -----------------------------------------------------------------------------
 \section{Technologieauswahl}
 \label{sec:technologieauswahl}
 
 \todo{Welche Technologien, Frameworks, Programmiersprachen und Werkzeuge wurden eingesetzt und warum?}
 
+\todo{memo: python 3.13 (namespace-package, kein \_\_init\_\_). sklearn RandomForest. lightgbm optional (nur bei --model lgbm importiert). pandas/numpy. h5py fuer .mat (HDF5 v7.3) -> parse\_real\_world\_ev.py. joblib fuer persistenz. backend fastapi + uvicorn. frontend angular 17 standalone + signals. WARUM je modell begründen: RF = bagging/baseline, LGBM = boosting/leaf-wise, LSTM = rekurrent -> für ablation. warum CPU/lokal statt cloud/gpu.}
+
 % -----------------------------------------------------------------------------
 \section{Umsetzung}
 \label{sec:umsetzung}
 
 \todo{Zentrale Aspekte der Implementierung beschreiben. Wichtige Algorithmen, Datenstrukturen oder Designentscheidungen erläutern.}
+
+\todo{memo KERN -- hier steckt die arbeit. (1) data\_adapters.py: loader je quelle -> einheitl. schema vehicle\_id/timestamp/driving; VED\_EPOCH + DayNum, yjmob = bewegungsproxy (zellwechsel), real\_world\_ev in\_use = 5A ODER laden. (2) base.py make\_features: kalender (hour/weekday/is\_weekend) + lag (1/2/24/168) + rolling\_mean (24/168); FEATURE\_COLS, TrainConfig, split\_by\_time. (3) LEAKAGE = base.py 65-94 -> CODE-LISTING einfügen + erklären: groupby(vehicle\_id) kein cross-vehicle, shift(1) VOR dem rolling-fenster (zielwert fliesst nicht ins eigene feature), zeitlicher split, dropna der NaN-lags. (4) classifier: run\_cross\_validation.py = 5x5 (train-quelle x test-quelle) isolationsmatrix. (5) forecast/: predict(n\_days, threshold); P10/P90 auf 3 wegen -- pinball (lgbm), baum-streuung (rf), mc-rollout. konkrete listings: make\_features, in\_use-ableitung, 5x5-loop.}
 
 % Beispiel für ein Code-Listing:
 % \begin{lstlisting}[language=Python, caption={Beispiel-Code}, label={lst:beispiel}]
@@ -72,4 +114,6 @@ Im folgenden werden die funktionalen und nicht-funktionalen Anforderungen an das
 \label{sec:herausforderungen}
 
 \todo{Welche Herausforderungen traten bei der Implementierung auf? Wie wurden sie gelöst?}
+
+\todo{memo: (1) .mat HDF5 v7.3 parsen mit h5py, relative gerätzeit -> abs. zeit per epoch-anker interpoliert, signale auf TimeCurr-raster (parse\_real\_world\_ev.py). (2) aktivitätsdefinition je quelle unterschiedlich (fahren vs. fahren+laden vs. bewegungsproxy) -> zielgröße nicht 1:1 vergleichbar. (3) starkes klassenungleichgewicht (VED aktiv ca. 1\%) -> accuracy trügt, F1/PR-AUC nötig. (4) VED degenerate fahrzeuge (0\% / 100\% aktiv) -> filter? (5) windows: doppelpunkt in pfad verboten -> run-dir als T<DD-MM-YYYY>. (6) lightgbm nur optional importierbar. (7) per-vehicle groupby gegen lag-leakage über fahrzeuggrenzen. (8) CPU-only -> lange trainingszeit, --limit-flags.}
 

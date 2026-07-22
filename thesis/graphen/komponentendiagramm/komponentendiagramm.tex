@@ -1,0 +1,82 @@
+% Standalone-Komponentendiagramm der Systemarchitektur (statische Struktur).
+% Kompilieren:  pdflatex komponentendiagramm.tex
+% PNG:          pdftoppm -png -r 300 komponentendiagramm.pdf komponentendiagramm
+\documentclass[border=12pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,calc}
+
+\definecolor{cData}{HTML}{DCE7F5}
+\definecolor{cDataB}{HTML}{5B7FB0}
+\definecolor{cModel}{HTML}{DDEFDD}
+\definecolor{cModelB}{HTML}{5A8F5A}
+\definecolor{cExp}{HTML}{FBE6D4}
+\definecolor{cExpB}{HTML}{D08A3E}
+\definecolor{cEval}{HTML}{EADCF2}
+\definecolor{cEvalB}{HTML}{8A5FA8}
+\definecolor{cStore}{HTML}{EFEFEF}
+\definecolor{cStoreB}{HTML}{7A7A7A}
+\definecolor{cRQ}{HTML}{5A5A5A}
+
+\newcommand{\ins}{\fontsize{9.3}{11}\selectfont}
+
+\begin{document}
+\begin{tikzpicture}[
+  node distance=9mm and 6mm,
+  font=\fontsize{12}{14.4}\selectfont\sffamily,
+  box/.style={draw, rounded corners=2pt, align=center, minimum height=13mm,
+              inner sep=5pt, line width=0.7pt},
+  data/.style={box, fill=cData, draw=cDataB, text width=40mm},
+  model/.style={box, fill=cModel, draw=cModelB, text width=40mm},
+  serv/.style={box, fill=cExp, draw=cExpB, line width=1.1pt, text width=100mm},
+  pres/.style={box, fill=cEval, draw=cEvalB, text width=66mm},
+  store/.style={box, fill=cStore, draw=cStoreB, dashed, text width=54mm},
+  lbl/.style={font=\fontsize{11}{13}\selectfont\bfseries, text=cRQ, align=center},
+  arr/.style={-{Stealth[length=2.8mm]}, line width=0.8pt},
+  darr/.style={-{Stealth[length=2.4mm]}, line width=0.6pt, dashed, draw=cStoreB},
+]
+
+% --- Modellschicht (breiteste Zeile, bildet die Achse) ----------------------
+\node[model] (fc) {\texttt{forecast/}\\ RF \textperiodcentered\ LGBM \textperiodcentered\ LSTM\\ {\ins Forecaster (Duck Typing)}};
+\node[model, left=of fc]  (clf) {\texttt{classifier/}\\ Driving-Classifier\\ {\ins \texttt{driving\_<source>.joblib}}};
+\node[model, right=of fc] (reg) {\texttt{forecaster\_registry}\\ Name $\rightarrow$ Klasse\\ {\ins (lazy import)}};
+
+% --- Datenschicht (darueber) ------------------------------------------------
+\node[data, above=13mm of fc] (base) {\texttt{base.py}\\ \texttt{make\_features}\\ {\ins \texttt{FEATURE\_COLS} \textperiodcentered\ \texttt{split\_by\_time}}};
+\node[data, left=of base] (adapters) {\texttt{data\_adapters.py}\\ Loader je Quelle\\ {\ins (emobpy \textperiodcentered\ real\_world\_ev \textperiodcentered\ ved \textperiodcentered\ routine \textperiodcentered\ yjmob100k)}};
+
+% --- Dienstschicht ----------------------------------------------------------
+\node[serv, below=20mm of fc] (backend) {\texttt{backend.py} --- FastAPI\\ {\ins \texttt{/api/models} \textperiodcentered\ \texttt{/api/forecast} \textperiodcentered\ \texttt{/api/runs}}};
+
+% --- Persistenzband (klar unterhalb des Backends) ---------------------------
+\node[store, anchor=north] (models) at ($(clf.south |- backend.south)+(0,-16mm)$) {\texttt{models/}\\ {\ins \texttt{<source>\_forecaster\_<algo>.joblib}\\ \texttt{driving\_<source>.joblib}}};
+\node[store, anchor=north] (preds) at ($(reg.south |- backend.south)+(0,-16mm)$) {\texttt{predictions/<model>/<run>/}\\ {\ins \texttt{forecast.csv} \textperiodcentered\ PNG \textperiodcentered\ notes.txt}};
+
+% --- Praesentationsschicht --------------------------------------------------
+\node[pres, anchor=north] (front) at ($(fc.south |- backend.south)+(0,-40mm)$) {Frontend --- Angular 17\\ {\ins Standalone Components \textperiodcentered\ Signals}};
+
+% --- Schichtbeschriftungen (feste linke Spalte) -----------------------------
+\coordinate (xL) at ($(clf.west)+(-19mm,0)$);
+\node[lbl] at (xL |- adapters) {Daten-\\schicht};
+\node[lbl] at (xL |- clf)      {Modell-\\schicht};
+\node[lbl] at (xL |- backend)  {Dienst-\\schicht};
+\node[lbl] at (xL |- models)   {Persis-\\tenz};
+\node[lbl] at (xL |- front)    {Präsen-\\tation};
+
+% --- Kanten -----------------------------------------------------------------
+\draw[arr] (adapters) -- (base);
+\draw[arr] (base.south) -- (clf.north);
+\draw[arr] (base.south) -- (fc.north);
+\draw[arr] (clf.south) -- (clf.south |- backend.north);
+\draw[arr] (fc.south)  -- (backend.north);
+\draw[arr] (reg.south) -- (reg.south |- backend.north);
+\draw[arr] (backend.south) -- (front.north);
+
+% --- Persistenz-Kanten (Backend laedt Modelle, schreibt Runs) ---------------
+\draw[darr] (backend.south) to[out=-140,in=90] (models.north);
+\draw[darr] (backend.south) to[out=-40,in=90] (preds.north);
+
+\end{tikzpicture}
+\end{document}

@@ -918,6 +918,43 @@
       \verb https://www.researchgate.net/figure/Diagram-of-the-bagging-technique-used-for-classification-or-regression-problems-in-ML_fig1_362065998
       \endverb
     \endentry
+    \entry{vanrijsbergen1979}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2355d511ead7758aa46570e69aa43da7}{%
+           family={Rijsbergen},
+           familyi={R\bibinitperiod},
+           given={C.\bibnamedelimi J.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0,
+           prefix={van},
+           prefixi={v\bibinitperiod},
+           prefixun=0}}%
+      }
+      \list{location}{1}{%
+        {London}%
+      }
+      \list{publisher}{1}{%
+        {Butterworths}%
+      }
+      \strng{namehash}{2355d511ead7758aa46570e69aa43da7}
+      \strng{fullhash}{2355d511ead7758aa46570e69aa43da7}
+      \strng{fullhashraw}{2355d511ead7758aa46570e69aa43da7}
+      \strng{bibnamehash}{2355d511ead7758aa46570e69aa43da7}
+      \strng{authorbibnamehash}{2355d511ead7758aa46570e69aa43da7}
+      \strng{authornamehash}{2355d511ead7758aa46570e69aa43da7}
+      \strng{authorfullhash}{2355d511ead7758aa46570e69aa43da7}
+      \strng{authorfullhashraw}{2355d511ead7758aa46570e69aa43da7}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{note}{Kap. 7, Definition des $F_\beta$/E-Ma{ß}es}
+      \field{title}{Information Retrieval}
+      \field{year}{1979}
+    \endentry
     \entry{sanami2025demand}{misc}{}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=f9d93a10fb79c67fee1f107bc3ac2df4}{%

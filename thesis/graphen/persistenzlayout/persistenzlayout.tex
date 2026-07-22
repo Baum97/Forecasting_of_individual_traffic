@@ -1,0 +1,65 @@
+% Standalone-Diagramm des Persistenz-/Verzeichnislayouts.
+% Kompilieren:  pdflatex persistenzlayout.tex
+% PNG:          pdftoppm -png -r 300 persistenzlayout.pdf persistenzlayout
+\documentclass[border=12pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+
+\definecolor{cData}{HTML}{DCE7F5}
+\definecolor{cDataB}{HTML}{5B7FB0}
+\definecolor{cModel}{HTML}{DDEFDD}
+\definecolor{cModelB}{HTML}{5A8F5A}
+\definecolor{cStore}{HTML}{EFEFEF}
+\definecolor{cStoreB}{HTML}{7A7A7A}
+\definecolor{cRQ}{HTML}{7A7A7A}
+
+\begin{document}
+\begin{tikzpicture}[
+  font=\small\sffamily,
+  dir/.style={draw, rounded corners=2pt, align=left, minimum height=8mm,
+              inner sep=6pt, line width=0.7pt, fill=cData, draw=cDataB,
+              font=\fontsize{12.2}{14.4}\selectfont\bfseries\ttfamily},
+  file/.style={draw, rounded corners=2pt, align=left, minimum height=7mm,
+               inner sep=5pt, line width=0.5pt, fill=white, draw=cStoreB,
+               font=\fontsize{10.8}{12.7}\selectfont\ttfamily},
+  note/.style={font=\fontsize{10.8}{12.7}\selectfont\itshape\sffamily, text=cRQ, align=left, text width=46mm},
+  edge/.style={draw=cStoreB, line width=0.5pt},
+]
+
+% --- Zweig models/ ----------------------------------------------------------
+\node[dir] (models) {models/};
+\node[file, below=6mm of models.south west, anchor=north west, xshift=8mm] (m1)
+  {driving\_<source>.joblib};
+\node[file, below=3mm of m1.south west, anchor=north west, xshift=0mm] (m2)
+  {<source>\_forecaster\_<algo>.joblib};
+\node[note, right=3mm of m1] {Driving-Classifier je Quelle};
+\node[note, right=3mm of m2] {Forecaster je Quelle\,$\times$\,Algorithmus (rf/lgbm/lstm)};
+
+% --- Zweig predictions/ -----------------------------------------------------
+\node[dir, below=16mm of m2.south west, anchor=north west] (preds) {predictions/};
+\node[dir, below=6mm of preds.south west, anchor=north west, xshift=6mm] (model)
+  {<model>/};
+\node[dir, below=4mm of model.south west, anchor=north west, xshift=6mm] (run)
+  {<dataset>\_<N>d\_T<DD-MM-YYYY>/};
+\node[file, below=4mm of run.south west, anchor=north west, xshift=6mm] (f1)
+  {forecast.csv};
+\node[file, below=3mm of f1.south west, anchor=north west] (f2)
+  {*.png \textperiodcentered\ notes.txt};
+
+\node[note, right=3mm of run] {eine Run-Dir = eine Simulation \textperiodcentered\ Helper \texttt{run\_output\_dir()}};
+\node[note, right=3mm of f1] {Prognose (Trips, Quantile)};
+\node[note, right=3mm of f2] {optionale Artefakte};
+
+% --- Baumkanten -------------------------------------------------------------
+\draw[edge] (models.south west)+(3mm,0) |- (m1.west);
+\draw[edge] (models.south west)+(3mm,0) |- (m2.west);
+\draw[edge] (preds.south west)+(3mm,0) |- (model.west);
+\draw[edge] (model.south west)+(3mm,0) |- (run.west);
+\draw[edge] (run.south west)+(3mm,0) |- (f1.west);
+\draw[edge] (run.south west)+(3mm,0) |- (f2.west);
+
+\end{tikzpicture}
+\end{document}
