@@ -89,8 +89,11 @@
     \centering
     \caption{In-Distribution-Gütemaße des Driving-Classifiers je Datenquelle
     (Acc.\ = Accuracy, ROC = ROC-AUC, PR = PR-AUC, Brier = Brier-Score,
-    Aktiv-Rate = Anteil der Fahrstunden). Beide Algorithmen nutzen denselben
-    Feature-Satz.}
+    Aktiv-Rate = Anteil der Fahrstunden). RandomForest, LightGBM und die
+    tabellarische LSTM-Variante nutzen denselben Merkmalssatz; die sequenzielle
+    Variante sieht stattdessen das Rohfenster. \enquote{n.\,z.} = nicht als
+    LSTM-Trainingsquelle zugelassen, da die Quelle das Mindestkriterium von
+    100 Fahrzeugwochen verfehlt (\cref{sec:modellauswahl}).}
     \label{tab:cv_metrics}
 
     \begin{subtable}{\textwidth}
@@ -128,14 +131,122 @@
             \bottomrule
         \end{tabular}
     \end{subtable}
+
+    \vspace{1em}
+
+    \begin{subtable}{\textwidth}
+        \centering
+        \caption{LSTM, tabellarisch (identischer Merkmalssatz)}
+        \label{tab:cv_metrics_lstm_tab}
+        \begin{tabular}{lcccccc}
+            \toprule
+            \textbf{Datenquelle} & \textbf{Aktiv-Rate} & Acc. & F1 & ROC & PR & Brier \\
+            \midrule
+            emobpy          & 0,096 & 0,610 & 0,286 & 0,780 & 0,255 & 0,205 \\
+            real\_world\_ev & 0,023 & \multicolumn{5}{c}{n.\,z.} \\
+            ved             & 0,048 & \multicolumn{5}{c}{n.\,z.} \\
+            routine         & 0,264 & \multicolumn{5}{c}{n.\,z.} \\
+            yjmob100k       & 0,382 & 0,726 & 0,676 & 0,806 & 0,703 & 0,180 \\
+            \bottomrule
+        \end{tabular}
+    \end{subtable}
+
+    \vspace{1em}
+
+    \begin{subtable}{\textwidth}
+        \centering
+        \caption{LSTM, sequenziell (Fenster der letzten 168 Stunden)}
+        \label{tab:cv_metrics_lstm_seq}
+        \begin{tabular}{lcccccc}
+            \toprule
+            \textbf{Datenquelle} & \textbf{Aktiv-Rate} & Acc. & F1 & ROC & PR & Brier \\
+            \midrule
+            emobpy          & 0,096 & 0,661 & \textbf{0,323} & \textbf{0,820} & \textbf{0,288} & 0,194 \\
+            real\_world\_ev & 0,023 & \multicolumn{5}{c}{n.\,z.} \\
+            ved             & 0,048 & \multicolumn{5}{c}{n.\,z.} \\
+            routine         & 0,264 & \multicolumn{5}{c}{n.\,z.} \\
+            yjmob100k       & 0,382 & 0,719 & 0,657 & 0,789 & 0,670 & 0,186 \\
+            \bottomrule
+        \end{tabular}
+    \end{subtable}
 \end{table}
 
-% Beispiel für eine Abbildung:
-% \begin{figure}[htbp]
-%     \centering
-%     \includegraphics[width=0.8\textwidth]{bilder/beispiel.png}
-%     \caption{Beispielabbildung}
-%     \label{fig:beispiel}
-% \end{figure}
+\begin{table}[htbp]
+    \centering
+    \caption{Ablation der Merkmalsgruppen: PR-AUC je Datenquelle,
+    in-distribution auf demselben zeitlichen Test-Split. Kalender =
+    \texttt{hour}, \texttt{weekday}, \texttt{is\_weekend}; Lags =
+    \texttt{lag\_1/2/24/168}; Rolling = \texttt{rolling\_mean\_24/168}.
+    Verworfene Zeilen richten sich in allen Varianten nach dem vollständigen
+    Merkmalssatz, sodass je Quelle identische Beobachtungen zugrunde liegen.}
+    \label{tab:ablation}
 
- 
+    \begin{subtable}{\textwidth}
+        \centering
+        \caption{RandomForest}
+        \label{tab:ablation_rf}
+        \begin{tabular}{lccccc}
+            \toprule
+            \textbf{Variante} & emobpy & real\_world\_ev & ved & routine & yjmob100k \\
+            \midrule
+            \textbf{voll} (Referenz)     & 0,268 & 0,619 & 0,089 & 0,886 & 0,683 \\
+            \addlinespace
+            ohne Kalender                & 0,230 & 0,621 & 0,064 & 0,795 & 0,660 \\
+            ohne Lags                    & 0,207 & 0,067 & 0,078 & 0,724 & 0,574 \\
+            ohne Rolling                 & 0,249 & 0,705 & 0,100 & 0,892 & 0,667 \\
+            \addlinespace
+            nur Kalender                 & 0,173 & 0,018 & 0,087 & 0,803 & 0,487 \\
+            nur Lags                     & 0,207 & 0,669 & 0,094 & 0,793 & 0,670 \\
+            nur Rolling                  & 0,134 & 0,187 & 0,048 & 0,253 & 0,497 \\
+            \bottomrule
+        \end{tabular}
+    \end{subtable}
+
+    \vspace{1em}
+
+    \begin{subtable}{\textwidth}
+        \centering
+        \caption{LightGBM}
+        \label{tab:ablation_lgbm}
+        \begin{tabular}{lccccc}
+            \toprule
+            \textbf{Variante} & emobpy & real\_world\_ev & ved & routine & yjmob100k \\
+            \midrule
+            \textbf{voll} (Referenz)     & 0,277 & 0,177 & 0,074 & 0,861 & 0,698 \\
+            \addlinespace
+            ohne Kalender                & 0,238 & 0,308 & 0,064 & 0,752 & 0,683 \\
+            ohne Lags                    & 0,216 & 0,068 & 0,077 & 0,825 & 0,598 \\
+            ohne Rolling                 & 0,261 & 0,625 & 0,122 & 0,871 & 0,690 \\
+            \addlinespace
+            nur Kalender                 & 0,173 & 0,019 & 0,095 & 0,820 & 0,487 \\
+            nur Lags                     & 0,207 & 0,669 & 0,091 & 0,792 & 0,670 \\
+            nur Rolling                  & 0,135 & 0,183 & 0,049 & 0,263 & 0,517 \\
+            \bottomrule
+        \end{tabular}
+    \end{subtable}
+
+    \vspace{1em}
+
+    \begin{subtable}{\textwidth}
+        \centering
+        \caption{LSTM, tabellarischs}
+        \label{tab:ablation_lstm_tab}
+        \begin{tabular}{lccccc}
+            \toprule
+            \textbf{Variante} & emobpy & real\_world\_ev & ved & routine & yjmob100k \\
+            \midrule
+            \textbf{voll} (Referenz)     & 0,259 & 0,504 & 0,099 & 0,582 & 0,701 \\
+            \addlinespace
+            ohne Kalender                & 0,233 & 0,358 & 0,101 & 0,704 & 0,692 \\
+            ohne Lags                    & 0,201 & 0,088 & 0,087 & 0,353 & 0,603 \\
+            ohne Rolling                 & 0,256 & 0,567 & 0,101 & 0,598 & 0,691 \\
+            \addlinespace
+            nur Kalender                 & 0,163 & 0,018 & 0,079 & 0,362 & 0,480 \\
+            nur Lags                     & 0,206 & 0,614 & 0,087 & 0,756 & 0,666 \\
+            nur Rolling                  & 0,127 & 0,152 & 0,048 & 0,253 & 0,526 \\
+            \bottomrule
+        \end{tabular}
+    \end{subtable}
+\end{table}
+
+\todo{memo ablation-interpretation (\cref{tab:ablation}): (1) lags = tragende gruppe -- 'ohne Lags' kostet am meisten (real\_world\_ev -0,552, routine -0,161, yjmob -0,109); 'nur Lags' erreicht fast/über referenz. (2) rolling redundant -- 'ohne Rolling' bei 3/5 quellen BESSER als voll (real\_world\_ev 0,705>0,619, ved 0,100>0,089, routine 0,892>0,886); 'nur Rolling' durchweg am schlechtesten -> rolling bringt gegenüber lags nur rauschen. (3) kalender quellenabhängig: bei routine (regelbasiert) reicht 'nur Kalender' fast (0,803 vs 0,886), bei real\_world\_ev bricht es ein (0,018). LIMITATION: ved durchgehend nahe zufall (aktiv-rate 0,048) -> deltas dort nicht interpretierbar; real\_world\_ev n=1 fahrzeug -> lgbm schwankt 0,177..0,669 = stichprobenrauschen.}

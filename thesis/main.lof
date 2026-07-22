@@ -16,12 +16,12 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Variablenstruktur des Forschungsdesigns: zwei veränderliche unabhängige Variablen (Daten, Algorithmus) und eine abhängige Variable (Prognosegüte). Konstante Hyperparameter und Trainingsprotokolle wirken als Kontrollvariablen.}}{28}{figure.caption.40}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Schematischer Workflow der Methodik: von den fünf Datenquellen über den geteilten Feature-Kern und die beiden Aufgabenmodelle bis zum Experimentaldesign und der Bewertung.}}{31}{figure.caption.42}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Statische Komponentenstruktur}}{43}{figure.caption.60}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Dynamischer Ablauf eines Forecast-Requests}}{44}{figure.caption.61}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Persistenzlayout}}{44}{figure.caption.62}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Statische Komponentenstruktur: Datenadapter, Feature-Engineering, Klassifikator, Forecaster, Persistenz und Schnittstellen.}}{44}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Dynamischer Ablauf eines Forecast-Requests vom Frontend über das Backend und Persistenz bis zum Forecaster und dessen Aufbereitung und Darstellung der Ergebnisse.}}{45}{figure.caption.62}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Persistenzlayout des Systems: Modelle und Vorhersagen werden in einer hierarchischen Verzeichnisstruktur gespeichert, die eine einfache Navigation und Verwaltung der Daten ermöglicht. Modelle liegen gesondert von den Vorhersagen, die in Unterverzeichnissen nach Modell, Run und Zeitstempel organisiert sind.}}{46}{figure.caption.63}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (RandomForest)}}{47}{figure.caption.63}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LightGBM)}}{47}{figure.caption.64}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (RandomForest)}}{49}{figure.caption.64}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LightGBM)}}{49}{figure.caption.65}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

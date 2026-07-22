@@ -30,20 +30,19 @@
 ]
 
 % --- Lebenslinien-Koepfe (x-Positionen in cm) -------------------------------
-\def\xF{0}    \def\xB{3.3}  \def\xR{6.6}  \def\xC{9.9} \def\xS{13.2}
+\def\xF{0}    \def\xB{4.4}  \def\xC{8.8}  \def\xS{13.2}
 \node[head, fill=cEval, draw=cEvalB]  (F) at (\xF,0) {Frontend\\ \fontsize{9.4}{11}\selectfont Angular};
 \node[head, fill=cExp,  draw=cExpB]   (B) at (\xB,0) {Backend\\ \fontsize{9.4}{11}\selectfont FastAPI};
-\node[head, fill=cModel,draw=cModelB] (R) at (\xR,0) {Registry};
 \node[head, fill=cModel,draw=cModelB] (C) at (\xC,0) {Forecaster};
 \node[head, fill=cStore,draw=cStoreB] (S) at (\xS,0) {Persistenz\\ \fontsize{9.4}{11}\selectfont Dateisystem};
 
 % --- Lebenslinien -----------------------------------------------------------
-\foreach \n in {F,B,R,C,S} { \draw[life] (\n.south) -- ($(\n.south)+(0,-98mm)$); }
+\foreach \n in {F,B,C,S} { \draw[life] (\n.south) -- ($(\n.south)+(0,-98mm)$); }
 
 % --- Nachrichten (fallende y-Niveaus, 13mm pro Stufe) -----------------------
-\draw[msg] ($(F.south)+(0,-14mm)$) -- node[mlbl,above]{\texttt{GET /api/forecast}\\ (model, source, days)} ($(B.south)+(0,-14mm)$);
-\draw[msg] ($(B.south)+(0,-27mm)$) -- node[mlbl,above]{\texttt{load(\dots.joblib)}} ($(R.south)+(0,-27mm)$);
-\draw[ret] ($(R.south)+(0,-40mm)$) -- node[mlbl,above]{Forecaster-Instanz} ($(B.south)+(0,-40mm)$);
+\draw[msg] ($(F.south)+(0,-14mm)$) -- node[mlbl,above, yshift=2mm]{\texttt{POST /api/forecast/\{model\_id\}}\\ (horizons, mode)} ($(B.south)+(0,-14mm)$);
+\draw[msg] ($(B.south)+(0,-27mm)$) -- node[mlbl,above]{\texttt{joblib.load(<id>.joblib)}} ($(S.south)+(0,-27mm)$);
+\draw[ret] ($(S.south)+(0,-40mm)$) -- node[mlbl,above]{Forecaster-Instanz\\ (deserialisiert)} ($(B.south)+(0,-40mm)$);
 \draw[msg] ($(B.south)+(0,-53mm)$) -- node[mlbl,above]{\texttt{predict(n\_days,}\\ \texttt{threshold)}} ($(C.south)+(0,-53mm)$);
 \draw[ret] ($(C.south)+(0,-66mm)$) -- node[mlbl,above]{DataFrame\\ Trips, P10/P90} ($(B.south)+(0,-66mm)$);
 \draw[msg] ($(B.south)+(0,-79mm)$) -- node[mlbl,above]{\texttt{forecast.csv} schreiben} ($(S.south)+(0,-79mm)$);

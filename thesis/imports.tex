@@ -96,3 +96,18 @@
 
 % --- Eigene Befehle ---
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{TODO:} #1}}
+
+\newcommand*{\querkopf}{%
+  \thispagestyle{empty}%
+  \AddToShipoutPictureFG*{%
+    \put(\LenToUnit{\dimexpr1.5cm+\baselineskip\relax},%
+         \LenToUnit{\dimexpr2.5cm\relax}){%
+      \rotatebox{90}{%
+        \parbox[b]{\dimexpr\paperheight-5cm\relax}{%
+          \small\leftmark\hfill\thepage\par
+          \vskip 1pt\hrule height 0.4pt\relax
+        }%
+      }%
+    }%
+  }%
+}
