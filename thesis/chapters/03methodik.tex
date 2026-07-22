@@ -201,19 +201,48 @@ Es werden fünf Datenquellen verwendet, um fünf Trainings- und Testsets zu bild
 
 Bei der Bewertung werden verschiedene Metriken verwendet, um die Vorhersagequalität der Modelle zu bewerten. Dadurch, dass Mobilitätsdaten stark unbalanciert sind, ist die Wahl der Metriken entscheidend, um die Prognosegüte korrekt zu bewerten.
 
-\paragraph{Accuracy} ist eine Metrik, die den Anteil der korrekt vorhergesagten Werte an der Gesamtzahl der Vorhersagen misst. 
+\paragraph{Accuracy} ist eine Metrik, die den Anteil der korrekt vorhergesagten Werte an der Gesamtzahl der Vorhersagen misst. Hierbei stehen die Kürzel für: 
+TP (True Positives), TN (True Negatives), FP (False Positives) und FN (False Negatives). 
 
-$ \text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}} $
+\begin{equation}
+\text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}} 
+\end{equation}
 
 In diesem Fall ist die Accuracy nicht die beste Metrik, da die Daten stark unbalanciert sind und die Accuracy daher nicht die tatsächliche Vorhersagequalität widerspiegelt. Accuracy offenbart sich als unzureichend, da sie auf Grund der niedrigen Aktivitätsrate zwar oft eine hohe Genauigkeit aufweist, jedoch die Vorhersagequalität der positiven Klasse nicht korrekt widerspiegelt.
 
-
 \paragraph{Precision} wird dazu verwendet, um die Genauigkeit der positiven Vorhersagen zu messen. Sie gibt an, wie viele der als positiv vorhergesagten Werte tatsächlich positiv sind.
 
-$ \text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}} $
+\begin{equation}
+  \text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}}
+\end{equation}
 
 \paragraph{Recall} dient dazu, die Fähigkeit des Modells zu messen, alle relevanten positiven Werte zu identifizieren. Der Unterschied zur Precision besteht darin, dass der Recall den Anteil der tatsächlich positiven Werte misst, die korrekt als positiv vorhergesagt wurden.
 
-$ \text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}} $
+\begin{equation}
+  \text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}}
+\end{equation}
 
-\paragraph{F1-Score} ist eine Metrik, die sowohl Precision als auch Recall berücksichtigt und ein harmonisches Mittel dieser beiden Werte bildet.
+\paragraph{F$_\beta$-Score} fasst Precision und Recall zu einem gewichteten harmonischen Mittel zusammen. Der Faktor $\beta$ legt fest, um welchen Faktor der Recall gegenüber der Precision stärker gewichtet wird: $\beta > 1$ betont den Recall (verpasste Fahrten wiegen schwerer), $\beta < 1$ die Precision (Fehlalarme wiegen schwerer).
+
+\begin{equation}
+  F_\beta = (1 + \beta^2) \cdot \frac{\text{Precision} \cdot \text{Recall}}{\beta^2 \cdot \text{Precision} + \text{Recall}}
+\end{equation}
+
+In dieser Arbeit ist $\beta = 1$ gesetzt, sodass Fehlalarme und verpasste Fahrten gleich gewichtet werden. Aus der Gewichtung ergibt sich als Spezialfall der gebräuchliche F1-Score \parencite{vanrijsbergen1979}. Die Metrik ist relevant, um zu überblicken, welche Modelle relativ besser sind.
+
+\begin{equation}
+  F_1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+\end{equation}
+
+\paragraph{PR-AUC} (Precision-Recall Area Under Curve) kombiniert Precision und Recall in einer Kurve, die die Leistung des Modells über verschiedene Schwellenwerte hinweg darstellt. Der Flächeninhalt unter der Kurve (AUC) gibt einen aggregierten Wert für die Modellleistung an. Ein höherer AUC-Wert deutet auf eine bessere Modellleistung hin. Mit dem PR-AUC wird die absolute Vorhersagequalität bewertet und ob die Imbalance fair berücksichtigt wird. Berechnet wird die Fläche als Average Precision, also als schwellenweise gewichtete Summe der Precision-Werte $P_n$, wobei die Gewichte der Recall-Zuwachs $R_n - R_{n-1}$ zwischen aufeinanderfolgenden Schwellen sind. Die Zufalls-Baseline entspricht der Aktiv-Rate der positiven Klasse.
+
+\begin{equation}
+  \text{PR-AUC} = \sum_{n} (R_n - R_{n-1}) \cdot P_n
+\end{equation}
+
+\paragraph{Brier-Score} misst die Genauigkeit der probabilistischen Vorhersagen eines Modells, indem er den mittleren quadratischen Abstand zwischen der vorhergesagten Wahrscheinlichkeit $p_i$ und dem tatsächlichen Ausgang $y_i \in \{0,1\}$ über alle $N$ Beobachtungen bildet. Ein niedrigerer Wert bedeutet eine niederigere Abweichung und ob dem System vertraut werden kann.
+
+\begin{equation}
+  \text{Brier} = \frac{1}{N} \sum_{i=1}^{N} (p_i - y_i)^2
+\end{equation}
+
