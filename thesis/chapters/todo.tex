@@ -31,6 +31,57 @@
     \item Als menschliche Bewegungsdaten deklarieren, nicht als Fahrzeug-/Driving-Quelle
 \end{itemize}
 
+\paragraph{2026-07-21 --- Wiederholte Laeufe statt Einzel-Seed}
+\texttt{run\_cross\_validation.py} akzeptiert nun \texttt{-{}-seeds} und
+wiederholt den vollstaendigen Lauf je Zufallsinitialisierung; die Roh-CSV
+erhaelt eine \texttt{seed}-Spalte, zusaetzlich entsteht eine
+Aggregat-CSV mit Mittelwert und Standardabweichung je Zelle. Heatmaps und
+Tabellen beziehen sich auf den Mittelwert. Begruendung: Mit dem LSTM haengt
+die Guete nicht mehr nur von Daten und Verfahren ab, sondern auch von
+Gewichtsinitialisierung, Batch-Reihenfolge und Abbruchzeitpunkt. Ein
+Probelauf mit zwei Seeds zeigt fuer \texttt{lstm\_tab} Zell-Standard\-abweichungen
+bis 0{,}12 PR-AUC gegenueber 0{,}04 bei \texttt{rf} -- in dieser
+Groessenordnung liegt der gemessene Repraesentationseffekt selbst, weshalb
+Einzellauf-Zahlen fuer die neuronalen Varianten nicht berichtbar waeren.
+Ergaenzt wurde \texttt{-{}-no-save-models}, damit Probelaeufe den
+Modellbestand nicht ueberschreiben.
+
+\paragraph{2026-07-21 --- Geltungsbereich des Fahrzeugwochen-Kriteriums}
+Die 100-Fahrzeugwochen-Schranke gilt nur fuer die Isolationsmatrix, nicht fuer
+die Merkmals-Ablation; \texttt{03methodik.tex} (\texttt{sec:modellauswahl},
+\texttt{sec:experimentaldesign}) begruendet die Asymmetrie nun explizit. Grund:
+Die Matrix behauptet Generalisierung ueber Quellen hinweg und setzt daher ein
+belastbar gelerntes Muster voraus, waehrend die Ablation nur Varianten
+\emph{innerhalb} einer Quelle gegen die Referenz \enquote{voll} vergleicht --
+ein Umfangsmangel wirkt dort auf alle sieben Varianten gleich und hebt sich in
+der Differenzbildung heraus. Aus den Ablationswerten umfangsschwacher Quellen
+wird entsprechend keine Aussage zur Uebertragbarkeit abgeleitet. Ergaenzt wurde
+zudem der zuvor fehlende LSTM-Absatz in der Modellauswahl.
+
+\paragraph{2026-07-21 --- LSTM-Klassifikator in zwei Repraesentationen}
+Neues Modul \texttt{classifier/lstm\_classifier.py} mit
+\texttt{LSTMTabularClassifier} (\texttt{lstm\_tab}) und
+\texttt{LSTMSequenceClassifier} (\texttt{lstm\_seq}), beide ueber
+\texttt{base.\_build\_classifier()} ansprechbar. \texttt{lstm\_tab} sieht exakt
+\texttt{FEATURE\_COLS} wie RF/LGBM und isoliert damit den
+\emph{Architektureffekt}; \texttt{lstm\_seq} sieht ein Fenster der letzten
+168 rohen Stundenwerte und misst gegen \texttt{lstm\_tab} den
+\emph{Repraesentationseffekt}. Erst diese Zerlegung macht die
+Modellauswahl begruendbar: RF und LGBM variieren nur in einer Dimension
+(Bagging vs.\ Boosting) und decken die in Hypothese FF1 geforderte
+Komplexitaetsachse nicht ab. Als Kontrollvariable ersetzt
+\texttt{pos\_weight = neg/pos} das \texttt{class\_weight="balanced"} der
+Baum-Ensembles. Da sich ueberlappende Fenster fast alle Zeitschritte teilen,
+ist der massgebliche Stichprobenumfang die Zahl unabhaengiger
+\emph{Fahrzeugwochen}; \texttt{run\_cross\_validation.py} laesst Quellen
+darunter per vorab deklariertem Kriterium
+(\texttt{-{}-lstm-min-vehicle-weeks}, Default 100) nicht als LSTM-Trainingsquelle
+zu -- betroffen sind \texttt{ved} (54), \texttt{real\_world\_ev} (50) und
+\texttt{routine} (13), waehrend \texttt{emobpy} (1564) und \texttt{yjmob} (524)
+zugelassen sind. Die Merkmals-Ablation bleibt auf \texttt{lstm\_tab}
+beschraenkt, weil Spalten-Teilmengen fuer ein Modell auf der rohen Reihe
+nicht definiert sind.
+
 \paragraph{2026-07-02 --- LSTM-Forecaster (rekurrente Ablationsvariante)}
 Neue Schwesterklasse \texttt{LSTMForecaster} (PyTorch) in
 \texttt{forecast/lstm\_forecaster.py}, registriert als Algo \texttt{lstm}.
