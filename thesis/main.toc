@@ -72,7 +72,9 @@
 \contentsline {section}{\numberline {4.2}Systemarchitektur}{44}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Technologieauswahl}{46}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Umsetzung}{48}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Herausforderungen}{48}{section.4.5}%
+\contentsline {paragraph}{\nonumberline data\_adapters.py}{48}{paragraph*.64}%
+\contentsline {paragraph}{\nonumberline base.py}{49}{paragraph*.65}%
+\contentsline {section}{\numberline {4.5}Herausforderungen}{49}{section.4.5}%
 \contentsline {chapter}{\numberline {5}Evaluation}{50}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Evaluationsdesign}{50}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Testumgebung}{50}{section.5.2}%
@@ -85,11 +87,11 @@
 \contentsline {chapter}{\numberline {7}Fazit und Ausblick}{57}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{57}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Ausblick}{57}{section.7.2}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{58}{chapter*.69}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{58}{chapter*.71}%
 \def \@chapapp {\appendixname }
 \contentsline {chapter}{\numberline {A}Anhang}{61}{appendix.A}%
 \contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{61}{section.A.1}%
 \contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{61}{section.A.2}%
 \contentsline {section}{\numberline {A.3}Quellcode}{61}{section.A.3}%
-\contentsline {chapter}{Eidesstattliche Erklärung}{62}{chapter*.70}%
+\contentsline {chapter}{Eidesstattliche Erklärung}{62}{chapter*.72}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
