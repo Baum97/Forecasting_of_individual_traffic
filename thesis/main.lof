@@ -20,8 +20,8 @@
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Dynamischer Ablauf eines Forecast-Requests vom Frontend über das Backend und Persistenz bis zum Forecaster und dessen Aufbereitung und Darstellung der Ergebnisse.}}{45}{figure.caption.62}%
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Persistenzlayout des Systems: Modelle und Vorhersagen werden in einer hierarchischen Verzeichnisstruktur gespeichert, die eine einfache Navigation und Verwaltung der Daten ermöglicht. Modelle liegen gesondert von den Vorhersagen, die in Unterverzeichnissen nach Modell, Run und Zeitstempel organisiert sind.}}{46}{figure.caption.63}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (RandomForest)}}{49}{figure.caption.64}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LightGBM)}}{49}{figure.caption.65}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (RandomForest)}}{50}{figure.caption.64}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LightGBM)}}{50}{figure.caption.65}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

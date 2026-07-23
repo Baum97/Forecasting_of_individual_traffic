@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  23 JUL 2026 01:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  23 JUL 2026 13:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1481,7 +1481,7 @@ Package pdftex.def Info: graphen/variablendiagramm/variablendiagramm.pdf  used o
 [27
 
 ] [28 <./graphen/variablendiagramm/variablendiagramm.pdf>] [29]
-<graphen/methodik/methodik_workflow.pdf, id=714, 281.25275pt x 516.01285pt>
+<graphen/methodik/methodik_workflow.pdf, id=715, 281.25275pt x 516.01285pt>
 File: graphen/methodik/methodik_workflow.pdf Graphic file (type pdf)
 <use graphen/methodik/methodik_workflow.pdf>
 Package pdftex.def Info: graphen/methodik/methodik_workflow.pdf  used on input line 76.
@@ -1496,7 +1496,7 @@ chapter 4.
 
 
 ] [43]
-<graphen/komponentendiagramm/komponentendiagramm.pdf, id=934, 530.11252pt x 420.91855pt>
+<graphen/komponentendiagramm/komponentendiagramm.pdf, id=935, 530.11252pt x 420.91855pt>
 File: graphen/komponentendiagramm/komponentendiagramm.pdf Graphic file (type pdf)
 <use graphen/komponentendiagramm/komponentendiagramm.pdf>
 Package pdftex.def Info: graphen/komponentendiagramm/komponentendiagramm.pdf  used on input line 92.
@@ -1504,25 +1504,25 @@ Package pdftex.def Info: graphen/komponentendiagramm/komponentendiagramm.pdf  us
  [44
 
  <./graphen/komponentendiagramm/komponentendiagramm.pdf>]
-<graphen/sequenzdiagramm/sequenzdiagramm.pdf, id=1127, 468.56256pt x 336.72801pt>
+<graphen/sequenzdiagramm/sequenzdiagramm.pdf, id=1128, 468.56256pt x 336.72801pt>
 File: graphen/sequenzdiagramm/sequenzdiagramm.pdf Graphic file (type pdf)
 <use graphen/sequenzdiagramm/sequenzdiagramm.pdf>
 Package pdftex.def Info: graphen/sequenzdiagramm/sequenzdiagramm.pdf  used on input line 101.
 (pdftex.def)             Requested size: 426.79135pt x 306.7261pt.
  [45 <./graphen/sequenzdiagramm/sequenzdiagramm.pdf>]
-<graphen/persistenzlayout/persistenzlayout.pdf, id=1233, 419.169pt x 319.25272pt>
+<graphen/persistenzlayout/persistenzlayout.pdf, id=1234, 419.169pt x 319.25272pt>
 File: graphen/persistenzlayout/persistenzlayout.pdf Graphic file (type pdf)
 <use graphen/persistenzlayout/persistenzlayout.pdf>
 Package pdftex.def Info: graphen/persistenzlayout/persistenzlayout.pdf  used on input line 110.
 (pdftex.def)             Requested size: 362.77525pt x 276.30568pt.
- [46 <./graphen/persistenzlayout/persistenzlayout.pdf>]) (chapters/05evaluation.tex [47]
+ [46 <./graphen/persistenzlayout/persistenzlayout.pdf>] [47]) (chapters/05evaluation.tex [48]
 chapter 5.
-<images/cv_f1_5x5.png, id=1368, 404.712pt x 325.215pt>
+<images/cv_f1_5x5.png, id=1374, 404.712pt x 325.215pt>
 File: images/cv_f1_5x5.png Graphic file (type png)
 <use images/cv_f1_5x5.png>
 Package pdftex.def Info: images/cv_f1_5x5.png  used on input line 29.
 (pdftex.def)             Requested size: 362.77525pt x 291.52959pt.
-<images/cv_f1_5x5_lgbm.png, id=1369, 404.712pt x 325.215pt>
+<images/cv_f1_5x5_lgbm.png, id=1375, 404.712pt x 325.215pt>
 File: images/cv_f1_5x5_lgbm.png Graphic file (type png)
 <use images/cv_f1_5x5_lgbm.png>
 Package pdftex.def Info: images/cv_f1_5x5_lgbm.png  used on input line 37.
@@ -1542,33 +1542,33 @@ Underfull \hbox (badness 5533) in paragraph at lines 181--181
 \T1/lmr/m/n/12 (+20) distribution auf dem-sel-ben zeit-li-chen Test-Split. Ka-len-der =
  []
 
-) (chapters/06diskussion.tex [48
+) (chapters/06diskussion.tex [49
 
-] [49 <./images/cv_f1_5x5.png> <./images/cv_f1_5x5_lgbm.png>] [50] [51] [52]
+] [50 <./images/cv_f1_5x5.png> <./images/cv_f1_5x5_lgbm.png>] [51] [52] [53]
 chapter 6.
-) (chapters/07fazit.tex [53
+) (chapters/07fazit.tex [54
 
-] [54]
+] [55]
 chapter 7.
-) [55
+) [56
 
 ]
 chapter without number
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
-[56
+[57
 
 ]
 Overfull \hbox (1.56348pt too wide) in paragraph at lines 103--103
 \T1/lmtt/m/n/12 gradient -[] boosting -[] machine -[] learning -[] method -[] The -[] ensemble -[] classifiers _
  []
 
-[57] (chapters/08anhang.tex [58]
+[58] (chapters/08anhang.tex [59]
 chapter A.
-) (chapters/09erklaerung.tex [59
+) (chapters/09erklaerung.tex [60
 
-]) [60
+]) [61
 
 ] (main.aux)
  ***********
@@ -1580,17 +1580,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41627 strings out of 467871
- 840582 string characters out of 5414504
+ 41628 strings out of 467871
+ 840589 string characters out of 5414504
  1934147 words of memory out of 5000000
  69498 multiletter control sequences out of 15000+600000
  715943 words of font info for 211 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,113p,11260b,3475s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti10.pfb>
-Output written on main.pdf (67 pages, 2795156 bytes).
+Output written on main.pdf (68 pages, 2798675 bytes).
 PDF statistics:
- 1789 PDF objects out of 2073 (max. 8388607)
- 232 named destinations out of 1000 (max. 500000)
+ 1794 PDF objects out of 2073 (max. 8388607)
+ 233 named destinations out of 1000 (max. 500000)
  51263 words of extra memory for PDF output out of 51595 (max. 10000000)
 
