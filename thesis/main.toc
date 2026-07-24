@@ -74,24 +74,25 @@
 \contentsline {section}{\numberline {4.4}Umsetzung}{48}{section.4.4}%
 \contentsline {paragraph}{\nonumberline data\_adapters.py}{48}{paragraph*.64}%
 \contentsline {paragraph}{\nonumberline base.py}{49}{paragraph*.65}%
-\contentsline {section}{\numberline {4.5}Herausforderungen}{49}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Evaluation}{50}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Evaluationsdesign}{50}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Testumgebung}{50}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Ergebnisse}{50}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Diskussion}{55}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{55}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{55}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Limitationen}{55}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Implikationen}{56}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{57}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{57}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Ausblick}{57}{section.7.2}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{58}{chapter*.71}%
+\contentsline {paragraph}{\nonumberline Kreuzvalidierung}{49}{paragraph*.66}%
+\contentsline {section}{\numberline {4.5}Herausforderungen}{50}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Evaluation}{51}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Evaluationsdesign}{51}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Testumgebung}{51}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Ergebnisse}{51}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Diskussion}{56}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{56}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{56}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Limitationen}{56}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Implikationen}{57}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{58}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{58}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Ausblick}{58}{section.7.2}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{59}{chapter*.72}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\numberline {A}Anhang}{61}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{61}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{61}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Quellcode}{61}{section.A.3}%
-\contentsline {chapter}{Eidesstattliche Erklärung}{62}{chapter*.72}%
+\contentsline {chapter}{\numberline {A}Anhang}{62}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{62}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{62}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Quellcode}{62}{section.A.3}%
+\contentsline {chapter}{Eidesstattliche Erklärung}{63}{chapter*.73}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

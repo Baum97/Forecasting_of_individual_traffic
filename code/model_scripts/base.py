@@ -88,7 +88,7 @@ def _ensure_features(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def split_by_time(df: pd.DataFrame, train_frac: float = 0.8) -> Tuple[pd.DataFrame, pd.DataFrame]:
-    """Split per-vehicle by time so that lag features computed on the full
+    """Split by time so that lag features computed on the full
     timeline remain valid (i.e. test rows can reference earlier train rows)."""
     cut = df["timestamp"].quantile(train_frac)
     return df[df["timestamp"] <= cut].copy(), df[df["timestamp"] > cut].copy()
