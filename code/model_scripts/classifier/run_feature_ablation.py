@@ -3,7 +3,7 @@ Ablationsstudie ueber Merkmalsgruppen (nicht ueber Modelle).
 
 Je Datenquelle und Algorithmus wird der Driving-Classifier mehrfach trainiert:
 einmal mit dem vollstaendigen Feature-Satz (Referenz) und je einmal mit einer
-entfernten bzw. isolierten Merkmalsgruppe. Gemessen wird der Gueteverlust
+entfernten beziehungsweise isolierten Merkmalsgruppe. Gemessen wird der Gueteverlust
 gegenueber der Referenz
 
 Merkmalsgruppen:

@@ -155,7 +155,7 @@ python emobility_forecaster.py predict-batch `
 
 Geprüft werden u. a.:
 - Existenz der Manifest- und History-Dateien
-- Pflichtspalten (`date`, `target` bzw. konfiguriert)
+- Pflichtspalten (`date`, `target` beziehungsweise konfiguriert)
 - Gültige Datum-/Target-Werte
 - Mindestanzahl gültiger Historien-Tage (mindestens `history_days`)
 - Gültiger `current_soc_percent` im Bereich 0 bis 100 (falls gesetzt)

@@ -4,7 +4,7 @@
 \chapter{Methodik}
 \label{ch:methodik}
 
-Das Ziel der Methodik ist es, die zuvor genannten Forschungsfragen in \cref{sec:forschungsfragen} zu beantworten. Um dies zu erreichen, werden in \cref{sec:untersuchungsablauf}, \cref{fig:methodik} die methodischen Schritte beschrieben, die dafür durchgeführt werden. 
+Das Ziel der Methodik ist es, die zuvor genannten Forschungsfragen in \cref{sec:forschungsfragen} zu beantworten. Um dies zu erreichen, werden in \cref{sec:untersuchungsablauf} und \cref{fig:methodik} die methodischen Schritte beschrieben, die dafür durchgeführt werden. 
 
 
 \paragraph{Datenquellen}
@@ -31,9 +31,9 @@ Die Arbeit folgt einem quantitativ-experimentellen Forschungsdesign, das auf der
   \label{fig:variablendesign}
 \end{figure}
 
-Die unabhängigen Variablen in der Experimentreihe sind die verschiedenen Datensätze, die jeweils unterschiedliche Informationen enthalten, und die unterschiedlichen Machine-Learning-Algorithmen. Die Hyperparameter werden je Modell einmalig festgelegt und während der Isolationsexperimente konstant gehalten; dadurch wirken sie, wie das Feature-Set und Trainingsprotokoll, als Kontrollvariablen (\cref{fig:variablendesign}). Die abhängige Variable ist die Prognosegüte, da diese von den unabhängigen Variablen beeinflusst wird. Für die Ablation werden die gelernten Modelle per Algorithmus- und Datenisolation untersucht, um die jeweiligen Effekte auf die Vorhersagegenauigkeit zu bestimmen. Die Ergebnisse werden statistisch analysiert, um die Qualität der Modelle auf Grund ihrer Datenbasis und ihres Algorithmus zu bewerten. Im Zuge dieses Aufbaus können, wie in \cref{tab:forschungsfragenhypothesen}, folgende Hypothesen aufgestellt werden:
+Die unabhängigen Variablen in der Experimentreihe sind die verschiedenen Datensätze, die jeweils unterschiedliche Informationen enthalten und die unterschiedlichen Machine-Learning-Algorithmen. Die Hyperparameter werden je Modell einmalig festgelegt und während der Isolationsexperimente konstant gehalten; dadurch wirken sie, wie das Feature-Set und Trainingsprotokoll, als Kontrollvariablen (\cref{fig:variablendesign}). Die abhängige Variable ist die Prognosegüte, da diese von den unabhängigen Variablen beeinflusst wird. Für die Ablation werden die gelernten Modelle per Algorithmus- und Datenisolation untersucht, um die jeweiligen Effekte auf die Vorhersagegenauigkeit zu bestimmen. Die Ergebnisse werden statistisch analysiert, um die Qualität der Modelle auf Grund ihrer Datenbasis und ihres Algorithmus zu bewerten. Im Zuge dieses Aufbaus können, wie in \cref{tab:forschungsfragenhypothesen}, folgende Hypothesen aufgestellt werden:
 
-\begin{table}[htbp]
+\begin{table}[H]
   \centering
   \caption{Hypothesen zu den Forschungsfragen.}
   \label{tab:forschungsfragenhypothesen}
@@ -71,9 +71,9 @@ Die unabhängigen Variablen in der Experimentreihe sind die verschiedenen Datens
 
 Die Methodik umfasst die Auswahl und Implementierung von Datenaufbereitung und Machine-Learning-Modellen, die Gegenüberstellung der Modelle, sowie die Durchführung von Ablationsexperimenten, um die besten Modelle zu identifizieren. Die Methodik ist in \cref{fig:methodik} schematisch dargestellt. Der Arbeitsfluss beginnt mit der Auswahl und Aufbereitung der Daten -- in diesem Fall fünf verschiedene Datenquellen -- welche in ein einheitliches Schema transformiert werden. Als nächstes werden die Daten auf ihre Qualität hin bewertet und relevante Features extrahiert. Anschließend werden die Daten in Modelle eingespeist, die unterschiedliche Aufgaben erledigen: Klassifikator und Zeitreihenprognose. Die Modelle werden dann in einem experimentellen Design evaluiert, das sowohl die Isolation von Daten- und Algorithmen-Effekten als auch eine Ablationsstudie umfasst. Das Isolieren der Daten- und Algorithmen-Effekte ist ein wichtiger Aspekt der Methode, um sicherstellen zu können, dass die Ergebnisse auf die jeweiligen Einflussfaktoren zurückgeführt werden können. Abschließend werden die Ergebnisse bewertet und die Forschungsfragen beantwortet.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.7\textwidth]{graphen/methodik/methodik_workflow.pdf}
+  \includegraphics[width=0.62\textwidth]{graphen/methodik/methodik_workflow.pdf}
   \caption{Schematischer Workflow der Methodik: von den fünf Datenquellen über
     den geteilten Feature-Kern und die beiden Aufgabenmodelle bis zum
     Experimentaldesign und der Bewertung.}
@@ -84,7 +84,7 @@ Die Arbeit lässt sich in drei große Teile gliedern:
 \begin{itemize}
     \item \textbf{Datenaufbereitung}: Das Erkundschaften der Datenlandschaft, die Transformation der Daten in ein geeignetes Format und die Auswahl relevanter Features.
     \item \textbf{Machine Learning}: Die Auswahl und Implementierung verschiedener Machine-Learning-Modelle auf Grund ihrer unterschiedlichen Eigenschaften (leaf- und level-wise Wachstum, Bagging und Boosting, modellierte zeitliche Abhängigkeiten).
-    \item \textbf{Ablationsexperimente}: Im Rahmen einer Ablationstudie werden verschiedene Modelle hinsichtlich ihrer Wertigkeit (in diesem Fall: Vorhersagegenauigkeit, Robustheit, Zuverlässigkeit) miteinander verglichen, um die besten Modelle zu identifizieren. 
+    \item \textbf{Ablationsexperimente}: Vergleich verschiedener Modelle hinsichtlich ihrer Wertigkeit (in diesem Fall: Vorhersagegenauigkeit, Robustheit, Zuverlässigkeit). 
 \end{itemize}
 
 % -----------------------------------------------------------------------------
@@ -121,7 +121,7 @@ Da die Daten einen großen Einfluss auf die Leistungsfähigkeit der Modelle habe
 
 \paragraph{\texttt{ved}} (Vehicle Energy Dataset) ist ein Datensatz, der durch die Universität Michigan, das Argonne National Lab und das Idaho National Lab bereitgestellt wird \parencite{oh2020ved}. Die Daten stammen von 383 Fahrzeugen, welche in Ann Arbor, Michigan, USA über ein Jahr hinweg Fahrdaten gesammelt haben. Die OBD-II-Signale werden hochfrequent \emph{während der Fahrt} protokolliert; für Parkzeiten liegen keine Messpunkte vor, sodass sich die Fahraktivität unmittelbar aus der Existenz eines Eintrags ableiten lässt und ein zusätzlicher Aktivitätsfilter entfällt. Der Datensatz hebt sich mit seiner stark abweichenden Aktivitätsrate ab; der Median liegt bei 0,99\,\%, die Spanne jedoch bei 0--100\,\%. Diese ergibt sich daraus, dass manche Fahrzeuge keine aktiven Stunden aufzeichnen, andere nur einen einzelnen Tag, der ausschließlich aus Fahrten besteht.
 
-\paragraph{\texttt{routine}} ist ein stark regelbasierter Algorithmus, um synthetische Daten zu generieren. \texttt{routine} wurde im Verlauf dieser Arbeit entwickelt, um eine an deutsche Arbeitsalltage angelehnte Alternative zur Hand zu haben. Die Tagesabläufe richten sich stark nach dem üblichen Muster:
+\paragraph{\texttt{routine}} ist ein stark regelbasierter Algorithmus, um synthetische Daten zu generieren. \texttt{routine} wurde im Verlauf dieser Arbeit entwickelt, um eine an deutsche Arbeitsalltage angelehnte Alternative zur Verfügung zu haben. Die Tagesabläufe richten sich stark nach dem üblichen Muster:
 \begin{itemize}
   \item \texttt{Arbeit}: 3-Schicht-Modell
   \item \texttt{Außerordentliches}: Trips, die nicht zur Arbeit gehören. Freizeit, Einkauf, andere Aktivitäten
@@ -136,7 +136,7 @@ Die Aufbereitung der Daten erfolgt in einem einheitlichen Muster -- durch einen 
 
 Die Qualität der Datensätze lässt sich durch die Prognosegüte evaluieren, denn selbst wenn der Datensatz keine Fehler aufweist und laut Überprüfung optimal wäre, bestünde die Möglichkeit, dass die Varianz über die Fahrzeuge hinweg zu groß ist und somit für Anforderungen der individuellen Mobilitätsprognose nicht ausreicht.
 
-Da die individuelle Mobilitätsprognose für möglichst viele unterschiedliche Personen zuverlässig funktionieren soll, ist es von Vorteil, grundverschiedene Quellen zum Trainieren und Testen zu verwenden: Nur so lässt sich prüfen, ob das Verfahren über heterogene Datenbedingungen hinweg generalisiert. Die Quellen unterscheiden sich in der Art der Erhebung bzw. Erzeugung, dem Ort der Studie, der Anzahl der Subjekte, den Rahmenbedingungen und dem Erhebungszeitraum. Gerade wegen dieser starken Heterogenität (stark unterschiedliche Definition von Aktivität) sind die absoluten Aktivitätsraten der Quellen nur eingeschränkt direkt vergleichbar. Die Überführung in ein einheitliches Schema und das isolierende Experimentaldesign stellen sicher, dass Daten- und Algorithmuseffekt dennoch getrennt beurteilt werden können.
+Da die individuelle Mobilitätsprognose für möglichst viele unterschiedliche Personen zuverlässig funktionieren soll, ist es von Vorteil, grundverschiedene Quellen zum Trainieren und Testen zu verwenden: Nur so lässt sich prüfen, ob das Verfahren über heterogene Datenbedingungen hinweg generalisiert. Die Quellen unterscheiden sich in der Art der Erhebung beziehungsweise Erzeugung, dem Ort der Studie, der Anzahl der Subjekte, den Rahmenbedingungen und dem Erhebungszeitraum. Gerade wegen dieser starken Heterogenität (stark unterschiedliche Definition von Aktivität) sind die absoluten Aktivitätsraten der Quellen nur eingeschränkt direkt vergleichbar. Die Überführung in ein einheitliches Schema und das isolierende Experimentaldesign stellen sicher, dass Daten- und Algorithmuseffekt dennoch getrennt beurteilt werden können.
 
 % -----------------------------------------------------------------------------
 
@@ -151,11 +151,11 @@ Aus diesem Raster werden die folgenden Features abgeleitet, die als Eingangsgrö
   \item Rolling\_mean\_24, Rolling\_mean\_168
 \end{itemize}
 
-Die aufgelisteten Features sind die Basis für die Modelle, um die Vorhersage zu treffen. Die Features Hour, Weekday und Is\_weekend sind zeitliche Markierungen, um die Tageszeit, den Wochentag und das Wochenende zu identifizieren. Die Identifikation dieser Merkmale ist wichtig, da das Mobilitätsverhalten stark von diesen Faktoren abhängt. So fährt man beispielsweise morgens zur Arbeit, jedoch an einem Sonntag nicht. 
+Die aufgelisteten Features sind die Basis für die Modelle, um die Vorhersage zu treffen. Die Features Hour, Weekday und Is\_weekend sind zeitliche Markierungen, um die Tageszeit, den Wochentag und das Wochenende zu identifizieren. Die Identifikation dieser Merkmale ist wichtig, da das Mobilitätsverhalten stark von diesen Faktoren abhängt. So ist ein Fahrverhalten beispielsweise Montag morgens zur Arbeit, jedoch an einem Sonntag nicht. 
 
 Die Lag-Features (Lag\_1, Lag\_2, Lag\_24, Lag\_168) geben den Aktivitätszustand zu einem jeweils früheren Zeitpunkt wieder. Die Wahl dieser vier Verzögerungen folgt den stärksten Faktoren der Periodizität: Lag\_1 und Lag\_2 erfassen die kurzfristige Autokorrelation, da sich einzelne Fahrten typischerweise über mehrere aufeinanderfolgende Stunden erstrecken. Lag\_24 entspricht derselben Stunde des Vortages und bildet damit die Tagesperiodik ab, etwa wiederkehrende Pendelzeiten. Lag\_168 entspricht derselben Stunde der Vorwoche und erfasst die Wochenperiodik, insbesondere den Unterschied zwischen Werktagen und Wochenende. Diese Merkmale sind notwendig, weil baumbasierte Modelle keine zeitliche Ordnung ihrer Eingaben kennen. Das bedeutet, dass jede Zeile unabhängig betrachtet wird, sodass zeitliche Bezüge nicht selbstständig gebildet werden können und explizit als Merkmale bereitgestellt werden müssen.
 
-Rolling-Mean-Features (Rolling\_mean\_24, Rolling\_mean\_168) repräsentieren den Durchschnitt der Aktivität über die letzten 24 bzw. 168 Stunden. Diese Features helfen dabei, das Aktivitätsmuster im Mobilitätsverhalten zu erkennen, die für die Vorhersage der zukünftigen Aktivität relevant sind. 
+Rolling-Mean-Features (Rolling\_mean\_24, Rolling\_mean\_168) repräsentieren den Durchschnitt der Aktivität über die letzten 24 beziehungsweise 168 Stunden. Diese Features helfen dabei, das Aktivitätsmuster im Mobilitätsverhalten zu erkennen, die für die Vorhersage der zukünftigen Aktivität relevant sind. 
 
 Bei der Nutzung von historischen Zeitreihendaten ist es wichtig, deren chronologische Abfolge zu berücksichtigen. Ein potentielles Problem, das bei der Nutzung von solchen Daten auftreten kann, ist das sogenannte \emph{Data Leakage}. Data Leakage tritt auf, wenn Informationen aus der Zukunft in das Modelltraining einfließen, was zu einer unrealistischen Leistungsbewertung führt. Um dieses Problem zu vermeiden, werden die Daten in Trainings- und Testsets aufgeteilt, wobei die chronologische Reihenfolge strikt eingehalten wird. Das bedeutet, dass das Modell nur auf Basis der historischen Daten trainiert wird und keine Informationen aus der Zukunft erhält. Durch das Unterbinden von willkürlichen Daten-Splits wird sichergestellt, dass die Leistungsbewertung des Modells realistisch ist und die Vorhersagegüte nicht durch Data Leakage verfälscht wird.
 
@@ -164,7 +164,7 @@ Bei der Nutzung von historischen Zeitreihendaten ist es wichtig, deren chronolog
 \section{Modellauswahl}
 \label{sec:modellauswahl}
 
-Bei der Modellauswahl ist vor Allem die Heterogenität der Modelle entscheidend, um die Forschugnsfragen zu beantworten. Die Modelle unterscheiden sich in ihrer Funktionsweise, ihren Stärken und Schwächen sowie in ihrer Fähigkeit, mit unterschiedlichen Arten von Daten umzugehen. Die Auswahl der Modelle basiert auf der Literaturrecherche und den spezifischen Anforderungen der Forschungsfragen. 
+Bei der Modellauswahl ist vor Allem die Heterogenität der Modelle entscheidend, um die Forschungsfragen zu beantworten. Die Modelle unterscheiden sich in ihrer Funktionsweise, ihren Stärken und Schwächen, sowie in ihrer Fähigkeit mit unterschiedlichen Arten von Daten umzugehen. Die Auswahl der Modelle basiert auf der Literaturrecherche und den spezifischen Anforderungen der Forschungsfragen. 
 
 \paragraph{Random Forest} Modelle zeichnen sich durch ihre Fähigkeit aus, komplexe nichtlineare Zusammenhänge zu modellieren und dabei eine hohe Robustheit gegenüber Rauschen in den Daten aufzuweisen. Durch das Bagging-Verfahren, bei dem mehrere Entscheidungsbäume auf unterschiedlichen Stichproben der selben Trainingsdaten trainiert werden, können Random Forests eine große Menge an Entscheidungsbäumen kombinieren, die jeweils unterschiedliche Aspekte der Daten erfassen. Die Vorhersagen der einzelnen Bäume werden dann aggregiert, um eine finale Vorhersage zu treffen. 
 
@@ -179,20 +179,19 @@ Für die rekurrenten Varianten wird der Umfang einer Quelle vorab in \emph{Fahrz
 \section{Experimentaldesign}
 \label{sec:experimentaldesign}
 
-Beim Experimentaldesign werden die Modelle auf Basis der verschiedenen Datenquellen bei einem 80\% Training und 20\% Test, trainiert und getestet, um die Auswirkungen der Datenqualität und -quelle auf die Prognosegüte zu untersuchen. Im ganzen gibt es fünf verschiedene Datenquellen, die jeweils unterschiedliche Informationen enthalten. Für jede Datenquelle werden die Modelle trainiert und anschließend mit jeder Datenquelle getestet. Durch dieses Verfahren lässt sich die Prognosegüte der Modelle anhand von jeder Datenquelle darstellen -- jedes Modell schneidet durch seine unterschiedlichen Trainingsdaten unterschiedlich ab (\Cref{fig:cv_matrix} und \cref{fig:cv_matrix_lgbm}). Durch die Erstellung der unterschiedlichen Modelle bietet sich die Möglichkeit sowohl die Güte der Daten als auch die Güte der Modelle gegenüberzustellen, was sich durch eine Kreuzvalidierung darstellen lässt.
+Modelle werden in einem Experimentaldesign auf Basis der verschiedenen Datenquellen bei einem 80\% Training und 20\% Test trainiert und getestet, um die Auswirkungen der Datenqualität und -quelle auf die Prognosegüte zu untersuchen. Im ganzen gibt es fünf verschiedene Datenquellen, die jeweils unterschiedliche Informationen enthalten. Für jede Datenquelle werden die Modelle trainiert und anschließend mit jeder Datenquelle getestet. Durch dieses Verfahren lässt sich die Prognosegüte der Modelle anhand von jeder Datenquelle darstellen -- jedes Modell schneidet durch seine verschiedenen Trainingsdaten unterschiedlich ab (\Cref{fig:cv_matrix} und \cref{fig:cv_matrix_lgbm}). Da sich sowohl die Architekturen der Modelle als auch Datenquellen unterscheiden, bietet sich die Möglichkeit sowohl die Güte der Daten als auch die Güte der Modelle gegenüberzustellen, was sich durch eine Kreuzvalidierung darstellen lässt.
 
-Zusätzlich zur Kreuzvalidierung wird eine Ablationsstudie durchgeführt, um die Auswirkungen der Datenmerkmale auf die Prognosegüte zu untersuchen. Hierbei werden bestimmte Merkmale der Datenquelle ignoriert, oder gezielt isoliert, um den Einfluss der einzelnen Merkmale zu untersuchen. Merkmale wie die Tageszeit (\texttt{lag\_\emph{X}}), der Wochentag, welcher durch den Timestamp abgeleitet wird, und die historischen Fahrten werden dabei gezielt untersucht; der Einfluss wird als Abfall der PR-AUC gegenüber dem vollen Merkmalssatz gemessen. Dadurch lässt sich genauer bestimmen, welche Merkmale der Datenquelle einen signifikanten Einfluss auf die Prognosegüte haben und welche nicht.
+Zusätzlich zur Kreuzvalidierung wird eine Ablationsstudie durchgeführt, um die Auswirkungen der Datenmerkmale auf die Prognosegüte zu untersuchen. Hierbei werden bestimmte Merkmale der Datenquelle ignoriert oder gezielt isoliert, um den Einfluss der einzelnen Merkmale zu untersuchen. Merkmale wie die Tageszeit (\texttt{lag\_\emph{X}}), der Wochentag, welcher durch den Timestamp abgeleitet wird und die historischen Fahrten werden dabei gezielt untersucht; der Einfluss wird als Abfall der PR-AUC gegenüber dem vollen Merkmalssatz gemessen. Dadurch lässt sich genauer bestimmen, welche Merkmale der Datenquelle einen signifikanten Einfluss auf die Prognosegüte haben und welche nicht.
 
 Die Versuche kennzeichnen sich durch drei Merkmale:
 \begin{itemize}
   \item \textbf{Datenquelle}: Die Daten werden einmalig geteilt und für alle Modelle identisch verwendet, um Vergleichbarkeiten und Differenzierungen zu gewährleisten.
   \item \textbf{Architektur}: Drei Verfahren (Random Forest, LightGBM, LSTM) werden auf Basis der gleichen Daten trainiert und getestet, um den Algorithmuseffekt zu isolieren.
-  \item \textbf{Seeds}: Unterschiedliche zufällige Initialisierungen (bei baumbasierten Modellen Bootstrap und Merkmalsauswahl, beim LSTM Gewichte und Mini-Batch-Reihenfolge), sodass jede Zelle der Kreuzvalidierung Mittelwert \emph{und} Standardabweichung aus fünf Durchläufen trägt; erst deren Streuung entscheidet, ob ein Unterschied berichtbar ist.
+  \item \textbf{Seeds}: Bedeutet eine unterschiedliche und zufällige Initialisierungen (bei baumbasierten Modellen Bootstrap und Merkmalsauswahl, beim LSTM Gewichte und Mini-Batch-Reihenfolge), sodass jede Zelle der Kreuzvalidierung Mittelwert \emph{und} Standardabweichung aus fünf Durchläufen trägt; erst deren Streuung entscheidet, ob ein Unterschied berichtbar ist.
 \end{itemize}
 
-Es werden fünf Datenquellen verwendet, um fünf Trainings- und Testsets zu bilden, die jeweils unterschiedliche Informationen enthalten. Diese Daten bleiben für alle Architekturen und Modelle identisch, sodass die Ergebnisse der Modelle direkt miteinander vergleichbar sind. Bei der Untersuchung der Datenquellen wird die Qualität anhand der Architekturen und Modelle bewertet. Nun werden aus den drei Architekturen vier verschiedene Modelle (RF, LGBM, LSTM: Sequentiell, Tabellarisch) gebildet, die jeweils unterschiedliche Eigenschaften aufweisen (siehe Grundlagen \cref{sec:randomforest}, \cref{sec:lightgbm}, \cref{sec:lstm}) -- Bei den LSTM Modellen wird jedoch die Differenz zwischen dem sequentiellen und tabellarischen Modell als Repräsentation verwendet. Da die sequentiellen Varianten mindestens 100 Fahrzeugwochen voraussetzen (\cref{sec:modellauswahl}), werden sie nur auf \texttt{emobpy} und \texttt{yjmob100k} trainiert; die übrigen Quellen bleiben als Trainingszeile leer, als Testquelle jedoch erhalten. Je Seed ergeben sich so 14 Modelle (RF und LGBM je fünf, LSTM je zwei) und, gegen alle fünf Testquellen, 70 Auswertungen und da fünf Seeds berechnet werden, 350 Gesamtauswertungen.
-
-
+Es werden fünf Datenquellen verwendet, um fünf Trainings- und Testsets zu bilden, die jeweils unterschiedliche Informationen enthalten. Diese Daten bleiben für alle Architekturen und Modelle identisch, sodass die Ergebnisse der Modelle direkt miteinander vergleichbar sind. Bei der Untersuchung der Datenquellen wird die Qualität anhand der Architekturen und Modelle bewertet. Nun werden aus den drei Architekturen vier verschiedene Modelle (RF, LGBM, LSTM: Sequentiell, Tabellarisch) gebildet, die jeweils unterschiedliche Eigenschaften aufweisen (siehe Grundlagen \cref{sec:randomforest}, \cref{sec:lightgbm}, \cref{sec:lstm}) -- Bei den LSTM Modellen wird jedoch die Differenz zwischen dem sequentiellen und tabellarischen Modell als Repräsentation verwendet. Da die sequentiellen Varianten mindestens 100 Fahrzeugwochen voraussetzen (\cref{sec:modellauswahl}), werden sie nur auf \texttt{emobpy} und \texttt{yjmob100k} trainiert; die übrigen Quellen bleiben als Trainingszeile leer, als Testquelle jedoch erhalten. 
+Je Seed ergeben sich so 14 Modelle, jedes Modell wird gegen alle fünf Testequellen getestet, sodass 70 Auswertungen pro Seed entstehen. Da fünf Seeds berechnet werden, ergeben sich insgesamt 350 Auswertungen. Die Ergebnisse werden dann gemittelt und in Form einer Kreuzvalidierungsmatrix dargestellt, die die Prognosegüte der Modelle auf Basis der verschiedenen Datenquellen zeigt. Die 14 Modelle ergeben sich durch: fünf Modelle für Random Forest, fünf Modelle für LightGBM und vier Modelle für LSTM (zwei tabellarisch und zwei sequentiell).
 
 % -----------------------------------------------------------------------------
 
@@ -234,7 +233,7 @@ In dieser Arbeit ist $\beta = 1$ gesetzt, sodass Fehlalarme und verpasste Fahrte
   F_1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
 \end{equation}
 
-\paragraph{PR-AUC} (Precision-Recall Area Under Curve) kombiniert Precision und Recall in einer Kurve, die die Leistung des Modells über verschiedene Schwellenwerte hinweg darstellt. Der Flächeninhalt unter der Kurve (AUC) gibt einen aggregierten Wert für die Modellleistung an. Ein höherer AUC-Wert deutet auf eine bessere Modellleistung hin. Mit dem PR-AUC wird die absolute Vorhersagequalität bewertet und ob die Imbalance fair berücksichtigt wird. Berechnet wird die Fläche als Average Precision, also als schwellenweise gewichtete Summe der Precision-Werte $P_n$, wobei die Gewichte der Recall-Zuwachs $R_n - R_{n-1}$ zwischen aufeinanderfolgenden Schwellen sind. Die Zufalls-Baseline entspricht der Aktiv-Rate der positiven Klasse.
+\paragraph{PR-AUC} (Precision-Recall Area Under Curve) kombiniert Precision und Recall in einer Kurve, welche die Leistung des Modells über verschiedene Schwellenwerte hinweg darstellt. Der Flächeninhalt unter der Kurve (AUC) gibt einen aggregierten Wert für die Modellleistung an. Ein höherer AUC-Wert deutet auf eine bessere Modellleistung hin. Mit dem PR-AUC wird die absolute Vorhersagequalität bewertet und, ob die Imbalance fair berücksichtigt wird. Berechnet wird die Fläche als Average Precision, also als schwellenweise gewichtete Summe der Precision-Werte $P_n$, wobei die Gewichte der Recall-Zuwachs $R_n - R_{n-1}$ zwischen aufeinanderfolgenden Schwellen sind. Die Zufalls-Baseline entspricht der Aktiv-Rate der positiven Klasse.
 
 \begin{equation}
   \text{PR-AUC} = \sum_{n} (R_n - R_{n-1}) \cdot P_n

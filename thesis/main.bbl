@@ -529,6 +529,61 @@
       \verb 10.1111/tgis.13043
       \endverb
     \endentry
+    \entry{kaufman2012leakage}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=a63501185d4f0efbf451c58b68955177}{%
+           family={Kaufman},
+           familyi={K\bibinitperiod},
+           given={Shachar},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=419317fdd051d6322062748170149516}{%
+           family={Rosset},
+           familyi={R\bibinitperiod},
+           given={Saharon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c333f5fc9269b6c1e7ae7c04a209af70}{%
+           family={Perlich},
+           familyi={P\bibinitperiod},
+           given={Claudia},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3f6a1207e6aff13cd7cab3ab6007a582}{%
+           family={Stitelman},
+           familyi={S\bibinitperiod},
+           given={Ori},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{990895aacc01c7a30114848e68fbf4b9}
+      \strng{fullhash}{0b6a564a1387e42663349e254bbe76e8}
+      \strng{fullhashraw}{0b6a564a1387e42663349e254bbe76e8}
+      \strng{bibnamehash}{0b6a564a1387e42663349e254bbe76e8}
+      \strng{authorbibnamehash}{0b6a564a1387e42663349e254bbe76e8}
+      \strng{authornamehash}{990895aacc01c7a30114848e68fbf4b9}
+      \strng{authorfullhash}{0b6a564a1387e42663349e254bbe76e8}
+      \strng{authorfullhashraw}{0b6a564a1387e42663349e254bbe76e8}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Transactions on Knowledge Discovery from Data}
+      \field{number}{4}
+      \field{title}{Leakage in Data Mining: Formulation, Detection, and Avoidance}
+      \field{volume}{6}
+      \field{year}{2012}
+      \field{pages}{1\bibrangedash 21}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1145/2382577.2382579
+      \endverb
+    \endentry
     \entry{koenker1978regression}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=713ca648cccb03223d755f3f2ff51a5c}{%
