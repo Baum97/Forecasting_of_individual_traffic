@@ -14,7 +14,7 @@ In der Evaluation wird beschrieben, wie die entwickelten Methoden aus \cref{ch:m
 
 \todo{Das Design der Evaluation beschreiben. Welche Metriken, Kriterien oder Hypothesen werden überprüft?}
 
-Durch verschiedene Darstellungen werden die Gütemaße der Modelle visualisiert, um die Genauigkeit, Stabilität und Verlässlichkeit der Vorhersagen zu bewerten (unter anderem \cref{tab:baselines} und \cref{tab:cv_metrics}). 
+Durch verschiedene Darstellungen werden die Gütemaße der Modelle visualisiert, um die Genauigkeit, Stabilität und Verlässlichkeit der Vorhersagen zu bewerten (unter anderem \cref{tab:baselines} und \cref{tab:cv_metrics}). Anhand einer Kreuzvalidierungsmatrix (\cref{fig:cv_matrix}, \cref{fig:cv_matrix_lgbm}, \cref{fig:cv_matrix_lstm_seq} und \cref{fig:cv_matrix_lstm_tab}) wird die Konsistenz der Vorhersagen über verschiedene Datenquellen hinweg überprüft. Da bei den verschiedenen Architekturen fünf Seeds existieren, werden die Gütemaße für die Stabilität gemittelt, um Randwerte zu minimieren. Die Gütemaße werden in \cref{tab:cv_metrics} für alle Modelle und Datenquellen tabellarisch dargestellt, um die Vergleichbarkeit zu erleichtern. Metriken die verwendet werden, sind Accuracy, F1-Score, ROC-AUC, PR-AUC und Brier-Score. Die Kennzahlen werden sowohl für die In-Distribution (auf derselben Datenquelle) als auch für die Out-of-Distribution (auf anderen Datenquellen) berechnet, um die Generalisierungsfähigkeit der Modelle zu bewerten. Accuracy wird als Negativbeispiel für die Limitierungen der Gütemaße diskutiert, da bei stark unausgeglichenen Klassenverteilungen (wie in diesem Anwendungsfall) die Accuracy eine fehlleitende Metrik sein kann. PR-AUC und Brier-Score werden als die wichtigsten Metriken hervorgehoben, da deren Fähigkeit bei unausgeglichen Datensatzen die Qualität der Vorhersagen zu bewerten, besonders relevant ist. Im Laufe der Tests wird eine Ablation der Merkmalsgruppen durchgeführt, um die Bedeutung der einzelnen Merkmale für die Vorhersageleistung zu bewerten (\cref{tab:ablation}). Die Ablation untersucht, wie sich das Entfernen von bestimmten Merkmalsgruppen (Kalender, Lags, Rolling) auf die Metriken auswirkt.
 
 % -----------------------------------------------------------------------------
 \section{Testumgebung}
@@ -22,29 +22,24 @@ Durch verschiedene Darstellungen werden die Gütemaße der Modelle visualisiert,
 
 \todo{Die Testumgebung beschreiben (Hardware, Software, Datensätze, Konfigurationen).}
 
+Bei der Testumgebung handelt es sich um eine standardisierte Umgebung, die sicherstellt, dass die Evaluation reproduzierbar und konsistent durchgeführt werden kann. Zu den Bedingungen gehören folgende Dinge:
+
+\begin{itemize}
+    \item Hardware: Die Tests werden auf einem lokalen Computer mit einer NVIDIA GeForce RTX 4070Ti Grafikkarte, 32 GB DDR5 RAM und einem Ryzen 7 9800X3D Prozessor durchgeführt. Die Hardware ist dafür spezialisiert, eine überschaubare Anzahl an anspruchsvollen Aufgaben in kurzer Zeit zu bewältigen, was für die Evaluation der Modelle von Vorteil ist.
+    \item Software: Die Softwareumgebung besteht aus Visual Studio Code, Python 3.13 und den folgenden Technologien aus aktuellster Version zum 27.07.2026:scikit-learn, lightgbm, PyTorch, Pandas, Numpy, Angular und TypeScript.
+    \item Datensatzkonfiguration: Jede Quelle wird chronologisch im Verhältnis 80/20 in Trainings- und Testteil geteilt. Der Umfang wird je Quelle begrenzt (\texttt{emobpy}: 30 Fahrzeuge, \texttt{ved}: 15 Fahrzeuge aus 4 Dateien, \texttt{yjmob100k}: 50 Personen; \texttt{real\_world\_ev} und \texttt{routine} vollständig), um die Laufzeit beherrschbar zu halten, ohne die Isolationsmatrix zu verändern.
+    \item Seeds, Parameter und Kontrollvariablen: Jeder Lauf wird über fünf feste Zufalls-Seeds wiederholt und als Mittelwert samt Standardabweichung berichtet. Die Hyperparameter werden je Modell einmalig festgelegt und über die Isolationsexperimente konstant gehalten, sodass sie zusammen mit dem Feature-Set als Kontrollvariablen wirken.
+\end{itemize}
+
 % -----------------------------------------------------------------------------
 \section{Ergebnisse}
 \label{sec:ergebnisse}
 
 \todo{Die Ergebnisse der Evaluation präsentieren. Tabellen und Grafiken verwenden.}
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.85\textwidth]{images/cv_f1_5x5.png}
-  \caption{5$\times$5-Kreuzvalidierungsmatrix des Driving-Classifiers
-  (RandomForest)}
-  \label{fig:cv_matrix}
-\end{figure}
+Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sich in der \cref{tab:baselines}, dass sowohl bei der Metrik PR-AUC als auch bei der missgünstigen Metrik Accuracy, der Random Forest eine bessere Prognose liefert. Die Metrik Majority, die immer behauptet, dass ein Fahrzeug parkt, die Metrik Persistenz-168, welche die Vorwoche überträgt oder Klimatologie, die die Wahrscheinlichkeit zwischen dem Fahren zu einer bestimmten Uhrzeit, an einem Wochentag nimmt, schneiden alle nicht auf dem Niveau des Random Forest ab.
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.85\textwidth]{images/cv_f1_5x5_lgbm.png}
-  \caption{5$\times$5-Kreuzvalidierungsmatrix des Driving-Classifiers
-  (LightGBM)}
-  \label{fig:cv_matrix_lgbm}
-\end{figure}
-
-\begin{table}[htbp]
+\begin{table}[H]
     \centering
     \caption{Modell (RandomForest) im Vergleich zu naiven Baselines,
     In-Distribution je Datenquelle auf demselben zeitlichen Test-Split.
@@ -73,7 +68,7 @@ Durch verschiedene Darstellungen werden die Gütemaße der Modelle visualisiert,
 
     \begin{subtable}{\textwidth}
         \centering
-        \caption{Accuracy (Accuracy-Trugschluss: Majority oft am höchsten)}
+        \caption{Accuracy (Majority schneidet durch hohe Aktivitätsrate sehr gut ab)}
         \begin{tabular}{lcccc}
             \toprule
             \textbf{Datenquelle} & \textbf{Modell (RF)} & Majority & Persistenz-168 & Klimatologie \\
@@ -88,17 +83,23 @@ Durch verschiedene Darstellungen werden die Gütemaße der Modelle visualisiert,
     \end{subtable}
 \end{table}
 
+
+\cref{fig:cv_matrix} stellt die Kreuzvalidierung des Driving-Classifiers mit dem Random Forest Algorithmus dar. Die Matrix zeigt die F1-Scores für jede Kombination von Trainings- und Testdatenquelle. Die Diagonale der Matrix repräsentiert die In-Distribution-Leistung, während Metriken außerhalb der Diagonale die Out-of-Distribution-Leistung darstellen. Die Ergebnisse zeigen, dass die Modelle sich gegenüber dem naive Baseline (majority, persistenz-168, klimatologie) deutlich verbessern. Eine Zeile steht besonders hervor; \texttt{VED} zeigt unter den Datensätzen die geringste Vorhersageleistung, wobei die Datenmenge und Aktivitätsrate mehr als ausreichend sind (\cref{tab:cv_metrics}). Im Anhang in \cref{sec:anhang_abbildungen} befinden sich weitere Kreuzvalidierungsmatrizen mit den übrigen verwendeten Algorithmen.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{images/cv_f1_5x5.png}
+  \caption{5$\times$5-Kreuzvalidierungsmatrix des Driving-Classifiers
+  (RandomForest)}
+  \label{fig:cv_matrix}
+\end{figure}
+
 \todo{lstm matrizen ansprechen}
 
-\begin{table}[htbp]
+
+\begin{table}[H]
     \centering
-    \caption{In-Distribution-Gütemaße des Driving-Classifiers je Datenquelle
-    (Acc.\ = Accuracy, ROC = ROC-AUC, PR = PR-AUC, Brier = Brier-Score,
-    Aktiv-Rate = Anteil der Fahrstunden). RandomForest, LightGBM und die
-    tabellarische LSTM-Variante nutzen denselben Merkmalssatz; die sequenzielle
-    Variante sieht stattdessen das Rohfenster. \enquote{n.\,z.} = nicht als
-    LSTM-Trainingsquelle zugelassen, da die Quelle das Mindestkriterium von
-    100 Fahrzeugwochen verfehlt (\cref{sec:modellauswahl}).}
+    \caption{In-distribution (in eigener Menge -- Datenquelle, in diesem Fall) Gütemaße des Driving-Classifiers je Datenquelle. RandomForest, LightGBM und tab. LSTM-Variante nutzen Merkmalssatz; seq. Variante sieht Rohfenster. \enquote{n.\,z.} = nicht als Trainingsquelle zugelassen, da Quelle Mindestkriterium von 100 Fahrzeugwochen verfehlt (\cref{sec:modellauswahl}).}
     \label{tab:cv_metrics}
 
     \begin{subtable}{\textwidth}
@@ -178,12 +179,7 @@ Durch verschiedene Darstellungen werden die Gütemaße der Modelle visualisiert,
 
 \begin{table}[htbp]
     \centering
-    \caption{Ablation der Merkmalsgruppen: PR-AUC je Datenquelle,
-    in-distribution auf demselben zeitlichen Test-Split. Kalender =
-    \texttt{hour}, \texttt{weekday}, \texttt{is\_weekend}; Lags =
-    \texttt{lag\_1/2/24/168}; Rolling = \texttt{rolling\_mean\_24/168}.
-    Verworfene Zeilen richten sich in allen Varianten nach dem vollständigen
-    Merkmalssatz, sodass je Quelle identische Beobachtungen zugrunde liegen.}
+    \caption{Ablation der Merkmalsgruppen: PR-AUC je Datenquelle, zeitlich in-distribution. Verworfene Zeilen richten sich in allen Varianten nach dem vollständigen Merkmalssatz, sodass je Quelle identische Beobachtungen zugrunde liegen.}
     \label{tab:ablation}
 
     \begin{subtable}{\textwidth}

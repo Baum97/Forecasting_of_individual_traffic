@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1785108284.45384 "main.bcf" "main.bbl" "main" 1785137917.00487 0
+["biber main"] 1785108284.45384 "main.bcf" "main.bbl" "main" 1785191101.06307 0
   "literatur.bib" 1784933559 20521 bfe4dfe070a2e4781e813e5c213a7aa6 ""
-  "main.bcf" 1785137916 112790 28c567ddd1af43726fbc5db0c9fd4fbd "pdflatex"
+  "main.bcf" 1785191100 112790 28c567ddd1af43726fbc5db0c9fd4fbd "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1785137912.89763 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1785137917.00554 0
+["pdflatex"] 1785191096.98524 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1785191101.06365 0
   "C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784064947 368683 20af194610b55c11d3743ae29ed2ab48 ""
   "C:/Users/Administrator/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1776509242 13337359 a21bfb9d050a5bf8318e8708a258f339 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -235,12 +235,12 @@
   "chapters/02grundlagen.tex" 1784933677 39178 c341b293f414e2de98d74b41c8e5d0a8 ""
   "chapters/03methodik.tex" 1785105353 30414 08f898b78874b59eecb782e54c756c27 ""
   "chapters/04implementierung.tex" 1785137527 26148 4e9394f78d881439ac27771c74ed3611 ""
-  "chapters/05evaluation.tex" 1785108401 12603 c62739acc9c90bc424c9c2edfbaa142b ""
+  "chapters/05evaluation.tex" 1785191096 16552 f5fc98dcc3f09ac91b488ffbd9bc1d98 ""
   "chapters/06diskussion.tex" 1784384879 1919 c6547e65575c4e7e7e2ada85a6be8710 ""
   "chapters/07fazit.tex" 1783090290 905 d0bf9d2406200c17ad5d37f9f326e798 ""
-  "chapters/08anhang.tex" 1785137912 1767 2fe6e0b9182af56973d4629ee1d7623e ""
+  "chapters/08anhang.tex" 1785189240 2246 7b8581856c6a3e96b03efd6b0150e789 ""
   "chapters/09erklaerung.tex" 1784633991 1054 d46e4483a3ee0f34ed11b6bab986ab48 ""
-  "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" 1784058617 3078 6715f8f73c8ca18b49377b25ee79ee3a ""
+  "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" 1785138530 3068 4dab8f92b93fb1712cbe247ff342b4e1 ""
   "graphen/komponentendiagramm/komponentendiagramm.pdf" 1784737829 62504 2024d19b55e632dab485a876def1145a ""
   "graphen/methodik/methodik_workflow.pdf" 1784023110 48115 ffd7e3af818cb243246ab3edc0c23bb2 ""
   "graphen/persistenzlayout/persistenzlayout.pdf" 1784738264 45839 ae379adfc06609961543543e73090114 ""
@@ -267,13 +267,13 @@
   "images/weeklychargingrequests_sanami.png" 1783807209 354255 7315569e53df3a55aeb830d533c5d05c ""
   "imports.tex" 1784880850 3420 3ae2e2208e2f8f6d4b1f39d89f1c3d55 ""
   "main.acr" 0 -1 0 ""
-  "main.aux" 1785137916 69626 3a98158e65e47dfef0e2320608d68cc4 "pdflatex"
+  "main.aux" 1785191100 69030 d12440457ac3baa64d9783600b6f635d "pdflatex"
   "main.bbl" 1785108285 54133 3915a63c4c882ec73900ad4dbf564d97 "biber main"
-  "main.lof" 1785137916 4944 97a4df53281fc3ae4528493a84899d27 "pdflatex"
-  "main.lot" 1785137916 2981 61ed9c449ab41f9d47646e8bfb602844 "pdflatex"
-  "main.run.xml" 1785137916 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
-  "main.tex" 1784058617 3078 6715f8f73c8ca18b49377b25ee79ee3a ""
-  "main.toc" 1785137916 8161 bc29169f36bba0914ec51f7a625bdd10 "pdflatex"
+  "main.lof" 1785191100 4944 c2ba135770e8beaf6be4955bcaf09bcc "pdflatex"
+  "main.lot" 1785191100 2689 08bbc292c4390af6dff5fd820c499fde "pdflatex"
+  "main.run.xml" 1785191100 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
+  "main.tex" 1785138530 3068 4dab8f92b93fb1712cbe247ff342b4e1 ""
+  "main.toc" 1785191100 8157 690dd4e0bbc31ea2e85b9d051d1582d0 "pdflatex"
   (generated)
   "main.acn"
   "main.aux"

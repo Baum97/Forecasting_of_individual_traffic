@@ -1,21 +1,21 @@
 \babel@toc {ngerman}{}\relax 
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1.1}{\ignorespaces Forschungsfragen der Arbeit.}}{5}{table.caption.5}%
+\contentsline {table}{\numberline {1.1}{\ignorespaces Forschungsfragen der Arbeit.}}{4}{table.caption.5}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Phasen der Mobilitätsdaten-Pipeline}}{9}{table.caption.8}%
-\contentsline {table}{\numberline {2.2}{\ignorespaces Charakterisierung von Anpassungen anhand von Fehlerwerten \blx@tocontentsinit {0}\cite {geron2022handson}.}}{14}{table.caption.21}%
-\contentsline {table}{\numberline {2.3}{\ignorespaces Zentrale Forschungssektionen im Umfeld der individuellen Fahrzeugnutzungsprognose.}}{22}{table.caption.30}%
-\contentsline {table}{\numberline {2.4}{\ignorespaces Fünf Fahrertypen des Individualverkehrs nach \blx@tocontentsinit {0}\textcite {ji2023rethinking}.}}{28}{table.caption.38}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Phasen der Mobilitätsdaten-Pipeline}}{8}{table.caption.8}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Charakterisierung von Anpassungen anhand von Fehlerwerten \blx@tocontentsinit {0}\cite {geron2022handson}.}}{13}{table.caption.21}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Zentrale Forschungssektionen im Umfeld der individuellen Fahrzeugnutzungsprognose.}}{21}{table.caption.30}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces Fünf Fahrertypen des Individualverkehrs nach \blx@tocontentsinit {0}\textcite {ji2023rethinking}.}}{27}{table.caption.38}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Hypothesen zu den Forschungsfragen.}}{31}{table.caption.42}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Übersicht der fünf Datenquellen und ihrer identifizierenden Eigenschaften.}}{33}{table.caption.44}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Hypothesen zu den Forschungsfragen.}}{30}{table.caption.42}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Übersicht der fünf Datenquellen und ihrer identifizierenden Eigenschaften.}}{32}{table.caption.44}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Anforderungen an Daten und System}}{44}{table.caption.60}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Anforderungen an die Machine-Learning-Modelle}}{45}{table.caption.61}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Anforderungen an Daten und System}}{43}{table.caption.60}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Anforderungen an die Machine-Learning-Modelle}}{44}{table.caption.61}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Modell (RandomForest) im Vergleich zu naiven Baselines, In-Distribution je Datenquelle auf demselben zeitlichen Test-Split. Majority = \enquote {immer geparkt}; Persistenz-168 = gleiche Stunde der Vorwoche; Klimatologie = $P(\text {fahren}\mid \text {Wochentag},\text {Stunde})$ aus dem Trainingsteil.}}{58}{table.caption.75}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces In-Distribution-Gütemaße des Driving-Classifiers je Datenquelle (Acc.\ = Accuracy, ROC = ROC-AUC, PR = PR-AUC, Brier = Brier-Score, Aktiv-Rate = Anteil der Fahrstunden). RandomForest, LightGBM und die tabellarische LSTM-Variante nutzen denselben Merkmalssatz; die sequenzielle Variante sieht stattdessen das Rohfenster. \enquote {n.\,z.} = nicht als LSTM-Trainingsquelle zugelassen, da die Quelle das Mindestkriterium von 100 Fahrzeugwochen verfehlt (\cref {sec:modellauswahl}).}}{59}{table.caption.76}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Ablation der Merkmalsgruppen: PR-AUC je Datenquelle, in-distribution auf demselben zeitlichen Test-Split. Kalender = \texttt {hour}, \texttt {weekday}, \texttt {is\_weekend}; Lags = \texttt {lag\_1/2/24/168}; Rolling = \texttt {rolling\_mean\_24/168}. Verworfene Zeilen richten sich in allen Varianten nach dem vollständigen Merkmalssatz, sodass je Quelle identische Beobachtungen zugrunde liegen.}}{60}{table.caption.77}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Modell (RandomForest) im Vergleich zu naiven Baselines, In-Distribution je Datenquelle auf demselben zeitlichen Test-Split. Majority = \enquote {immer geparkt}; Persistenz-168 = gleiche Stunde der Vorwoche; Klimatologie = $P(\text {fahren}\mid \text {Wochentag},\text {Stunde})$ aus dem Trainingsteil.}}{57}{table.caption.73}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces In-distribution (in eigener Menge -- Datenquelle, in diesem Fall) Gütemaße des Driving-Classifiers je Datenquelle. RandomForest, LightGBM und tab. LSTM-Variante nutzen Merkmalssatz; seq. Variante sieht Rohfenster. \enquote {n.\,z.} = nicht als Trainingsquelle zugelassen, da Quelle Mindestkriterium von 100 Fahrzeugwochen verfehlt (\cref {sec:modellauswahl}).}}{59}{table.caption.75}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Ablation der Merkmalsgruppen: PR-AUC je Datenquelle, zeitlich in-distribution. Verworfene Zeilen richten sich in allen Varianten nach dem vollständigen Merkmalssatz, sodass je Quelle identische Beobachtungen zugrunde liegen.}}{61}{table.caption.76}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

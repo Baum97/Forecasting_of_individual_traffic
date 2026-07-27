@@ -8,6 +8,22 @@
 \section{Zusätzliche Abbildungen}
 \label{sec:anhang_abbildungen}
 
+Die Kreuzvalidierungsmatrix des LightGBM Modells (\cref{fig:cv_matrix_lgbm}) zeigt, wie auch die Kreuzvalidierungsmatrix des Random Forest Modells (\cref{fig:cv_matrix}), die F1-Scores für jede Kombination von Trainings- und Testdatenquelle.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{images/cv_f1_5x5_lgbm.png}
+  \caption{5$\times$5-Kreuzvalidierungsmatrix des Driving-Classifiers
+  (LightGBM)}
+  \label{fig:cv_matrix_lgbm}
+\end{figure}
+
+Die Kreuzvalidierungsmatrizen der beiden LSTM-Varianten ergänzen die im
+Ergebnisteil (\cref{fig:cv_matrix}, \cref{fig:cv_matrix_lgbm}) gezeigten
+Matrizen von Random Forest und LightGBM. Sie umfassen nur \texttt{emobpy}
+und \texttt{yjmob100k} als Trainingsquellen, da die übrigen Quellen den
+in \cref{sec:modellauswahl} festgelegte Mindestumfang von 100
+Fahrzeugwochen unterschreiten, wobei alle fünf Datensätze zum Testen verwendet wurden.
 
 \begin{figure}[htbp]
   \centering
