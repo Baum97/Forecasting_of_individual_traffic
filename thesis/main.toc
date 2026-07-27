@@ -64,41 +64,41 @@
 \contentsline {paragraph}{\nonumberline Accuracy}{40}{paragraph*.53}%
 \contentsline {paragraph}{\nonumberline Precision}{40}{paragraph*.54}%
 \contentsline {paragraph}{\nonumberline Recall}{40}{paragraph*.55}%
-\contentsline {paragraph}{\nonumberline F$_\beta $-Score}{40}{paragraph*.56}%
+\contentsline {paragraph}{\nonumberline F$_\beta $-Score}{41}{paragraph*.56}%
 \contentsline {paragraph}{\nonumberline PR-AUC}{41}{paragraph*.57}%
 \contentsline {paragraph}{\nonumberline ROC-AUC}{41}{paragraph*.58}%
 \contentsline {paragraph}{\nonumberline Brier-Score}{41}{paragraph*.59}%
-\contentsline {chapter}{\numberline {4}Implementierung}{42}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Anforderungen}{42}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Systemarchitektur}{45}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Technologieauswahl}{47}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Umsetzung}{49}{section.4.4}%
-\contentsline {paragraph}{\nonumberline data\_adapters.py}{49}{paragraph*.65}%
-\contentsline {paragraph}{\nonumberline base.py}{50}{paragraph*.66}%
-\contentsline {paragraph}{\nonumberline Kreuzvalidierung}{51}{paragraph*.67}%
-\contentsline {paragraph}{\nonumberline Forecasting und Quantile}{52}{paragraph*.68}%
-\contentsline {section}{\numberline {4.5}Herausforderungen}{53}{section.4.5}%
-\contentsline {paragraph}{\nonumberline Heterogene Rohformate und Zeitbasen}{53}{paragraph*.69}%
-\contentsline {paragraph}{\nonumberline Uneinheitliche Aktivitätssignale}{53}{paragraph*.70}%
-\contentsline {paragraph}{\nonumberline Degenerierte Fahrzeuge}{53}{paragraph*.71}%
-\contentsline {paragraph}{\nonumberline Rechenbeschränkungen}{53}{paragraph*.72}%
-\contentsline {chapter}{\numberline {5}Evaluation}{55}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Evaluationsdesign}{55}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Testumgebung}{55}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Ergebnisse}{55}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Diskussion}{60}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{60}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{60}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Limitationen}{60}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Implikationen}{61}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{62}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{62}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Ausblick}{62}{section.7.2}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{63}{chapter*.78}%
+\contentsline {chapter}{\numberline {4}Implementierung}{43}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Anforderungen}{43}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Systemarchitektur}{46}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Technologieauswahl}{48}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Umsetzung}{50}{section.4.4}%
+\contentsline {paragraph}{\nonumberline data\_adapters.py}{50}{paragraph*.65}%
+\contentsline {paragraph}{\nonumberline base.py}{51}{paragraph*.66}%
+\contentsline {paragraph}{\nonumberline Kreuzvalidierung}{52}{paragraph*.67}%
+\contentsline {paragraph}{\nonumberline Forecasting und Quantile}{53}{paragraph*.68}%
+\contentsline {section}{\numberline {4.5}Herausforderungen}{54}{section.4.5}%
+\contentsline {paragraph}{\nonumberline Heterogene Rohformate und Zeitbasen}{54}{paragraph*.69}%
+\contentsline {paragraph}{\nonumberline Uneinheitliche Aktivitätssignale}{54}{paragraph*.70}%
+\contentsline {paragraph}{\nonumberline Degenerierte Fahrzeuge}{54}{paragraph*.71}%
+\contentsline {paragraph}{\nonumberline Rechenbeschränkungen}{54}{paragraph*.72}%
+\contentsline {chapter}{\numberline {5}Evaluation}{56}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Evaluationsdesign}{56}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Testumgebung}{56}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Ergebnisse}{57}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Diskussion}{61}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{61}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{61}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Limitationen}{61}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Implikationen}{62}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{63}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{63}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Ausblick}{63}{section.7.2}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{64}{chapter*.78}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\numberline {A}Anhang}{66}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{66}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{66}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Quellcode}{66}{section.A.3}%
-\contentsline {chapter}{Eidesstattliche Erklärung}{67}{chapter*.79}%
+\contentsline {chapter}{\numberline {A}Anhang}{67}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{67}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{68}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Quellcode}{68}{section.A.3}%
+\contentsline {chapter}{Eidesstattliche Erklärung}{69}{chapter*.81}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

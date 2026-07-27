@@ -16,15 +16,17 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Variablenstruktur des Forschungsdesigns: zwei veränderliche unabhängige Variablen (Daten, Algorithmus) und eine abhängige Variable (Prognosegüte). Konstante Hyperparameter und Trainingsprotokolle wirken als Kontrollvariablen.}}{30}{figure.caption.41}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Schematischer Workflow der Methodik: von den fünf Datenquellen über den geteilten Feature-Kern und die beiden Aufgabenmodelle bis zum Experimentaldesign und der Bewertung.}}{32}{figure.caption.43}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Statische Komponentenstruktur: Datenadapter, Feature-Engineering, Klassifikator, Forecaster, Persistenz und Schnittstellen.}}{45}{figure.caption.62}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Dynamischer Ablauf eines Forecast-Requests vom Frontend über das Backend und Persistenz bis zum Forecaster und dessen Aufbereitung und Darstellung der Ergebnisse.}}{46}{figure.caption.63}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Persistenzlayout des Systems: Modelle und Vorhersagen werden in einer hierarchischen Verzeichnisstruktur gespeichert, die eine einfache Navigation und Verwaltung der Daten ermöglicht. Modelle liegen gesondert von den Vorhersagen, die in Unterverzeichnissen nach Modell, Run und Zeitstempel organisiert sind.}}{47}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Statische Komponentenstruktur: Datenadapter, Feature-Engineering, Klassifikator, Forecaster, Persistenz und Schnittstellen.}}{46}{figure.caption.62}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Dynamischer Ablauf eines Forecast-Requests vom Frontend über das Backend und Persistenz bis zum Forecaster und dessen Aufbereitung und Darstellung der Ergebnisse.}}{47}{figure.caption.63}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Persistenzlayout des Systems: Modelle und Vorhersagen werden in einer hierarchischen Verzeichnisstruktur gespeichert, die eine einfache Navigation und Verwaltung der Daten ermöglicht. Modelle liegen gesondert von den Vorhersagen, die in Unterverzeichnissen nach Modell, Run und Zeitstempel organisiert sind.}}{48}{figure.caption.64}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (RandomForest)}}{56}{figure.caption.73}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LightGBM)}}{56}{figure.caption.74}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (RandomForest)}}{57}{figure.caption.73}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LightGBM)}}{58}{figure.caption.74}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \def \@chapapp {\appendixname }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LSTM, tabellarische Repräsentation)}}{67}{figure.caption.79}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LSTM, sequentielle Repräsentation)}}{68}{figure.caption.80}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
