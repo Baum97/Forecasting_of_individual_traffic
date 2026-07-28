@@ -83,8 +83,7 @@ Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sic
     \end{subtable}
 \end{table}
 
-
-\cref{fig:cv_matrix} stellt die Kreuzvalidierung des Driving-Classifiers mit dem Random Forest Algorithmus dar. Die Matrix zeigt die F1-Scores für jede Kombination von Trainings- und Testdatenquelle. Die Diagonale der Matrix repräsentiert die In-Distribution-Leistung, während Metriken außerhalb der Diagonale die Out-of-Distribution-Leistung darstellen. Die Ergebnisse zeigen, dass die Modelle sich gegenüber dem naive Baseline (majority, persistenz-168, klimatologie) deutlich verbessern. Eine Zeile steht besonders hervor; \texttt{VED} zeigt unter den Datensätzen die geringste Vorhersageleistung, wobei die Datenmenge und Aktivitätsrate mehr als ausreichend sind (\cref{tab:cv_metrics}). Im Anhang in \cref{sec:anhang_abbildungen} befinden sich weitere Kreuzvalidierungsmatrizen mit den übrigen verwendeten Algorithmen.
+\cref{fig:cv_matrix} stellt die Kreuzvalidierung des Driving-Classifiers mit dem Random Forest Algorithmus dar. Die Matrix zeigt die F1-Scores für jede Kombination von Trainings- und Testdatenquelle. Die Diagonale der Matrix repräsentiert die In-Distribution-Leistung, während Metriken außerhalb der Diagonale die Out-of-Distribution-Leistung darstellen. Die Ergebnisse zeigen, dass die Modelle sich gegenüber dem naive Baseline (majority, persistenz-168, klimatologie) deutlich verbessern. Eine Zeile steht besonders hervor; \texttt{VED} zeigt unter den Datensätzen die geringste Vorhersageleistung, wobei die Datenmenge und Aktivitätsrate mehr als ausreichend sind (\cref{tab:cv_metrics}), was darauf schließen lässt, dass die enthaltenen Informationen zwar ein ausreichendes Volumen haben, aber nicht für die Vorhersage geeignet sind. Im Anhang in \cref{sec:anhang_abbildungen} befinden sich weitere Kreuzvalidierungsmatrizen mit den übrigen verwendeten Algorithmen.
 
 \begin{figure}[H]
   \centering
@@ -96,6 +95,7 @@ Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sic
 
 \todo{lstm matrizen ansprechen}
 
+\cref{tab:cv_metrics} zeigt die In-Distribution-Gütemaße des Driving-Classifiers für jede Datenquelle. 
 
 \begin{table}[H]
     \centering
