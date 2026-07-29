@@ -10,7 +10,7 @@
 
 Die Kreuzvalidierungsmatrix des LightGBM Modells (\cref{fig:cv_matrix_lgbm}) zeigt, wie auch die Kreuzvalidierungsmatrix des Random Forest Modells (\cref{fig:cv_matrix}), die F1-Scores für jede Kombination von Trainings- und Testdatenquelle.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/cv_f1_5x5_lgbm.png}
   \caption{5$\times$5-Kreuzvalidierungsmatrix des Driving-Classifiers
@@ -25,7 +25,7 @@ und \texttt{yjmob100k} als Trainingsquellen, da die übrigen Quellen den
 in \cref{sec:modellauswahl} festgelegte Mindestumfang von 100
 Fahrzeugwochen unterschreiten, wobei alle fünf Datensätze zum Testen verwendet wurden.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/cv_f1_5x5_lstm_tab.png}
   \caption{5$\times$5-Kreuzvalidierungsmatrix des Driving-Classifiers
@@ -33,7 +33,7 @@ Fahrzeugwochen unterschreiten, wobei alle fünf Datensätze zum Testen verwendet
   \label{fig:cv_matrix_lstm_tab}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/cv_f1_5x5_lstm_seq.png}
   \caption{5$\times$5-Kreuzvalidierungsmatrix des Driving-Classifiers
@@ -41,12 +41,132 @@ Fahrzeugwochen unterschreiten, wobei alle fünf Datensätze zum Testen verwendet
   \label{fig:cv_matrix_lstm_seq}
 \end{figure}
 
+Ergänzend zu den F1-basierten Matrizen zeigen die folgenden vier Abbildungen
+dieselbe Kreuzvalidierung anhand der Accuracy. Sie sind bewusst nicht im
+Ergebnisteil geführt, da die Accuracy bei den niedrigen Aktiv-Raten dieser
+Arbeit irreführend ist (\cref{tab:baselines}): Hohe Werte entstehen dort vor
+allem, weil die durchgehende Vorhersage \enquote{geparkt} bei seltener
+Fahraktivität meist zutrifft. Die Matrizen belegen diesen Effekt über alle
+Trainings-Test-Kombinationen hinweg und dienen damit als visuelle Stütze des
+in \cref{sec:ergebnisse} diskutierten Accuracy-Trugschlusses.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{images/cv_acc_5x5_rf.png}
+  \caption{5$\times$5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers
+  (RandomForest)}
+  \label{fig:cv_acc_rf}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{images/cv_acc_5x5_lgbm.png}
+  \caption{5$\times$5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers
+  (LightGBM)}
+  \label{fig:cv_acc_lgbm}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{images/cv_acc_5x5_lstm_tab.png}
+  \caption{5$\times$5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers
+  (LSTM, tabellarische Repräsentation)}
+  \label{fig:cv_acc_lstm_tab}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{images/cv_acc_5x5_lstm_seq.png}
+  \caption{5$\times$5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers
+  (LSTM, sequentielle Repräsentation)}
+  \label{fig:cv_acc_lstm_seq}
+\end{figure}
+
 % -----------------------------------------------------------------------------
 \section{Zusätzliche Tabellen}
 \label{sec:anhang_tabellen}
 
+Die Merkmals-Ablation ist im Ergebnisteil (\cref{tab:ablation}) auf die
+PR-AUC beschränkt, da diese bei den vorliegenden Klassenverhältnissen die
+aussagekräftigste Metrik ist. \Cref{tab:ablation_f1} führt dieselbe Ablation
+zur Vollständigkeit im F1-Score, sodass sich die relative Bedeutung der
+Merkmalsgruppen auch schwellenbasiert nachvollziehen lässt. Die sequenzielle
+LSTM-Variante ist nicht ablationsfähig, da Spalten-Teilmengen für ein Modell
+auf der rohen Reihe nicht definiert sind.
 
-% -----------------------------------------------------------------------------
-\section{Quellcode}
-\label{sec:anhang_quellcode}
+\begin{table}[H]
+    \centering
+    \caption{Ablation der Merkmalsgruppen: F1-Score je Datenquelle, zeitlich
+    in-distribution. Verworfene Zeilen richten sich in allen Varianten nach dem
+    vollständigen Merkmalssatz, sodass je Quelle identische Beobachtungen
+    zugrunde liegen. Ergänzt \cref{tab:ablation} (PR-AUC).}
+    \label{tab:ablation_f1}
+
+    \begin{subtable}{\textwidth}
+        \centering
+        \caption{RandomForest}
+        \label{tab:ablation_f1_rf}
+        \begin{tabular}{lccccc}
+            \toprule
+            \textbf{Variante} & emobpy & real\_world\_ev & ved & routine & yjmob100k \\
+            \midrule
+            \textbf{voll} (Referenz)     & 0,320 & 0,660 & 0,110 & 0,829 & 0,667 \\
+            \addlinespace
+            ohne Kalender                & 0,300 & 0,564 & 0,112 & 0,803 & 0,657 \\
+            ohne Lags                    & 0,282 & 0,069 & 0,089 & 0,786 & 0,598 \\
+            ohne Rolling                 & 0,289 & 0,681 & 0,164 & 0,811 & 0,664 \\
+            \addlinespace
+            nur Kalender                 & 0,251 & 0,010 & 0,134 & 0,783 & 0,592 \\
+            nur Lags                     & 0,281 & 0,521 & 0,167 & 0,774 & 0,673 \\
+            nur Rolling                  & 0,220 & 0,340 & 0,082 & 0,326 & 0,516 \\
+            \bottomrule
+        \end{tabular}
+    \end{subtable}
+
+    \vspace{1em}
+
+    \begin{subtable}{\textwidth}
+        \centering
+        \caption{LightGBM}
+        \label{tab:ablation_f1_lgbm}
+        \begin{tabular}{lccccc}
+            \toprule
+            \textbf{Variante} & emobpy & real\_world\_ev & ved & routine & yjmob100k \\
+            \midrule
+            \textbf{voll} (Referenz)     & 0,306 & 0,208 & 0,100 & 0,765 & 0,674 \\
+            \addlinespace
+            ohne Kalender                & 0,298 & 0,456 & 0,098 & 0,704 & 0,674 \\
+            ohne Lags                    & 0,282 & 0,108 & 0,118 & 0,734 & 0,618 \\
+            ohne Rolling                 & 0,288 & 0,542 & 0,152 & 0,793 & 0,673 \\
+            \addlinespace
+            nur Kalender                 & 0,251 & 0,009 & 0,133 & 0,783 & 0,592 \\
+            nur Lags                     & 0,281 & 0,521 & 0,167 & 0,759 & 0,673 \\
+            nur Rolling                  & 0,219 & 0,328 & 0,087 & 0,358 & 0,536 \\
+            \bottomrule
+        \end{tabular}
+    \end{subtable}
+
+    \vspace{1em}
+
+    \begin{subtable}{\textwidth}
+        \centering
+        \caption{LSTM, tabellarisch}
+        \label{tab:ablation_f1_lstm_tab}
+        \begin{tabular}{lccccc}
+            \toprule
+            \textbf{Variante} & emobpy & real\_world\_ev & ved & routine & yjmob100k \\
+            \midrule
+            \textbf{voll} (Referenz)     & 0,290 & 0,400 & 0,158 & 0,572 & 0,675 \\
+            \addlinespace
+            ohne Kalender                & 0,300 & 0,391 & 0,149 & 0,564 & 0,676 \\
+            ohne Lags                    & 0,280 & 0,207 & 0,149 & 0,462 & 0,607 \\
+            ohne Rolling                 & 0,286 & 0,482 & 0,161 & 0,568 & 0,675 \\
+            \addlinespace
+            nur Kalender                 & 0,247 & 0,020 & 0,145 & 0,510 & 0,588 \\
+            nur Lags                     & 0,291 & 0,405 & 0,163 & 0,664 & 0,677 \\
+            nur Rolling                  & 0,217 & 0,298 & 0,085 & 0,414 & 0,552 \\
+            \bottomrule
+        \end{tabular}
+    \end{subtable}
+\end{table}
 

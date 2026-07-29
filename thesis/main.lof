@@ -26,7 +26,11 @@
 \addvspace {10\p@ }
 \def \@chapapp {\appendixname }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LightGBM)}}{68}{figure.caption.78}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LSTM, tabellarische Repräsentation)}}{69}{figure.caption.79}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LSTM, sequentielle Repräsentation)}}{69}{figure.caption.80}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LightGBM)}}{69}{figure.caption.84}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LSTM, tabellarische Repräsentation)}}{70}{figure.caption.85}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LSTM, sequentielle Repräsentation)}}{70}{figure.caption.86}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (RandomForest)}}{71}{figure.caption.87}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (LightGBM)}}{72}{figure.caption.88}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (LSTM, tabellarische Repräsentation)}}{72}{figure.caption.89}%
+\contentsline {figure}{\numberline {A.7}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (LSTM, sequentielle Repräsentation)}}{73}{figure.caption.90}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

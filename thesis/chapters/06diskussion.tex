@@ -4,14 +4,30 @@
 \chapter{Diskussion}
 \label{ch:diskussion}
 
-\todo{Einleitenden Text verfassen. Was wird in diesem Kapitel diskutiert?}
 Dieses Kapitel diskutiert die Ergebnisse der Evaluation (\cref{ch:evaluation}) im Kontext der Forschungsfragen und der verwandten Arbeiten. Es werden die Limitationen der Arbeit aufgezeigt und die Implikationen der Ergebnisse für die Praxis und die Forschung erläutert.
 
 % -----------------------------------------------------------------------------
 \section{Interpretation der Ergebnisse}
 \label{sec:interpretation}
 
-\todo{Die Ergebnisse aus \Cref{ch:evaluation} interpretieren. Was bedeuten die Ergebnisse im Kontext der Forschungsfragen?}
+\subsection{FF1 -- Zuverlässige Vorhersage des individuellen Mobilitätsverhaltens} 
+
+FF1 wird durch die Ergebnisse gestützt, sofern hochwertige Daten vorliegen; \\\texttt{yjmob100k} liefert hierfür den aussagekräftigsten Beleg, da die Quelle reale Bewegungsdaten von 50 Individuen umfasst und somit über Personen hinweg generalisiert. Der Random Forest erreicht dort eine PR-AUC von $0,683$ (\cref{tab:baselines}), während die reine Zufalls-Baseline bei $0,382$ liegt. Ausschlaggebend ist letztlich nicht der Abstand zum Zufall, sondern der Abstand zur stärksten \emph{informierten} Baseline -- also die stärkste Metrik, welche keine komplexe Berechnung oder Algorithmen benötigt -- die Klimatologie, die allein Wochentag und Stunde nutzt, erreicht bereits $0,489$. Der Random Forest übertrifft sie um $0,194$ und damit um $38\%$. Da die Streuung über die fünf Seeds mit $\sigma \approx 0,0004$ gegenüber diesem Abstand um mehr als zwei Größenordnungen kleiner ist, ist der Vorsprung statistisch eindeutig und kein Überbleib der Zufallsinitialisierung. Die PR-AUC dienst als Leitmaß, da sie gegenüber der Accuracy robuster ist, insbesondere bei niedrigen Aktivraten. Bei \texttt{emobpy} beispielsweise schlägt der triviale \enquote{immer geparkt}-Klassifikator das Modell sogar ($0,904$ gegenüber $0,697$, \cref{tab:baselines}), ohne eine einzige Fahrt zu erkennen. Der Befund belegt somit, dass das Modell, jenseits der reinen Tages- und Wochenperiodik, Struktur nutzt -- genau das, was FF1 unter einem \enquote{ausreichend komplexen Modell} versteht. Die Gültigkeit bleibt jedoch an die Datenqualität gebunden: Auf \texttt{ved} erreicht dasselbe Verfahren nur $0,089$ und liegt damit praktisch auf dem Niveau seiner Klimatologie-Baseline ($0,083$), sodass FF1 dort nicht aussagekräftig beantwortet werden kann.
+
+
+\paragraph{FF1.1 -- Unterschiede der Machine Learning Verfahren in Prognosegenauigkeit}
+
+Die unterschiedlichen Verfahren zeigen in der Evaluation (\cref{ch:evaluation}) eine klare Rangfolge: Random Forest liefer die besten Ergebnisse, gefolgt von den LSTM-Varianten und dem LightGBM. Die Unterschiede sind jedoch nicht immer signifikant und beweisen eher, dass bestimmte Modellarchitekturen nicht für jeden Datensatz geeignet ist. So erzielt LightGBM auf \texttt{real\_world\_ev} einen F1-Score von $0,366$ und PR-AUC von $0,256$, während Random Forest dort $0,680$ und $0,630$ erreicht. Andersrum zeigt sich auf \texttt{ved}, dass LightGBM mit einem F1-Score von $0,089$ erreicht, während Random Forest nur $0,075$ erreicht; bei den restlichen Werten dominiert jedoch wieder der Random Forest (\cref{tab:cv_metrics}). Die LSTM-Modelle lassen sich auf der Mehrheit der Datensätze nicht abbilden, da diese die Mindestanforderung von 100 Fahrzeugwochen nicht erfüllen. Die Ergebnisse der LSTM-Varianten sind daher nur eingeschränkt interpretierbar.
+
+\paragraph{FF1.1.1 -- Einfluss der Datenquelle auf die Prognosegenauigkeit}
+
+\paragraph{FF1.2 -- Merkmalseinfluss auf individuelles Mobilitätsverhalten}
+
+\paragraph{FF2 -- Anforderung an Daten}
+
+\paragraph{FF2.1 -- Aufbereitung und Anonymisierung}
+
+\paragraph{FF2.2 -- Bewertung der Datenqualität}
 
 % -----------------------------------------------------------------------------
 \section{Vergleich mit verwandten Arbeiten}

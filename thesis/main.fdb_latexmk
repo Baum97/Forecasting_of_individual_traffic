@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1785250566.57 "main.bcf" "main.bbl" "main" 1785258343.08989 0
+["biber main"] 1785328109.16803 "main.bcf" "main.bbl" "main" 1785332381.79977 0
   "literatur.bib" 1784933559 20521 bfe4dfe070a2e4781e813e5c213a7aa6 ""
-  "main.bcf" 1785258342 112790 28c567ddd1af43726fbc5db0c9fd4fbd "pdflatex"
+  "main.bcf" 1785332381 112790 28c567ddd1af43726fbc5db0c9fd4fbd "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1785258338.98575 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1785258343.09049 0
+["pdflatex"] 1785332377.19848 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1785332381.80039 0
   "C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784064947 368683 20af194610b55c11d3743ae29ed2ab48 ""
   "C:/Users/Administrator/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1776509242 13337359 a21bfb9d050a5bf8318e8708a258f339 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -233,12 +233,12 @@
   "chapters/00abstract.tex" 1783637035 1270 98f89cec0d478a817143b9c40c15f779 ""
   "chapters/01einleitung.tex" 1784910380 9466 4dda8d1cc22377ff74934e2abc0f461c ""
   "chapters/02grundlagen.tex" 1784933677 39178 c341b293f414e2de98d74b41c8e5d0a8 ""
-  "chapters/03methodik.tex" 1785105353 30414 08f898b78874b59eecb782e54c756c27 ""
+  "chapters/03methodik.tex" 1785322820 30431 b3327bff87bb13a5db472bfce1306735 ""
   "chapters/04implementierung.tex" 1785137527 26148 4e9394f78d881439ac27771c74ed3611 ""
   "chapters/05evaluation.tex" 1785257314 17651 2054ef742618a9508336fa691dddfc99 ""
-  "chapters/06diskussion.tex" 1785258334 2192 996d22ce743f537f4c43cfda4ea2f3ca ""
+  "chapters/06diskussion.tex" 1785332376 5202 b8671e54e26d092a5f2bde939fc8b3d9 ""
   "chapters/07fazit.tex" 1783090290 905 d0bf9d2406200c17ad5d37f9f326e798 ""
-  "chapters/08anhang.tex" 1785258334 2121 f8e1f1f40ff3c12bdbfacfec8271b92e ""
+  "chapters/08anhang.tex" 1785328533 7574 9fc174cd00ad2c788bf43ab9498e59dc ""
   "chapters/09erklaerung.tex" 1784633991 1054 d46e4483a3ee0f34ed11b6bab986ab48 ""
   "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" 1785257314 3042 ad6e70d8adb4139bda52666c7efef620 ""
   "graphen/komponentendiagramm/komponentendiagramm.pdf" 1784737829 62504 2024d19b55e632dab485a876def1145a ""
@@ -251,6 +251,10 @@
   "images/baggingmethod.png" 1782989633 23136 ccb64022646bb8a8ec2f9d9067ac229f ""
   "images/boostingmethod.png" 1782989595 124433 db96be5c56cd632cf6911df0cf5f2d46 ""
   "images/chargingrequests_sanami.png" 1783807167 215948 4fa9b8b00c1014751b77320e8bf22575 ""
+  "images/cv_acc_5x5_lgbm.png" 1785327593 78060 8920ea0f498c531529a8661d5a87d97c ""
+  "images/cv_acc_5x5_lstm_seq.png" 1785327593 60862 ac99e1439c589fae759901d65d079305 ""
+  "images/cv_acc_5x5_lstm_tab.png" 1785327593 61028 34c9eaa3c33f05276fce8d6c82ec8fd2 ""
+  "images/cv_acc_5x5_rf.png" 1785327593 76927 791bca1a5ea746d3db94fe1f2fb3bfea ""
   "images/cv_f1_5x5.png" 1784636656 91306 28d73454aa5b5fa396bdf15ab51994ce ""
   "images/cv_f1_5x5_lgbm.png" 1784636656 90705 ed482a9a882441cb5a32fc6bcdd7945e ""
   "images/cv_f1_5x5_lstm_seq.png" 1784636656 69063 686fea3a6195791f68569405615c46d5 ""
@@ -267,13 +271,13 @@
   "images/weeklychargingrequests_sanami.png" 1783807209 354255 7315569e53df3a55aeb830d533c5d05c ""
   "imports.tex" 1784880850 3420 3ae2e2208e2f8f6d4b1f39d89f1c3d55 ""
   "main.acr" 0 -1 0 ""
-  "main.aux" 1785258342 69513 6383314e1f1fc9a26cb6f4547c315c06 "pdflatex"
-  "main.bbl" 1785250568 54133 3915a63c4c882ec73900ad4dbf564d97 "biber main"
-  "main.lof" 1785258342 4944 c2ba135770e8beaf6be4955bcaf09bcc "pdflatex"
-  "main.lot" 1785258342 2930 70389f1157c3aa39bff83b0b0f414de4 "pdflatex"
-  "main.run.xml" 1785258342 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
+  "main.aux" 1785332381 74587 887b6f8c85cddad78e465847d7d22b15 "pdflatex"
+  "main.bbl" 1785328110 54133 3915a63c4c882ec73900ad4dbf564d97 "biber main"
+  "main.lof" 1785332381 5653 4e9c37f1984b33a81f3b9d9834c56000 "pdflatex"
+  "main.lot" 1785332381 3277 b3c503bea781a066c09025f2c3d1fc67 "pdflatex"
+  "main.run.xml" 1785332381 2374 b0d370c5a2000ae607a1c787d6093da1 "pdflatex"
   "main.tex" 1785257314 3042 ad6e70d8adb4139bda52666c7efef620 ""
-  "main.toc" 1785258342 8157 878d70b3e8beed73dc6fa62d63737ef9 "pdflatex"
+  "main.toc" 1785332381 8907 15b547b9e1a81d4dcbac333262f10a4b "pdflatex"
   (generated)
   "main.acn"
   "main.aux"
