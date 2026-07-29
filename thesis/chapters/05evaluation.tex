@@ -4,23 +4,17 @@
 \chapter{Evaluation}
 \label{ch:evaluation}
 
-\todo{Einleitenden Text verfassen. Was wird evaluiert und mit welchem Ziel?}
-
 In der Evaluation wird beschrieben, wie die entwickelten Methoden aus \cref{ch:methodik} auf die in \cref{sec:datengrundlage} beschriebenen Daten angewendet werden und inwiefern die Ergebnisse den Erwartungen entsprechen. Die Evaluation dient dazu -- durch festgelegte Ziele, Kriterien und Messgrößen (\cref{sec:evaluationsdesign}) -- die Modelle in ihrer Fähigkeit zu bewerten, Fahraktivität zuverlässig vorherzusagen. Um das zu erreichen, werden die Modelle auf einer Testumgebung (\cref{sec:testumgebung}) evaluiert und die Ergebnisse (\cref{sec:ergebnisse}) präsentiert. Die Evaluation umfasst sowohl quantitative Gütemaße als auch qualitative Analysen, um ein umfassendes Bild der Leistungsfähigkeit der Modelle zu erhalten. 
 
 % -----------------------------------------------------------------------------
 \section{Evaluationsdesign}
 \label{sec:evaluationsdesign}
 
-\todo{Das Design der Evaluation beschreiben. Welche Metriken, Kriterien oder Hypothesen werden überprüft?}
-
 Durch verschiedene Darstellungen werden die Gütemaße der Modelle visualisiert, um die Genauigkeit, Stabilität und Verlässlichkeit der Vorhersagen zu bewerten (unter anderem \cref{tab:baselines} und \cref{tab:cv_metrics}). Anhand einer Kreuzvalidierungsmatrix (\cref{fig:cv_matrix}, \cref{fig:cv_matrix_lgbm}, \cref{fig:cv_matrix_lstm_seq} und \cref{fig:cv_matrix_lstm_tab}) wird die Konsistenz der Vorhersagen über verschiedene Datenquellen hinweg überprüft. Da bei den verschiedenen Architekturen fünf Seeds existieren, werden die Gütemaße für die Stabilität gemittelt, um Randwerte zu minimieren. Die Gütemaße werden in \cref{tab:cv_metrics} für alle Modelle und Datenquellen tabellarisch dargestellt, um die Vergleichbarkeit zu erleichtern. Metriken die verwendet werden, sind Accuracy, F1-Score, ROC-AUC, PR-AUC und Brier-Score. Die Kennzahlen werden sowohl für die In-Distribution (auf derselben Datenquelle) als auch für die Out-of-Distribution (auf anderen Datenquellen) berechnet, um die Generalisierungsfähigkeit der Modelle zu bewerten. Accuracy wird als Negativbeispiel für die Limitierungen der Gütemaße diskutiert, da bei stark unausgeglichenen Klassenverteilungen (wie in diesem Anwendungsfall) die Accuracy eine fehlleitende Metrik sein kann. PR-AUC und Brier-Score werden als die wichtigsten Metriken hervorgehoben, da deren Fähigkeit bei unausgeglichen Datensatzen die Qualität der Vorhersagen zu bewerten, besonders relevant ist. Im Laufe der Tests wird eine Ablation der Merkmalsgruppen durchgeführt, um die Bedeutung der einzelnen Merkmale für die Vorhersageleistung zu bewerten (\cref{tab:ablation}). Die Ablation untersucht, wie sich das Entfernen von bestimmten Merkmalsgruppen (Kalender, Lags, Rolling) auf die Metriken auswirkt.
 
 % -----------------------------------------------------------------------------
 \section{Testumgebung}
 \label{sec:testumgebung}
-
-\todo{Die Testumgebung beschreiben (Hardware, Software, Datensätze, Konfigurationen).}
 
 Bei der Testumgebung handelt es sich um eine standardisierte Umgebung, die sicherstellt, dass die Evaluation reproduzierbar und konsistent durchgeführt werden kann. Zu den Bedingungen gehören folgende Dinge:
 
@@ -35,9 +29,7 @@ Bei der Testumgebung handelt es sich um eine standardisierte Umgebung, die siche
 \section{Ergebnisse}
 \label{sec:ergebnisse}
 
-\todo{Die Ergebnisse der Evaluation präsentieren. Tabellen und Grafiken verwenden.}
-
-Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sich in der \cref{tab:baselines}, dass sowohl bei der Metrik PR-AUC als auch bei der missgünstigen Metrik Accuracy, der Random Forest eine bessere Prognose liefert. Die Metrik Majority, die immer behauptet, dass ein Fahrzeug parkt, die Metrik Persistenz-168, welche die Vorwoche überträgt oder Klimatologie, die die Wahrscheinlichkeit zwischen dem Fahren zu einer bestimmten Uhrzeit, an einem Wochentag nimmt, schneiden alle nicht auf dem Niveau des Random Forest ab.
+Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sich in der \cref{tab:baselines}, dass sowohl bei der Metrik PR-AUC als auch bei der missgünstigen Metrik Accuracy, der Random Forest eine bessere Prognose liefert. Die Metrik Majority, die immer behauptet, dass ein Fahrzeug parkt, die Metrik Persistenz-168, welche die Vorwoche überträgt oder Klimatologie, die den Anteil der Fahrstunden je Wochentag und Stunde aus dem Trainingsteil berechent, schneiden alle nicht auf dem Niveau des Random Forest ab.
 
 \begin{table}[H]
     \centering
@@ -68,7 +60,7 @@ Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sic
 
     \begin{subtable}{\textwidth}
         \centering
-        \caption{Accuracy (Majority schneidet durch hohe Aktivitätsrate sehr gut ab)}
+        \caption{Accuracy (Majority schneidet durch niedrige Aktivitätsrate sehr gut ab)}
         \begin{tabular}{lcccc}
             \toprule
             \textbf{Datenquelle} & \textbf{Modell (RF)} & Majority & Persistenz-168 & Klimatologie \\
@@ -93,13 +85,11 @@ Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sic
   \label{fig:cv_matrix}
 \end{figure}
 
-\todo{lstm matrizen ansprechen}
-
-\cref{tab:cv_metrics} zeigt die In-Distribution-Gütemaße des Driving-Classifiers für jede Datenquelle. 
+\cref{tab:cv_metrics} zeigt die In-Distribution-Gütemaße des Driving-Classifiers für jede Datenquelle. Da für jede Datenquelle pro Architektur fünf Seeds existieren, werden die gemittelten Resultate in der Matrix angezeigt, wobei der beste Wert einer Zeller tabellenübergreifend hervorgehoben ist. Bei den Ergebnissen zeigt sich, dass der Random Forest in den meisten Fällen die besten Ergebnisse liefert, insbesondere bei Accuracy und Brier-Score. Die anderen Algorithmen besitzen zwar nicht die besten Werte, liefern jedoch trotzdem gute Ergebnisse. Insbesondere der Brier-Score, der die Genauigkeit als gemittelter quadratischer Fehler der Vorhersagewahrscheinlichkeiten darstellt und die PR-AUC, die die Qualität der Vorhersagen bei unausgeglichenen Datensätzen bewertet, sind wichtige Metriken für die Bewertung der Modelle. Da niedrige Aktiv-Raten den Brier-Score begünstigen, ist er vor allem im Vergleich der Algorithmen auf derselben Quelle aussagekräftig; dort zeigt sich etwa auf \texttt{emobpy} eine bessere Kalibrierung des Random Forest (0,169) gegenüber LightGBM (0,191).
 
 \begin{table}[H]
     \centering
-    \caption{In-distribution (in eigener Menge -- Datenquelle, in diesem Fall) Gütemaße des Driving-Classifiers je Datenquelle. RandomForest, LightGBM und tab. LSTM-Variante nutzen Merkmalssatz; seq. Variante sieht Rohfenster. \enquote{n.\,z.} = nicht als Trainingsquelle zugelassen, da Quelle Mindestkriterium von 100 Fahrzeugwochen verfehlt (\cref{sec:modellauswahl}).}
+    \caption{In-distribution (in eigener Menge -- Datenquelle, in diesem Fall) Gütemaße des Driving-Classifiers je Datenquelle. RandomForest, LightGBM und tab. LSTM-Variante nutzen Merkmalssatz; seq. Variante sieht Rohfenster. \enquote{n.\,z.} = nicht als Trainingsquelle zugelassen, da Quelle Mindestkriterium von 100 Fahrzeugwochen verfehlt (\cref{sec:modellauswahl}). \textbf{Fett} markiert je Datenquelle und Metrik den besten der vier Algorithmen (über die Teiltabellen hinweg; beim Brier-Score ist der niedrigste Wert am besten). Bei \enquote{n.\,z.}-Quellen konkurrieren nur RandomForest und LightGBM.}
     \label{tab:cv_metrics}
 
     \begin{subtable}{\textwidth}
@@ -110,10 +100,10 @@ Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sic
             \toprule
             \textbf{Datenquelle} & \textbf{Aktiv-Rate} & Acc. & F1 & ROC & PR & Brier \\
             \midrule
-            emobpy          & 0,096 & 0,697 & 0,319 & 0,798 & 0,267 & 0,169 \\
-            real\_world\_ev & 0,023 & \textbf{0,983} & 0,681 & 0,884 & 0,640 & \textbf{0,020} \\
-            ved             & 0,048 & 0,880 & 0,077 & 0,733 & 0,091 & 0,090 \\
-            routine         & 0,264 & 0,898 & \textbf{0,818} & \textbf{0,961} & \textbf{0,884} & 0,073 \\
+            emobpy          & 0,096 & \textbf{0,697} & 0,318 & 0,798 & 0,268 & \textbf{0,169} \\
+            real\_world\_ev & 0,023 & \textbf{0,982} & \textbf{0,680} & \textbf{0,895} & \textbf{0,630} & \textbf{0,020} \\
+            ved             & 0,048 & \textbf{0,881} & 0,075 & \textbf{0,725} & \textbf{0,089} & \textbf{0,089} \\
+            routine         & 0,264 & \textbf{0,903} & \textbf{0,826} & \textbf{0,961} & \textbf{0,887} & \textbf{0,073} \\
             yjmob100k       & 0,382 & 0,726 & 0,669 & 0,798 & 0,683 & 0,182 \\
             \bottomrule
         \end{tabular}
@@ -130,10 +120,10 @@ Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sic
             \textbf{Datenquelle} & \textbf{Aktiv-Rate} & Acc. & F1 & ROC & PR & Brier \\
             \midrule
             emobpy          & 0,096 & 0,641 & 0,307 & 0,809 & 0,277 & 0,191 \\
-            real\_world\_ev & 0,023 & \textbf{0,969} & 0,366 & 0,850 & 0,256 & \textbf{0,027} \\
-            ved             & 0,048 & 0,846 & 0,092 & 0,687 & 0,077 & 0,110 \\
-            routine         & 0,264 & 0,880 & \textbf{0,783} & \textbf{0,954} & \textbf{0,873} & 0,090 \\
-            yjmob100k       & 0,382 & 0,726 & 0,676 & 0,807 & 0,699 & 0,180 \\
+            real\_world\_ev & 0,023 & 0,969 & 0,366 & 0,850 & 0,256 & 0,027 \\
+            ved             & 0,048 & 0,846 & \textbf{0,092} & 0,687 & 0,077 & 0,110 \\
+            routine         & 0,264 & 0,880 & 0,783 & 0,954 & 0,873 & 0,090 \\
+            yjmob100k       & 0,382 & \textbf{0,726} & 0,676 & \textbf{0,807} & 0,699 & \textbf{0,180} \\
             \bottomrule
         \end{tabular}
     \end{subtable}
@@ -148,11 +138,11 @@ Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sic
             \toprule
             \textbf{Datenquelle} & \textbf{Aktiv-Rate} & Acc. & F1 & ROC & PR & Brier \\
             \midrule
-            emobpy          & 0,096 & 0,610 & 0,286 & 0,780 & 0,255 & 0,205 \\
+            emobpy          & 0,096 & 0,628 & 0,289 & 0,780 & 0,258 & 0,199 \\
             real\_world\_ev & 0,023 & \multicolumn{5}{c}{n.\,z.} \\
             ved             & 0,048 & \multicolumn{5}{c}{n.\,z.} \\
             routine         & 0,264 & \multicolumn{5}{c}{n.\,z.} \\
-            yjmob100k       & 0,382 & 0,726 & 0,676 & 0,806 & 0,703 & 0,180 \\
+            yjmob100k       & 0,382 & 0,724 & \textbf{0,677} & 0,805 & \textbf{0,702} & 0,182 \\
             \bottomrule
         \end{tabular}
     \end{subtable}
@@ -167,17 +157,19 @@ Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sic
             \toprule
             \textbf{Datenquelle} & \textbf{Aktiv-Rate} & Acc. & F1 & ROC & PR & Brier \\
             \midrule
-            emobpy          & 0,096 & 0,661 & \textbf{0,323} & \textbf{0,820} & \textbf{0,288} & 0,194 \\
+            emobpy          & 0,096 & 0,670 & \textbf{0,324} & \textbf{0,820} & \textbf{0,289} & 0,188 \\
             real\_world\_ev & 0,023 & \multicolumn{5}{c}{n.\,z.} \\
             ved             & 0,048 & \multicolumn{5}{c}{n.\,z.} \\
             routine         & 0,264 & \multicolumn{5}{c}{n.\,z.} \\
-            yjmob100k       & 0,382 & 0,719 & 0,657 & 0,789 & 0,670 & 0,186 \\
+            yjmob100k       & 0,382 & 0,717 & 0,654 & 0,781 & 0,662 & 0,190 \\
             \bottomrule
         \end{tabular}
     \end{subtable}
 \end{table}
 
-\begin{table}[htbp]
+Um genauer zu zeigen, dass Merkmalsgruppen unterschiedliche Einflüsse auf die Vorhersageleistung haben, wird in \cref{tab:ablation} eine Ablation der Merkmalsgruppen durchgeführt. Dabei werden die Merkmalsgruppen Kalender, Lags und Rolling jeweils entfernt oder isoliert betrachtet, um deren Einfluss auf die PR-AUC je Datenquelle zu bewerten. In den Ergebnissen ist deutliche zu erkennen, dass die Lags die tragende Merkmalsgruppe darstellen, da das Entfernen dieser Gruppe zu den größten Einbußen in der PR-AUC führt. Die Rolling-Merkmale scheinen redundant, wenn nicht sogar schädlich zu sein, da deren Entfernung in einigen Quellen sogar zu einer Verbesserung der PR-AUC führt. 
+
+\begin{table}[H]
     \centering
     \caption{Ablation der Merkmalsgruppen: PR-AUC je Datenquelle, zeitlich in-distribution. Verworfene Zeilen richten sich in allen Varianten nach dem vollständigen Merkmalssatz, sodass je Quelle identische Beobachtungen zugrunde liegen.}
     \label{tab:ablation}
@@ -250,4 +242,3 @@ Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sic
     \end{subtable}
 \end{table}
 
-\todo{memo ablation-interpretation (\cref{tab:ablation}): (1) lags = tragende gruppe -- 'ohne Lags' kostet am meisten (real\_world\_ev -0,552, routine -0,161, yjmob -0,109); 'nur Lags' erreicht fast/über referenz. (2) rolling redundant -- 'ohne Rolling' bei 3/5 quellen BESSER als voll (real\_world\_ev 0,705>0,619, ved 0,100>0,089, routine 0,892>0,886); 'nur Rolling' durchweg am schlechtesten -> rolling bringt gegenüber lags nur rauschen. (3) kalender quellenabhängig: bei routine (regelbasiert) reicht 'nur Kalender' fast (0,803 vs 0,886), bei real\_world\_ev bricht es ein (0,018). LIMITATION: ved durchgehend nahe zufall (aktiv-rate 0,048) -> deltas dort nicht interpretierbar; real\_world\_ev n=1 fahrzeug -> lgbm schwankt 0,177..0,669 = stichprobenrauschen.}
