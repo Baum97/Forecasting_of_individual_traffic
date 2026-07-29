@@ -25,10 +25,10 @@
 \contentsline {subsubsection}{\nonumberline Data Leakage}{12}{subsubsection*.18}%
 \contentsline {subsection}{\numberline {2.3.3}Training}{12}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}Generalisierung}{12}{subsection.2.3.4}%
-\contentsline {subsubsection}{\nonumberline Overfitting}{13}{subsubsection*.19}%
+\contentsline {subsubsection}{\nonumberline Overfitting}{12}{subsubsection*.19}%
 \contentsline {subsubsection}{\nonumberline Underfitting}{13}{subsubsection*.20}%
 \contentsline {subsection}{\numberline {2.3.5}Validierung}{13}{subsection.2.3.5}%
-\contentsline {subsection}{\numberline {2.3.6}Bewertungsmetriken}{14}{subsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.3.6}Bewertungsmetriken}{13}{subsection.2.3.6}%
 \contentsline {subsection}{\numberline {2.3.7}Entscheidungsbäume}{14}{subsection.2.3.7}%
 \contentsline {subsubsection}{\nonumberline Gini Index}{14}{subsubsection*.22}%
 \contentsline {subsubsection}{\nonumberline Bagging und Boosting}{15}{subsubsection*.24}%
@@ -92,19 +92,19 @@
 \contentsline {paragraph}{\nonumberline FF1.1 -- Unterschiede der Machine Learning Verfahren in Prognosegenauigkeit}{63}{paragraph*.77}%
 \contentsline {paragraph}{\nonumberline FF1.1.1 -- Einfluss der Datenquelle auf die Prognosegenauigkeit}{63}{paragraph*.78}%
 \contentsline {paragraph}{\nonumberline FF1.2 -- Merkmalseinfluss auf individuelles Mobilitätsverhalten}{63}{paragraph*.79}%
-\contentsline {paragraph}{\nonumberline FF2 -- Anforderung an Daten}{63}{paragraph*.80}%
-\contentsline {paragraph}{\nonumberline FF2.1 -- Aufbereitung und Anonymisierung}{63}{paragraph*.81}%
-\contentsline {paragraph}{\nonumberline FF2.2 -- Bewertung der Datenqualität}{63}{paragraph*.82}%
-\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{63}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Limitationen}{64}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Implikationen}{64}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{65}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{65}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Ausblick}{65}{section.7.2}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{66}{chapter*.83}%
+\contentsline {paragraph}{\nonumberline FF2 -- Anforderung an Daten}{64}{paragraph*.80}%
+\contentsline {paragraph}{\nonumberline FF2.1 -- Aufbereitung und Anonymisierung}{64}{paragraph*.81}%
+\contentsline {paragraph}{\nonumberline FF2.2 -- Bewertung der Datenqualität}{64}{paragraph*.82}%
+\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{65}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Limitationen}{65}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Implikationen}{65}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{66}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{66}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Ausblick}{66}{section.7.2}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{67}{chapter*.83}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\numberline {A}Anhang}{69}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{69}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{73}{section.A.2}%
-\contentsline {chapter}{Eidesstattliche Erklärung}{75}{chapter*.92}%
+\contentsline {chapter}{\numberline {A}Anhang}{70}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{70}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{74}{section.A.2}%
+\contentsline {chapter}{Eidesstattliche Erklärung}{76}{chapter*.92}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

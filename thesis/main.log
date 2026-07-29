@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  29 JUL 2026 15:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  30 JUL 2026 00:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -691,7 +691,7 @@ Package biblatex Info: ... file 'blx-dm.def' found.
 File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
-Package biblatex Info: ... file 'authoryear.dbx' not found.
+Package biblatex Info: ... file 'ieee.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@afterword=\count390
@@ -799,29 +799,44 @@ File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
 \biburllcskip=\muskip22
 \c@smartand=\count466
 )
-Package biblatex Info: Trying to load bibliography style 'authoryear'...
-Package biblatex Info: ... file 'authoryear.bbx' found.
- (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\authoryear.bbx
-File: authoryear.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'ieee'...
+Package biblatex Info: ... file 'ieee.bbx' found.
+ (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-ieee\ieee.bbx
+File: ieee.bbx 2025-08-01 v1.4f biblatex bibliography style
+Package biblatex Info: Trying to load bibliography style 'numeric-comp'...
+Package biblatex Info: ... file 'numeric-comp.bbx' found.
+ (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\numeric-comp.bbx
+File: numeric-comp.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+ (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\numeric.bbx
+File: numeric.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
  (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.bbx
 File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
 \c@bbx:relatedcount=\count467
 \c@bbx:relatedtotal=\count468
-))
-Package biblatex Info: Trying to load citation style 'authoryear'...
-Package biblatex Info: ... file 'authoryear.cbx' found.
- (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\authoryear.cbx
-File: authoryear.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
+))))
+Package biblatex Info: Trying to load citation style 'ieee'...
+Package biblatex Info: ... file 'ieee.cbx' found.
+ (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-ieee\ieee.cbx
+File: ieee.cbx 2025-08-01 v1.4f biblatex citation style
+Package biblatex Info: Trying to load citation style 'numeric-verb'...
+Package biblatex Info: ... file 'numeric-verb.cbx' found.
+ (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\numeric-verb.cbx
+File: numeric-verb.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
 Package biblatex Info: Redefining '\footcitetext'.
 Package biblatex Info: Redefining '\smartcite'.
 Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
 Package biblatex Info: Redefining '\textcites'.
-)
+))
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
  (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.cfg
@@ -1310,12 +1325,12 @@ l.21 \section
 
 ]
 chapter 2.
-<images/data_cars-real-world.png, id=350, 332.74312pt x 123.46124pt>
+<images/data_cars-real-world.png, id=347, 332.74312pt x 123.46124pt>
 File: images/data_cars-real-world.png Graphic file (type png)
 <use images/data_cars-real-world.png>
 Package pdftex.def Info: images/data_cars-real-world.png  used on input line 17.
 (pdftex.def)             Requested size: 256.07741pt x 95.02022pt.
-<images/data_emobpy.png, id=353, 316.18124pt x 108.405pt>
+<images/data_emobpy.png, id=350, 316.18124pt x 108.405pt>
 File: images/data_emobpy.png Graphic file (type png)
 <use images/data_emobpy.png>
 Package pdftex.def Info: images/data_emobpy.png  used on input line 26.
@@ -1323,13 +1338,13 @@ Package pdftex.def Info: images/data_emobpy.png  used on input line 26.
 [6
 
  <./images/data_cars-real-world.png> <./images/data_emobpy.png>]
-<images/prozess_diagramm_v2.png, id=367, 1055.142pt x 375.804pt>
+<images/prozess_diagramm_v2.png, id=364, 1055.142pt x 375.804pt>
 File: images/prozess_diagramm_v2.png Graphic file (type png)
 <use images/prozess_diagramm_v2.png>
 Package pdftex.def Info: images/prozess_diagramm_v2.png  used on input line 44.
 (pdftex.def)             Requested size: 426.79135pt x 152.00482pt.
  [7 <./images/prozess_diagramm_v2.png>] [8]
-<images/maschinelles-lernen.png, id=382, 1028.84375pt x 866.23625pt>
+<images/maschinelles-lernen.png, id=379, 1028.84375pt x 866.23625pt>
 File: images/maschinelles-lernen.png Graphic file (type png)
 <use images/maschinelles-lernen.png>
 Package pdftex.def Info: images/maschinelles-lernen.png  used on input line 126.
@@ -1357,35 +1372,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 200--200
  []
 
 [13{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}] [14]
-<images/decisiontree2_hires.png, id=457, 578.16pt x 433.62pt>
+<images/decisiontree2_hires.png, id=456, 578.16pt x 433.62pt>
 File: images/decisiontree2_hires.png Graphic file (type png)
 <use images/decisiontree2_hires.png>
 Package pdftex.def Info: images/decisiontree2_hires.png  used on input line 259.
 (pdftex.def)             Requested size: 256.07741pt x 192.05714pt.
-<images/baggingmethod.png, id=462, 853.1875pt x 514.92375pt>
+<images/baggingmethod.png, id=461, 853.1875pt x 514.92375pt>
 File: images/baggingmethod.png Graphic file (type png)
 <use images/baggingmethod.png>
 Package pdftex.def Info: images/baggingmethod.png  used on input line 270.
 (pdftex.def)             Requested size: 341.43437pt x 206.068pt.
  [15 <./images/decisiontree2_hires.png>]
-<images/boostingmethod.png, id=475, 102.3825pt x 67.2111pt>
+<images/boostingmethod.png, id=472, 102.3825pt x 67.2111pt>
 File: images/boostingmethod.png Graphic file (type png)
 <use images/boostingmethod.png>
 Package pdftex.def Info: images/boostingmethod.png  used on input line 279.
 (pdftex.def)             Requested size: 341.43437pt x 224.15712pt.
  [16 <./images/baggingmethod.png>]
-<images/treegrowth.jpg, id=486, 342.12617pt x 90.77112pt>
+<images/treegrowth.jpg, id=483, 342.12617pt x 90.77112pt>
 File: images/treegrowth.jpg Graphic file (type jpg)
 <use images/treegrowth.jpg>
 Package pdftex.def Info: images/treegrowth.jpg  used on input line 288.
 (pdftex.def)             Requested size: 426.79135pt x 113.23369pt.
  [17 <./images/boostingmethod.png> <./images/treegrowth.jpg>] [18]
-<images/quantilregression.png, id=504, 794.97pt x 317.988pt>
+<images/quantilregression.png, id=501, 794.97pt x 317.988pt>
 File: images/quantilregression.png Graphic file (type png)
 <use images/quantilregression.png>
 Package pdftex.def Info: images/quantilregression.png  used on input line 331.
 (pdftex.def)             Requested size: 426.79135pt x 170.72113pt.
-<images/lstm.png, id=509, 1027.84pt x 587.19376pt>
+<images/lstm.png, id=506, 1027.84pt x 587.19376pt>
 File: images/lstm.png Graphic file (type png)
 <use images/lstm.png>
 Package pdftex.def Info: images/lstm.png  used on input line 349.
@@ -1456,18 +1471,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 392--392
  []
 
 [20 <./images/lstm.png (PNG copy)>] [21]
-<images/fahrverhalten.png, id=533, 681.54625pt x 823.075pt>
+<images/fahrverhalten.png, id=530, 681.54625pt x 823.075pt>
 File: images/fahrverhalten.png Graphic file (type png)
 <use images/fahrverhalten.png>
 Package pdftex.def Info: images/fahrverhalten.png  used on input line 410.
 (pdftex.def)             Requested size: 298.75264pt x 360.79773pt.
  [22] [23 <./images/fahrverhalten.png (PNG copy)>]
-<images/chargingrequests_sanami.png, id=555, 663.98062pt x 364.36125pt>
+<images/chargingrequests_sanami.png, id=552, 663.98062pt x 364.36125pt>
 File: images/chargingrequests_sanami.png Graphic file (type png)
 <use images/chargingrequests_sanami.png>
 Package pdftex.def Info: images/chargingrequests_sanami.png  used on input line 431.
 (pdftex.def)             Requested size: 384.1096pt x 210.77925pt.
-<images/weeklychargingrequests_sanami.png, id=556, 839.38594pt x 470.50781pt>
+<images/weeklychargingrequests_sanami.png, id=553, 839.38594pt x 470.50781pt>
 File: images/weeklychargingrequests_sanami.png Graphic file (type png)
 <use images/weeklychargingrequests_sanami.png>
 Package pdftex.def Info: images/weeklychargingrequests_sanami.png  used on input line 440.
@@ -1476,7 +1491,7 @@ Package pdftex.def Info: images/weeklychargingrequests_sanami.png  used on input
 
 ]) (chapters/03methodik.tex [27]
 chapter 3.
-<graphen/variablendiagramm/variablendiagramm.pdf, id=596, 338.80879pt x 249.61658pt>
+<graphen/variablendiagramm/variablendiagramm.pdf, id=593, 338.80879pt x 249.61658pt>
 File: graphen/variablendiagramm/variablendiagramm.pdf Graphic file (type pdf)
 <use graphen/variablendiagramm/variablendiagramm.pdf>
 Package pdftex.def Info: graphen/variablendiagramm/variablendiagramm.pdf  used on input line 29.
@@ -1484,7 +1499,7 @@ Package pdftex.def Info: graphen/variablendiagramm/variablendiagramm.pdf  used o
 [28
 
 ] [29 <./graphen/variablendiagramm/variablendiagramm.pdf>] [30]
-<graphen/methodik/methodik_workflow.pdf, id=750, 281.25275pt x 516.01285pt>
+<graphen/methodik/methodik_workflow.pdf, id=747, 281.25275pt x 516.01285pt>
 File: graphen/methodik/methodik_workflow.pdf Graphic file (type pdf)
 <use graphen/methodik/methodik_workflow.pdf>
 Package pdftex.def Info: graphen/methodik/methodik_workflow.pdf  used on input line 76.
@@ -1500,29 +1515,29 @@ chapter 4.
 
 
 ] [44]
-<graphen/komponentendiagramm/komponentendiagramm.pdf, id=969, 530.11252pt x 420.91855pt>
+<graphen/komponentendiagramm/komponentendiagramm.pdf, id=966, 530.11252pt x 420.91855pt>
 File: graphen/komponentendiagramm/komponentendiagramm.pdf Graphic file (type pdf)
 <use graphen/komponentendiagramm/komponentendiagramm.pdf>
-Package pdftex.def Info: graphen/komponentendiagramm/komponentendiagramm.pdf  used on input line 90.
+Package pdftex.def Info: graphen/komponentendiagramm/komponentendiagramm.pdf  used on input line 91.
 (pdftex.def)             Requested size: 426.79135pt x 338.88689pt.
  [45
 
  <./graphen/komponentendiagramm/komponentendiagramm.pdf>]
-<graphen/sequenzdiagramm/sequenzdiagramm.pdf, id=1162, 468.56256pt x 336.72801pt>
+<graphen/sequenzdiagramm/sequenzdiagramm.pdf, id=1159, 468.56256pt x 336.72801pt>
 File: graphen/sequenzdiagramm/sequenzdiagramm.pdf Graphic file (type pdf)
 <use graphen/sequenzdiagramm/sequenzdiagramm.pdf>
-Package pdftex.def Info: graphen/sequenzdiagramm/sequenzdiagramm.pdf  used on input line 99.
+Package pdftex.def Info: graphen/sequenzdiagramm/sequenzdiagramm.pdf  used on input line 100.
 (pdftex.def)             Requested size: 426.79135pt x 306.7261pt.
  [46 <./graphen/sequenzdiagramm/sequenzdiagramm.pdf>]
-<graphen/persistenzlayout/persistenzlayout.pdf, id=1268, 419.169pt x 319.25272pt>
+<graphen/persistenzlayout/persistenzlayout.pdf, id=1265, 419.169pt x 319.25272pt>
 File: graphen/persistenzlayout/persistenzlayout.pdf Graphic file (type pdf)
 <use graphen/persistenzlayout/persistenzlayout.pdf>
-Package pdftex.def Info: graphen/persistenzlayout/persistenzlayout.pdf  used on input line 108.
+Package pdftex.def Info: graphen/persistenzlayout/persistenzlayout.pdf  used on input line 109.
 (pdftex.def)             Requested size: 362.77525pt x 276.30568pt.
  [47 <./graphen/persistenzlayout/persistenzlayout.pdf>] [48] (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 ) [49]
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 161.
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 162.
  (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1535,7 +1550,7 @@ Package microtype Info: Character `texttrademark ' is missing
 (microtype)             Ignoring protrusion settings for this character.
  [50]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 166.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 167.
  [51] [52] [53]) (chapters/05evaluation.tex [54]
 chapter 5.
 [55
@@ -1545,7 +1560,7 @@ Underfull \hbox (badness 2573) in paragraph at lines 40--40
 [][][]|\T1/lmr/m/n/12 (+20) Mo-dell (Ran-dom-Fo-rest) im Ver-gleich zu nai-ven Ba-se-li-nes, In-
  []
 
-<images/cv_f1_5x5.png, id=1528, 404.712pt x 325.215pt>
+<images/cv_f1_5x5.png, id=1525, 404.712pt x 325.215pt>
 File: images/cv_f1_5x5.png Graphic file (type png)
 <use images/cv_f1_5x5.png>
 Package pdftex.def Info: images/cv_f1_5x5.png  used on input line 82.
@@ -1557,65 +1572,65 @@ Overfull \vbox (57.13402pt too high) has occurred while \output is active []
 chapter 6.
 [62
 
-] [63]) (chapters/07fazit.tex [64]
+] [63] [64]) (chapters/07fazit.tex [65]
 chapter 7.
-) [65
+) [66
 
 ]
 chapter without number
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
-[66
+[67
 
 ]
-Overfull \hbox (1.56348pt too wide) in paragraph at lines 102--102
-\T1/lmtt/m/n/12 gradient -[] boosting -[] machine -[] learning -[] method -[] The -[] ensemble -[] classifiers _
+Overfull \hbox (11.21758pt too wide) in paragraph at lines 102--102
+\T1/lmr/m/n/12 (-20) thod.^^P Ab-bil-dung, be-sucht am 2. Ju-li 2026. Adres-se: []$\T1/lmtt/m/n/12 https : / / www . researchgate .
  []
 
-[67] (chapters/08anhang.tex [68]
+[68] (chapters/08anhang.tex [69]
 chapter A.
-<images/cv_f1_5x5_lgbm.png, id=1644, 404.712pt x 325.215pt>
+<images/cv_f1_5x5_lgbm.png, id=1659, 404.712pt x 325.215pt>
 File: images/cv_f1_5x5_lgbm.png Graphic file (type png)
 <use images/cv_f1_5x5_lgbm.png>
 Package pdftex.def Info: images/cv_f1_5x5_lgbm.png  used on input line 15.
 (pdftex.def)             Requested size: 362.77525pt x 291.52959pt.
-<images/cv_f1_5x5_lstm_tab.png, id=1648, 404.712pt x 325.215pt>
+<images/cv_f1_5x5_lstm_tab.png, id=1663, 404.712pt x 325.215pt>
 File: images/cv_f1_5x5_lstm_tab.png Graphic file (type png)
 <use images/cv_f1_5x5_lstm_tab.png>
 Package pdftex.def Info: images/cv_f1_5x5_lstm_tab.png  used on input line 30.
 (pdftex.def)             Requested size: 362.77525pt x 291.52959pt.
-[69
+[70
 
  <./images/cv_f1_5x5_lgbm.png>]
-<images/cv_f1_5x5_lstm_seq.png, id=1654, 404.712pt x 325.215pt>
+<images/cv_f1_5x5_lstm_seq.png, id=1669, 404.712pt x 325.215pt>
 File: images/cv_f1_5x5_lstm_seq.png Graphic file (type png)
 <use images/cv_f1_5x5_lstm_seq.png>
 Package pdftex.def Info: images/cv_f1_5x5_lstm_seq.png  used on input line 38.
 (pdftex.def)             Requested size: 362.77525pt x 291.52959pt.
- [70 <./images/cv_f1_5x5_lstm_tab.png> <./images/cv_f1_5x5_lstm_seq.png>]
-<images/cv_acc_5x5_rf.png, id=1663, 505.89pt x 397.485pt>
+ [71 <./images/cv_f1_5x5_lstm_tab.png> <./images/cv_f1_5x5_lstm_seq.png>]
+<images/cv_acc_5x5_rf.png, id=1679, 505.89pt x 397.485pt>
 File: images/cv_acc_5x5_rf.png Graphic file (type png)
 <use images/cv_acc_5x5_rf.png>
 Package pdftex.def Info: images/cv_acc_5x5_rf.png  used on input line 55.
 (pdftex.def)             Requested size: 362.77525pt x 285.04266pt.
-<images/cv_acc_5x5_lgbm.png, id=1664, 505.89pt x 397.485pt>
+<images/cv_acc_5x5_lgbm.png, id=1680, 505.89pt x 397.485pt>
 File: images/cv_acc_5x5_lgbm.png Graphic file (type png)
 <use images/cv_acc_5x5_lgbm.png>
 Package pdftex.def Info: images/cv_acc_5x5_lgbm.png  used on input line 63.
 (pdftex.def)             Requested size: 362.77525pt x 285.04266pt.
- [71 <./images/cv_acc_5x5_rf.png>]
-<images/cv_acc_5x5_lstm_tab.png, id=1671, 505.89pt x 397.485pt>
+ [72 <./images/cv_acc_5x5_rf.png>]
+<images/cv_acc_5x5_lstm_tab.png, id=1686, 505.89pt x 397.485pt>
 File: images/cv_acc_5x5_lstm_tab.png Graphic file (type png)
 <use images/cv_acc_5x5_lstm_tab.png>
 Package pdftex.def Info: images/cv_acc_5x5_lstm_tab.png  used on input line 71.
 (pdftex.def)             Requested size: 362.77525pt x 285.04266pt.
-<images/cv_acc_5x5_lstm_seq.png, id=1672, 505.89pt x 397.485pt>
+<images/cv_acc_5x5_lstm_seq.png, id=1687, 505.89pt x 397.485pt>
 File: images/cv_acc_5x5_lstm_seq.png Graphic file (type png)
 <use images/cv_acc_5x5_lstm_seq.png>
 Package pdftex.def Info: images/cv_acc_5x5_lstm_seq.png  used on input line 79.
 (pdftex.def)             Requested size: 362.77525pt x 285.04266pt.
- [72 <./images/cv_acc_5x5_lgbm.png> <./images/cv_acc_5x5_lstm_tab.png>] [73 <./images/cv_acc_5x5_lstm_seq.png>]) (chapters/09erklaerung.tex [74]) [75
+ [73 <./images/cv_acc_5x5_lgbm.png> <./images/cv_acc_5x5_lstm_tab.png>] [74 <./images/cv_acc_5x5_lstm_seq.png>]) (chapters/09erklaerung.tex [75]) [76
 
 ] (main.aux)
  ***********
@@ -1628,16 +1643,16 @@ Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  42368 strings out of 467871
- 850624 string characters out of 5414504
- 2106521 words of memory out of 5000000
- 70136 multiletter control sequences out of 15000+600000
- 717344 words of font info for 216 fonts, out of 8000000 for 9000
+ 851526 string characters out of 5414504
+ 2104683 words of memory out of 5000000
+ 70121 multiletter control sequences out of 15000+600000
+ 717657 words of font info for 218 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 108i,20n,113p,11260b,3475s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,20n,113p,11260b,3337s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti10.pfb>
-Output written on main.pdf (83 pages, 3293005 bytes).
+Output written on main.pdf (84 pages, 3296183 bytes).
 PDF statistics:
- 2039 PDF objects out of 2073 (max. 8388607)
- 325 named destinations out of 1000 (max. 500000)
+ 2054 PDF objects out of 2073 (max. 8388607)
+ 326 named destinations out of 1000 (max. 500000)
  53341 words of extra memory for PDF output out of 61914 (max. 10000000)
 
