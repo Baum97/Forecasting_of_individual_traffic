@@ -22,7 +22,7 @@ Bei der Testumgebung handelt es sich um eine standardisierte Umgebung, die siche
     \item Hardware: Die Tests werden auf einem lokalen Computer mit einer NVIDIA GeForce RTX 4070Ti Grafikkarte, 32 GB DDR5 RAM und einem Ryzen 7 9800X3D Prozessor durchgeführt. Die Hardware ist dafür spezialisiert, eine überschaubare Anzahl an anspruchsvollen Aufgaben in kurzer Zeit zu bewältigen, was für die Evaluation der Modelle von Vorteil ist.
     \item Software: Die Softwareumgebung besteht aus Visual Studio Code, Python 3.13 und den folgenden Technologien aus aktuellster Version zum 27.07.2026:scikit-learn, lightgbm, PyTorch, Pandas, Numpy, Angular und TypeScript.
     \item Datensatzkonfiguration: Jede Quelle wird chronologisch im Verhältnis 80/20 in Trainings- und Testteil geteilt. Der Umfang wird je Quelle begrenzt (\texttt{emobpy}: 30 Fahrzeuge, \texttt{ved}: 15 Fahrzeuge aus 4 Dateien, \texttt{yjmob100k}: 50 Personen; \texttt{real\_world\_ev} und \texttt{routine} vollständig), um die Laufzeit beherrschbar zu halten, ohne die Isolationsmatrix zu verändern.
-    \item Seeds, Parameter und Kontrollvariablen: Jeder Lauf wird über fünf feste Zufalls-Seeds wiederholt und als Mittelwert samt Standardabweichung berichtet. Die Hyperparameter werden je Modell einmalig festgelegt und über die Isolationsexperimente konstant gehalten, sodass sie zusammen mit dem Feature-Set als Kontrollvariablen wirken.
+    \item Seeds, Parameter und Kontrollvariablen: Bei der Kreuzvalidierungsmatrix werden über fünf Seeds Ergebnisse berichtet und deren Mittelwert sowie Standardabweichung angegeben. Die Hyperparameter werden je Modell einmalig festgelegt und über die Isolationsexperimente konstant gehalten, sodass sie zusammen mit dem Feature-Set als Kontrollvariablen wirken.
 \end{itemize}
 
 % -----------------------------------------------------------------------------
@@ -87,85 +87,79 @@ Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sic
 
 \cref{tab:cv_metrics} zeigt die In-Distribution-Gütemaße des Driving-Classifiers für jede Datenquelle. Da für jede Datenquelle pro Architektur fünf Seeds existieren, werden die gemittelten Resultate in der Matrix angezeigt, wobei der beste Wert einer Zeller tabellenübergreifend hervorgehoben ist. Bei den Ergebnissen zeigt sich, dass der Random Forest in den meisten Fällen die besten Ergebnisse liefert, insbesondere bei Accuracy und Brier-Score. Die anderen Algorithmen besitzen zwar nicht die besten Werte, liefern jedoch trotzdem gute Ergebnisse. Insbesondere der Brier-Score, der die Genauigkeit als gemittelter quadratischer Fehler der Vorhersagewahrscheinlichkeiten darstellt und die PR-AUC, die die Qualität der Vorhersagen bei unausgeglichenen Datensätzen bewertet, sind wichtige Metriken für die Bewertung der Modelle. Da niedrige Aktiv-Raten den Brier-Score begünstigen, ist er vor allem im Vergleich der Algorithmen auf derselben Quelle aussagekräftig; dort zeigt sich etwa auf \texttt{emobpy} eine bessere Kalibrierung des Random Forest (0,169) gegenüber LightGBM (0,191).
 
-\begin{table}[H]
-    \centering
-    \caption{In-distribution (in eigener Menge -- Datenquelle, in diesem Fall) Gütemaße des Driving-Classifiers je Datenquelle. RandomForest, LightGBM und tab. LSTM-Variante nutzen Merkmalssatz; seq. Variante sieht Rohfenster. \enquote{n.\,z.} = nicht als Trainingsquelle zugelassen, da Quelle Mindestkriterium von 100 Fahrzeugwochen verfehlt (\cref{sec:modellauswahl}). \textbf{Fett} markiert je Datenquelle und Metrik den besten der vier Algorithmen (über die Teiltabellen hinweg; beim Brier-Score ist der niedrigste Wert am besten). Bei \enquote{n.\,z.}-Quellen konkurrieren nur RandomForest und LightGBM.}
-    \label{tab:cv_metrics}
-
-    \begin{subtable}{\textwidth}
-        \centering
-        \caption{RandomForest}
-        \label{tab:cv_metrics_rf}
-        \begin{tabular}{lcccccc}
-            \toprule
-            \textbf{Datenquelle} & \textbf{Aktiv-Rate} & Acc. & F1 & ROC & PR & Brier \\
-            \midrule
-            emobpy          & 0,096 & \textbf{0,697} & 0,318 & 0,798 & 0,268 & \textbf{0,169} \\
-            real\_world\_ev & 0,023 & \textbf{0,982} & \textbf{0,680} & \textbf{0,895} & \textbf{0,630} & \textbf{0,020} \\
-            ved             & 0,048 & \textbf{0,881} & 0,075 & \textbf{0,725} & \textbf{0,089} & \textbf{0,089} \\
-            routine         & 0,264 & \textbf{0,903} & \textbf{0,826} & \textbf{0,961} & \textbf{0,887} & \textbf{0,073} \\
-            yjmob100k       & 0,382 & 0,726 & 0,669 & 0,798 & 0,683 & 0,182 \\
-            \bottomrule
-        \end{tabular}
-    \end{subtable}
-
-    \vspace{1em}
-
-    \begin{subtable}{\textwidth}
-        \centering
-        \caption{LightGBM}
-        \label{tab:cv_metrics_lgbm}
-        \begin{tabular}{lcccccc}
-            \toprule
-            \textbf{Datenquelle} & \textbf{Aktiv-Rate} & Acc. & F1 & ROC & PR & Brier \\
-            \midrule
-            emobpy          & 0,096 & 0,641 & 0,307 & 0,809 & 0,277 & 0,191 \\
-            real\_world\_ev & 0,023 & 0,969 & 0,366 & 0,850 & 0,256 & 0,027 \\
-            ved             & 0,048 & 0,846 & \textbf{0,092} & 0,687 & 0,077 & 0,110 \\
-            routine         & 0,264 & 0,880 & 0,783 & 0,954 & 0,873 & 0,090 \\
-            yjmob100k       & 0,382 & \textbf{0,726} & 0,676 & \textbf{0,807} & 0,699 & \textbf{0,180} \\
-            \bottomrule
-        \end{tabular}
-    \end{subtable}
-
-    \vspace{1em}
-
-    \begin{subtable}{\textwidth}
-        \centering
-        \caption{LSTM, tabellarisch (identischer Merkmalssatz)}
-        \label{tab:cv_metrics_lstm_tab}
-        \begin{tabular}{lcccccc}
-            \toprule
-            \textbf{Datenquelle} & \textbf{Aktiv-Rate} & Acc. & F1 & ROC & PR & Brier \\
-            \midrule
-            emobpy          & 0,096 & 0,628 & 0,289 & 0,780 & 0,258 & 0,199 \\
-            real\_world\_ev & 0,023 & \multicolumn{5}{c}{n.\,z.} \\
-            ved             & 0,048 & \multicolumn{5}{c}{n.\,z.} \\
-            routine         & 0,264 & \multicolumn{5}{c}{n.\,z.} \\
-            yjmob100k       & 0,382 & 0,724 & \textbf{0,677} & 0,805 & \textbf{0,702} & 0,182 \\
-            \bottomrule
-        \end{tabular}
-    \end{subtable}
-
-    \vspace{1em}
-
-    \begin{subtable}{\textwidth}
-        \centering
-        \caption{LSTM, sequenziell (Fenster der letzten 168 Stunden)}
-        \label{tab:cv_metrics_lstm_seq}
-        \begin{tabular}{lcccccc}
-            \toprule
-            \textbf{Datenquelle} & \textbf{Aktiv-Rate} & Acc. & F1 & ROC & PR & Brier \\
-            \midrule
-            emobpy          & 0,096 & 0,670 & \textbf{0,324} & \textbf{0,820} & \textbf{0,289} & 0,188 \\
-            real\_world\_ev & 0,023 & \multicolumn{5}{c}{n.\,z.} \\
-            ved             & 0,048 & \multicolumn{5}{c}{n.\,z.} \\
-            routine         & 0,264 & \multicolumn{5}{c}{n.\,z.} \\
-            yjmob100k       & 0,382 & 0,717 & 0,654 & 0,781 & 0,662 & 0,190 \\
-            \bottomrule
-        \end{tabular}
-    \end{subtable}
-\end{table}
+\clearpage
+\begin{landscape}
+% Rotierte Kopfzeile fuer ALLE Seiten der Tabelle (nicht nur die erste):
+% \querkopf wuerde per \thispagestyle/FG* nur eine Seite abdecken.
+\pagestyle{empty}%
+\AddToShipoutPictureFG{%
+  \put(\LenToUnit{\dimexpr1.5cm+\baselineskip\relax},%
+       \LenToUnit{\dimexpr2.5cm\relax}){%
+    \rotatebox{90}{%
+      \parbox[b]{\dimexpr\paperheight-5cm\relax}{%
+        \small\leftmark\hfill\thepage\par
+        \vskip 1pt\hrule height 0.4pt\relax
+      }%
+    }%
+  }%
+}%
+\begin{small}
+\begin{longtable}{lcccccc}
+\caption{In-distribution (in eigener Menge -- Datenquelle, in diesem Fall) Gütemaße des Driving-Classifiers je Datenquelle (Mittelwert $\pm$ Std). Modelle sehen Merkmalssatz; seq. LSTM sieht Rohfenster. \enquote{n.\,z.} = nicht als Trainingsquelle zugelassen, da Quelle Mindestkriterium von 100 Fahrzeugwochen verfehlt (\cref*{sec:modellauswahl}).}
+\label{tab:cv_metrics}\\
+\toprule
+\textbf{Datenquelle} & \textbf{Aktiv-Rate} & Acc. & F1 & ROC & PR & Brier \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Datenquelle} & \textbf{Aktiv-Rate} & Acc. & F1 & ROC & PR & Brier \\
+\midrule
+\endhead
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{7}{l}{\textbf{RandomForest}}\\
+\midrule
+emobpy          & 0,096 & $\mathbf{0{,}697}_{\pm0{,}001}$ & $0{,}318_{\pm0{,}001}$ & $0{,}798_{\pm0{,}000}$ & $0{,}268_{\pm0{,}001}$ & $\mathbf{0{,}169}_{\pm0{,}000}$ \\
+real\_world\_ev & 0,023 & $\mathbf{0{,}982}_{\pm0{,}003}$ & $\mathbf{0{,}680}_{\pm0{,}037}$ & $\mathbf{0{,}895}_{\pm0{,}011}$ & $\mathbf{0{,}630}_{\pm0{,}013}$ & $\mathbf{0{,}020}_{\pm0{,}001}$ \\
+ved             & 0,048 & $\mathbf{0{,}881}_{\pm0{,}002}$ & $0{,}075_{\pm0{,}010}$ & $\mathbf{0{,}725}_{\pm0{,}007}$ & $\mathbf{0{,}089}_{\pm0{,}002}$ & $\mathbf{0{,}089}_{\pm0{,}001}$ \\
+routine         & 0,264 & $\mathbf{0{,}903}_{\pm0{,}003}$ & $\mathbf{0{,}826}_{\pm0{,}004}$ & $\mathbf{0{,}961}_{\pm0{,}000}$ & $\mathbf{0{,}887}_{\pm0{,}003}$ & $\mathbf{0{,}073}_{\pm0{,}000}$ \\
+yjmob100k       & 0,382 & $0{,}726_{\pm0{,}000}$ & $0{,}669_{\pm0{,}001}$ & $0{,}798_{\pm0{,}000}$ & $0{,}683_{\pm0{,}000}$ & $0{,}182_{\pm0{,}000}$ \\
+\addlinespace
+\midrule
+\multicolumn{7}{l}{\textbf{LightGBM}}\\
+\midrule
+emobpy          & 0,096 & $0{,}641_{\pm0{,}000}$ & $0{,}307_{\pm0{,}000}$ & $0{,}809_{\pm0{,}000}$ & $0{,}277_{\pm0{,}000}$ & $0{,}191_{\pm0{,}000}$ \\
+real\_world\_ev & 0,023 & $0{,}969_{\pm0{,}000}$ & $0{,}366_{\pm0{,}000}$ & $0{,}850_{\pm0{,}000}$ & $0{,}256_{\pm0{,}000}$ & $0{,}027_{\pm0{,}000}$ \\
+ved             & 0,048 & $0{,}846_{\pm0{,}000}$ & $\mathbf{0{,}092}_{\pm0{,}000}$ & $0{,}687_{\pm0{,}000}$ & $0{,}077_{\pm0{,}000}$ & $0{,}110_{\pm0{,}000}$ \\
+routine         & 0,264 & $0{,}880_{\pm0{,}000}$ & $0{,}783_{\pm0{,}000}$ & $0{,}954_{\pm0{,}000}$ & $0{,}873_{\pm0{,}000}$ & $0{,}090_{\pm0{,}000}$ \\
+yjmob100k       & 0,382 & $\mathbf{0{,}726}_{\pm0{,}000}$ & $0{,}676_{\pm0{,}000}$ & $\mathbf{0{,}807}_{\pm0{,}000}$ & $0{,}699_{\pm0{,}000}$ & $\mathbf{0{,}180}_{\pm0{,}000}$ \\
+\addlinespace
+\midrule
+\multicolumn{7}{l}{\textbf{LSTM, tabellarisch (identischer Merkmalssatz)}}\\
+\midrule
+emobpy          & 0,096 & $0{,}628_{\pm0{,}015}$ & $0{,}289_{\pm0{,}003}$ & $0{,}780_{\pm0{,}002}$ & $0{,}258_{\pm0{,}004}$ & $0{,}199_{\pm0{,}007}$ \\
+real\_world\_ev & 0,023 & \multicolumn{5}{c}{n.\,z.} \\
+ved             & 0,048 & \multicolumn{5}{c}{n.\,z.} \\
+routine         & 0,264 & \multicolumn{5}{c}{n.\,z.} \\
+yjmob100k       & 0,382 & $0{,}724_{\pm0{,}002}$ & $\mathbf{0{,}677}_{\pm0{,}001}$ & $0{,}805_{\pm0{,}001}$ & $\mathbf{0{,}702}_{\pm0{,}001}$ & $0{,}182_{\pm0{,}001}$ \\
+\addlinespace
+\midrule
+\multicolumn{7}{l}{\textbf{LSTM, sequenziell (Fenster der letzten 168 Stunden)}}\\
+\midrule
+emobpy          & 0,096 & $0{,}670_{\pm0{,}007}$ & $\mathbf{0{,}324}_{\pm0{,}003}$ & $\mathbf{0{,}820}_{\pm0{,}002}$ & $\mathbf{0{,}289}_{\pm0{,}006}$ & $0{,}188_{\pm0{,}004}$ \\
+real\_world\_ev & 0,023 & \multicolumn{5}{c}{n.\,z.} \\
+ved             & 0,048 & \multicolumn{5}{c}{n.\,z.} \\
+routine         & 0,264 & \multicolumn{5}{c}{n.\,z.} \\
+yjmob100k       & 0,382 & $0{,}717_{\pm0{,}004}$ & $0{,}654_{\pm0{,}005}$ & $0{,}781_{\pm0{,}008}$ & $0{,}662_{\pm0{,}009}$ & $0{,}190_{\pm0{,}004}$ \\
+\end{longtable}
+\end{small}
+\end{landscape}
+% Erst NACH \end{landscape} loeschen: dessen \clearpage gibt die letzte
+% Tabellenseite aus -- ein frueheres Clear naehme ihr die Kopfzeile.
+\ClearShipoutPictureFG
+\pagestyle{scrheadings}
 
 Um genauer zu zeigen, dass Merkmalsgruppen unterschiedliche Einflüsse auf die Vorhersageleistung haben, wird in \cref{tab:ablation} eine Ablation der Merkmalsgruppen durchgeführt. Dabei werden die Merkmalsgruppen Kalender, Lags und Rolling jeweils entfernt oder isoliert betrachtet, um deren Einfluss auf die PR-AUC je Datenquelle zu bewerten. In den Ergebnissen ist deutliche zu erkennen, dass die Lags die tragende Merkmalsgruppe darstellen, da das Entfernen dieser Gruppe zu den größten Einbußen in der PR-AUC führt. Die Rolling-Merkmale scheinen redundant, wenn nicht sogar schädlich zu sein, da deren Entfernung in einigen Quellen sogar zu einer Verbesserung der PR-AUC führt. 
 

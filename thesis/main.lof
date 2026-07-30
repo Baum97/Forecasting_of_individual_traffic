@@ -26,11 +26,11 @@
 \addvspace {10\p@ }
 \def \@chapapp {\appendixname }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LightGBM)}}{70}{figure.caption.84}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LSTM, tabellarische Repräsentation)}}{71}{figure.caption.85}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LSTM, sequentielle Repräsentation)}}{71}{figure.caption.86}%
-\contentsline {figure}{\numberline {A.4}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (RandomForest)}}{72}{figure.caption.87}%
-\contentsline {figure}{\numberline {A.5}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (LightGBM)}}{73}{figure.caption.88}%
-\contentsline {figure}{\numberline {A.6}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (LSTM, tabellarische Repräsentation)}}{73}{figure.caption.89}%
-\contentsline {figure}{\numberline {A.7}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (LSTM, sequentielle Repräsentation)}}{74}{figure.caption.90}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LightGBM)}}{72}{figure.caption.77}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LSTM, tabellarische Repräsentation)}}{73}{figure.caption.78}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LSTM, sequentielle Repräsentation)}}{73}{figure.caption.79}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (RandomForest)}}{74}{figure.caption.80}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (LightGBM)}}{75}{figure.caption.81}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (LSTM, tabellarische Repräsentation)}}{75}{figure.caption.82}%
+\contentsline {figure}{\numberline {A.7}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (LSTM, sequentielle Repräsentation)}}{76}{figure.caption.83}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
