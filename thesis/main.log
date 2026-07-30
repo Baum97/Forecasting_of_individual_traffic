@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  30 JUL 2026 12:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  30 JUL 2026 17:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1577,65 +1577,65 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 chapter 6.
 [63
 
-] [64] [65] [66]) (chapters/07fazit.tex [67]
+] [64] [65] [66] [67]) (chapters/07fazit.tex [68]
 chapter 7.
-) [68
+) [69
 
 ]
 chapter without number
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
-[69
+[70
 
 ]
 Overfull \hbox (11.21758pt too wide) in paragraph at lines 102--102
 \T1/lmr/m/n/12 (-20) thod.^^P Ab-bil-dung, be-sucht am 2. Ju-li 2026. Adres-se: []$\T1/lmtt/m/n/12 https : / / www . researchgate .
  []
 
-[70] (chapters/08anhang.tex [71]
+[71] (chapters/08anhang.tex [72]
 chapter A.
-<images/cv_f1_5x5_lgbm.png, id=1677, 404.712pt x 325.215pt>
+<images/cv_f1_5x5_lgbm.png, id=1687, 404.712pt x 325.215pt>
 File: images/cv_f1_5x5_lgbm.png Graphic file (type png)
 <use images/cv_f1_5x5_lgbm.png>
 Package pdftex.def Info: images/cv_f1_5x5_lgbm.png  used on input line 15.
 (pdftex.def)             Requested size: 362.77525pt x 291.52959pt.
-<images/cv_f1_5x5_lstm_tab.png, id=1681, 404.712pt x 325.215pt>
+<images/cv_f1_5x5_lstm_tab.png, id=1691, 404.712pt x 325.215pt>
 File: images/cv_f1_5x5_lstm_tab.png Graphic file (type png)
 <use images/cv_f1_5x5_lstm_tab.png>
 Package pdftex.def Info: images/cv_f1_5x5_lstm_tab.png  used on input line 30.
 (pdftex.def)             Requested size: 362.77525pt x 291.52959pt.
-[72
+[73
 
  <./images/cv_f1_5x5_lgbm.png>]
-<images/cv_f1_5x5_lstm_seq.png, id=1687, 404.712pt x 325.215pt>
+<images/cv_f1_5x5_lstm_seq.png, id=1697, 404.712pt x 325.215pt>
 File: images/cv_f1_5x5_lstm_seq.png Graphic file (type png)
 <use images/cv_f1_5x5_lstm_seq.png>
 Package pdftex.def Info: images/cv_f1_5x5_lstm_seq.png  used on input line 38.
 (pdftex.def)             Requested size: 362.77525pt x 291.52959pt.
- [73 <./images/cv_f1_5x5_lstm_tab.png> <./images/cv_f1_5x5_lstm_seq.png>]
-<images/cv_acc_5x5_rf.png, id=1696, 505.89pt x 397.485pt>
+ [74 <./images/cv_f1_5x5_lstm_tab.png> <./images/cv_f1_5x5_lstm_seq.png>]
+<images/cv_acc_5x5_rf.png, id=1706, 505.89pt x 397.485pt>
 File: images/cv_acc_5x5_rf.png Graphic file (type png)
 <use images/cv_acc_5x5_rf.png>
 Package pdftex.def Info: images/cv_acc_5x5_rf.png  used on input line 55.
 (pdftex.def)             Requested size: 362.77525pt x 285.04266pt.
-<images/cv_acc_5x5_lgbm.png, id=1697, 505.89pt x 397.485pt>
+<images/cv_acc_5x5_lgbm.png, id=1707, 505.89pt x 397.485pt>
 File: images/cv_acc_5x5_lgbm.png Graphic file (type png)
 <use images/cv_acc_5x5_lgbm.png>
 Package pdftex.def Info: images/cv_acc_5x5_lgbm.png  used on input line 63.
 (pdftex.def)             Requested size: 362.77525pt x 285.04266pt.
- [74 <./images/cv_acc_5x5_rf.png>]
-<images/cv_acc_5x5_lstm_tab.png, id=1703, 505.89pt x 397.485pt>
+ [75 <./images/cv_acc_5x5_rf.png>]
+<images/cv_acc_5x5_lstm_tab.png, id=1713, 505.89pt x 397.485pt>
 File: images/cv_acc_5x5_lstm_tab.png Graphic file (type png)
 <use images/cv_acc_5x5_lstm_tab.png>
 Package pdftex.def Info: images/cv_acc_5x5_lstm_tab.png  used on input line 71.
 (pdftex.def)             Requested size: 362.77525pt x 285.04266pt.
-<images/cv_acc_5x5_lstm_seq.png, id=1704, 505.89pt x 397.485pt>
+<images/cv_acc_5x5_lstm_seq.png, id=1714, 505.89pt x 397.485pt>
 File: images/cv_acc_5x5_lstm_seq.png Graphic file (type png)
 <use images/cv_acc_5x5_lstm_seq.png>
 Package pdftex.def Info: images/cv_acc_5x5_lstm_seq.png  used on input line 79.
 (pdftex.def)             Requested size: 362.77525pt x 285.04266pt.
- [75 <./images/cv_acc_5x5_lgbm.png> <./images/cv_acc_5x5_lstm_tab.png>] [76 <./images/cv_acc_5x5_lstm_seq.png>]) (chapters/09erklaerung.tex [77]) [78
+ [76 <./images/cv_acc_5x5_lgbm.png> <./images/cv_acc_5x5_lstm_tab.png>] [77 <./images/cv_acc_5x5_lstm_seq.png>]) (chapters/09erklaerung.tex [78]) [79
 
 ] (main.aux)
  ***********
@@ -1647,17 +1647,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42427 strings out of 467871
- 852151 string characters out of 5414504
- 2102691 words of memory out of 5000000
- 70140 multiletter control sequences out of 15000+600000
- 737728 words of font info for 243 fonts, out of 8000000 for 9000
+ 42434 strings out of 467871
+ 852350 string characters out of 5414504
+ 2102756 words of memory out of 5000000
+ 70143 multiletter control sequences out of 15000+600000
+ 737857 words of font info for 244 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,113p,11260b,3337s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti10.pfb>
-Output written on main.pdf (87 pages, 3343114 bytes).
+Output written on main.pdf (88 pages, 3347557 bytes).
 PDF statistics:
- 2102 PDF objects out of 2487 (max. 8388607)
- 329 named destinations out of 1000 (max. 500000)
+ 2113 PDF objects out of 2487 (max. 8388607)
+ 331 named destinations out of 1000 (max. 500000)
  65677 words of extra memory for PDF output out of 74296 (max. 10000000)
 

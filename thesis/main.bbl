@@ -1194,6 +1194,55 @@
       \field{title}{Information Retrieval}
       \field{year}{1979}
     \endentry
+    \entry{song2010limits}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=cfebed51e6f1a1e9ea9ba975d2775ed9}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Chaoming},
+           giveni={C\bibinitperiod}}}%
+        {{hash=3a707c2814866727f57afff76f18a6af}{%
+           family={Qu},
+           familyi={Q\bibinitperiod},
+           given={Zehui},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=2afda69c3fc9e34f1d3d324d11490f75}{%
+           family={Blumm},
+           familyi={B\bibinitperiod},
+           given={Nicholas},
+           giveni={N\bibinitperiod}}}%
+        {{hash=15bacd7ddfc866c5dd96976d4b0244d5}{%
+           family={Barabási},
+           familyi={B\bibinitperiod},
+           given={Albert-László},
+           giveni={A\bibinithyphendelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science}%
+      }
+      \strng{namehash}{1b2dc76d4d3b51ae1646f4ef118b1a5a}
+      \strng{fullhash}{57908b509a7d06b6a100923886001a66}
+      \strng{fullhashraw}{57908b509a7d06b6a100923886001a66}
+      \strng{bibnamehash}{57908b509a7d06b6a100923886001a66}
+      \strng{authorbibnamehash}{57908b509a7d06b6a100923886001a66}
+      \strng{authornamehash}{1b2dc76d4d3b51ae1646f4ef118b1a5a}
+      \strng{authorfullhash}{57908b509a7d06b6a100923886001a66}
+      \strng{authorfullhashraw}{57908b509a7d06b6a100923886001a66}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science}
+      \field{number}{5968}
+      \field{title}{Limits of Predictability in Human Mobility}
+      \field{volume}{327}
+      \field{year}{2010}
+      \field{pages}{1018\bibrangedash 1021}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1126/science.1177170
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

@@ -43,23 +43,26 @@ Die Qualität der Daten determiniert die Güte der Modelle. Wie man in der \cref
 \section{Vergleich mit verwandten Arbeiten}
 \label{sec:vergleich}
 
-Da sich bislang nur wenige Arbeiten mit der Erstellung von Modellen für die Prognose individuellen künftigen Mobilitätsverhaltens befasst haben, liegt keine Grundlage für einen direkten Vergleich vor, sodass hierzu keine belastbare Aussage getroffen werden kann.
+Ein direkter Vergleich mit bestehenden Arbeiten ist schwierig, da für die untersuchte Aufgabe -- stündliche Prognose der Fahraktivität -- keine etablierten Benchmarks existieren. Die in \cref{sec:verwandte_arbeiten} gesichteten Arbeiten adressieren angrenzende, aber verschiedene Probleme. 
 
-Studien die sich mit individuellem Mobilitätsverhalten befassen, schauen hauptsächlich nach \textit{State of Charge} oder \textit{Ortsdaten}.
 
+Ein Zweig der Forschungen, welcher eine gewisse Überschneidung mit der vorliegenden Arbeit aufweisen, beschäftigen sich mit dem \textit{Ladezustand} beziehungsweise Ladeverhalten von Elektrofahrzeugen und utilisiert dazu Fahraktivität. 
+
+Der zweite Zweig sagt den nächsten \textit{Aufenthaltsort} voraus, oder gar eine Kette an Orten. Eine der Literaturen, von Lindroth et al., verfolgt den Ansatz, Abfahrtszeiten und Fahrtdistanzen der ersten Reise des Tages vorherzusagen \cite{lindroth2024online}. Die vorliegende Arbeit unterscheidet sich von Literaturen aus diesem Zweig dadurch, dass sie Aktivität selbst als Zielgröße isoliert und den Daten- vom Algorithmuseffekt trennt -- ein methodischer Beitrag, der in den genannten Arbeiten mangels quellenübergreifendem Design nicht möglich ist.
+
+Inhaltlich lassen sich die Ergebnisse dennoch einordnern: Der klare Abstand der Modelle zur Klimatologie-Baseline (\cref{tab:baselines}) bei zugleich quellenabhängiger Obergrenze ist konsistent mit den theoretischen Grenzen der Vorhersagbarkeit menschlicher Mobilität, wie sie in der Literatur von Song et al. beschrieben wird \cite{song2010limits}. Dass die Prognosegüte stärker mit der Datenquelle als mit dem Algorithmus variiert, verschiebt den in der Literatur oft auf die Modellwahl gelegten Fokus hin zur Datenqualität.
 
 % -----------------------------------------------------------------------------
 \section{Limitationen}
 \label{sec:limitationen}
 
-\todo{Welche Einschränkungen hat die Arbeit? Was konnte nicht untersucht werden? Welche Annahmen wurden getroffen? 
--- -- verbessern}
+Durch die Evaluation der Ergebnisse konnten die Forschungsfragen beantwortet werden. Dennoch sind im Laufe der Arbeit Limitationen aufgetreten, die die Ergebnisse beeinflussen können. Die Limitationen betreffen insbesondere die Datenquellen, die Modellwahl und die Evaluation.
 
-\begin{itemize}
-    \item aktive datenerhebung
-    \item realer verkehr
-    \item parallele studien
-\end{itemize}
+Im Laufe der Arbeit sind verschiedene Limiationen aufgetreten, die die Ergebnisse beeinflussen: Heterogene Aktivitätsdefinition, die Datenansprüche des LSTM, Subsampling, heuristische Label-Ableitung und die Eigenheiten des Datensatzes \texttt{VED}.
+
+Die Datenquellen sind in der Arbeit auf fünf Datensätze beschränkt, die unterschiedliche Eigenschaften aufweisen. Ergebnisse können daher nicht immer auf andere Datensätze übertragen werden. Die Modellwahl ist auf drei Verfahren beschränkt, die unterschiedliche Eigenschaften aufweisen. Ergebnisse können daher zwar verglichen werden, aber nicht unbedingt auf andere Verfahren übertragen werden. Die Evaluation ist auf die Metriken F1-Score, ROC-AUC und PR-AUC beschränkt, die unterschiedliche Eigenschaften aufweisen. Ergebnisse können daher zwar verglichen werden, aber nicht unbedingt auf andere Metriken übertragen werden.
+
+Limitationen der Arbeit sind insbesondere die aktive Datenerhebung, was zur folge hat, dass die Datenquellen nicht zwingend repräsentativ für die durchschnittliche deutsche Bevölkerung sind. Realer Verkehr ist ein weiterer Faktor, der einen spürbaren Einfluss auf das individuelle Mobilitätsverhalten hat, da die Datenquellen nicht zwingend repräsentativ für den realen Verkehr sind. 
 
 % -----------------------------------------------------------------------------
 \section{Implikationen}
