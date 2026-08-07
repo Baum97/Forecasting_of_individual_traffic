@@ -83,19 +83,17 @@ Die folgenden Einschränkungen begrenzen die Reichweite der Ergebnisse und sind 
 \section{Implikationen}
 \label{sec:implikationen}
 
-\todo{Welche praktischen und theoretischen Implikationen ergeben sich aus den Ergebnissen?}
-
 \subsection*{Praktische Implikationen:}
 \begin{itemize}
     \item \textbf{Daten schlagen Modelle:} Die Ergebnisse zeigen, dass die Wahl der Daten einen größeren Einfluss auf die Prognosegenauigkeit hat als die Wahl des Machine Learning Verfahrens. 
     \item \textbf{Klimatologie-Baseline:} Die Klimatologie erreicht bereits eine hohe Prognosegenauigkeit, sodass diese als Fallback und Pflicht-Vergleich nützt.
-    \item \textbf{Wahrscheinlichkeiten:} Kalibrierung (Brier-Score) und P10/P90-Quantile sorgen für eine bessere Interpretierbarkeit und liefern ein Band, statt eines Punktwertes.
+    \item \textbf{Wahrscheinlichkeiten:} Kalibrierung des P10/P90-Bands sorgen für eine bessere Interpretierbarkeit und liefern ein Band, statt eines Punktwertes.
     \item \textbf{Label-Standardisierung:} Ohne einheitliche Basis für die Definition von Fahraktivität ist ein Vergleich der Ergebnisse zwischen Datensätzen nicht möglich.
 \end{itemize}
 
 \subsection*{Theoretische Implikationen:}
 \begin{itemize}
     \item \textbf{Isolationsmatrix:} Dadurch lassen sich die Effekte von Daten und Modellen trennen, was eine genauere Analyse der Einflussfaktoren ermöglicht.
-    \item \textbf{Schwelle für Sequenzmodelle:} Die Ergebnisse zeigen, dass Sequenzmodelle nur bei einer ausreichenden Anzahl an Fahrzeugwochen sinnvoll sind. Unterhalb dieser Schwelle liefern sie keine verlässlichen Ergebnisse.
+    \item \textbf{Schwelle für Sequenzmodelle:} Die Ergebnisse zeigen, dass Sequenzmodelle nur bei einer ausreichenden Anzahl an Fahrzeugwochen sinnvoll sind, weshalb sie unterhalb der Schwelle nicht als Trainingsquelle zugelassen werden.
     \item \textbf{Vorhersagbarkeitsgrenzen:} Gedeckelter Abstand zur Baseline passt zu den theoretischen Grenzen der Vorhersagbarkeit menschlicher Mobilität, wie sie in der Literatur beschrieben werden \cite{song2010limits}.
 \end{itemize}
