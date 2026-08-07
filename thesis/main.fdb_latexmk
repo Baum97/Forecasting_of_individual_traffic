@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1785422813.77398 "main.bcf" "main.bbl" "main" 1785425326.75808 0
+["biber main"] 1786102140.64836 "main.bcf" "main.bbl" "main" 1786112875.88657 0
   "literatur.bib" 1785412171 20518 08c0b197b9369433b05c03e040f5eac3 ""
-  "main.bcf" 1785425326 112134 adb44e359c7ab1a30faacafd86b03b2a "pdflatex"
+  "main.bcf" 1786112875 112204 1514466aa51c1075bdb76bea09749557 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1785425322.24046 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1785425326.75868 0
+["pdflatex"] 1786112871.52182 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1786112875.88716 0
   "C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784064947 368683 20af194610b55c11d3743ae29ed2ab48 ""
   "C:/Users/Administrator/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1776509242 13337359 a21bfb9d050a5bf8318e8708a258f339 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -249,8 +249,8 @@
   "chapters/03methodik.tex" 1785322820 30431 b3327bff87bb13a5db472bfce1306735 ""
   "chapters/04implementierung.tex" 1785336417 26175 a48770c69fdfaebbfab0431fb9f275f6 ""
   "chapters/05evaluation.tex" 1785406044 18155 b0b75a0044f0996205c08f95cf621eeb ""
-  "chapters/06diskussion.tex" 1785425317 13608 3ea4dea570c251e67699a6d2a42cc3d4 ""
-  "chapters/07fazit.tex" 1783090290 905 d0bf9d2406200c17ad5d37f9f326e798 ""
+  "chapters/06diskussion.tex" 1786102147 16381 e80b2229b09e8808416d610dfebdbb09 ""
+  "chapters/07fazit.tex" 1786112871 3623 1cdad68e31436755c094f2490c6dd1da ""
   "chapters/08anhang.tex" 1785328533 7574 9fc174cd00ad2c788bf43ab9498e59dc ""
   "chapters/09erklaerung.tex" 1784633991 1054 d46e4483a3ee0f34ed11b6bab986ab48 ""
   "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" 1785257314 3042 ad6e70d8adb4139bda52666c7efef620 ""
@@ -284,13 +284,13 @@
   "images/weeklychargingrequests_sanami.png" 1783807209 354255 7315569e53df3a55aeb830d533c5d05c ""
   "imports.tex" 1785332627 3399 712e68cd24fb3d9996404682184ebace ""
   "main.acr" 0 -1 0 ""
-  "main.aux" 1785425326 75769 6dcc0c1c99240e3d5ff319bd12b007ba "pdflatex"
-  "main.bbl" 1785422815 50856 72d042505e3609b3e52736a3785273e0 "biber main"
-  "main.lof" 1785425326 5653 934792b441db42876a47277abc57349d "pdflatex"
-  "main.lot" 1785425326 3011 1c777654e0448988c5b04efbe87fe77a "pdflatex"
-  "main.run.xml" 1785425326 2465 319bdf1cba16d73af1aa6851f385c531 "pdflatex"
+  "main.aux" 1786112875 75839 a79d1fcb75fb92d715a6f3e73b289193 "pdflatex"
+  "main.bbl" 1786102144 50856 72d042505e3609b3e52736a3785273e0 "biber main"
+  "main.lof" 1786112875 5653 e1aa712b1d8f4516920f2c85376853d1 "pdflatex"
+  "main.lot" 1786112875 3011 9f49b3b4d99f92bd66c0cb24fa1a38d3 "pdflatex"
+  "main.run.xml" 1786112875 2465 319bdf1cba16d73af1aa6851f385c531 "pdflatex"
   "main.tex" 1785257314 3042 ad6e70d8adb4139bda52666c7efef620 ""
-  "main.toc" 1785425326 8961 ece0299906a62692834e84d452cdff25 "pdflatex"
+  "main.toc" 1786112875 8961 972772f311dfb9ae33d0c2283c160771 "pdflatex"
   (generated)
   "main.acn"
   "main.aux"

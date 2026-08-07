@@ -98,13 +98,13 @@
 \contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{66}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Limitationen}{67}{section.6.3}%
 \contentsline {section}{\numberline {6.4}Implikationen}{68}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{69}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{69}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Ausblick}{69}{section.7.2}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{70}{chapter*.76}%
+\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{70}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{70}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Ausblick}{71}{section.7.2}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{72}{chapter*.76}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\numberline {A}Anhang}{73}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{73}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{77}{section.A.2}%
-\contentsline {chapter}{Eidesstattliche Erklärung}{79}{chapter*.85}%
+\contentsline {chapter}{\numberline {A}Anhang}{75}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Zusätzliche Abbildungen}{75}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Zusätzliche Tabellen}{79}{section.A.2}%
+\contentsline {chapter}{Eidesstattliche Erklärung}{81}{chapter*.85}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

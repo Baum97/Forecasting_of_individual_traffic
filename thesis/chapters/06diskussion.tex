@@ -56,16 +56,46 @@ Inhaltlich lassen sich die Ergebnisse dennoch einordnern: Der klare Abstand der 
 \section{Limitationen}
 \label{sec:limitationen}
 
-Durch die Evaluation der Ergebnisse konnten die Forschungsfragen beantwortet werden. Dennoch sind im Laufe der Arbeit Limitationen aufgetreten, die die Ergebnisse beeinflussen können. Die Limitationen betreffen insbesondere die Datenquellen, die Modellwahl und die Evaluation.
+Die folgenden Einschränkungen begrenzen die Reichweite der Ergebnisse und sind bei ihrer Interpretation zu berücksichtigen. Sie gliedern sich in Grenzen der Daten, des Experimentaldesigns und des Geltungsbereichs.
 
-Im Laufe der Arbeit sind verschiedene Limiationen aufgetreten, die die Ergebnisse beeinflussen: Heterogene Aktivitätsdefinition, die Datenansprüche des LSTM, Subsampling, heuristische Label-Ableitung und die Eigenheiten des Datensatzes \texttt{VED}.
+\subsection*{Daten}
+\begin{itemize}
+    \item \textbf{Heterogene Aktivitätsdefinition:} In den Datensätzen wird die Aktivität \textit{driving} jeweils unterschiedlich definiert (siehe \Cref{sec:herausforderungen}, uneinheitliche Aktivitätssignale). Dadurch ensteht eine inhärente Heterogenität, die die Vergleichbarkeit der Ergebnisse durch potentielle Labelinkonsistenzen einschränkt.
+    \item \textbf{Heuristische Label ohne Ground Truth:} Da die Aktivität in den Datensätzen nicht direkt gemessen, sondern heuristisch abgeleitet wird, existiert keine absolute Ground Truth. Dadurch kann es zu Verzerrungen in der Modellbewertung kommen, insbesondere wenn die Heuristiken nicht die tatsächliche Fahraktivität widerspiegeln.
+    \item \textbf{Zeitliche Abdeckung:} In \texttt{VED} strecken sich die Daten nicht über den gesamten Zeitraum der Studie, was zur Folge hat, dass einige Fahrzeuge nur in Trainings- oder Testsets vertreten sind. 
+    \item \textbf{Synthetische Quellen:} \texttt{emobpy} und \texttt{routine} bilden reales Verhalten nur unvollständig ab; bei \texttt{routine} erreicht bereits die Klimatologie-Baseline eine PR-AUC von $0,797$, sodass der zusätzliche Effekt der Modelle nur begrenzt nachweisbar ist.
+\end{itemize}
 
-Die Datenquellen sind in der Arbeit auf fünf Datensätze beschränkt, die unterschiedliche Eigenschaften aufweisen. Ergebnisse können daher nicht immer auf andere Datensätze übertragen werden. Die Modellwahl ist auf drei Verfahren beschränkt, die unterschiedliche Eigenschaften aufweisen. Ergebnisse können daher zwar verglichen werden, aber nicht unbedingt auf andere Verfahren übertragen werden. Die Evaluation ist auf die Metriken F1-Score, ROC-AUC und PR-AUC beschränkt, die unterschiedliche Eigenschaften aufweisen. Ergebnisse können daher zwar verglichen werden, aber nicht unbedingt auf andere Metriken übertragen werden.
+\subsection*{Experimentaldesign}
+\begin{itemize}
+    \item \textbf{Rekurrentes LSTM:} Diese Version des LSTM konnte auf Grund der erstellten Mindestanforderung von 100 Fahrzeugwochen nur auf \texttt{emobpy} und \texttt{yjmob100k} evaluiert werden. Eine tragende Aussage zum Architektureffekt ist daher nicht zuverlässig möglich.
+    \item \textbf{Teilstichproben:} \texttt{emobpy}, \texttt{VED} und \texttt{yjmob100k} sind zu mächtig, weswegen Teilstichproben gezogen werden mussten. Die Ergebnisse gelten auf diesen Stichproben, wodurch ein Skalierungs- und Repräsentativitätsvorbehalt besteht.
+    \item \textbf{Hyperparameteroptimierung:} Die Hyperparameter wurden je Modell einmalig gesetzt und als Kontrollvariable konstant gehalten. Daher geht hervor, dass nicht die absolute Bestleistung eines jeden Modells, sondern die relativen Effekte zwischen den Modellen und Datensätzen im Vordergrund stehen. 
+\end{itemize}
 
-Limitationen der Arbeit sind insbesondere die aktive Datenerhebung, was zur folge hat, dass die Datenquellen nicht zwingend repräsentativ für die durchschnittliche deutsche Bevölkerung sind. Realer Verkehr ist ein weiterer Faktor, der einen spürbaren Einfluss auf das individuelle Mobilitätsverhalten hat, da die Datenquellen nicht zwingend repräsentativ für den realen Verkehr sind. 
+\subsection*{Geltungsbereiche}
+\begin{itemize}
+    \item \textbf{Keine eigene Datenerhebung:} Es wurden lediglich Datensätze von Dritten genutzt, wodurch die Kontrolle über die Datenqualität und -repräsentativität eingeschränkt ist.
+    \item \textbf{Kein Realbetrieb:} Die Modelle wurden nicht in einem realen Betrieb getestet, sodass die Übertragbarkeit der Ergebnisse auf reale Anwendungen unklar bleibt.
+\end{itemize}
 
 % -----------------------------------------------------------------------------
 \section{Implikationen}
 \label{sec:implikationen}
 
 \todo{Welche praktischen und theoretischen Implikationen ergeben sich aus den Ergebnissen?}
+
+\subsection*{Praktische Implikationen:}
+\begin{itemize}
+    \item \textbf{Daten schlagen Modelle:} Die Ergebnisse zeigen, dass die Wahl der Daten einen größeren Einfluss auf die Prognosegenauigkeit hat als die Wahl des Machine Learning Verfahrens. 
+    \item \textbf{Klimatologie-Baseline:} Die Klimatologie erreicht bereits eine hohe Prognosegenauigkeit, sodass diese als Fallback und Pflicht-Vergleich nützt.
+    \item \textbf{Wahrscheinlichkeiten:} Kalibrierung (Brier-Score) und P10/P90-Quantile sorgen für eine bessere Interpretierbarkeit und liefern ein Band, statt eines Punktwertes.
+    \item \textbf{Label-Standardisierung:} Ohne einheitliche Basis für die Definition von Fahraktivität ist ein Vergleich der Ergebnisse zwischen Datensätzen nicht möglich.
+\end{itemize}
+
+\subsection*{Theoretische Implikationen:}
+\begin{itemize}
+    \item \textbf{Isolationsmatrix:} Dadurch lassen sich die Effekte von Daten und Modellen trennen, was eine genauere Analyse der Einflussfaktoren ermöglicht.
+    \item \textbf{Schwelle für Sequenzmodelle:} Die Ergebnisse zeigen, dass Sequenzmodelle nur bei einer ausreichenden Anzahl an Fahrzeugwochen sinnvoll sind. Unterhalb dieser Schwelle liefern sie keine verlässlichen Ergebnisse.
+    \item \textbf{Vorhersagbarkeitsgrenzen:} Gedeckelter Abstand zur Baseline passt zu den theoretischen Grenzen der Vorhersagbarkeit menschlicher Mobilität, wie sie in der Literatur beschrieben werden \cite{song2010limits}.
+\end{itemize}
