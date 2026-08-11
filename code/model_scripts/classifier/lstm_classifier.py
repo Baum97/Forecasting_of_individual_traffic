@@ -103,25 +103,37 @@ class _SeqTrainer:
         best_loss, best_state, bad = float("inf"), None, 0
         gen = torch.Generator().manual_seed(cfg.random_state)
 
+        # Lernkurve fuer die Overfitting-Kontrolle: mittlerer Trainings-Loss je
+        # Epoche und Validierungs-Loss auf dem zeitlichen Tail. best_epoch ist
+        # der von Early Stopping gewaehlte Zustand (0-basiert).
+        self.history = {"train_loss": [], "val_loss": [], "best_epoch": 0}
+
         for epoch in range(cfg.max_epochs):
             self.net.train()
             perm = idx_tr[torch.randperm(len(idx_tr), generator=gen).numpy()]
+            ep_loss, ep_n = 0.0, 0
             for i in range(0, len(perm), cfg.batch_size):
                 b = perm[i:i + cfg.batch_size]
                 opt.zero_grad()
                 loss = loss_fn(self.net(seq_t[b], stat_t[b]), y_t[b])
                 loss.backward()
                 opt.step()
+                ep_loss += float(loss) * len(b)
+                ep_n += len(b)
+            self.history["train_loss"].append(ep_loss / max(ep_n, 1))
 
             if idx_va is None:
+                self.history["val_loss"].append(float("nan"))
                 continue
             self.net.eval()
             with torch.no_grad():
                 val_loss = float(loss_fn(self.net(seq_t[idx_va], stat_t[idx_va]),
                                          y_t[idx_va]))
+            self.history["val_loss"].append(val_loss)
             if val_loss < best_loss - 1e-4:
                 best_loss, bad = val_loss, 0
                 best_state = {k: v.clone() for k, v in self.net.state_dict().items()}
+                self.history["best_epoch"] = epoch
             else:
                 bad += 1
                 if bad >= cfg.patience:
@@ -211,6 +223,11 @@ class LSTMTabularClassifier:
 
     def predict(self, X: np.ndarray) -> np.ndarray:
         return (self.predict_proba(X)[:, 1] >= 0.5).astype(int)
+
+    @property
+    def history(self) -> Optional[dict]:
+        """Lernkurve (train/val Loss je Epoche) nach fit(), sonst None."""
+        return getattr(self.model, "history", None)
 
 
 # ── Variante B: native Sequenz ───────────────────────────────────────────────
@@ -305,6 +322,11 @@ class LSTMSequenceClassifier:
             seq, static[keep], y[keep]
         )
         return self
+
+    @property
+    def history(self) -> Optional[dict]:
+        """Lernkurve (train/val Loss je Epoche) nach fit_frame(), sonst None."""
+        return getattr(self.model, "history", None)
 
     def predict_proba_frame(self, frame: pd.DataFrame) -> np.ndarray:
         flat_drive, flat_hour, start, static, _ = self._index(frame)

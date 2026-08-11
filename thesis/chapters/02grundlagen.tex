@@ -4,7 +4,7 @@
 \chapter{Theoretische Grundlagen}
 \label{ch:grundlagen}
 
-Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut; Sowohl Begrifflichkeiten, als auch thematische Grundlagen werden erläutert. Als erstes wird festgelegt, was genau Mobilitätsdaten sind und wann sie relevant sind (\Cref{sec:themenbereich_mobdata}). Darauf folgt der Blick darauf, wie Mobilitätsdaten verarbeitet werden und anhand welcher Kriterien sich ihre Qualität bewerten lässt (\Cref{sec:themenbereich2}). Der vorletzte Punkt erläutert Machine Learning und wieso die Verwendung in dieser Arbeit unerlässlich ist. Als letztes ordnet \Cref{sec:stand_forschung} den aktuellen Stand der Forschung ein und arbeitet die Forschungslücke heraus, von der sich diese Arbeit in \Cref{sec:verwandte_arbeiten} abgrenzt.
+Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut; sowohl Begrifflichkeiten, als auch thematische Grundlagen werden erläutert. Als erstes wird festgelegt, was genau Mobilitätsdaten sind und wann sie relevant sind (\Cref{sec:themenbereich_mobdata}). Darauf folgt der Blick darauf, wie Mobilitätsdaten verarbeitet werden und anhand welcher Kriterien sich ihre Qualität bewerten lässt (\Cref{sec:themenbereich2}). Der vorletzte Punkt erläutert Machine Learning und wieso die Verwendung in dieser Arbeit unerlässlich ist. Als letztes ordnet \Cref{sec:stand_forschung} den aktuellen Stand der Forschung ein und arbeitet die Forschungslücke heraus, von der sich diese Arbeit in \Cref{sec:verwandte_arbeiten} abgrenzt.
 
 % -----------------------------------------------------------------------------
 \section{Mobilitätsdaten}
@@ -149,13 +149,13 @@ In der Regel sind die Daten in ihrer Rohform nicht direkt aussagekräftig, weswe
   \item Acht Uhr --> Pendlerzeit
 \end{itemize}
 
-Ein Modell entdeckt Muster nicht von selbst, daher müssen die Informationen verwertbar gemacht werden. Tage die nicht auf einen Werktag fallen, oder eine andere Uhrzeit haben, die keine Pendlerzeit ist, können je nach restlichem Informationsgehalt (Ort, Fahrtdistanz, Aufenthaltsdauer) zu einem jeweils anderen Ergebnis führen.
+Ein Modell entdeckt Muster in den Daten und sensibilisiert sich auf diese. Tage die nicht auf einen Werktag fallen, oder eine Uhrzeit haben die keine Pendlerzeit ist, können je nach restlichem Informationsgehalt (Ort, Fahrtdistanz, Aufenthaltsdauer) zu einem jeweils anderen Ergebnis führen.
 
 \subsubsection{Lag-Merkmal}
 
 Ein Lag ist der Wert eines Merkmals aus einem früheren Zeitschritt \parencite{hyndman2021forecasting}. Lags sind teilweise periodisch und mit Stundenwerten gleichzusetzen. Ein \texttt{Lag\_1} beispielsweise ist das selbe Event, nur eine Stunde in der Vergangenheit, selbiges Schema gilt für einen \texttt{Lag\_168}, dieser liegt 168 Stunden in der Vergangenheit. Es gibt sehr spezifische Werte und diese erlauben auf bestimmte Muster Rückschlüsse. Lags von eins, zwei, 24 und 168, wobei 24 Stunden einen Tag und 168 Stunden sieben Tage in der Vergangenheit abbilden. 
 
-Ein Risiko, das durch Lag auftreten kann, ist die Rechnung über mehr als ein Fahrzeug hinweg. Dadurch kann ein Verhalten auf ein anderes Fahrzeug interpretiert werden und falsch zugewiesene Verhaltensmuster errechnen. 
+Ein Risiko, das durch inkosistent angewendeten Lag auftreten kann, ist die Rechnung über mehr als ein Fahrzeug hinweg. Dadurch kann ein Verhalten über mehrere Fahrzeuge hinweg interpretiert werden und falsch zugewiesene Verhaltensmuster errechnen. 
 
 \subsubsection{Rolling-Aggregate}
 
@@ -204,7 +204,7 @@ Ein Modell das unterangepasst ist, schneidet weder beim Training noch beim Test 
 
 \subsection{Validierung}
 
-Durch die Validierung ist es möglich der Genauigkeit des Modells einen numerischen Wert zuzuweisen, was funktioniert, indem das Modell Daten bewertet, die bisher nicht bekannt waren. 
+Durch die Validierung ist es möglich der Genauigkeit des Modells einen numerischen Wert zuzuweisen, was funktioniert, indem das Modell Daten bewertet, die bisher nicht bekannt waren.
 
 \begin{equation}
   \text{CV}(\hat{f}) = \frac{1}{N}\sum_{i=1}^{N} L\left(y_i,\ \hat{f}^{-\kappa(i)}(x_i)\right)
@@ -212,6 +212,8 @@ Durch die Validierung ist es möglich der Genauigkeit des Modells einen numerisc
 \end{equation}
 
 Die \Cref{eq:validify} beschreibt die Genauigkeit eines Modells auf einer bestimmten Menge Daten. Hierfür wird ein Datensatz in $K$ gleichgroße Mengen unterteilt -- auch \textit{Folds} genannt -- gefolgt von $K$ trainings. Da $K$ \textit{Folds} existieren, wird das Modell einmal mit jedem \textit{Fold} getestet und hat die restlichen \textit{Folds} zur Grundlage.
+
+Die Validierung wird zum zentralen Werkzeug gegen \emph{Overfitting}, denn die Differenz zwischen Trainings- und Validierungsfehler quantifziert die Generalisierungslücke. Ein niedriger Trainingsfehler bei hohem Validierungsfehler indiziert, dass das Modell overfitted ist.
 
 \subsection{Bewertungsmetriken}
 
@@ -242,7 +244,7 @@ Für den binären Fall mit zwei Klassen ($p_1 = p$, $p_0 = 1-p$) vereinfacht sic
 \end{equation}
 
 
-Hier ist die Rede von Unreinheit: einer Metrik, die ausdrückt, mit welcher Wahrscheinlichkeit ein Wert einer falschen Klasse zugeordnet würde, wenn er anhand der Klassenverteilung im Knoten ein zufälliges Label erhielte. Die gewichtete Unreinheit eines Splits ergibt sich aus den Unreinheiten der beiden Kindknoten \parencite{breiman1984cart}:
+Hier ist die Rede von Unreinheit -- dem Maß, das die Split-Wahl eines Baums steuert: einer Metrik, die ausdrückt, mit welcher Wahrscheinlichkeit ein Wert einer falschen Klasse zugeordnet würde, wenn er anhand der Klassenverteilung im Knoten ein zufälliges Label erhielte. Die gewichtete Unreinheit eines Splits ergibt sich aus den Unreinheiten der beiden Kindknoten \parencite{breiman1984cart}:
 
 \begin{equation}
   G_{\text{split}} = \frac{n_{\text{links}}}{n}\,G_{\text{links}}
@@ -272,7 +274,7 @@ Das Baggingverfahren sorgt dafür, dass die Bäume von einer in der realen Train
   \label{fig:baggingmethod}
 \end{figure}
 
-Boosting sorgt dafür, dass die Bäume auf den Residualfehlern der vorherigen Iteration trainiert werden (\cref{fig:boostingmethod}, \cite{boostingdiagram}). Dadurch wird die Vorhersagegenauigkeit des Modells verbessert. Im Gegensatz zu Bagging, bei dem die Bäume unabhängig voneinander trainiert werden, werden beim Boosting die Bäume sequentiell trainiert, wobei jeder Baum auf den Fehler des vorherigen Baums aufbaut. Dies ermöglicht es dem Modell, sich auf schwierige Beispiele zu konzentrieren und die Gesamtleistung zu verbessern. Im Kern besteht Boosting darin, schwache Lernalgorithmen zu kombinieren, um einen starken Lernalgorithmus durch gewichtete Aggregation zu erstellen. Boosting ist besonders effektiv bei Modellen, die zu Unteranpassung neigen.
+Boosting sorgt dafür, dass die Bäume auf den Residualfehlern der vorherigen Iteration trainiert werden (\cref{fig:boostingmethod}, \cite{boostingdiagram}). Konkret wird ein neuer Baum nicht auf die ursprüngliche Zielgröße angepasst, sondern auf den verbleibenden Fehler -- die Differenz zwischen Zielwert und bisheriger Ensemble-Vorhersage --, der anschließend gewichtet zur bestehenden Summe addiert wird; allgemein bestimmt sich dieser Fehler als negativer Gradient der Verlustfunktion, der im Fall des quadratischen Verlusts genau dem einfachen Residuum entspricht \parencite{friedman2001greedy}. Dadurch wird die Vorhersagegenauigkeit des Modells verbessert. Im Gegensatz zu Bagging, bei dem die Bäume unabhängig voneinander trainiert werden, werden beim Boosting die Bäume sequentiell trainiert, wobei jeder Baum auf den Fehler des vorherigen Baums aufbaut. Dies ermöglicht es dem Modell, sich auf schwierige Beispiele zu konzentrieren und die Gesamtleistung zu verbessern. Im Kern besteht Boosting darin, schwache Lernalgorithmen zu kombinieren, um einen starken Lernalgorithmus durch gewichtete Aggregation zu erstellen. Boosting ist besonders effektiv bei Modellen, die zu Unteranpassung neigen.
 
 \begin{figure}[H]
   \centering
@@ -351,7 +353,7 @@ Das LSTM ist ein rekurrentes neuronales Netz (RNN) mit einem Zellzustand und dre
   \label{fig:lstm}
 \end{figure}
 
-Die \cref{fig:lstm} stellt den Aufbau einer LSTM-Zelle dar, die aus dem Zellzustand $C_t$, drei Gattern (Forget, Input, Output) und den Aktivierungsfunktionen $\sigma$ und $\tanh$ besteht. $C_t$, der Zellzustand, ist für die Speicherung von Informationen verantwortlich, während die Gatter bestimmen, welche Informationen beibehalten, verworfen oder neu geschrieben werden. Die Aktivierungsfunktionen $\sigma$ und $\tanh$ steuern, wie die Informationen im Zellzustand verarbeitet werden und ermöglichen es dem LSTM auf diese Weise, relevante Muster in den Eingabesequenzen zu erkennen und somit Abhängigkeiten über längere Zeiträume zu erkennen. Zeitreihenprognosen, Sprachverarbeitung und Anomalieerkennung sind typische Aufgaben, bei denen LSTMs erfolgreich eingesetzt werden, da sie durch ihr Gedächtnis in der Lage sind, komplexe zeitliche Abhängigkeiten zu modellieren und Vorhersagen auf Basis historischer Daten zu treffen.
+Die Architektur eines LSTM ist, wie bei anderen neuronalen Netzen, ein oder mehrere Knoten für den Input, gefolgt von einem oder mehreren versteckten Schichten und einem Knoten für den Output. Die Besonderheit des LSTM liegt in der Struktur der versteckten Schicht, die aus einer LSTM-Zelle besteht. Die \cref{fig:lstm} stellt den Aufbau einer LSTM-Zelle dar, die aus dem Zellzustand $C_t$, drei Gattern (Forget, Input, Output) und den Aktivierungsfunktionen $\sigma$ und $\tanh$ besteht. $C_t$, der Zellzustand, ist für die Speicherung von Informationen verantwortlich, während die Gatter bestimmen, welche Informationen beibehalten, verworfen oder neu geschrieben werden. Die Aktivierungsfunktionen $\sigma$ und $\tanh$ steuern, wie die Informationen im Zellzustand verarbeitet werden und ermöglichen es dem LSTM auf diese Weise, relevante Muster in den Eingabesequenzen zu erkennen und somit Abhängigkeiten über längere Zeiträume zu erkennen. Zeitreihenprognosen, Sprachverarbeitung und Anomalieerkennung sind typische Aufgaben, bei denen LSTMs erfolgreich eingesetzt werden, da sie durch ihr Gedächtnis in der Lage sind, komplexe zeitliche Abhängigkeiten zu modellieren und Vorhersagen auf Basis historischer Daten zu treffen.
 % -----------------------------------------------------------------------------
 \section{Stand der Forschung}
 \label{sec:stand_forschung}
@@ -401,9 +403,9 @@ Um zu verdeutlichen, womit sich diese Arbeit im wesentlichen auseinandersetzt, w
 
 \subsubsection{Mobilitäts- und Nutzungsforecasts}
 
-Klassische Zeitreihenmodelle wie ARIMA, aber auch moderne Ansätze wie Random Forest und neuronale Netze, insbesondere LSTM sind in Verwendung, um für Mobilitätsverhalten Prognosen zu erstellen. Die Daten bestehen zum Großteil aus realen Telematik- und Bewegungsdaten, die eine hohe Granularität aufweisen. Ein zentrales Ziel hierbei ist die Generalisierung über eins oder mehrere Fahrzeuge hinweg, um Vorhersagen für zukünftiges Fahrverhalten treffen zu können. Die Forschungsarbeiten haben den Zweck, die Genauigkeit der Vorhersagen zu maximieren und gleichzeitig die Interpretierbarkeit der Modelle zu gewährleisten. 
+Klassische Zeitreihenmodelle wie ARIMA, aber auch Machine-Learning-Ansätze wie Random Forest und neuronale Netze, insbesondere LSTM sind in Verwendung, um für Mobilitätsverhalten Prognosen zu erstellen. Die Daten bestehen zum Großteil aus realen Telematik- und Bewegungsdaten, die eine hohe Granularität aufweisen. Ein zentrales Ziel hierbei ist die Generalisierung über ein oder mehrere Fahrzeuge hinweg, um Vorhersagen für zukünftiges Fahrverhalten treffen zu können. Die Forschungsarbeiten haben den Zweck, die Genauigkeit der Vorhersagen zu maximieren und gleichzeitig die Interpretierbarkeit der Modelle zu gewährleisten. 
 
-Eine Studie beispielsweise befasst sich mit der Vorhersage von Fahrverhalten auf Grund von temperaturbedingter Batterieeffizienz -- denn besonders niedrige Temperaturen können die Effizienz der Batterien erheblich beeinflussen \parencite{lindroth2024online}. Es werden Online-Lernmodelle verwendet, um die Abfahrtszeit und die Distanz für den ersten Trip des Tages vorherzusagen. \Cref{fig:fahrverhalten} zeigt die zugrunde liegenden Verteilungen von Fahrdistanz und Abfahrtszeit, aufgeschlüsselt nach Wochentag. Es ist gut zu erkennen, dass die Fahrdistanz -- unabhängig vom Wochentag -- eine ähnliche Verteilung aufweist, während die Abfahrtszeit stark vom Wochentag abhängt. Eine weitere Studie entwickelt ein LSTM-Modell mit raum-zeitlichem Bewertungsmechanismus, das die individuelle Fahrzeugnutzung vorhersagt. Reiseziele, aktuelle Fahrtdaten (Echtzeit-Bewegungen) und historische Bewegungsmuster werden hierbei als Datengrundlage verwendet \parencite{individual2025activitychain}. Die Ergebnisse zeigen, dass das Modell im Vergleich zu spezifischen Random Forest, Distant Neighboring Dependencies, Location Semantics and Location Importance -LSTM  und Intersection Transfer Preference and Current Movement Mode um ca. 10-15\% Genauigkeit übertrifft. 
+Eine Studie beispielsweise befasst sich mit der Vorhersage von Fahrverhalten im Zusammenhang mit temperaturbedingter Batterieeffizienz -- denn besonders niedrige Temperaturen können die Effizienz der Batterien erheblich beeinflussen \parencite{lindroth2024online}. Es werden Online-Lernmodelle verwendet, um die Abfahrtszeit und die Distanz für den ersten Trip des Tages vorherzusagen -- auf Basis historischer Mittelwerte der Zielgrößen sowie der unmittelbar vorangehenden Fahrt. \Cref{fig:fahrverhalten} zeigt die zugrunde liegenden Verteilungen von Fahrdistanz und Abfahrtszeit, aufgeschlüsselt nach Wochentag. Es ist gut zu erkennen, dass die Fahrdistanz -- unabhängig vom Wochentag -- eine ähnliche Verteilung aufweist, während die Abfahrtszeit stark vom Wochentag abhängt. Eine weitere Studie entwickelt ein LSTM-Modell mit raum-zeitlichem Bewertungsmechanismus, das die individuelle Fahrzeugnutzung vorhersagt. Trips werden durch Echtzeit-Bewegungsstatus und raum-zeitliche Korrelation zwischen Kreuzungen durch Wort-Einbettungen repräsentiert. Durch die Einbettungen werden Reiseintentionen durch Vektoren historischer Trips, komibniert mit raum-zeitlichen Merkmalen, um eine Aktivitätskette dargestellt. Reiseziele, aktuelle Fahrtdaten (Echtzeit-Bewegungen) und historische Bewegungsmuster werden hierbei als Datengrundlage verwendet \parencite{individual2025activitychain}. Die Ergebnisse zeigen, dass das Modell im Vergleich zu spezifischen Random Forest, Distant Neighboring Dependencies, Location Semantics and Location Importance -LSTM  und Intersection Transfer Preference and Current Movement Mode um ca. 10-15\% Genauigkeit übertrifft. 
 
 \begin{figure}[H]
   \centering
