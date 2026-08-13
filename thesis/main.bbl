@@ -577,24 +577,59 @@
       \endverb
     \endentry
     \entry{ji2023rethinking}{article}{}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{hash=7c79b37e40f95506958fb8d582417204}{%
+      \name{author}{8}{}{%
+        {{hash=d59f1323f26b22fedda5e6b77debfd1c}{%
            family={Ji},
-           familyi={J\bibinitperiod}}}%
+           familyi={J\bibinitperiod},
+           given={Yuhan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=80edc4011fde2f4defe68ef7e0b3c0cf}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Song},
+           giveni={S\bibinitperiod}}}%
+        {{hash=42c7dfa05555e06266fa318e6aff83c4}{%
+           family={Huynh},
+           familyi={H\bibinitperiod},
+           given={Tam},
+           giveni={T\bibinitperiod}}}%
+        {{hash=831354e80149fcc1d7d3194f92c4a6e8}{%
+           family={Scheele},
+           familyi={S\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod}}}%
+        {{hash=9c78084bbbb5a27af794de3089b9bd53}{%
+           family={Triveri},
+           familyi={T\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9a871a409ff9027a98ee1dcc1346c32b}{%
+           family={Kruse},
+           familyi={K\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod}}}%
+        {{hash=0c39deaddcebf4298d9ebd7f0486dbcc}{%
+           family={Bennett},
+           familyi={B\bibinitperiod},
+           given={Collin},
+           giveni={C\bibinitperiod}}}%
+        {{hash=aadd7db40e5ab92ba09d7055e6b0ab31}{%
+           family={Wen},
+           familyi={W\bibinitperiod},
+           given={Yicheng},
+           giveni={Y\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Wiley}%
       }
-      \strng{namehash}{b24663f0cbf8814b14e1fe583814b445}
-      \strng{fullhash}{b24663f0cbf8814b14e1fe583814b445}
-      \strng{fullhashraw}{b24663f0cbf8814b14e1fe583814b445}
-      \strng{bibnamehash}{b24663f0cbf8814b14e1fe583814b445}
-      \strng{authorbibnamehash}{b24663f0cbf8814b14e1fe583814b445}
-      \strng{authornamehash}{b24663f0cbf8814b14e1fe583814b445}
-      \strng{authorfullhash}{b24663f0cbf8814b14e1fe583814b445}
-      \strng{authorfullhashraw}{b24663f0cbf8814b14e1fe583814b445}
+      \strng{namehash}{11d5ce094817226e59b19c1de572d977}
+      \strng{fullhash}{0876098af355b701f89d5f63c660780e}
+      \strng{fullhashraw}{0876098af355b701f89d5f63c660780e}
+      \strng{bibnamehash}{0876098af355b701f89d5f63c660780e}
+      \strng{authorbibnamehash}{0876098af355b701f89d5f63c660780e}
+      \strng{authornamehash}{11d5ce094817226e59b19c1de572d977}
+      \strng{authorfullhash}{0876098af355b701f89d5f63c660780e}
+      \strng{authorfullhashraw}{0876098af355b701f89d5f63c660780e}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -2200,6 +2235,7 @@
       \strng{authornamehash}{26e1045663ad9772dfd0e676e1980723}
       \strng{authorfullhash}{520e5b2fc54962439288161873a3a6c8}
       \strng{authorfullhashraw}{520e5b2fc54962439288161873a3a6c8}
+      \field{extraname}{1}
       \field{sortinit}{7}
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
@@ -2413,30 +2449,88 @@
       \endverb
     \endentry
     \entry{individual2025activitychain}{article}{}{}
-      \name{author}{1}{}{%
-        {{hash=5659d6c77daafc2e631e8115c543ee26}{%
-           family={others},
-           familyi={o\bibinitperiod},
-           prefix={and},
-           prefixi={a\bibinitperiod}}}%
+      \name{author}{12}{}{%
+        {{hash=d1d9df2f7c4822af05083f23d569eda8}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Xiaotong},
+           giveni={X\bibinitperiod}}}%
+        {{hash=a24106d943c22001bb5145fd19f7fb04}{%
+           family={Gui},
+           familyi={G\bibinitperiod},
+           given={Zhipeng},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=920a1296556bc1fc32411e336b20afdf}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yuhang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=1fee6a8879b85037f09132879beb4821}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={Dehua},
+           giveni={D\bibinitperiod}}}%
+        {{hash=c63890ea914e468806d5f44b5edea192}{%
+           family={Lan},
+           familyi={L\bibinitperiod},
+           given={Qianxi},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=995176b0a3d471f7647538467bb829d9}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Zhangxiao},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=750c3285dcdceb3344c419551dd73eef}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Huan},
+           giveni={H\bibinitperiod}}}%
+        {{hash=024bc6a4a920ce1611f8ae18eac2fd6d}{%
+           family={Zuo},
+           familyi={Z\bibinitperiod},
+           given={Yuhui},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=22ce2f3c6e011dd3a6c660c697b26313}{%
+           family={Yao},
+           familyi={Y\bibinitperiod},
+           given={Yao},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=75cf499b6998bc16de437dce6df4bb03}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Huayi},
+           giveni={H\bibinitperiod}}}%
+        {{hash=4838f7fdd28d5cefb28f3b3c734976d4}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod}}}%
+        {{hash=19b7cf2a496979c671740c65fa82dcce}{%
+           family={Qin},
+           familyi={Q\bibinitperiod},
+           given={Kun},
+           giveni={K\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Taylor \& Francis}%
       }
-      \strng{namehash}{5659d6c77daafc2e631e8115c543ee26}
-      \strng{fullhash}{5659d6c77daafc2e631e8115c543ee26}
-      \strng{fullhashraw}{5659d6c77daafc2e631e8115c543ee26}
-      \strng{bibnamehash}{5659d6c77daafc2e631e8115c543ee26}
-      \strng{authorbibnamehash}{5659d6c77daafc2e631e8115c543ee26}
-      \strng{authornamehash}{5659d6c77daafc2e631e8115c543ee26}
-      \strng{authorfullhash}{5659d6c77daafc2e631e8115c543ee26}
-      \strng{authorfullhashraw}{5659d6c77daafc2e631e8115c543ee26}
+      \strng{namehash}{297e5774f72f835d24dda36c3d2f3741}
+      \strng{fullhash}{b6a923a16d767d021ba0df9ccff8f5e5}
+      \strng{fullhashraw}{b6a923a16d767d021ba0df9ccff8f5e5}
+      \strng{bibnamehash}{b6a923a16d767d021ba0df9ccff8f5e5}
+      \strng{authorbibnamehash}{b6a923a16d767d021ba0df9ccff8f5e5}
+      \strng{authornamehash}{297e5774f72f835d24dda36c3d2f3741}
+      \strng{authorfullhash}{b6a923a16d767d021ba0df9ccff8f5e5}
+      \strng{authorfullhashraw}{b6a923a16d767d021ba0df9ccff8f5e5}
+      \field{extraname}{2}
       \field{sortinit}{8}
       \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Geo-spatial Information Science}
+      \field{number}{6}
       \field{title}{Individual Mobility Prediction by Considering Current Traveling Features and Historical Activity Chain}
+      \field{volume}{28}
       \field{year}{2025}
       \field{pages}{2988\bibrangedash 3015}
       \range{pages}{28}
