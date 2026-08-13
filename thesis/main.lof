@@ -4,33 +4,36 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Beispielhafte Auszüge zweier Mobilitätsdatensätze.}}{6}{figure.caption.6}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Generalisierte Pipeline zur Verarbeitung von Mobilitätsdaten.}}{7}{figure.caption.7}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Teilbereiche des maschinellen Lernens mit beispielhaften Anwendungen (\blx@tocontentsinit {0}\cite {wuttke2024ml}).}}{10}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Entscheidungsbaum mit Aufteilungskriterien (nach \blx@tocontentsinit {0}\cite {schilli2017entscheidungsbaeume}).}}{15}{figure.caption.23}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Bagging: Aus den Trainingsdaten werden $N$ Bootstrap-Stichproben gezogen, auf denen jeweils ein Baum trainiert wird; deren Vorhersagen werden zu einem Ensemble aggregiert \blx@tocontentsinit {0}\parencite {baggingdiagram}.}}{16}{figure.caption.25}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Boosting: Die Modelle werden nacheinander trainiert, wobei jedes folgende Modell auf den Fehlern des vorherigen Modells basiert \blx@tocontentsinit {0}\parencite {boostingdiagram}.}}{17}{figure.caption.26}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Baumwachstum in Ensemble-Verfahren \blx@tocontentsinit {0}\parencite {sciencedirect_lightgbm}.}}{17}{figure.caption.27}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces (a) Heteroskedastisches Prognoseband: Median (P50) und 80\,\%-Intervall (P10--P90), dessen Breite mit der Streuung wächst. (b) $\rho _\tau $ für $\tau =0{,}1/0{,}5/0{,}9$; die Asymmetrie schiebt die Schätzung an das jeweilige Quantil \blx@tocontentsinit {0}\parencite {koenker1978regression}.}}{19}{figure.caption.28}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Aufbau einer LSTM-Zelle: Der Zellzustand $C_t$ wird durch Forget-, Input- und Output-Gate gesteuert, die per $\sigma $- und $\tanh $-Aktivierung festlegen, was aus dem Gedächtnis verworfen, neu geschrieben und ausgelesen wird \blx@tocontentsinit {0}\parencite {dida_lstm}.}}{20}{figure.caption.29}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Verteilung der Fahrdistanz (a) und der Abfahrtszeit des ersten Tagestrips (b) nach Wochentag \blx@tocontentsinit {0}\parencite {lindroth2024online}.}}{23}{figure.caption.32}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Zeitliche Muster der Ladeanfragen im verwendeten Datensatz \blx@tocontentsinit {0}\parencite {sanami2025demand}.}}{25}{figure.caption.35}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Entscheidungsbaum mit Aufteilungskriterien (nach \blx@tocontentsinit {0}\cite {schilli2017entscheidungsbaeume}).}}{16}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Bagging: Aus den Trainingsdaten werden $N$ Bootstrap-Stichproben gezogen, auf denen jeweils ein Baum trainiert wird; deren Vorhersagen werden zu einem Ensemble aggregiert \blx@tocontentsinit {0}\parencite {salcedosanz2023review}.}}{17}{figure.caption.25}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Boosting: Die Modelle werden nacheinander trainiert, wobei jedes folgende Modell auf den Fehlern des vorherigen Modells basiert \blx@tocontentsinit {0}\parencite {salcedosanz2023review}.}}{18}{figure.caption.26}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Baumwachstum in Ensemble-Verfahren \blx@tocontentsinit {0}\parencite {thai2022mlreview}.}}{18}{figure.caption.27}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces (a) Heteroskedastisches Prognoseband: Median (P50) und 80\,\%-Intervall (P10--P90), dessen Breite mit der Streuung wächst. (b) $\rho _\tau $ für $\tau =0{,}1/0{,}5/0{,}9$; die Asymmetrie schiebt die Schätzung an das jeweilige Quantil \blx@tocontentsinit {0}\parencite {koenker1978regression}.}}{20}{figure.caption.28}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Aufbau einer LSTM-Zelle: Der Zellzustand $C_t$ wird durch Forget-, Input- und Output-Gate gesteuert, die per $\sigma $- und $\tanh $-Aktivierung festlegen, was aus dem Gedächtnis verworfen, neu geschrieben und ausgelesen wird \blx@tocontentsinit {0}\parencite {dida_lstm}.}}{21}{figure.caption.29}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Verteilung der Fahrdistanz (a) und der Abfahrtszeit des ersten Tagestrips (b) nach Wochentag \blx@tocontentsinit {0}\parencite {lindroth2024online}.}}{25}{figure.caption.32}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Zeitliche Muster der Ladeanfragen im verwendeten Datensatz \blx@tocontentsinit {0}\parencite {sanami2025demand}.}}{27}{figure.caption.35}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Variablenstruktur des Forschungsdesigns: zwei veränderliche unabhängige Variablen (Daten, Algorithmus) und eine abhängige Variable (Prognosegüte). Konstante Hyperparameter und Trainingsprotokolle wirken als Kontrollvariablen.}}{29}{figure.caption.41}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Schematischer Workflow der Methodik: von den fünf Datenquellen über den geteilten Feature-Kern und die beiden Aufgabenmodelle bis zum Experimentaldesign und der Bewertung.}}{31}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Variablenstruktur des Forschungsdesigns: zwei veränderliche unabhängige Variablen (Daten, Algorithmus) und eine abhängige Variable (Prognosegüte). Konstante Hyperparameter und Trainingsprotokolle wirken als Kontrollvariablen.}}{31}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Schematischer Workflow der Methodik: von den fünf Datenquellen über den geteilten Feature-Kern und die beiden Aufgabenmodelle bis zum Experimentaldesign und der Bewertung.}}{33}{figure.caption.43}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Statische Komponentenstruktur: Datenadapter, Feature-Engineering, Klassifikator, Forecaster, Persistenz und Schnittstellen.}}{45}{figure.caption.62}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Dynamischer Ablauf eines Forecast-Requests vom Frontend über das Backend und Persistenz bis zum Forecaster und dessen Aufbereitung und Darstellung der Ergebnisse.}}{46}{figure.caption.63}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Persistenzlayout des Systems: Modelle und Vorhersagen werden in einer hierarchischen Verzeichnisstruktur gespeichert, die eine einfache Navigation und Verwaltung der Daten ermöglicht. Modelle liegen gesondert von den Vorhersagen, die in Unterverzeichnissen nach Modell, Run und Zeitstempel organisiert sind.}}{47}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Statische Komponentenstruktur: Datenadapter, Feature-Engineering, Klassifikator, Forecaster, Persistenz und Schnittstellen.}}{49}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Dynamischer Ablauf eines Forecast-Requests vom Frontend über das Backend und Persistenz bis zum Forecaster und dessen Aufbereitung und Darstellung der Ergebnisse.}}{50}{figure.caption.65}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Persistenzlayout des Systems: Modelle und Vorhersagen werden in einer hierarchischen Verzeichnisstruktur gespeichert, die eine einfache Navigation und Verwaltung der Daten ermöglicht. Modelle liegen gesondert von den Vorhersagen, die in Unterverzeichnissen nach Modell, Run und Zeitstempel organisiert sind.}}{51}{figure.caption.66}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (RandomForest)}}{58}{figure.caption.74}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (RandomForest)}}{62}{figure.caption.76}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Trainingskurven der LGBM-Varianten auf den zulässigen Datenquellen. Die gestrichelte Linie markiert den Haltepunkte, der durch Early Stopping Overfitting verhindert.}}{67}{figure.caption.78}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Trainingskurven der LSTM-Varianten (tabellarisch und sequenziell) auf den zulässigen Datenquellen. Die gestrichelte Linie markiert den Haltepunkte, der durch Early Stopping Overfitting verhindert.}}{68}{figure.caption.79}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \def \@chapapp {\appendixname }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LightGBM)}}{75}{figure.caption.77}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LSTM, tabellarische Repräsentation)}}{76}{figure.caption.78}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LSTM, sequentielle Repräsentation)}}{76}{figure.caption.79}%
-\contentsline {figure}{\numberline {A.4}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (RandomForest)}}{77}{figure.caption.80}%
-\contentsline {figure}{\numberline {A.5}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (LightGBM)}}{78}{figure.caption.81}%
-\contentsline {figure}{\numberline {A.6}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (LSTM, tabellarische Repräsentation)}}{78}{figure.caption.82}%
-\contentsline {figure}{\numberline {A.7}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (LSTM, sequentielle Repräsentation)}}{79}{figure.caption.83}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LightGBM)}}{87}{figure.caption.81}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LSTM, tabellarische Repräsentation)}}{88}{figure.caption.82}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix des Driving-Classifiers (LSTM, sequentielle Repräsentation)}}{88}{figure.caption.83}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (RandomForest)}}{89}{figure.caption.84}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (LightGBM)}}{90}{figure.caption.85}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (LSTM, tabellarische Repräsentation)}}{90}{figure.caption.86}%
+\contentsline {figure}{\numberline {A.7}{\ignorespaces 5$\times $5-Kreuzvalidierungsmatrix (Accuracy) des Driving-Classifiers (LSTM, sequentielle Repräsentation)}}{91}{figure.caption.87}%
+\addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

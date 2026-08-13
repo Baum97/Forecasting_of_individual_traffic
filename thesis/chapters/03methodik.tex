@@ -50,7 +50,7 @@ Die unabhängigen Variablen in der Experimentreihe sind die verschiedenen Datens
     \addlinespace
      FF1.1.1 & Die Datenqualität und -quelle haben einen erheblichen Einfluss auf die Prognosegüte, unabhängig vom gewählten Algorithmus. \\
     \addlinespace
-     FF1.2 & Die wichtigsten Merkmale, die das individuelle Mobilitätsverhalten beeinflussen, sind u.a. der Tageszeitpunkt, die Wochentagsstruktur und die historischen Fahrten. \\
+     FF1.2 & Verifikation der Merkmale im Hinblick auf ihre Relevanz für die Prognosegüte \\
     \addlinespace
     \midrule
     \multicolumn{2}{@{}l}{\textbf{Mobilitätsdaten}} \\
@@ -58,9 +58,9 @@ Die unabhängigen Variablen in der Experimentreihe sind die verschiedenen Datens
     \addlinespace
     FF2 & Anforderungen, die sich ergeben, sind u.a. Anspruch an Form, Qualität, Relevanz und Verwendbarkeit der Daten. \\
     \addlinespace
-     FF2.1 & Die Aufbereitung in ein einheitliches Schema erhält die Nutzbarkeit der Daten, während eine aus Datenschutzgründen notwendige Anonymisierung sie einschränken kann.  \\
+     FF2.1 & Die Aufbereitung in ein einheitliches Schema erhält die Nutzbarkeit der Daten, während eine aus Datenschutzgründen notwendige Anonymisierung sie einschränken kann. \\
     \addlinespace
-     FF2.2 & Die Qualität der Daten lässt sich oberflächlich durch ihre Kohärenz, Vollständigkeit und Reichhaltigkeit bewerten. Tiefergehend lässt sich die Qualität der Daten anhand der Prognosequalität der Modelle interpretieren.  \\
+     FF2.2 & Die Qualität der Daten lässt sich durch Prognosegüte, Kohärenz, Vollständigkeit und Reichhaltigkeit bewerten. \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -92,7 +92,7 @@ Die Arbeit lässt sich in drei große Teile gliedern:
 \section{Datengrundlage und Quellen}
 \label{sec:datengrundlage}
 
-Da die Daten einen großen Einfluss auf die Leistungsfähigkeit der Modelle haben, werden in dieser Arbeit fünf verschiedene Datenquellen verwendet, die unterschiedliche Aspekte des Problems abdecken. Jede Datenquelle wird auf ihre Eignung hin untersucht und in ein einheitliches Schema transformiert, sodass ein durchgehendes Feature-Set gewährleistet ist. Die Datenquellen werden hinsichtlich ihrer Herkunft, Struktur, Art der enhtaltenen Informationen und Zweck ihres Gebrauchs beschrieben. Die Auswahl ist auf ihre Relevanz für die Forschungsfragen und ihr Potenzial, vorliegende Mobilitätsfragen zu beantworten, begründet. Die Datenquellen sind in \cref{tab:datengrundlage} zusammengefasst.
+Da die Daten einen großen Einfluss auf die Leistungsfähigkeit der Modelle haben, werden in dieser Arbeit fünf verschiedene Datenquellen verwendet, die unterschiedliche Aspekte des Problems abdecken. Jede Datenquelle wird auf ihre Eignung hin untersucht und in ein einheitliches Schema transformiert, sodass ein durchgehendes Feature-Set gewährleistet ist. Die Datenquellen werden hinsichtlich ihrer Herkunft, Struktur, Art der enthaltenen Informationen und Zweck ihres Gebrauchs beschrieben. Die Auswahl ist auf ihre Relevanz für die Forschungsfragen und ihr Potenzial, vorliegende Mobilitätsfragen zu beantworten, begründet. Die Datenquellen sind in \cref{tab:datengrundlage} zusammengefasst.
 
 \begin{table}[htbp]
   \centering
@@ -115,13 +115,51 @@ Da die Daten einen großen Einfluss auf die Leistungsfähigkeit der Modelle habe
   \end{tabular}
 \end{table}
 
-\paragraph{\texttt{emobpy}} ist ein Open-Source-Python-Tool, das vom DIW Berlin (Deutsches Institut für Wirtschaftsforschung) entwickelt wurde, um synthetische Mobilitätsdaten zu generieren \parencite{emobpy_nature}. Die Daten werden auf Basis von realen Mobilitätsstatistiken und physikalischen Eigenschaften von Elektrofahrzeugen erzeugt. Für die Illustration des Tools wurde ein Profil von 200 Fahrzeugen über ein Jahr in Deutschland simuliert. \texttt{emobpy} liefert ein \texttt{in\_use}-Flag, weswegen die Identifikation des Fahrverhaltens direkt aus den Daten abgeleitet werden kann. Die Aktivitätsrate liegt im Median bei 9,66\,\%.
+\paragraph{Geprüfte, aber nicht gewählte Alternativen}
+Über die gewählten Quellen hinaus wurde im Rahmen der Recherche eine Reihe weiterer Datensätze gesichtet. Ein Teil einschlägiger Studien griff auf kostenpflichtige oder lizenzbeschränkte Datensätze zurück, die innerhalb des auf öffentlich zugängliche Quellen beschränkten Rahmens dieser Arbeit nicht in Frage kamen. Die öffentlich zugänglichen, aber dennoch verworfenen Datensätze fasst \cref{tab:verworfene_daten} mit dem jeweiligen Ausschlussgrund zusammen.
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Geprüfte, aber nicht als Datengrundlage gewählte Datensätze.}
+  \label{tab:verworfene_daten}
+  \begin{tabularx}{\textwidth}{@{}l X@{}}
+    \toprule
+    \textbf{Datensatz} & \textbf{Grund gegen die Auswahl} \\
+    \midrule
+    eVED (erweitertes VED)        & Erweiterung des bereits gewählten VED; keine zusätzliche Heterogenität. \\
+    \addlinespace
+    npj China Fleet (Xu et al.)   & Sehr große Flotte mit Fokus auf Lade- und Energiedaten; kein durchgehend ableitbares Fahr-/Parkraster. \\
+    \addlinespace
+    EV Profile Capture (DOE)      & Session-basiert (Ladevorgänge), keine durchgehende Stundenreihe. \\
+    \addlinespace
+    Norway Residential (SINTEF)   & Ladedatensatz in Norwegen. \\
+    \addlinespace
+    Electric Nation (UK)          & Lade-Feldversuch; erfasst Ladeverhalten, nicht den Fahr-/Parkzustand. \\
+    \addlinespace
+    ACN-Data (Caltech)            & Reiner Ladedatensatz (Ladesessions). \\
+    \addlinespace
+    Tsinghua EV Field             & EV-Feld-/Ladedaten ohne abgeleitetes Fahr-/Parklabel. \\
+    \addlinespace
+    Belgium BEV Energy Dynamics   & Nur zwei Nutzer, Fokus auf Energiedynamik; kein Mehrwert gegenüber der bereits gewählten hochauflösenden Einzelfahrzeug-Quelle. \\
+    \addlinespace
+    d-EVD (Vicomtech)             & Trip-basiert, nur zwei Fahrzeuge; keine durchgehende Stundenreihe. \\
+    \addlinespace
+    Ramos et al. (Portugal)       & Dokumentiert Zeiträume von Ladeaktivitäten. \\
+    \addlinespace
+    MOBIS (Schweiz)               & Personen-Mobilitätspanel, kurze Abdeckung (8 Wochen); Personen-Ebene bereits durch \texttt{yjmob100k} vertreten. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+
+\paragraph{\texttt{emobpy}} ist ein Open-Source-Python-Tool, das vom DIW Berlin (Deutsches Institut für Wirtschaftsforschung) entwickelt wurde, um synthetische Mobilitätsdaten zu generieren \parencite{emobpy_nature}. Die Daten werden auf Basis von realen Mobilitätsstatistiken und physikalischen Eigenschaften von Elektrofahrzeugen erzeugt, wobei Agenten jedoch keine genauen Muster verfolgen, sondern Aktivitäten innerhalb des definierten Rahmens durchführen. Für die Illustration des Tools wurde ein Profil von 200 Fahrzeugen über ein Jahr in Deutschland simuliert. \texttt{emobpy} liefert ein \texttt{in\_use}-Flag, weswegen die Identifikation des Fahrverhaltens direkt aus den Daten abgeleitet werden kann. Die Aktivitätsrate liegt im Median bei 9,66\,\%.
 
 \paragraph{\texttt{real\_world\_ev}} ist ein Datensatz, der über ein Jahr hinweg Fahrdaten eines einzelnen Elektrofahrzeugs sammelt, um dessen Batterieverhalten besser verstehen zu können \parencite{pozzato2023fielddata}. Die Daten liegen im \texttt{.mat}-Format vor, weswegen diese in Python eingelesen, in ein einheitliches Schema transformiert und für die Modellierung in eine \texttt{.csv}-Datei exportiert werden. Da es keine Flag wie \texttt{in\_use} gibt, die anzeigt, ob das Fahrzeug tatsächlich in Benutzung ist, wird die Aktivität über eine Stromschwelle von 5\,A (Fahren) sowie den Ladeprozess bestimmt; \texttt{driving} umfasst bei dieser Quelle also Fahren \emph{und} Laden. Da der Datensatz nur ein Fahrzeug umfasst, liegt dessen Aktivitätsrate bei 5,54\,\%.
 
-\paragraph{\texttt{ved}} (Vehicle Energy Dataset) ist ein Datensatz, der durch die Universität Michigan, das Argonne National Lab und das Idaho National Lab bereitgestellt wird \parencite{oh2020ved}. Die Daten stammen von 383 Fahrzeugen, welche in Ann Arbor, Michigan, USA über ein Jahr hinweg Fahrdaten gesammelt haben. Die OBD-II-Signale werden hochfrequent \emph{während der Fahrt} protokolliert; für Parkzeiten liegen keine Messpunkte vor, sodass sich die Fahraktivität unmittelbar aus der Existenz eines Eintrags ableiten lässt und ein zusätzlicher Aktivitätsfilter entfällt. Der Datensatz hebt sich mit seiner stark abweichenden Aktivitätsrate ab; der Median liegt bei 0,99\,\%, die Spanne jedoch bei 0--100\,\%. Diese ergibt sich daraus, dass manche Fahrzeuge keine aktiven Stunden aufzeichnen, andere nur einen einzelnen Tag, der ausschließlich aus Fahrten besteht.
+\paragraph{\texttt{ved}} (Vehicle Energy Dataset) ist ein Datensatz, der durch die Universität Michigan, das Argonne National Lab und das Idaho National Lab bereitgestellt wird \parencite{oh2022ved}. Die Daten stammen von 383 Fahrzeugen, welche in Ann Arbor, Michigan, USA über ein Jahr hinweg Fahrdaten gesammelt haben. Die OBD-II-Signale werden hochfrequent \emph{während der Fahrt} protokolliert; für Parkzeiten liegen keine Messpunkte vor, sodass sich die Fahraktivität unmittelbar aus der Existenz eines Eintrags ableiten lässt und ein zusätzlicher Aktivitätsfilter entfällt. Der Datensatz hebt sich mit seiner stark abweichenden Aktivitätsrate ab; der Median liegt bei 0,99\,\%, die Spanne jedoch bei 0--100\,\%. Diese ergibt sich daraus, dass manche Fahrzeuge keine aktiven Stunden aufzeichnen, andere nur einen einzelnen Tag, der ausschließlich aus Fahrten besteht.
 
-\paragraph{\texttt{routine}} ist ein stark regelbasierter Algorithmus, um synthetische Daten zu generieren. \texttt{routine} wurde im Verlauf dieser Arbeit entwickelt, um eine an deutsche Arbeitsalltage angelehnte Alternative zur Verfügung zu haben. Die Tagesabläufe richten sich stark nach dem üblichen Muster:
+\paragraph{\texttt{routine}} ist ein stark regelbasierter Algorithmus, um synthetische Daten zu generieren. \texttt{routine} wurde im Verlauf dieser Arbeit entwickelt, um eine an deutsche Arbeitsalltage angelehnte Alternative zur Verfügung zu haben. Die Parametrisierung orientiert sich an den Tagesgängen und Wegezwecken der Erhebung \emph{Mobilität in Deutschland} \parencite{mid2017}; der Anteil der Schicht- und Wochenendarbeit ist an den amtlichen Werten des Mikrozensus ausgerichtet \parencite{destatis_nachtarbeit,destatis_wochenendarbeit}. Die Tagesabläufe richten sich stark nach dem üblichen Muster:
 \begin{itemize}
   \item \texttt{Arbeit}: 3-Schicht-Modell
   \item \texttt{Außerordentliches}: Trips, die nicht zur Arbeit gehören. Freizeit, Einkauf, andere Aktivitäten
@@ -153,11 +191,11 @@ Aus diesem Raster werden die folgenden Features abgeleitet, die als Eingangsgrö
 
 Die aufgelisteten Features sind die Basis für die Modelle, um die Vorhersage zu treffen. Die Features Hour, Weekday und Is\_weekend sind zeitliche Markierungen, um die Tageszeit, den Wochentag und das Wochenende zu identifizieren. Die Identifikation dieser Merkmale ist wichtig, da das Mobilitätsverhalten stark von diesen Faktoren abhängt. So ist ein Fahrverhalten beispielsweise Montag morgens zur Arbeit, jedoch an einem Sonntag nicht. Auf Sonn- und Feiertage wird nicht genauer als eigenes Merkmal eingegangen, da diese in den Quellen nicht einheitlich erfasst werden und somit nicht zuverlässig verwendet werden können.
 
-Die Lag-Features (Lag\_1, Lag\_2, Lag\_24, Lag\_168) geben den Aktivitätszustand zu einem jeweils früheren Zeitpunkt wieder. Die Wahl dieser vier Verzögerungen folgt den stärksten Faktoren der Periodizität: Lag\_1 und Lag\_2 erfassen die kurzfristige Autokorrelation, da sich einzelne Fahrten typischerweise über mehrere aufeinanderfolgende Stunden erstrecken. Lag\_24 entspricht derselben Stunde des Vortages und bildet damit die Tagesperiodik ab, etwa wiederkehrende Pendelzeiten. Lag\_168 entspricht derselben Stunde der Vorwoche und erfasst die Wochenperiodik, insbesondere den Unterschied zwischen Werktagen und Wochenende. Diese Merkmale sind notwendig, weil baumbasierte Modelle keine zeitliche Ordnung ihrer Eingaben kennen. Das bedeutet, dass jede Zeile unabhängig betrachtet wird, sodass zeitliche Bezüge nicht selbstständig gebildet werden können und explizit als Merkmale bereitgestellt werden müssen.
+Die Lag-Features (Lag\_1, Lag\_2, Lag\_24, Lag\_168) geben den Aktivitätszustand zu einem jeweils früheren Zeitpunkt wieder. Die Wahl dieser vier Verzögerungen folgt den stärksten Faktoren der Periodizität \parencite[Kap. 2.8]{hyndman2021forecasting}: Lag\_1 und Lag\_2 erfassen die kurzfristige Autokorrelation, da sich einzelne Fahrten typischerweise über mehrere aufeinanderfolgende Stunden erstrecken. Lag\_24 entspricht derselben Stunde des Vortages und bildet damit die Tagesperiodik ab, etwa wiederkehrende Pendelzeiten. Lag\_168 entspricht derselben Stunde der Vorwoche und erfasst die Wochenperiodik, insbesondere den Unterschied zwischen Werktagen und Wochenende. Diese Merkmale sind notwendig, weil baumbasierte Modelle keine zeitliche Ordnung ihrer Eingaben kennen. Das bedeutet, dass jede Zeile unabhängig betrachtet wird, sodass zeitliche Bezüge nicht selbstständig gebildet werden können und explizit als Merkmale bereitgestellt werden müssen.
 
 Rolling-Mean-Features (Rolling\_mean\_24, Rolling\_mean\_168) repräsentieren den Durchschnitt der Aktivität über die letzten 24 beziehungsweise 168 Stunden. Diese Features helfen dabei, das Aktivitätsmuster im Mobilitätsverhalten zu erkennen, die für die Vorhersage der zukünftigen Aktivität relevant sind. 
 
-Bei der Nutzung von historischen Zeitreihendaten ist es wichtig, deren chronologische Abfolge zu berücksichtigen. Ein potentielles Problem, das bei der Nutzung von solchen Daten auftreten kann, ist das sogenannte \emph{Data Leakage}. Data Leakage tritt auf, wenn Informationen aus der Zukunft in das Modelltraining einfließen, was zu einer unrealistischen Leistungsbewertung führt. Um dieses Problem zu vermeiden, werden die Daten in Trainings- und Testsets aufgeteilt, wobei die chronologische Reihenfolge strikt eingehalten wird. Das bedeutet, dass das Modell nur auf Basis der historischen Daten trainiert wird und keine Informationen aus der Zukunft erhält. Durch das Unterbinden von willkürlichen Daten-Splits wird sichergestellt, dass die Leistungsbewertung des Modells realistisch ist und die Vorhersagegüte nicht durch Data Leakage verfälscht wird.
+Bei der Nutzung von historischen Zeitreihendaten ist es wichtig, deren chronologische Abfolge zu berücksichtigen. Ein potentielles Problem, das bei der Nutzung von solchen Daten auftreten kann, ist das sogenannte \emph{Data Leakage}. Data Leakage tritt auf, wenn Informationen aus der Zukunft in das Modelltraining einfließen, was zu einer unrealistischen Leistungsbewertung führt \parencite{kaufman2012leakage}. Um dieses Problem zu vermeiden, werden die Daten in Trainings- und Testsets aufgeteilt, wobei die chronologische Reihenfolge strikt eingehalten wird \parencite{tashman2000outofsample}. Das bedeutet, dass das Modell nur auf Basis der historischen Daten trainiert wird und keine Informationen aus der Zukunft erhält. Durch das Unterbinden von willkürlichen Daten-Splits wird sichergestellt, dass die Leistungsbewertung des Modells realistisch ist und die Vorhersagegüte nicht durch Data Leakage verfälscht wird.
 
 % -----------------------------------------------------------------------------
 
@@ -170,7 +208,7 @@ Bei der Modellauswahl ist vor Allem die Heterogenität der Modelle entscheidend,
 
 \paragraph{LightGBM} ist ein Gradient-Boosting-Framework, das auf Entscheidungsbäumen basiert und für seine hohe Effizienz und Skalierbarkeit bekannt ist. Es verwendet eine spezielle Technik namens \emph{Leaf-wise Growth}, die es ermöglicht, tiefere Bäume zu erzeugen und dadurch komplexere Muster in den Daten zu erfassen. LightGBM ist besonders gut geeignet für große Datensätze und kann sowohl Klassifikations- als auch Regressionsaufgaben durchführen.
 
-\paragraph{LSTM} Beide vorgenannten Verfahren sehen die Zeitreihe ausschließlich in Gestalt der vorab konstruierten Merkmale; die zeitliche Ordnung geht dabei verloren. Ein rekurrentes Netz (\cref{sec:lstm}) verarbeitet die Historie dagegen als Sequenz und kann Abhängigkeiten selbst ableiten. Um beide Effekte -- Architektur und Repräsentation -- zu trennen, werden zwei Varianten geführt: Die erste erhält exakt denselben Merkmalssatz wie Random Forest und LightGBM und misst gegen diese den reinen \emph{Architektureffekt}. Die zweite erhält ein Fenster der letzten 168 rohen Stundenwerte und misst gegen die erste den \emph{Repräsentationseffekt}. Die Netze sind bewusst klein dimensioniert, da die Aktiv-Rate je nach Quelle nur 5--10\,\% beträgt und größere Netze unmittelbar überanpassen.
+\paragraph{LSTM} Beide vorgenannten Verfahren sehen die Zeitreihe ausschließlich in Gestalt der vorab konstruierten Merkmale; die zeitliche Ordnung geht dabei verloren. Ein rekurrentes Netz (\cref{sec:lstm}) verarbeitet die Historie dagegen als Sequenz und kann Abhängigkeiten selbst ableiten. Um beide Effekte -- Architektur und Repräsentation -- zu trennen, werden zwei Varianten geführt: Die erste erhält exakt denselben Merkmalssatz wie Random Forest und LightGBM und misst gegen diese den reinen \emph{Architektureffekt}. Die zweite erhält ein Fenster der letzten 168 rohen Stundenwerte und misst gegen die erste den \emph{Repräsentationseffekt}. Die Netze sind bewusst klein dimensioniert, da die Aktiv-Rate je nach Quelle nur 5--10\,\% beträgt und größere Netze unmittelbar überanpassen; bei seltener Positivklasse wirkt sich überschüssige Modellkapazität besonders stark aus, weil die Minderheitsklasse ohnehin nur wenige Trainingsbeispiele stellt \parencite{he2009imbalanced,japkowicz2002class}. Zusätzlich wird das Training über \emph{Early Stopping} auf einem zeitlichen Validierungs-Tail abgebrochen, sobald sich dessen Loss nicht mehr verbessert, sodass der Trainingsverlauf selbst gegen Überanpassung absichert.
 
 Für die rekurrenten Varianten wird der Umfang einer Quelle vorab in \emph{Fahrzeugwochen} bemessen, nicht in Zeilen: Da sich die gleitenden Fenster fast alle Zeitschritte teilen, wächst die Zahl der Beobachtungen mit der Fensterzahl, die Zahl der tatsächlich unabhängigen Verlaufsmuster jedoch nur mit der abgedeckten Zeitspanne. Quellen unterhalb von 100 Fahrzeugwochen werden daher nicht als Trainingsquelle des LSTM zugelassen und bleiben in der Isolationsmatrix als Trainingszeile leer; als \emph{Test}quelle bleiben sie uneingeschränkt erhalten. Die Schranke ist vor Sichtung der Ergebnisse festgelegt worden, um eine nachträgliche Auswahl zugunsten günstiger Werte auszuschließen.
 
@@ -187,7 +225,7 @@ Die Versuche kennzeichnen sich durch drei Merkmale:
 \begin{itemize}
   \item \textbf{Datenquelle}: Die Daten werden einmalig geteilt und für alle Modelle identisch verwendet, um Vergleichbarkeiten und Differenzierungen zu gewährleisten.
   \item \textbf{Architektur}: Drei Verfahren (Random Forest, LightGBM, LSTM) werden auf Basis der gleichen Daten trainiert und getestet, um den Algorithmuseffekt zu isolieren.
-  \item \textbf{Seeds}: Bedeutet eine unterschiedliche und zufällige Initialisierungen (bei baumbasierten Modellen Bootstrap und Merkmalsauswahl, beim LSTM Gewichte und Mini-Batch-Reihenfolge), sodass jede Zelle der Kreuzvalidierung Mittelwert \emph{und} Standardabweichung aus fünf Durchläufen trägt; erst deren Streuung entscheidet, ob ein Unterschied berichtbar ist.
+  \item \textbf{Seeds}: Bedeutet eine unterschiedliche und zufällige Initialisierungen (bei baumbasierten Modellen Bootstrap und Merkmalsauswahl, beim LSTM Gewichte und Mini-Batch-Reihenfolge), sodass jede Zelle der Kreuzvalidierung Mittelwert \emph{und} Standardabweichung aus fünf Durchläufen trägt; erst deren Streuung entscheidet, ob ein Unterschied berichtbar ist. Einzelläufe genügen dafür nicht, da Ranglisten allein durch die Initialisierung kippen können \parencite{bouthillier2021variance,reimers2017reporting}.
 \end{itemize}
 
 Es werden fünf Datenquellen verwendet, um fünf Trainings- und Testsets zu bilden, die jeweils unterschiedliche Informationen enthalten. Diese Daten bleiben für alle Architekturen und Modelle identisch, sodass die Ergebnisse der Modelle direkt miteinander vergleichbar sind. Bei der Untersuchung der Datenquellen wird die Qualität anhand der Architekturen und Modelle bewertet. Nun werden aus den drei Architekturen vier verschiedene Modelle (RF, LGBM, LSTM: Sequentiell, Tabellarisch) gebildet, die jeweils unterschiedliche Eigenschaften aufweisen (siehe Grundlagen \cref{sec:randomforest}, \cref{sec:lightgbm}, \cref{sec:lstm}) -- Bei den LSTM Modellen wird jedoch die Differenz zwischen dem sequentiellen und tabellarischen Modell als Repräsentation verwendet. Da die sequentiellen Varianten mindestens 100 Fahrzeugwochen voraussetzen (\cref{sec:modellauswahl}), werden sie nur auf \texttt{emobpy} und \texttt{yjmob100k} trainiert; die übrigen Quellen bleiben als Trainingszeile leer, als Testquelle jedoch erhalten. 
@@ -207,7 +245,7 @@ TP (True Positives), TN (True Negatives), FP (False Positives) und FN (False Neg
 \text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}} 
 \end{equation}
 
-In diesem Fall ist die Accuracy nicht die beste Metrik, da die Daten stark unbalanciert sind und die Accuracy daher nicht die tatsächliche Vorhersagequalität widerspiegelt. Accuracy offenbart sich als unzureichend, da sie auf Grund der niedrigen Aktivitätsrate zwar oft eine hohe Genauigkeit aufweist, jedoch die Vorhersagequalität der positiven Klasse nicht korrekt widerspiegelt.
+In diesem Fall ist die Accuracy nicht die beste Metrik, da die Daten stark unbalanciert sind und die Accuracy daher nicht die tatsächliche Vorhersagequalität widerspiegelt. Accuracy offenbart sich als unzureichend, da sie auf Grund der niedrigen Aktivitätsrate zwar oft eine hohe Genauigkeit aufweist, jedoch die Vorhersagequalität der positiven Klasse nicht korrekt widerspiegelt \parencite{he2009imbalanced,saito2015prauc}.
 
 \paragraph{Precision} wird dazu verwendet, um die Genauigkeit der positiven Vorhersagen zu messen. Sie gibt an, wie viele der als positiv vorhergesagten Werte tatsächlich positiv sind.
 
@@ -227,22 +265,22 @@ In diesem Fall ist die Accuracy nicht die beste Metrik, da die Daten stark unbal
   F_\beta = (1 + \beta^2) \cdot \frac{\text{Precision} \cdot \text{Recall}}{\beta^2 \cdot \text{Precision} + \text{Recall}}
 \end{equation}
 
-In dieser Arbeit ist $\beta = 1$ gesetzt, sodass Fehlalarme und verpasste Fahrten gleich gewichtet werden. Aus der Gewichtung ergibt sich als Spezialfall der gebräuchliche F1-Score \parencite{vanrijsbergen1979}. Die Metrik ist relevant, um zu überblicken, welche Modelle relativ besser sind.
+In dieser Arbeit ist $\beta = 1$ gesetzt, sodass Fehlalarme und verpasste Fahrten gleich gewichtet werden. Aus der Gewichtung ergibt sich als Spezialfall der gebräuchliche F1-Score \parencite[Kap. 7]{vanrijsbergen1979}. Die Metrik ist relevant, um zu überblicken, welche Modelle relativ besser sind.
 
 \begin{equation}
   F_1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
 \end{equation}
 
-\paragraph{PR-AUC} (Precision-Recall Area Under Curve) kombiniert Precision und Recall in einer Kurve, welche die Leistung des Modells über verschiedene Schwellenwerte hinweg darstellt. Der Flächeninhalt unter der Kurve (AUC) gibt einen aggregierten Wert für die Modellleistung an. Ein höherer AUC-Wert deutet auf eine bessere Modellleistung hin. Mit dem PR-AUC wird die absolute Vorhersagequalität bewertet und, ob die Imbalance fair berücksichtigt wird. Berechnet wird die Fläche als Average Precision, also als schwellenweise gewichtete Summe der Precision-Werte $P_n$, wobei die Gewichte der Recall-Zuwachs $R_n - R_{n-1}$ zwischen aufeinanderfolgenden Schwellen sind. Die Zufalls-Baseline entspricht der Aktiv-Rate der positiven Klasse.
+\paragraph{PR-AUC} (Precision-Recall Area Under Curve) kombiniert Precision und Recall in einer Kurve, welche die Leistung des Modells über verschiedene Schwellenwerte hinweg darstellt. Der Flächeninhalt unter der Kurve (AUC) gibt einen aggregierten Wert für die Modellleistung an. Ein höherer AUC-Wert deutet auf eine bessere Modellleistung hin. Mit dem PR-AUC wird die absolute Vorhersagequalität bewertet und, ob die Imbalance fair berücksichtigt wird; bei stark unausgeglichenen Klassenverhältnissen ist die Precision-Recall-Kurve der ROC-Kurve in ihrer Aussagekraft überlegen \parencite{davis2006relationship,saito2015prauc}. Berechnet wird die Fläche als Average Precision, also als schwellenweise gewichtete Summe der Precision-Werte $P_n$, wobei die Gewichte der Recall-Zuwachs $R_n - R_{n-1}$ zwischen aufeinanderfolgenden Schwellen sind. Die Zufalls-Baseline entspricht der Aktiv-Rate der positiven Klasse \parencite{saito2015prauc}.
 
 \begin{equation}
   \text{PR-AUC} = \sum_{n} (R_n - R_{n-1}) \cdot P_n
 \end{equation}
 
 
-\paragraph{ROC-AUC} misst als Rangmaß die Wahrscheinlichkeit, dass einer zufälligen Fahr-Stunde eine höhere Wahrscheinlichkeit zugewiesen wird als einer zufälligen Park-Stunde; sie wird nur ergänzend geführt, da sie bei starker Imbalance optimistisch ausfällt.
+\paragraph{ROC-AUC} misst als Rangmaß die Wahrscheinlichkeit, dass einer zufälligen Fahr-Stunde eine höhere Wahrscheinlichkeit zugewiesen wird als einer zufälligen Park-Stunde; sie wird nur ergänzend geführt, da sie bei starker Imbalance optimistisch ausfällt \parencite{davis2006relationship,fawcett2006roc}.
 
-\paragraph{Brier-Score} misst die Genauigkeit der probabilistischen Vorhersagen eines Modells, indem er den mittleren quadratischen Abstand zwischen der vorhergesagten Wahrscheinlichkeit $p_i$ und dem tatsächlichen Ausgang $y_i \in \{0,1\}$ über alle $N$ Beobachtungen bildet. Ein niedrigerer Wert bedeutet eine niederigere Abweichung und ob dem System vertraut werden kann.
+\paragraph{Brier-Score} \parencite{brier1950verification} misst die Genauigkeit der probabilistischen Vorhersagen eines Modells, indem er den mittleren quadratischen Abstand zwischen der vorhergesagten Wahrscheinlichkeit $p_i$ und dem tatsächlichen Ausgang $y_i \in \{0,1\}$ über alle $N$ Beobachtungen bildet. Ein niedrigerer Wert bedeutet eine niederigere Abweichung und ob dem System vertraut werden kann. Der Brier-Score ist eine \emph{strikt proper scoring rule}, wird also genau dann minimal, wenn die berichteten Wahrscheinlichkeiten den tatsächlichen entsprechen \parencite{gneiting2007scoring}, dadurch eignet er sich als Kalibrierungsmaß im Vergleich verschiedener Verfahren auf derselben Datenquelle \parencite{niculescu2005predicting}.
 
 \begin{equation}
   \text{Brier} = \frac{1}{N} \sum_{i=1}^{N} (p_i - y_i)^2

@@ -10,7 +10,7 @@ In der Evaluation wird beschrieben, wie die entwickelten Methoden aus \cref{ch:m
 \section{Evaluationsdesign}
 \label{sec:evaluationsdesign}
 
-Durch verschiedene Darstellungen werden die Gütemaße der Modelle visualisiert, um die Genauigkeit, Stabilität und Verlässlichkeit der Vorhersagen zu bewerten (unter anderem \cref{tab:baselines} und \cref{tab:cv_metrics}). Anhand einer Kreuzvalidierungsmatrix (\cref{fig:cv_matrix}, \cref{fig:cv_matrix_lgbm}, \cref{fig:cv_matrix_lstm_seq} und \cref{fig:cv_matrix_lstm_tab}) wird die Konsistenz der Vorhersagen über verschiedene Datenquellen hinweg überprüft. Da bei den verschiedenen Architekturen fünf Seeds existieren, werden die Gütemaße für die Stabilität gemittelt, um Randwerte zu minimieren. Die Gütemaße werden in \cref{tab:cv_metrics} für alle Modelle und Datenquellen tabellarisch dargestellt, um die Vergleichbarkeit zu erleichtern. Metriken die verwendet werden, sind Accuracy, F1-Score, ROC-AUC, PR-AUC und Brier-Score. Die Kennzahlen werden sowohl für die In-Distribution (auf derselben Datenquelle) als auch für die Out-of-Distribution (auf anderen Datenquellen) berechnet, um die Generalisierungsfähigkeit der Modelle zu bewerten. Accuracy wird als Negativbeispiel für die Limitierungen der Gütemaße diskutiert, da bei stark unausgeglichenen Klassenverteilungen (wie in diesem Anwendungsfall) die Accuracy eine fehlleitende Metrik sein kann. PR-AUC und Brier-Score werden als die wichtigsten Metriken hervorgehoben, da deren Fähigkeit bei unausgeglichen Datensatzen die Qualität der Vorhersagen zu bewerten, besonders relevant ist. Im Laufe der Tests wird eine Ablation der Merkmalsgruppen durchgeführt, um die Bedeutung der einzelnen Merkmale für die Vorhersageleistung zu bewerten (\cref{tab:ablation}). Die Ablation untersucht, wie sich das Entfernen von bestimmten Merkmalsgruppen (Kalender, Lags, Rolling) auf die Metriken auswirkt.
+Durch verschiedene Darstellungen werden die Gütemaße der Modelle visualisiert, um die Genauigkeit, Stabilität und Verlässlichkeit der Vorhersagen zu bewerten (unter anderem \cref{tab:baselines} und \cref{tab:cv_metrics}). Anhand einer Kreuzvalidierungsmatrix (\cref{fig:cv_matrix}, \cref{fig:cv_matrix_lgbm}, \cref{fig:cv_matrix_lstm_seq} und \cref{fig:cv_matrix_lstm_tab}) wird die Konsistenz der Vorhersagen über verschiedene Datenquellen hinweg überprüft. Da bei den verschiedenen Architekturen fünf Seeds existieren, werden die Gütemaße für die Stabilität gemittelt, um Randwerte zu minimieren. Die Gütemaße werden in \cref{tab:cv_metrics} für alle Modelle und Datenquellen tabellarisch dargestellt, um die Vergleichbarkeit zu erleichtern. Metriken die verwendet werden, sind Accuracy, F1-Score, ROC-AUC, PR-AUC und Brier-Score. Die Kennzahlen werden sowohl für die In-Distribution (auf derselben Datenquelle) als auch für die Out-of-Distribution (auf anderen Datenquellen) berechnet, um die Generalisierungsfähigkeit der Modelle zu bewerten. Accuracy wird als Negativbeispiel für die Limitierungen der Gütemaße diskutiert, da bei stark unausgeglichenen Klassenverteilungen (wie in diesem Anwendungsfall) die Accuracy eine fehlleitende Metrik sein kann. PR-AUC und Brier-Score werden als die wichtigsten Metriken hervorgehoben, da deren Fähigkeit bei unausgeglichen Datensätzen die Qualität der Vorhersagen zu bewerten, besonders relevant ist \parencite{davis2006relationship,saito2015prauc,gneiting2007scoring}. Im Laufe der Tests wird eine Ablation der Merkmalsgruppen durchgeführt, um die Bedeutung der einzelnen Merkmale für die Vorhersageleistung zu bewerten (\cref{tab:ablation}). Die Ablation untersucht, wie sich das Entfernen von bestimmten Merkmalsgruppen (Kalender, Lags, Rolling) auf die Metriken auswirkt.
 
 % -----------------------------------------------------------------------------
 \section{Testumgebung}
@@ -19,8 +19,9 @@ Durch verschiedene Darstellungen werden die Gütemaße der Modelle visualisiert,
 Bei der Testumgebung handelt es sich um eine standardisierte Umgebung, die sicherstellt, dass die Evaluation reproduzierbar und konsistent durchgeführt werden kann. Zu den Bedingungen gehören folgende Dinge:
 
 \begin{itemize}
+
     \item Hardware: Die Tests werden auf einem lokalen Computer mit einem Ryzen 7 9800X3D Prozessor und 32 GB DDR5 RAM durchgeführt. Die Hardware ist dafür spezialisiert, eine überschaubare Anzahl an anspruchsvollen Aufgaben in kurzer Zeit zu bewältigen, was für die Evaluation der Modelle von Vorteil ist.
-    \item Software: Die Softwareumgebung besteht aus Visual Studio Code, Python 3.13 und den folgenden Technologien aus aktuellster Version zum 27.07.2026:scikit-learn, lightgbm, PyTorch, Pandas, Numpy, Angular und TypeScript.
+    \item Software: Die Softwareumgebung besteht aus Visual Studio Code, Python 3.13 und den folgenden Technologien aus aktuellster Version zum 27.07.2026: scikit-learn \parencite{pedregosa2011sklearn}, lightgbm \parencite{ke2017lightgbm}, PyTorch \parencite{paszke2019pytorch}, Pandas \parencite{mckinney2010pandas}, Numpy \parencite{harris2020numpy}, Angular und TypeScript. Für die Nachvollziehbarkeit der Läufe sind neben den Seeds die exakten Versionsnummern maßgeblich \parencite{pineau2021reproducibility}; sie sind der beiliegenden Umgebungsdatei zu entnehmen.
     \item Datensatzkonfiguration: Jede Quelle wird chronologisch im Verhältnis 80/20 in Trainings- und Testteil geteilt. Der Umfang wird je Quelle begrenzt (\texttt{emobpy}: 30 Fahrzeuge, \texttt{ved}: 15 Fahrzeuge aus 4 Dateien, \texttt{yjmob100k}: 50 Personen; \texttt{real\_world\_ev} und \texttt{routine} vollständig), um die Laufzeit beherrschbar zu halten, ohne die Isolationsmatrix zu verändern.
     \item Seeds, Parameter und Kontrollvariablen: Bei der Kreuzvalidierungsmatrix werden über fünf Seeds Ergebnisse berichtet und deren Mittelwert sowie Standardabweichung angegeben. Die Hyperparameter werden je Modell einmalig festgelegt und über die Isolationsexperimente konstant gehalten, sodass sie zusammen mit dem Feature-Set als Kontrollvariablen wirken.
 \end{itemize}
@@ -29,15 +30,11 @@ Bei der Testumgebung handelt es sich um eine standardisierte Umgebung, die siche
 \section{Ergebnisse}
 \label{sec:ergebnisse}
 
-Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sich in der \cref{tab:baselines}, dass sowohl bei der Metrik PR-AUC als auch bei der missgünstigen Metrik Accuracy, der Random Forest eine bessere Prognose liefert. Die Metrik Majority, die immer behauptet, dass ein Fahrzeug parkt, die Metrik Persistenz-168, welche die Vorwoche überträgt oder Klimatologie, die den Anteil der Fahrstunden je Wochentag und Stunde aus dem Trainingsteil berechent, schneiden alle nicht auf dem Niveau des Random Forest ab.
+Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sich in der \cref{tab:baselines}, dass sowohl bei der Metrik PR-AUC als auch bei der fehlerbehafteten Metrik Accuracy, der Random Forest eine bessere Prognose liefert. Die Metrik Majority, die immer behauptet, dass ein Fahrzeug parkt, die Metrik Persistenz-168, welche die Vorwoche überträgt oder Klimatologie, die den Anteil der Fahrstunden je Wochentag und Stunde aus dem Trainingsteil berechnet, schneiden alle nicht auf dem Niveau des Random Forest ab. Persistenz und Klimatologie sind dabei keine willkürlichen Vergleichsgrößen, sondern die in der Prognoseliteratur etablierten Referenzprognosen: Persistenz-168 entspricht dem \emph{seasonal naïve} mit Wochenperiode \parencite[Kap. 5.2]{hyndman2021forecasting}, die Klimatologie der langjährigen bedingten Häufigkeit, gegen die sich jede Prognose behaupten muss \parencite{murphy1993good}.
 
 \begin{table}[H]
     \centering
-    \caption{Modell (RandomForest) im Vergleich zu naiven Baselines,
-    In-Distribution je Datenquelle auf demselben zeitlichen Test-Split.
-    Majority = \enquote{immer geparkt}; Persistenz-168 = gleiche Stunde der
-    Vorwoche; Klimatologie = $P(\text{fahren}\mid\text{Wochentag},\text{Stunde})$
-    aus dem Trainingsteil.}
+    \caption{Modell (RandomForest) im Vergleich zu naiven Baselines, In-Distribution je Datenquelle auf demselben zeitlichen Test-Split. Majority = \enquote{immer geparkt}; Persistenz-168 = gleiche Stunde der Vorwoche; Klimatologie = $P(\text{fahren}\mid\text{Wochentag},\text{Stunde})$ aus dem Trainingsteil.}
     \label{tab:baselines}
 
     \begin{subtable}{\textwidth}
@@ -75,7 +72,7 @@ Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sic
     \end{subtable}
 \end{table}
 
-\cref{fig:cv_matrix} stellt die Kreuzvalidierung des Driving-Classifiers mit dem Random Forest Algorithmus dar. Die Matrix zeigt die F1-Scores für jede Kombination von Trainings- und Testdatenquelle. Die Diagonale der Matrix repräsentiert die In-Distribution-Leistung, während Metriken außerhalb der Diagonale die Out-of-Distribution-Leistung darstellen. Die Ergebnisse zeigen, dass die Modelle sich gegenüber dem naive Baseline (majority, persistenz-168, klimatologie) deutlich verbessern. Eine Zeile steht besonders hervor; \texttt{VED} zeigt unter den Datensätzen die geringste Vorhersageleistung, wobei die Datenmenge und Aktivitätsrate mehr als ausreichend sind (\cref{tab:cv_metrics}), was darauf schließen lässt, dass die enthaltenen Informationen zwar ein ausreichendes Volumen haben, aber nicht für die Vorhersage geeignet sind. Im Anhang in \cref{sec:anhang_abbildungen} befinden sich weitere Kreuzvalidierungsmatrizen mit den übrigen verwendeten Algorithmen.
+\cref{fig:cv_matrix} stellt die Kreuzvalidierung des Driving-Classifiers mit dem Random Forest Algorithmus dar. Die Matrix zeigt die F1-Scores für jede Kombination von Trainings- und Testdatenquelle. Die Diagonale der Matrix repräsentiert die In-Distribution-Leistung, während Metriken außerhalb der Diagonale die Out-of-Distribution-Leistung darstellen. Die Ergebnisse zeigen, dass die Modelle sich gegenüber dem naive Baseline (majority, persistenz-168, klimatologie) deutlich verbessern. Eine Zeile steht besonders hervor; \texttt{VED} zeigt unter den Datensätzen die geringste Vorhersageleistung, wobei die Datenmenge und Aktivitätsrate mehr als ausreichend sind (\cref{tab:cv_metrics}), was darauf schließen lässt, dass die enthaltenen Informationen zwar ein ausreichendes Volumen haben, aber nicht für die Vorhersage geeignet sind. Im Anhang in \cref{ch:anhang_abbildungen} befinden sich weitere Kreuzvalidierungsmatrizen mit den übrigen verwendeten Algorithmen.
 
 \begin{figure}[H]
   \centering
@@ -85,7 +82,7 @@ Bei der Gegenüberstellung des Random Forests mit dem naiven Baseline, zeigt sic
   \label{fig:cv_matrix}
 \end{figure}
 
-\cref{tab:cv_metrics} zeigt die In-Distribution-Gütemaße des Driving-Classifiers für jede Datenquelle. Da für jede Datenquelle pro Architektur fünf Seeds existieren, werden die gemittelten Resultate in der Matrix angezeigt, wobei der beste Wert einer Zeller tabellenübergreifend hervorgehoben ist. Bei den Ergebnissen zeigt sich, dass der Random Forest in den meisten Fällen die besten Ergebnisse liefert, insbesondere bei Accuracy und Brier-Score. Die anderen Algorithmen besitzen zwar nicht die besten Werte, liefern jedoch trotzdem gute Ergebnisse. Insbesondere der Brier-Score, der die Genauigkeit als gemittelter quadratischer Fehler der Vorhersagewahrscheinlichkeiten darstellt und die PR-AUC, die die Qualität der Vorhersagen bei unausgeglichenen Datensätzen bewertet, sind wichtige Metriken für die Bewertung der Modelle. Da niedrige Aktiv-Raten den Brier-Score begünstigen, ist er vor allem im Vergleich der Algorithmen auf derselben Quelle aussagekräftig; dort zeigt sich etwa auf \texttt{emobpy} eine bessere Kalibrierung des Random Forest (0,169) gegenüber LightGBM (0,191).
+\cref{tab:cv_metrics} zeigt die In-Distribution-Gütemaße des Driving-Classifiers für jede Datenquelle. Da für jede Datenquelle pro Architektur fünf Seeds existieren, werden die gemittelten Resultate in der Matrix angezeigt, wobei der beste Wert einer Zelle tabellenübergreifend hervorgehoben ist. Bei den Ergebnissen zeigt sich, dass der Random Forest in den meisten Fällen die besten Ergebnisse liefert, insbesondere bei Accuracy und Brier-Score. Die anderen Algorithmen besitzen zwar nicht die besten Werte, liefern jedoch trotzdem gute Ergebnisse. Insbesondere der Brier-Score, der die Genauigkeit als gemittelter quadratischer Fehler der Vorhersagewahrscheinlichkeiten darstellt und die PR-AUC, die die Qualität der Vorhersagen bei unausgeglichenen Datensätzen bewertet, sind wichtige Metriken für die Bewertung der Modelle. Da niedrige Aktiv-Raten den Brier-Score begünstigen, ist er vor allem im Vergleich der Algorithmen auf derselben Quelle aussagekräftig; dort zeigt sich etwa auf \texttt{emobpy} eine bessere Kalibrierung des Random Forest (0,169) gegenüber LightGBM (0,191).
 
 \clearpage
 \begin{landscape}
@@ -235,4 +232,28 @@ Um genauer zu zeigen, dass Merkmalsgruppen unterschiedliche Einflüsse auf die V
         \end{tabular}
     \end{subtable}
 \end{table}
+
+\subsection{Trainingsverlauf und Overfitting-Kontrolle}
+\label{sec:trainingsverlauf}
+Um zu prüfen, ob die iterativ trainierten Verfahren überanpassen, wird ihr
+Trainings- gegen ihren Validierungs-Loss über den Trainingsverlauf aufgetragen. Der Validierungs-Loss wird dabei auf einem zeitlichen Tail des Trainingsteils bestimmt -- kein zufälliger Split. Steigt der Validierungs-Loss wieder an, während der Trainings-Loss weiter fällt, liegt Overfitting vor; der von Early Stopping gewählte Haltepunkt ist als Linie markiert. Der Random Forest besitzt keinen iterativen Trainingsverlauf und wird stattdessen über die Trainings-vs-Test-Lücke der Kreuzvalidierung beurteilt.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{images/training_curves_lgbm.png}
+  \caption{Trainingskurven der LGBM-Varianten auf den zulässigen Datenquellen. Die gestrichelte Linie markiert den Haltepunkte, der durch Early Stopping Overfitting verhindert.}
+  \label{fig:curves_lgbm}
+\end{figure}
+
+\Cref{fig:curves_lgbm} zeigt, dass LightGBM datensatzabhängig überanpasst:
+Auf \texttt{real\_world\_ev} und \texttt{routine} dreht der Validierungs-Loss nach dem Minimum nach oben, während er auf den übrigen Quellen flach bleibt. Da die berichteten Modelle die Hyperparameter als Kontrollvariable konstant halten (feste Rundenzahl, \cref{sec:limitationen}), wird dieser Effekt in der Matrix nicht gegengesteuert; Early Stopping würde ihn beheben, indem es den Haltepunkt an das Validierungsminimum legt.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{images/training_curves_lstm.png}
+  \caption{Trainingskurven der LSTM-Varianten (tabellarisch und sequenziell) auf den zulässigen Datenquellen. Die gestrichelte Linie markiert den Haltepunkte, der durch Early Stopping Overfitting verhindert.}
+  \label{fig:curves_lstm}
+\end{figure}
+
+Die LSTM-Varianten (\cref{fig:curves_lstm}) zeigen dagegen kein Overfitting: Trainings- und Validierungs-Loss fallen gemeinsam und plateauen, ohne dass der Validierungs-Loss wieder ansteigt. Dass er auf \texttt{yjmob100k} unterhalb des Trainings-Loss liegt, ist kein Widerspruch, sondern eine Folge des Dropouts, der nur im Trainingsmodus aktiv ist und den Trainings-Loss dort systematisch anhebt. Das bereits im Training aktive Early Stopping (\cref{sec:modellauswahl}) sichert die Modelle zusätzlich gegen Überanpassung ab.
 

@@ -3,23 +3,25 @@
 \contentsline {table}{\numberline {1.1}{\ignorespaces Forschungsfragen der Arbeit.}}{4}{table.caption.5}%
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {2.1}{\ignorespaces Phasen der Mobilitätsdaten-Pipeline}}{8}{table.caption.8}%
-\contentsline {table}{\numberline {2.2}{\ignorespaces Charakterisierung von Anpassungen anhand von Fehlerwerten \blx@tocontentsinit {0}\cite {geron2022handson}.}}{13}{table.caption.21}%
-\contentsline {table}{\numberline {2.3}{\ignorespaces Zentrale Forschungssektionen im Umfeld der individuellen Fahrzeugnutzungsprognose.}}{21}{table.caption.30}%
-\contentsline {table}{\numberline {2.4}{\ignorespaces Fünf Fahrertypen des Individualverkehrs nach \blx@tocontentsinit {0}\textcite {ji2023rethinking}.}}{27}{table.caption.38}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Charakterisierung von Anpassungen anhand von Fehlerwerten \blx@tocontentsinit {0}\cite [Kap. 7.2]{hastie2009elements}.}}{13}{table.caption.21}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Zentrale Forschungssektionen im Umfeld der individuellen Fahrzeugnutzungsprognose.}}{23}{table.caption.30}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces Fünf Fahrertypen des Individualverkehrs nach \blx@tocontentsinit {0}\textcite {ji2023rethinking}.}}{29}{table.caption.38}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Hypothesen zu den Forschungsfragen.}}{30}{table.caption.42}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Übersicht der fünf Datenquellen und ihrer identifizierenden Eigenschaften.}}{32}{table.caption.44}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Hypothesen zu den Forschungsfragen.}}{32}{table.caption.42}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Übersicht der fünf Datenquellen und ihrer identifizierenden Eigenschaften.}}{34}{table.caption.44}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Geprüfte, aber nicht als Datengrundlage gewählte Datensätze.}}{35}{table.caption.46}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Anforderungen an Daten und System}}{43}{table.caption.60}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Anforderungen an die Machine-Learning-Modelle}}{44}{table.caption.61}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Anforderungen an Daten und System}}{46}{table.caption.62}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Anforderungen an die Machine-Learning-Modelle}}{47}{table.caption.63}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Modell (RandomForest) im Vergleich zu naiven Baselines, In-Distribution je Datenquelle auf demselben zeitlichen Test-Split. Majority = \enquote {immer geparkt}; Persistenz-168 = gleiche Stunde der Vorwoche; Klimatologie = $P(\text {fahren}\mid \text {Wochentag},\text {Stunde})$ aus dem Trainingsteil.}}{57}{table.caption.73}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces In-distribution (in eigener Menge -- Datenquelle, in diesem Fall) Gütemaße des Driving-Classifiers je Datenquelle (Mittelwert $\pm $ Std). Modelle sehen Merkmalssatz; seq. LSTM sieht Rohfenster. \enquote {n.\,z.} = nicht als Trainingsquelle zugelassen, da Quelle Mindestkriterium von 100 Fahrzeugwochen verfehlt (\cref *{sec:modellauswahl}).}}{59}{table.5.2}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Ablation der Merkmalsgruppen: PR-AUC je Datenquelle, zeitlich in-distribution. Verworfene Zeilen richten sich in allen Varianten nach dem vollständigen Merkmalssatz, sodass je Quelle identische Beobachtungen zugrunde liegen.}}{62}{table.caption.75}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Modell (RandomForest) im Vergleich zu naiven Baselines, In-Distribution je Datenquelle auf demselben zeitlichen Test-Split. Majority = \enquote {immer geparkt}; Persistenz-168 = gleiche Stunde der Vorwoche; Klimatologie = $P(\text {fahren}\mid \text {Wochentag},\text {Stunde})$ aus dem Trainingsteil.}}{61}{table.caption.75}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces In-distribution (in eigener Menge -- Datenquelle, in diesem Fall) Gütemaße des Driving-Classifiers je Datenquelle (Mittelwert $\pm $ Std). Modelle sehen Merkmalssatz; seq. LSTM sieht Rohfenster. \enquote {n.\,z.} = nicht als Trainingsquelle zugelassen, da Quelle Mindestkriterium von 100 Fahrzeugwochen verfehlt (\cref *{sec:modellauswahl}).}}{63}{table.5.2}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Ablation der Merkmalsgruppen: PR-AUC je Datenquelle, zeitlich in-distribution. Verworfene Zeilen richten sich in allen Varianten nach dem vollständigen Merkmalssatz, sodass je Quelle identische Beobachtungen zugrunde liegen.}}{66}{table.caption.77}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \def \@chapapp {\appendixname }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Ablation der Merkmalsgruppen: F1-Score je Datenquelle, zeitlich in-distribution. Verworfene Zeilen richten sich in allen Varianten nach dem vollständigen Merkmalssatz, sodass je Quelle identische Beobachtungen zugrunde liegen. Ergänzt \cref {tab:ablation} (PR-AUC).}}{80}{table.caption.84}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {B.1}{\ignorespaces Ablation der Merkmalsgruppen: F1-Score je Datenquelle, zeitlich in-distribution. Verworfene Zeilen richten sich in allen Varianten nach dem vollständigen Merkmalssatz, sodass je Quelle identische Beobachtungen zugrunde liegen. Ergänzt \cref {tab:ablation} (PR-AUC).}}{93}{table.caption.88}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

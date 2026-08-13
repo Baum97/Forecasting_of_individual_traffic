@@ -43,7 +43,11 @@
       "mcp__mempalace__mempalace_get_taxonomy",
       "mcp__mempalace__mempalace_kg_stats",
       "mcp__mempalace__mempalace_kg_timeline",
-      "mcp__mempalace__mempalace_add_drawer"
+      "mcp__mempalace__mempalace_add_drawer",
+      "Bash(python \"C:/Users/ADMINI~1/AppData/Local/Temp/claude/d--Projects-Forecasting-of-individual-traffic/9a4d4320-2c44-41fe-a2de-91c07812755c/scratchpad/locators.py\")",
+      "Bash(latexmk -pdf -interaction=nonstopmode main.tex)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(grep -oE '^@[a-z]+\\\\{[^,]+' literatur.bib)"
     ]
   }
 }
