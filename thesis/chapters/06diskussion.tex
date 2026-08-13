@@ -64,6 +64,7 @@ Die folgenden Einschränkungen begrenzen die Reichweite der Ergebnisse und sind 
     \item \textbf{Heuristische Label ohne Ground Truth:} Da die Aktivität in den Datensätzen nicht direkt gemessen, sondern heuristisch abgeleitet wird, existiert keine absolute Ground Truth. Dadurch kann es zu Verzerrungen in der Modellbewertung kommen, insbesondere wenn die Heuristiken nicht die tatsächliche Fahraktivität widerspiegeln.
     \item \textbf{Zeitliche Abdeckung:} In \texttt{VED} strecken sich die Daten nicht über den gesamten Zeitraum der Studie, was zur Folge hat, dass einige Fahrzeuge nur in Trainings- oder Testsets vertreten sind. 
     \item \textbf{Synthetische Quellen:} \texttt{emobpy} und \texttt{routine} bilden reales Verhalten nur unvollständig ab; bei \texttt{routine} erreicht bereits die Klimatologie-Baseline eine PR-AUC von $0,797$, sodass der zusätzliche Effekt der Modelle nur begrenzt nachweisbar ist.
+    \item \textbf{Bewegung als Proxy:} In \texttt{yjmob100k} wird die Fahraktivität über das Überschreiten von Rastern abgeleitet, wodurch die Labels nur eine Annäherung an die tatsächliche Aktivität darstellen. Dies kann zu Ungenauigkeiten in der Modellbewertung und dessen Out-Of-Distribution Prognosegenauigkeit führen.
 \end{itemize}
 
 \subsection*{Experimentaldesign}

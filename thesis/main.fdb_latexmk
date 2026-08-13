@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1786620489.03222 "main.bcf" "main.bbl" "main" 1786620501.91057 0
+["biber main"] 1786620489.03222 "main.bcf" "main.bbl" "main" 1786621475.54148 0
   "literatur.bib" 1786620461 38579 b6f29c22538fd2cda82e956efb202dfd ""
-  "main.bcf" 1786620501 119935 3dd7bd3a1e5de5df90e3bfd1e9163548 "pdflatex"
+  "main.bcf" 1786621475 119935 3dd7bd3a1e5de5df90e3bfd1e9163548 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1786620496.36838 "main.tex" "main.pdf" "main" 1786620501.91115 0
+["pdflatex"] 1786621470.12487 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1786621475.54205 0
   "C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1786485272 566693 c81e9331fecf5fe142ac06ca08f4e99f ""
   "C:/Users/Administrator/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1776509242 13337359 a21bfb9d050a5bf8318e8708a258f339 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -253,17 +253,18 @@
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1773584792 2269 91cd03da61ab1da00145ba8a81560051 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1773584792 20785 8db5f0a2b2ce96dda9fac87ccab29449 ""
-  "chapters/00abstract.tex" 1786619086 1258 98f89cec0d478a817143b9c40c15f779 ""
+  "chapters/00abstract.tex" 1786621302 1444 50bc078b3ce66f9eceb8594881f2c893 ""
   "chapters/01einleitung.tex" 1786619086 9768 27210ca71ce4c728a51200f40675760f ""
   "chapters/02grundlagen.tex" 1786619313 44113 418f8c985dc81bb5a0bb94c7b45c1cca ""
   "chapters/03methodik.tex" 1786619086 34041 dafd6f2f74ecfdbf6fd326941f3b5e8c ""
   "chapters/04implementierung.tex" 1786619086 26865 1221489268751193ce3379f1f49234a9 ""
   "chapters/05evaluation.tex" 1786619973 21058 1069ea68296b42c5dae27c1c70f2ee46 ""
-  "chapters/06diskussion.tex" 1786619086 16518 60936de2317f2cc29e97ee2457cafb33 ""
-  "chapters/07fazit.tex" 1786620332 4014 d472de1f59b07ac34b7a999254360564 ""
+  "chapters/06diskussion.tex" 1786621470 16848 bd7ece3f9dae1ff51e04b984b9f0f23a ""
+  "chapters/07fazit.tex" 1786621302 4037 c69aca52c41794745932159f8a74356e ""
   "chapters/08anhang.tex" 1786619086 7195 636ec4e5d95dff2044721eebca2b160d ""
   "chapters/09erklaerung.tex" 1786619086 1032 d46e4483a3ee0f34ed11b6bab986ab48 ""
   "chapters/ki_handreichung.tex" 1786619086 4281 e93ce54e5f936b8966a1a3056202af4f ""
+  "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" 1786523987 2972 5c6cfa61a28c2ba5b0bfd0afa4d40cd7 ""
   "graphen/komponentendiagramm/komponentendiagramm.pdf" 1784737829 62504 2024d19b55e632dab485a876def1145a ""
   "graphen/methodik/methodik_workflow.pdf" 1784023110 48115 ffd7e3af818cb243246ab3edc0c23bb2 ""
   "graphen/persistenzlayout/persistenzlayout.pdf" 1784738264 45839 ae379adfc06609961543543e73090114 ""
@@ -296,13 +297,13 @@
   "images/weeklychargingrequests_sanami.png" 1783807209 354255 7315569e53df3a55aeb830d533c5d05c ""
   "imports.tex" 1786485284 3597 adbeb68c911ea758249672cc8c17f2d6 ""
   "main.acr" 0 -1 0 ""
-  "main.aux" 1786620501 90953 d08b75c0d28d2cfcad4ab7245109903d "pdflatex"
+  "main.aux" 1786621475 90953 c8853ae6de2f229be1397685c51ba42d "pdflatex"
   "main.bbl" 1786620490 166756 b9a291a67fe8493f7b0b9820942415be "biber main"
-  "main.lof" 1786620501 6207 29b4a41b909dd518ab31ef001c997cfd "pdflatex"
-  "main.lot" 1786620501 3186 3f7517992428ffb10d9518e1361bf131 "pdflatex"
-  "main.run.xml" 1786620501 2431 c5bf256f8e4580f023f9de0aa9eb28e2 "pdflatex"
+  "main.lof" 1786621475 6207 29b4a41b909dd518ab31ef001c997cfd "pdflatex"
+  "main.lot" 1786621475 3186 3f7517992428ffb10d9518e1361bf131 "pdflatex"
+  "main.run.xml" 1786621475 2431 c5bf256f8e4580f023f9de0aa9eb28e2 "pdflatex"
   "main.tex" 1786523987 2972 5c6cfa61a28c2ba5b0bfd0afa4d40cd7 ""
-  "main.toc" 1786620501 9111 ee23b47d279ee186283dc528f67de52d "pdflatex"
+  "main.toc" 1786621475 9111 ee23b47d279ee186283dc528f67de52d "pdflatex"
   (generated)
   "main.acn"
   "main.aux"
