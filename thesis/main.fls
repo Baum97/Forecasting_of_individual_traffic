@@ -1,6 +1,6 @@
-PWD d:\Projects\Forecasting_of_individual_traffic\thesis
+PWD D:\Projects\Forecasting_of_individual_traffic\thesis
 INPUT C:\Users\Administrator\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT d:\Projects\Forecasting_of_individual_traffic\thesis\main.tex
+INPUT main.tex
 OUTPUT main.log
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrreprt.cls
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrreprt.cls
@@ -458,6 +458,7 @@ INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsf
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx12.tfm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmro12.tfm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-rm.enc
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathsy.enc
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathit.enc
 INPUT .\main.toc
 INPUT .\main.toc
@@ -467,7 +468,6 @@ INPUT .\main.lof
 INPUT .\main.lof
 INPUT main.lof
 OUTPUT main.lof
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathsy.enc
 INPUT .\main.lot
 INPUT .\main.lot
 INPUT main.lot
@@ -568,13 +568,6 @@ INPUT .\images\lstm.png
 INPUT .\images\lstm.png
 INPUT .\images\lstm.png
 INPUT .\images\lstm.png
-INPUT .\images\fahrverhalten.png
-INPUT .\images\fahrverhalten.png
-INPUT .\images\fahrverhalten.png
-INPUT .\images\fahrverhalten.png
-INPUT .\images\fahrverhalten.png
-INPUT .\images\fahrverhalten.png
-INPUT .\images\fahrverhalten.png
 INPUT .\images\chargingrequests_sanami.png
 INPUT .\images\chargingrequests_sanami.png
 INPUT .\images\chargingrequests_sanami.png
@@ -745,7 +738,13 @@ INPUT .\images\cv_acc_5x5_lstm_seq.png
 INPUT .\chapters\ki_handreichung.tex
 INPUT .\chapters\ki_handreichung.tex
 INPUT chapters\ki_handreichung.tex
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx8.tfm
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\rm-lmr5.tfm
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\lmmi5.tfm
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\lmsy5.tfm
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\rm-lmbx5.tfm
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam5.tfm
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
+INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr5.tfm
 INPUT .\chapters\09erklaerung.tex
 INPUT .\chapters\09erklaerung.tex
 INPUT .\chapters\09erklaerung.tex
@@ -766,8 +765,6 @@ INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx10.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx12.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx12.pfb
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx8.pfb
-INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx8.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmcsc10.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmcsc10.pfb
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmex10.pfb

@@ -4,7 +4,7 @@
 \chapter{Theoretische Grundlagen}
 \label{ch:grundlagen}
 
-Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut; sowohl Begrifflichkeiten, als auch thematische Grundlagen werden erläutert. Als erstes wird festgelegt, was genau Mobilitätsdaten sind und wann sie relevant sind (\Cref{sec:themenbereich_mobdata}). Darauf folgt der Blick darauf, wie Mobilitätsdaten verarbeitet werden und anhand welcher Kriterien sich ihre Qualität bewerten lässt (\Cref{sec:themenbereich2}). Der vorletzte Punkt erläutert Machine Learning und wieso die Verwendung in dieser Arbeit unerlässlich ist. Als letztes ordnet \Cref{sec:stand_forschung} den aktuellen Stand der Forschung ein und arbeitet die Forschungslücke heraus, von der sich diese Arbeit in \Cref{sec:verwandte_arbeiten} abgrenzt.
+Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut; sowohl Begrifflichkeiten als auch thematische Grundlagen werden erläutert. Zuerst wird festgelegt, was genau Mobilitätsdaten sind und wann sie relevant sind (\Cref{sec:themenbereich_mobdata}). Darauf folgt der Blick darauf, wie Mobilitätsdaten verarbeitet werden und anhand welcher Kriterien sich ihre Qualität bewerten lässt (\Cref{sec:themenbereich2}). Der vorletzte Punkt erläutert Machine Learning und wieso die Verwendung in dieser Arbeit unerlässlich ist. Zuletzt ordnet \Cref{sec:stand_forschung} den aktuellen Stand der Forschung ein und arbeitet die Forschungslücke heraus, von der sich diese Arbeit in \Cref{sec:verwandte_arbeiten} abgrenzt.
 
 % -----------------------------------------------------------------------------
 \section{Mobilitätsdaten}
@@ -82,10 +82,10 @@ Die Mobilitätsdaten bilden einen Hauptaspekt dieser Arbeit, da sie die Grundlag
 Der erste Schritt ist die Identifikation geeigneter Datenquellen. Dabei ist zu beachten, dass Mobilitätsdaten allein noch keine Relevanz bedeuten: Die Daten müssen einer Studie entstammen, die für die individuelle Fahrzeugnutzungsprognose einschlägig ist. Erst nach hinreichender Prüfung dieser thematischen Eignung werden die Daten weiterverfolgt.
 
 \paragraph{Beschaffung:}
-Geeignete Daten müssen anschließend bezogen werden. Durch herunterladen offener Datensätze, Anfragen bei datenhaltenden Dritten oder eigene Erhebung. Bereits hier sind rechtliche und datenschutzrechtliche Rahmenbedingungen zu berücksichtigen, da personenbezogene Bewegungsdaten besonders schützenswert sind. Da jedoch der zeitliche Rahmen der Arbeit nicht für eine eigene Erhebung ausreicht, sind die Daten auf öffentlich zugängliche Daten oder Kooperationen beschränkt.
+Geeignete Daten müssen anschließend bezogen werden -- durch Herunterladen offener Datensätze, Anfragen bei datenhaltenden Dritten oder eigene Erhebung. Bereits hier sind rechtliche und datenschutzrechtliche Rahmenbedingungen zu berücksichtigen, da personenbezogene Bewegungsdaten besonders schützenswert sind. Da jedoch der zeitliche Rahmen der Arbeit nicht für eine eigene Erhebung ausreicht, sind die Daten auf öffentlich zugängliche Daten oder Kooperationen beschränkt.
 
 \paragraph{Bewertung:}
-Vor der Weiterverarbeitung wird die Qualität der Daten beurteilt. Da der Begriff der Datenqualität in diesem Bereich nicht eindeutig definiert ist, wird er an konkreten Kriterien festgemacht: Vollständigkeit, zeitliche Auflösung und Umfangänglichkeit der Daten. Diese Auswahl greift auf etablierte Qualitätsrahmenwerke zurück, die Datenqualität mehrdimensional beschreiben und dabei unter anderem Vollständigkeit, Genauigkeit und Aktualität als eigenständige Merkmale führen \parencite{wang1996beyond,batini2009methodologies}. Diese Bewertung entscheidet letztendlich darüber, ob ein Datensatz für ein zuverlässiges Modell geeignet ist.
+Vor der Weiterverarbeitung wird die Qualität der Daten beurteilt. Da der Begriff der Datenqualität in diesem Bereich nicht eindeutig definiert ist, wird er an konkreten Kriterien festgemacht: Vollständigkeit, zeitliche Auflösung und Umfänglichkeit der Daten. Diese Auswahl greift auf etablierte Qualitätsrahmenwerke zurück, die Datenqualität mehrdimensional beschreiben und dabei unter anderem Vollständigkeit, Genauigkeit und Aktualität als eigenständige Merkmale führen \parencite{wang1996beyond,batini2009methodologies}. Diese Bewertung entscheidet letztendlich darüber, ob ein Datensatz für ein zuverlässiges Modell geeignet ist.
 
 \paragraph{Verarbeitung:}
 Die als geeignet bewerteten Daten werden bereinigt und in ein einheitliches Schema überführt, sodass Quellen unterschiedlicher Herkunft vergleichbar werden. Anschließend werden aus den Rohdaten die für die Modelle benötigten Merkmale abgeleitet und bei Bedarf erfolgt zudem eine Anonymisierung. 
@@ -94,7 +94,7 @@ Die Anonymisierung ist bei Bewegungsdaten kein rein formaler Schritt. Das Entfer
 Auf der aufbereiteten Datenbasis werden die Modelle trainiert und validiert. Dieser Schritt umfasst sowohl die Klassifikation des Fahrverhaltens als auch die eigentliche Prognose der Fahrzeugnutzung.
 
 \paragraph{Nutzung:}
-Abschließend werden die trainierten Modelle angewendet, um das individuelle Mobilitätsverhalten vorherzusagen. Die daraus gewonnenen Prognosen werden dokumentiert und bereitgestellt. Sie liefern die Grundlage für Vorhersagen in der Fahrzeugnutzung und damit einen weiterer Schritt hin zu einem intelligenten Energiesystem.
+Abschließend werden die trainierten Modelle angewendet, um das individuelle Mobilitätsverhalten vorherzusagen. Die daraus gewonnenen Prognosen werden dokumentiert und bereitgestellt. Sie liefern die Grundlage für Vorhersagen in der Fahrzeugnutzung und damit einen weiteren Schritt hin zu einem intelligenten Energiesystem.
 
 
 \section{Machine Learning}
@@ -110,7 +110,7 @@ Abschließend werden die trainierten Modelle angewendet, um das individuelle Mob
 Das Prinzip des maschinellen Lernens besteht darin, einem Computer ein gewünschtes Verhalten anhand von Beispieldaten beizubringen, anstatt es durch einen fest vorgegebenen, regelbasierten
 Algorithmus explizit zu programmieren \parencite[Kap. 3]{bishop2006prml}. Das Modell erkennt dabei statistische Muster in den Trainingsdaten und nutzt diese, um Vorhersagen für bislang ungesehene Eingaben zu treffen. Der Vorteil gegenüber einem starren Algorithmus liegt darin, dass komplexe Zusammenhänge -- wie das individuelle Mobilitätsverhalten -- erlernt werden können, ohne dass sie vorab vollständig bekannt sein müssen.
 
-Häufig wird maschinelles Lernen mit künstlichen neuronalen Netzen gleichgesetzt, deren Aufbau  vom menschlichen Gehirn inspiriert ist. Neuronale Netze bilden jedoch nur eine von vielen Verfahrensklassen. Die in dieser Arbeit eingesetzten Modelle -- Random Forest und Gradient Boosting (\Cref{sec:randomforest} und \Cref{sec:lightgbm}) -- beruhen stattdessen auf Entscheidungsbäumen und sind nicht biologisch motiviert.
+Häufig wird maschinelles Lernen mit künstlichen neuronalen Netzen gleichgesetzt, deren Aufbau vom menschlichen Gehirn inspiriert ist. Neuronale Netze bilden jedoch nur eine von vielen Verfahrensklassen. Die in dieser Arbeit eingesetzten Modelle -- Random Forest und Gradient Boosting (\Cref{sec:randomforest} und \Cref{sec:lightgbm}) -- beruhen stattdessen auf Entscheidungsbäumen und sind nicht biologisch motiviert.
 
 \subsection{Überwachtes Lernen}
 In dieser Arbeit kommt ausschließlich überwachtes Lernen zum Einsatz \parencite[Kap. 2]{hastie2009elements}. Dabei lernt das Modell aus Beispielpaaren von Eingaben und zugehörigen, bekannten Zielwerten. Je nach Art des Zielwerts werden zwei Aufgabentypen voneinander unterschieden, die in dieser Arbeit Anwendung finden: Klassifikation, bei der eine diskrete Klasse vorhergesagt wird (etwa ob ein Fahrzeug in einer gegebenen Stunde fährt oder geparkt ist) und Regression, bei der ein kontinuierlicher Wert geschätzt wird (etwa die Abfahrts- oder Rückkehrzeit).
@@ -118,26 +118,26 @@ In dieser Arbeit kommt ausschließlich überwachtes Lernen zum Einsatz \parencit
 
 \subsection{Merkmale und Feature Engineering}
 
-Bei Machine Learning ist oft die Rede von Feature Engineering oder das Umformen von Merkmalen \parencite[Kap. 1]{kuhn2019feature}. Ein Merkmal ist beispielsweise eine Spalte in einer Comma-Separated-Value Datei (siehe \Cref{fig:mobilitaetsdaten}), hierbei könnte es sich um jede der Spalten handeln. Folglich ist der Zeitstempel, die Handlung, der Ort oder auch der Energiekonsum ein Merkmal beziehungsweise Feature.
+Bei Machine Learning ist oft die Rede von Feature Engineering oder dem Umformen von Merkmalen \parencite[Kap. 1]{kuhn2019feature}. Ein Merkmal ist beispielsweise eine Spalte in einer Comma-Separated-Values-Datei (siehe \Cref{fig:mobilitaetsdaten}), hierbei könnte es sich um jede der Spalten handeln. Folglich ist der Zeitstempel, die Handlung, der Ort oder auch der Energiekonsum ein Merkmal beziehungsweise Feature.
 
-In der Regel sind die Daten in ihrer Rohform nicht direkt aussagekräftig, weswegen sie interpretiert werden müssen. Ein Zeitstempel (Beispiel: \texttt{2026-05-25 08:00:00}) hat ohne Kontext keinen bestimmten Wert, daher werden durch Feature Engineering die verborgenen Informationen extrahiert und macht sie für das Modell zugänglich. Der genannte Zeitstempel beispielsweise ist im Kontext von Mobilität: 
+In der Regel sind die Daten in ihrer Rohform nicht direkt aussagekräftig, weswegen sie interpretiert werden müssen. Ein Zeitstempel (Beispiel: \texttt{2026-05-25 08:00:00}) hat ohne Kontext keinen bestimmten Wert, daher werden durch Feature Engineering die verborgenen Informationen extrahiert und für das Modell zugänglich gemacht. Der genannte Zeitstempel beispielsweise ist im Kontext von Mobilität: 
 
 \begin{itemize}
-  \item Ein Montag --> Werktag
-  \item Acht Uhr --> Pendlerzeit
+  \item Ein Montag $\rightarrow$ Werktag
+  \item Acht Uhr $\rightarrow$ Pendlerzeit
 \end{itemize}
 
-Ein Modell entdeckt Muster in den Daten und sensibilisiert sich auf diese. Tage die nicht auf einen Werktag fallen, oder eine Uhrzeit haben die keine Pendlerzeit ist, können je nach restlichem Informationsgehalt (Ort, Fahrtdistanz, Aufenthaltsdauer) zu einem jeweils anderen Ergebnis führen.
+Ein Modell entdeckt Muster in den Daten und sensibilisiert sich auf diese. Tage, die nicht auf einen Werktag fallen, oder Uhrzeiten, die keine Pendlerzeiten sind, können je nach restlichem Informationsgehalt (Ort, Fahrtdistanz, Aufenthaltsdauer) zu einem jeweils anderen Ergebnis führen.
 
 \subsubsection{Lag-Merkmal}
 
-Ein Lag ist der Wert eines Merkmals aus einem früheren Zeitschritt \parencite[Kap. 2.7 \& 2.8]{hyndman2021forecasting}. Lags sind teilweise periodisch und mit Stundenwerten gleichzusetzen. Ein \texttt{Lag\_1} beispielsweise ist das selbe Event, nur eine Stunde in der Vergangenheit, selbiges Schema gilt für einen \texttt{Lag\_168}, dieser liegt 168 Stunden in der Vergangenheit. Es gibt sehr spezifische Werte und diese erlauben auf bestimmte Muster Rückschlüsse. Lags von eins, zwei, 24 und 168, wobei 24 Stunden einen Tag und 168 Stunden sieben Tage in der Vergangenheit abbilden. 
+Ein Lag ist der Wert eines Merkmals aus einem früheren Zeitschritt \parencite[Kap. 2.7 \& 2.8]{hyndman2021forecasting}. Lags sind teilweise periodisch und mit Stundenwerten gleichzusetzen. Ein \texttt{Lag\_1} beispielsweise ist dasselbe Event, nur eine Stunde in der Vergangenheit, selbiges Schema gilt für einen \texttt{Lag\_168}, dieser liegt 168 Stunden in der Vergangenheit. Bestimmte Werte erlauben Rückschlüsse auf bestimmte Muster: Verwendet werden Lags von eins, zwei, 24 und 168 Stunden, wobei 24 Stunden einen Tag und 168 Stunden sieben Tage in der Vergangenheit abbilden. 
 
-Ein Risiko, das durch inkosistent angewendeten Lag auftreten kann, ist die Rechnung über mehr als ein Fahrzeug hinweg. Dadurch kann ein Verhalten über mehrere Fahrzeuge hinweg interpretiert werden und falsch zugewiesene Verhaltensmuster errechnen. 
+Ein Risiko, das durch inkonsistent angewendete Lags auftreten kann, ist die Berechnung über mehr als ein Fahrzeug hinweg. Dadurch wird ein Verhalten über mehrere Fahrzeuge hinweg interpretiert, wodurch falsch zugewiesene Verhaltensmuster entstehen. 
 
 \subsubsection{Rolling-Aggregate}
 
-Ein \enquote{Rolling Mean} oder Rolling-Mittel, fasst ein Zeitfenster zu einer Kennzahl zusammen \parencite[Kap. 3.3]{hyndman2021forecasting}. So werden beispielsweise die letzten 24 Stunden oder sieben Tage Aktivitätsanteil zusammengefasst. 
+Ein \enquote{Rolling Mean} oder Rolling-Mittel fasst ein Zeitfenster zu einer Kennzahl zusammen \parencite[Kap. 3.3]{hyndman2021forecasting}. So werden beispielsweise die letzten 24 Stunden oder sieben Tage Aktivitätsanteil zusammengefasst. 
 
 \subsubsection{Data Leakage}  Data Leakage ist ein Risiko, das bei einem Rolling Mean auftreten kann, indem es die Zukunft einbezieht oder sogar den Zielwert selbst mit einrechnet \parencite{kaufman2012leakage}. Dadurch lernt das Modell den tatsächlich gewünschten Wert und kann diesen, fälschlicherweise, richtig wiedergeben. Eine Falschimplementierung kann dazu führen, dass die Tests übermäßig gut abschneiden, im Realfall jedoch komplett versagen.
 
@@ -149,13 +149,13 @@ Wenn ein Modell trainiert wird, passt es die eigenen internen Parameter an die T
 
 Das Prinzip der Generalisierung beschreibt, ein Modell so zu trainieren, dass es die Muster der Daten erkennt und deren Berechnung erlernt \parencite[Kap. 7.2]{hastie2009elements}. Das bedeutet, dass das Modell auch mit neuen Daten -- die ungesehene Inhalte verwenden -- umgehen kann, die nah am gelernten Schema liegen. \Cref{tab:fitting} fasst zusammen, wie sich Unteranpassung, gute Anpassung und Überanpassung anhand von Trainings- und Testfehler unterscheiden lassen.
 
-\subsubsection{Overfitting}
+\subsubsection{Overfitting -- Überanpassung}
 
-Bei einem überangepassten Modell sind Trainingsfehler niedrig und Testfehler hoch. Kurzum bedeutet das, dass das Modell die Daten zu gut kennt und diese quasi auswendig weiß und dieses Wissen und Voreingenommenheit auf neue Daten fäschlicherweise anwendet.
+Bei einem überangepassten Modell sind Trainingsfehler niedrig und Testfehler hoch. Kurzum bedeutet das, dass das Modell die Daten zu gut kennt und diese quasi auswendig weiß und dieses Wissen und Voreingenommenheit auf neue Daten fälschlicherweise anwendet.
 
-\subsubsection{Underfitting}
+\subsubsection{Underfitting -- Unteranpassung}
 
-Ein Modell das unterangepasst ist, schneidet weder beim Training noch beim Test gut ab. Hier ist das Modell zu simpel beziehungsweise seine Kapazität zu gering, um das zugrunde liegende Muster zu erfassen. Fehler bleiben dadurch bei beiden Datensätzen hoch.
+Ein Modell, das unterangepasst ist, schneidet weder beim Training noch beim Test gut ab. Hier ist das Modell zu simpel beziehungsweise seine Kapazität zu gering, um das zugrunde liegende Muster zu erfassen. Fehler bleiben dadurch bei beiden Datensätzen hoch.
 
 \begin{table}[htbp]
   \centering
@@ -182,16 +182,16 @@ Ein Modell das unterangepasst ist, schneidet weder beim Training noch beim Test 
 
 \subsection{Validierung}
 
-Durch die Validierung ist es möglich der Genauigkeit des Modells einen numerischen Wert zuzuweisen, was funktioniert, indem das Modell Daten bewertet, die bisher nicht bekannt waren.
+Durch die Validierung ist es möglich, der Genauigkeit des Modells einen numerischen Wert zuzuweisen, was funktioniert, indem das Modell Daten bewertet, die bisher nicht bekannt waren.
 
 \begin{equation}
   \text{CV}(\hat{f}) = \frac{1}{N}\sum_{i=1}^{N} L\left(y_i,\ \hat{f}^{-\kappa(i)}(x_i)\right)
   \label{eq:validify}  
 \end{equation}
 
-Die \Cref{eq:validify} beschreibt die Genauigkeit eines Modells auf einer bestimmten Menge Daten \parencite[Kap. 7.10]{hastie2009elements}. Hierfür wird ein Datensatz in $K$ gleichgroße Mengen unterteilt -- auch \textit{Folds} genannt -- gefolgt von $K$ trainings. Da $K$ \textit{Folds} existieren, wird das Modell einmal mit jedem \textit{Fold} getestet und hat die restlichen \textit{Folds} zur Grundlage. Bei Zeitreihendaten wird diese zufällige Aufteilung üblicherweise durch einen zeitlich getrennten Split ersetzt, bei dem der Testteil am Ende der Reihe liegt, sodass ausschließlich mit Vergangenheitsdaten auf die Zukunft geschlossen wird \parencite[Kap. 5.8]{hyndman2021forecasting, tashman2000outofsample}. Ob dieses strikte Vorgehen zwingend ist, wird allerdings diskutiert: Für stationäre Reihen und rein autoregressive Modelle kann auch eine blockweise Kreuzvalidierung valide sein \parencite{bergmeir2012cv}.
+Die \Cref{eq:validify} beschreibt die Genauigkeit eines Modells auf einer bestimmten Menge Daten \parencite[Kap. 7.10]{hastie2009elements}. Hierfür wird ein Datensatz in $K$ gleich große Mengen unterteilt -- auch \textit{Folds} genannt --, gefolgt von $K$ Trainingsläufen. Da $K$ \textit{Folds} existieren, wird das Modell einmal mit jedem \textit{Fold} getestet und hat die restlichen \textit{Folds} zur Grundlage. Bei Zeitreihendaten wird diese zufällige Aufteilung üblicherweise durch einen zeitlich getrennten Split ersetzt, bei dem der Testteil am Ende der Reihe liegt, sodass ausschließlich mit Vergangenheitsdaten auf die Zukunft geschlossen wird \parencite[Kap. 5.8]{hyndman2021forecasting, tashman2000outofsample}. Ob dieses strikte Vorgehen zwingend ist, wird allerdings diskutiert: Für stationäre Reihen und rein autoregressive Modelle kann auch eine blockweise Kreuzvalidierung valide sein \parencite{bergmeir2012cv}.
 
-Die Validierung wird zum zentralen Werkzeug gegen \emph{Overfitting}, denn die Differenz zwischen Trainings- und Validierungsfehler quantifziert die Generalisierungslücke. Ein niedriger Trainingsfehler bei hohem Validierungsfehler indiziert, dass das Modell overfitted ist.
+Die Validierung wird zum zentralen Werkzeug gegen \emph{Overfitting}, denn die Differenz zwischen Trainings- und Validierungsfehler quantifiziert die Generalisierungslücke. Ein niedriger Trainingsfehler bei hohem Validierungsfehler indiziert, dass das Modell overfitted ist.
 
 \subsection{Bewertungsmetriken}
 
@@ -200,7 +200,7 @@ Die Güte des Modells wird durch die Bewertungsmetriken bestimmt, die sich je na
 \subsection{Entscheidungsbäume}
 \label{sec:decisiontree}
 
-Entscheidungsbäume bilden einen Teil des maschinellen Lernens, sind jedoch grundlegend verschieden zu den menschlich inspirierten neuronalen Netzen. Entscheidungsbäume imitieren ein regelbasiertes und hierarchisches Vorgehen. Getrieben von Daten entscheidet deren Label-Vollständigkeit, ob ein Baum supervised oder unsupervised trainiert wird. So sorgen ungelabelte Daten dafür, dass ein Baum unsupervised trainiert wird. Das bedeutet, dass der Baum selbstständig Muster in den Daten erkennt und diese in einer Hierarchie abbildet. Bei einem (semi-)supervised Baum hingegen, werden die Daten entweder vollständig oder teilweise mit Labels versehen und der Baum lernt anhand dieser Labels die Abbildung auf die Zielwerte. Unabhängig davon entscheidet der Typ der Zielvariable, ob ein Baum regressiv oder klassifikatorisch trainiert wird.
+Entscheidungsbäume bilden einen Teil des maschinellen Lernens, sind jedoch grundlegend verschieden von den menschlich inspirierten neuronalen Netzen. Entscheidungsbäume imitieren ein regelbasiertes und hierarchisches Vorgehen. Getrieben von Daten entscheidet deren Label-Vollständigkeit, ob ein Baum supervised oder unsupervised trainiert wird. So sorgen ungelabelte Daten dafür, dass ein Baum unsupervised trainiert wird. Das bedeutet, dass der Baum selbstständig Muster in den Daten erkennt und diese in einer Hierarchie abbildet. Bei einem (semi-)supervised Baum hingegen werden die Daten entweder vollständig oder teilweise mit Labels versehen und der Baum lernt anhand dieser Labels die Abbildung auf die Zielwerte. Unabhängig davon entscheidet der Typ der Zielvariable, ob ein Baum regressiv oder klassifikatorisch trainiert wird.
 
 \subsubsection{Gini Index}
 \label{sec:gini}
@@ -230,9 +230,9 @@ Hier ist die Rede von Unreinheit -- dem Maß, das die Split-Wahl eines Baums ste
   \label{eq:gini_split}
 \end{equation}
 
-In \Cref{eq:gini_split} zeigt $n$ die Elemente im Elternknoten und $G$ die Unreinheit des jeweiligen Knoten an. Der Rest funktioniert analog, anhand der vorausgegangenen Formeln. Mit der Split-Formel lassen sich mehrere Iterationen pro Knoten vornehmen, wovon dann der reinste Split verwendet wird, um im Baum eine Rekursionsebene tiefer zu schreiten. Insgesamt funktioniert dieser Split $n-1$ mal.
+In \Cref{eq:gini_split} zeigt $n$ die Elemente im Elternknoten und $G$ die Unreinheit des jeweiligen Knotens an. Der Rest funktioniert analog, anhand der vorausgegangenen Formeln. Mit der Split-Formel lassen sich mehrere Iterationen pro Knoten vornehmen, wovon dann der reinste Split verwendet wird, um im Baum eine Rekursionsebene tiefer zu schreiten. Insgesamt funktioniert dieser Split $n-1$-mal.
 
-\Cref{fig:decisiontree2} zeigt einen beispielhaften Entscheidungsbaum, welcher je Knoten berechnet Gini-Wert, Stichprobengröße und Klassenverteilung besitzt.
+\Cref{fig:decisiontree2} zeigt einen beispielhaften Entscheidungsbaum, welcher je Knoten den berechneten Gini-Wert, die Stichprobengröße und die Klassenverteilung ausweist.
 
 \begin{figure}[H]
   \centering
@@ -252,7 +252,7 @@ Das Baggingverfahren \parencite{breiman1996bagging} sorgt dafür, dass die Bäum
   \label{fig:baggingmethod}
 \end{figure}
 
-Boosting sorgt dafür, dass die Bäume auf den Residualfehlern der vorherigen Iteration trainiert werden \parencite{friedman2001greedy} (\cref{fig:boostingmethod}, \cite{salcedosanz2023review}). Konkret wird ein neuer Baum nicht auf die ursprüngliche Zielgröße angepasst, sondern auf den verbleibenden Fehler -- die Differenz zwischen Zielwert und bisheriger Ensemble-Vorhersage --, der anschließend gewichtet zur bestehenden Summe addiert wird; allgemein bestimmt sich dieser Fehler als negativer Gradient der Verlustfunktion, der im Fall des quadratischen Verlusts genau dem einfachen Residuum entspricht \parencite{friedman2001greedy}. Dadurch wird die Vorhersagegenauigkeit des Modells verbessert. Im Gegensatz zu Bagging, bei dem die Bäume unabhängig voneinander trainiert werden, werden beim Boosting die Bäume sequentiell trainiert, wobei jeder Baum auf den Fehler des vorherigen Baums aufbaut. Dies ermöglicht es dem Modell, sich auf schwierige Beispiele zu konzentrieren und die Gesamtleistung zu verbessern. Im Kern besteht Boosting darin, schwache Lernalgorithmen zu kombinieren, um einen starken Lernalgorithmus durch gewichtete Aggregation zu erstellen \parencite{freund1997decision}. Boosting ist besonders effektiv bei Modellen, die zu Unteranpassung neigen.
+Boosting sorgt dafür, dass die Bäume auf den Residualfehlern der vorherigen Iteration trainiert werden \parencite{friedman2001greedy} (\cref{fig:boostingmethod}, \cite{salcedosanz2023review}). Konkret wird ein neuer Baum nicht auf die ursprüngliche Zielgröße angepasst, sondern auf den verbleibenden Fehler -- die Differenz zwischen Zielwert und bisheriger Ensemble-Vorhersage --, der anschließend gewichtet zur bestehenden Summe addiert wird; allgemein bestimmt sich dieser Fehler als negativer Gradient der Verlustfunktion, der im Fall des quadratischen Verlusts genau dem einfachen Residuum entspricht \parencite{friedman2001greedy}. Dadurch wird die Vorhersagegenauigkeit des Modells verbessert. Im Gegensatz zu Bagging, bei dem die Bäume unabhängig voneinander trainiert werden, werden beim Boosting die Bäume sequenziell trainiert, wobei jeder Baum auf den Fehler des vorherigen Baums aufbaut. Dies ermöglicht es dem Modell, sich auf schwierige Beispiele zu konzentrieren und die Gesamtleistung zu verbessern. Im Kern besteht Boosting darin, schwache Lernalgorithmen zu kombinieren, um einen starken Lernalgorithmus durch gewichtete Aggregation zu erstellen \parencite{freund1997decision}. Boosting ist besonders effektiv bei Modellen, die zu Unteranpassung neigen.
 
 \begin{figure}[H]
   \centering
@@ -280,15 +280,15 @@ Ein Typ der Entscheidungsbaum-Modelle ist der Random Forest \parencite{breiman20
 \subsection{Light Gradient Boosting Machine}
 \label{sec:lightgbm}
 
-Die Light Gradient Boosting Machine (LightGBM) \parencite{ke2017lightgbm} ist ein Gradient-Boosting-\\Mechanismus \parencite{friedman2001greedy}, der auf Entscheidungsbäumen basiert, welche auf den Residualfehlern der vorherigen Iteration trainiert werden. In dieser Arbeit wird LightGBM ohne Bagging verwendet aber mit Boosting, um die Vorhersagegenauigkeit zu verbessern. LightGBM ist besonders effektiv bei Modellen, die zu Unteranpassung neigen, da es die Vorhersagegenauigkeit verbessert, indem es sich auf die Fehler der vorherigen Iteration konzentriert und \emph{leaf-wise} (\cref{fig:treegrowth}) wächst.
+Die Light Gradient Boosting Machine (LightGBM) \parencite{ke2017lightgbm} ist ein Gradient-Boosting-\\Mechanismus \parencite{friedman2001greedy}, der auf Entscheidungsbäumen basiert, welche auf den Residualfehlern der vorherigen Iteration trainiert werden. In dieser Arbeit wird LightGBM ohne Bagging, aber mit Boosting verwendet, um die Vorhersagegenauigkeit zu verbessern. LightGBM ist besonders effektiv bei Modellen, die zu Unteranpassung neigen, da es die Vorhersagegenauigkeit verbessert, indem es sich auf die Fehler der vorherigen Iteration konzentriert und \emph{leaf-wise} (\cref{fig:treegrowth}) wächst.
 
 \subsection{Unsicherheit und Quantilsregression}
 \label{sec:quantilregression}
 
 Es gibt zwei Arten der Unsicherheit, die bei Prognosen betrachtet werden müssen \parencite{huellermeier2021aleatoric,kendall2017uncertainties}:
 \begin{itemize}
-  \item \textbf{Aleatorische Unsicherheit}: Hier wird der Zufall im Prozess selbst betrachtet, der nicht durch weitere oder bessere Daten reduziert werden kann. Beispielsweise kann das Wetter nicht deterministisch vorhergesagt werden, da es intrinsisch zufällig ist. Unteranderem wird diese auch als Datenunsicherheit bezeichnet.
-  \item \textbf{Epistemische Unsicherheit}: Hier wird die Unsicherheit betrachtet, die durch unvollständige Informationen oder unzureichendes Wissen über den Prozess entsteht. Diese Unsicherheit kann durch zusätzliche Daten oder bessere Modelle reduziert werden. Unteranderem wird diese auch als Modellunsicherheit bezeichnet.
+  \item \textbf{Aleatorische Unsicherheit}: Hier wird der Zufall im Prozess selbst betrachtet, der nicht durch weitere oder bessere Daten reduziert werden kann. Beispielsweise kann das Wetter nicht deterministisch vorhergesagt werden, da es intrinsisch zufällig ist. Unter anderem wird diese auch als Datenunsicherheit bezeichnet.
+  \item \textbf{Epistemische Unsicherheit}: Hier wird die Unsicherheit betrachtet, die durch unvollständige Informationen oder unzureichendes Wissen über den Prozess entsteht. Diese Unsicherheit kann durch zusätzliche Daten oder bessere Modelle reduziert werden. Unter anderem wird diese auch als Modellunsicherheit bezeichnet.
 \end{itemize}
 
 Eine Punktprognose ist für eine Unsicherheit nicht ausreichend, da sie nur einen Wert liefert und keine Informationen über die Streuung oder die Verteilung liefert. Während die klassische Regression den bedingten Mittelwert schätzt, sagt die Quantilsregression gezielt einzelne Quantile $Q_\tau$ der Zielverteilung vorher -- im Normalfall das 10., 50. und 90. Perzentil \parencite{koenker1978regression}. Zur Erreichung wird der asymmetrische Pinball-Verlust minimiert:
@@ -303,7 +303,7 @@ Die Formel \ref{eq:pinball} ist definiert durch:
   \item $y$ ist der tatsächlich beobachtete Wert
   \item $\hat y$ ist der vorhergesagte Wert
   \item $\tau$ ist das Quantil, das geschätzt werden soll, z. B. $0{,}1$, $0{,}5$, $0{,}9$
-  \item $\rho_\tau$ ist Strafe oder der Pinball-Verlust, der die Abweichung zwischen dem beobachteten Wert und dem vorhergesagten Quantil misst
+  \item $\rho_\tau$ ist die Strafe beziehungsweise der Pinball-Verlust, der die Abweichung zwischen dem beobachteten Wert und dem vorhergesagten Quantil misst
 \end{itemize}
 
 \begin{figure}[H]
@@ -336,7 +336,7 @@ Die Architektur eines LSTM ist, wie bei anderen neuronalen Netzen, ein oder mehr
 \section{Stand der Forschung}
 \label{sec:stand_forschung}
 
-Die Forschung zur Prognose individueller Fahrzeugnutzung lässt sich grob in mehrere Sektionen gliedern, die sich in Zielgröße, Methodik und Datengrundlage unterscheiden. Tabelle \ref{tab:forschungssektionen} fasst diese Sektionen als Übersicht zusammen. Jede dieser Sektionen beinhaltet Arbeiten, die zum Teil entweder relevant für diese Arbeit, oder zu Ihrer Eingrenzung dient. Stellvertretend für die vier Stränge stehen dabei Arbeiten zum Mobilitäts- und Nutzungsforecast \parencite{lindroth2024online,individual2025activitychain}, zur Driving-/Parking-Klassifikation \parencite{kumar2023driving,su2025parking}, zur EV-Last- und Ladeprognose \parencite{sanami2025demand,amaraouali2025quantifying} sowie zur Unsicherheits- und Quantilsprognose \parencite{ali2024location,amaraouali2025quantifying}. Die folgenden Unterabschnitte vertiefen die Sektionen jeweils und arbeiten am Ende die für diese Arbeit zentrale Forschungslücke heraus.
+Die Forschung zur Prognose individueller Fahrzeugnutzung lässt sich grob in mehrere Sektionen gliedern, die sich in Zielgröße, Methodik und Datengrundlage unterscheiden. Tabelle \ref{tab:forschungssektionen} fasst diese Sektionen als Übersicht zusammen. Jede dieser Sektionen beinhaltet Arbeiten, die entweder für diese Arbeit relevant sind oder ihrer Eingrenzung dienen. Stellvertretend für die vier Stränge stehen dabei Arbeiten zum Mobilitäts- und Nutzungsforecast \parencite{lindroth2024online,individual2025activitychain}, zur Driving-/Parking-Klassifikation \parencite{kumar2023driving,su2025parking}, zur EV-Last- und Ladeprognose \parencite{sanami2025demand,amaraouali2025quantifying} sowie zur Unsicherheits- und Quantilsprognose \parencite{ali2024location,amaraouali2025quantifying}. Die folgenden Unterabschnitte vertiefen die Sektionen jeweils und arbeiten am Ende die für diese Arbeit zentrale Forschungslücke heraus.
 
 \vspace{1cm}
 
@@ -374,30 +374,23 @@ Die Forschung zur Prognose individueller Fahrzeugnutzung lässt sich grob in meh
 \subsection{Verwandte Arbeiten}
 \label{sec:verwandte_arbeiten}
 
-Um zu verdeutlichen, womit sich diese Arbeit im wesentlichen auseinandersetzt, werden im Folgenden verwandte Arbeiten vorgestellt und voneinander abgegrenzt. Die Auswahl der Arbeiten orientiert sich an den in \Cref{tab:forschungssektionen} dargestellten Forschungssträngen. Dabei werden sowohl die Zielsetzung, als auch die Methodik der jeweiligen Arbeiten betrachtet, um die Unterschiede und Gemeinsamkeiten herauszuarbeiten.
+Um zu verdeutlichen, womit sich diese Arbeit im Wesentlichen auseinandersetzt, werden im Folgenden verwandte Arbeiten vorgestellt und voneinander abgegrenzt. Die Auswahl der Arbeiten orientiert sich an den in \Cref{tab:forschungssektionen} dargestellten Forschungssträngen. Dabei werden sowohl die Zielsetzung als auch die Methodik der jeweiligen Arbeiten betrachtet, um die Unterschiede und Gemeinsamkeiten herauszuarbeiten.
 
 \subsubsection{Mobilitäts- und Nutzungsforecasts}
 
-Klassische Zeitreihenmodelle wie ARIMA \parencite[Kap. 9]{hyndman2021forecasting}, aber auch Machine-Learning-Ansätze wie Random Forest und neuronale Netze, insbesondere LSTM sind in Verwendung, um für Mobilitätsverhalten Prognosen zu erstellen \parencite{lindroth2024online,individual2025activitychain}. Die Daten bestehen zum Großteil aus realen Telematik- und Bewegungsdaten, die eine hohe Granularität aufweisen. Ein zentrales Ziel hierbei ist die Generalisierung über ein oder mehrere Fahrzeuge hinweg, um Vorhersagen für zukünftiges Fahrverhalten treffen zu können. Die Forschungsarbeiten haben den Zweck, die Genauigkeit der Vorhersagen zu maximieren und gleichzeitig die Interpretierbarkeit der Modelle zu gewährleisten. 
+Klassische Zeitreihenmodelle wie ARIMA \parencite[Kap. 9]{hyndman2021forecasting}, aber auch Machine-Learning-Ansätze wie Random Forest und neuronale Netze, insbesondere LSTM, sind in Verwendung, um für Mobilitätsverhalten Prognosen zu erstellen \parencite{lindroth2024online,individual2025activitychain}. Die Daten bestehen zum Großteil aus realen Telematik- und Bewegungsdaten, die eine hohe Granularität aufweisen. Ein zentrales Ziel hierbei ist die Generalisierung über ein oder mehrere Fahrzeuge hinweg, um Vorhersagen für zukünftiges Fahrverhalten treffen zu können. Die Forschungsarbeiten haben den Zweck, die Genauigkeit der Vorhersagen zu maximieren und gleichzeitig die Interpretierbarkeit der Modelle zu gewährleisten. 
 
-Eine Studie beispielsweise befasst sich mit der Vorhersage von Fahrverhalten im Zusammenhang mit temperaturbedingter Batterieeffizienz -- denn besonders niedrige Temperaturen können die Effizienz der Batterien erheblich beeinflussen \parencite{lindroth2024online}. Es werden Online-Lernmodelle verwendet, um die Abfahrtszeit und die Distanz für den ersten Trip des Tages vorherzusagen -- auf Basis historischer Mittelwerte der Zielgrößen sowie der unmittelbar vorangehenden Fahrt. \Cref{fig:fahrverhalten} zeigt die zugrunde liegenden Verteilungen von Fahrdistanz und Abfahrtszeit, aufgeschlüsselt nach Wochentag. Es ist gut zu erkennen, dass die Fahrdistanz -- unabhängig vom Wochentag -- eine ähnliche Verteilung aufweist, während die Abfahrtszeit stark vom Wochentag abhängt. Eine weitere Studie entwickelt ein LSTM-Modell mit raum-zeitlichem Bewertungsmechanismus, das die individuelle Fahrzeugnutzung vorhersagt. Trips werden durch Echtzeit-Bewegungsstatus und raum-zeitliche Korrelation zwischen Kreuzungen durch Wort-Einbettungen repräsentiert. Durch die Einbettungen werden Reiseintentionen durch Vektoren historischer Trips, komibniert mit raum-zeitlichen Merkmalen, um eine Aktivitätskette dargestellt. Reiseziele, aktuelle Fahrtdaten (Echtzeit-Bewegungen) und historische Bewegungsmuster werden hierbei als Datengrundlage verwendet \parencite{individual2025activitychain}. Die Ergebnisse zeigen, dass das Modell im Vergleich zu spezifischen Random Forest, Distant Neighboring Dependencies, Location Semantics and Location Importance -LSTM  und Intersection Transfer Preference and Current Movement Mode um ca. 10-15\% Genauigkeit übertrifft. 
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.7\textwidth]{images/fahrverhalten.png}
-  \caption{Verteilung der Fahrdistanz (a) und der Abfahrtszeit des ersten Tagestrips (b) nach Wochentag \parencite{lindroth2024online}.}
-  \label{fig:fahrverhalten}
-\end{figure}
+Eine Studie beispielsweise befasst sich mit der Vorhersage von Fahrverhalten im Zusammenhang mit temperaturbedingter Batterieeffizienz -- denn besonders niedrige Temperaturen können die Effizienz der Batterien erheblich beeinflussen \parencite{lindroth2024online}. Es werden Online-Lernmodelle verwendet, um die Abfahrtszeit und die Distanz für den ersten Trip des Tages vorherzusagen -- auf Basis historischer Mittelwerte der Zielgrößen sowie der unmittelbar vorangehenden Fahrt. Es ist gut zu erkennen, dass die Fahrdistanz -- unabhängig vom Wochentag -- eine ähnliche Verteilung aufweist, während die Abfahrtszeit stark vom Wochentag abhängt. Eine weitere Studie entwickelt ein LSTM-Modell mit raum-zeitlichem Bewertungsmechanismus, das die individuelle Fahrzeugnutzung vorhersagt. Trips werden durch Echtzeit-Bewegungsstatus und raum-zeitliche Korrelation zwischen Kreuzungen durch Wort-Einbettungen repräsentiert. Durch die Einbettungen werden Reiseintentionen über Vektoren historischer Trips, kombiniert mit raum-zeitlichen Merkmalen, als Aktivitätskette dargestellt. Reiseziele, aktuelle Fahrtdaten (Echtzeit-Bewegungen) und historische Bewegungsmuster werden hierbei als Datengrundlage verwendet \parencite{individual2025activitychain}. Die Ergebnisse zeigen, dass das Modell im Vergleich zu spezifischen Random Forest, Distant Neighboring Dependencies, Location Semantics and Location Importance-LSTM und Intersection Transfer Preference and Current Movement Mode um ca. 10--15\,\% in der Genauigkeit übertrifft. 
 
 \subsubsection{Driving-/Parking-Klassifikation}
 
-Die Identifikation von Fahr- und Parkzuständen ist ein zentraler Aspekt der individuellen Farzeugnutzungsprognose, daher ist es wichtig diese beiden Klassen zuverlässig zu unterscheiden. In der Literatur werden hierfür unterschiedliche Methoden eingesetzt. Eine Studie versucht gezielt Fahrer in bestimmte Klassen zu unterteilen, um deren Fahrverhalten besser zu verstehen \parencite{kumar2023driving}. In der Studie werden IoT und Machine Learning verwendet, um Fahrverhalten anhand von OBD-II-Daten (beispielsweise Geschwindigkeit, Motordrehzahl, Bremsmuster) ohne zusätzliche Sensoren zu analysieren. Mithilfe von Support Vector Machines, AdaBoost und Random Forest werden die Fahrer in zehn Klassen unterteilt, die sich in Krafstoffverbrauch, Lenkstabilität, Geschwindigkeitsstabilität und Bremsverhalten unterscheiden. Eine weitere Studie untersucht die Klassifikation von Fahr- und Parkzuständen, um das Verhalten präziser zu verstehen und die Genauigkeit der Vorhersagen zu verbessern \parencite{su2025parking}. Die Methodik beinhaltet ein Clustering per DBSCAN, welches häufig besuchte Orte identifiziert und eine Ableitung von Gebäudekategorien vornimmt.
+Die Identifikation von Fahr- und Parkzuständen ist ein zentraler Aspekt der individuellen Fahrzeugnutzungsprognose, daher ist es wichtig, diese beiden Klassen zuverlässig zu unterscheiden. In der Literatur werden hierfür unterschiedliche Methoden eingesetzt. Eine Studie versucht gezielt, Fahrer in bestimmte Klassen zu unterteilen, um deren Fahrverhalten besser zu verstehen \parencite{kumar2023driving}. In der Studie werden IoT und Machine Learning verwendet, um Fahrverhalten anhand von OBD-II-Daten (beispielsweise Geschwindigkeit, Motordrehzahl, Bremsmuster) ohne zusätzliche Sensoren zu analysieren. Mithilfe von Support Vector Machines, AdaBoost und Random Forest werden die Fahrer in zehn Klassen unterteilt, die sich in Kraftstoffverbrauch, Lenkstabilität, Geschwindigkeitsstabilität und Bremsverhalten unterscheiden. Eine weitere Studie untersucht die Klassifikation von Fahr- und Parkzuständen, um das Verhalten präziser zu verstehen und die Genauigkeit der Vorhersagen zu verbessern \parencite{su2025parking}. Die Methodik beinhaltet ein Clustering per DBSCAN, welches häufig besuchte Orte identifiziert und eine Ableitung von Gebäudekategorien vornimmt.
 
 \subsubsection{EV-Last- und Ladeprognose}
 
-Im Bereich der EV-Last- und Ladeprognose werden vielfältig Methoden angewandt, um die Ladebedarfe und Lastprofile von Elektrofahrzeugen zu prognostizieren. Eine Studie verfolgt hierbei einen probabilistischen Ansatz und quantifiziert die Unsicherheit des Ladeverhaltens mittels Modellen wie GAMLSS oder QGAM, um die Ladebedarfe als vollständige Prognoseintervalle statt als reine Punktwerte vorherzusagen \parencite{amaraouali2025quantifying}. Eine weitere Studie entwickelt ein multivariates long short-term memory (LSTM) Modell mit einem Attention-Mechanismus, um den Ladebedarf in 15-Minuten-Intervallen vorherzusagen \parencite{sanami2025demand}. Des Weiteren erhält das Modell zusätzlich Informationen über das Wetter, Wochentag, Monat und Feiertage. Der Monat wirkt sich nicht nur auf die Durchschnittliche Temperatur aus, sondern auch auf die Ladeanfragen der Nutzer, wie in \Cref{fig:sanami_tageszeit} ersichtlich ist. Die \cref{fig:sanami_wochentag} ist in Bezug auf die Ladeanfragen pro Monat nicht aussagekräftig, jedoch zeigt sie, dass die Ladeanfragen stark von Uhrzeiten abhängig sind. Ein kleiner Anstieg ist zu erkennen bei Ladeanfragen ab 5Uhr, der sich bis 12 Uhr fortsetzt, bevor die Anfragen abflachen und nachmittags wieder zunehmen.
+Im Bereich der EV-Last- und Ladeprognose werden vielfältige Methoden angewandt, um die Ladebedarfe und Lastprofile von Elektrofahrzeugen zu prognostizieren. Eine Studie verfolgt hierbei einen probabilistischen Ansatz und quantifiziert die Unsicherheit des Ladeverhaltens mittels Modellen wie GAMLSS oder QGAM, um die Ladebedarfe als vollständige Prognoseintervalle statt als reine Punktwerte vorherzusagen \parencite{amaraouali2025quantifying}. Eine weitere Studie entwickelt ein multivariates Long-Short-Term-Memory-Modell (LSTM) mit einem Attention-Mechanismus, um den Ladebedarf in 15-Minuten-Intervallen vorherzusagen \parencite{sanami2025demand}. Des Weiteren erhält das Modell zusätzlich Informationen über Wetter, Wochentag, Monat und Feiertage. Der Monat wirkt sich nicht nur auf die durchschnittliche Temperatur aus, sondern auch auf die Ladeanfragen der Nutzer, wie in \Cref{fig:sanami_tageszeit} ersichtlich ist. Die \cref{fig:sanami_wochentag} ist in Bezug auf die Ladeanfragen pro Monat nicht aussagekräftig, jedoch zeigt sie, dass die Ladeanfragen stark von Uhrzeiten abhängig sind. Ein kleiner Anstieg ist zu erkennen bei Ladeanfragen ab 5 Uhr, der sich bis 12 Uhr fortsetzt, bevor die Anfragen abflachen und nachmittags wieder zunehmen.
 
-Der Bereich für EV-Last- und Ladeprognose ist gut erforscht und liefert ein solides Fundament auf dem diese Arbeit aufbaut. Die Methoden und Modelle, die in diesen Forschungsarbeiten verwendet werden, sind relevant für die Vorhersage von Ladebedarfen und Ladeanfragen, insbesondere in Hinblick auf die Unsicherheitsquantifizierung und äußere Einflussfaktoren wie Wetter, Wochentag und Sonn- und Feiertag. Die Ergebnisse dieser Studien zeigen, dass die Berücksichtigung von Unsicherheiten und externen Faktoren die Genauigkeit der Vorhersagen erheblich verbessern können.
+Der Bereich für EV-Last- und Ladeprognose ist gut erforscht und liefert ein solides Fundament, auf dem diese Arbeit aufbaut. Die Methoden und Modelle, die in diesen Forschungsarbeiten verwendet werden, sind relevant für die Vorhersage von Ladebedarfen und Ladeanfragen, insbesondere in Hinblick auf die Unsicherheitsquantifizierung und äußere Einflussfaktoren wie Wetter, Wochentag und Sonn- und Feiertag. Die Ergebnisse dieser Studien zeigen, dass die Berücksichtigung von Unsicherheiten und externen Faktoren die Genauigkeit der Vorhersagen erheblich verbessern kann.
 
 \begin{figure}[H]
   \centering
@@ -425,7 +418,7 @@ Der Bereich für EV-Last- und Ladeprognose ist gut erforscht und liefert ein sol
 \subsubsection{Unsicherheits- und Quantilsprognose}
 
 Die Studie \cite{amaraouali2025quantifying} ist auch im Bereich der Unsicherheitsprognose relevant, da sie die Unsicherheit des Ladeverhaltens von Elektrofahrzeugen quantifiziert. Durch die Verwendung von probabilistischen Modellen wie GAMLSS oder QGAM werden Prognoseintervalle anstelle von Punktwerten erstellt, was eine umfassendere Darstellung der Unsicherheit ermöglicht. 
-Eine weitere Studie \parencite{ali2024location} befasst sich mit der Quantilsregression und deren Anwendung in der Vorhersage, gekoppelt mit einem Multi-Quantile Temporal Convolutional Network (MQ-TCN). Das Modell erzielte einen 93,62\% hohen Intervallabdeckungswahrscheinlichkeit Score (PICP), der bis zu 96,88\% steigt, mit nur zwei Wochen Trainingsdaten. Die Studie zeigt, dass die Quantilsregression in Kombination mit einem gut trainierten und konfigurierten neuronalen Netzwerk eine effektive Methode zur Vorhersage von Unsicherheiten in Mobilitätsdaten darstellt. Die Ergebnisse dieser Studien sind besonders relevant für die vorliegende Arbeit, da sie die Bedeutung der Quantilsregression und der Unsicherheitsprognose in der individuellen Fahrzeugnutzungsprognose unterstreichen.  
+Eine weitere Studie \parencite{ali2024location} befasst sich mit der Quantilsregression und deren Anwendung in der Vorhersage, gekoppelt mit einem Multi-Quantile Temporal Convolutional Network (MQ-TCN). Das Modell erzielte eine Intervallabdeckungswahrscheinlichkeit (PICP) von 93,62\,\%, die mit nur zwei Wochen Trainingsdaten auf bis zu 96,88\,\% steigt. Die Studie zeigt, dass die Quantilsregression in Kombination mit einem gut trainierten und konfigurierten neuronalen Netzwerk eine effektive Methode zur Vorhersage von Unsicherheiten in Mobilitätsdaten darstellt. Die Ergebnisse dieser Studien sind besonders relevant für die vorliegende Arbeit, da sie die Bedeutung der Quantilsregression und der Unsicherheitsprognose in der individuellen Fahrzeugnutzungsprognose unterstreichen.  
 
 % -----------------------------------------------------------------------------
 
@@ -448,7 +441,7 @@ Ein zentraler Befund dieser Sektion betrifft die Heterogenität individuellen Fa
     \addlinespace
     Typical Drivers & Durchschnittsfahrer mit einer Mischung aus Arbeits- und Freizeitfahrten und mittlerer Regelmäßigkeit. \\
     \addlinespace
-    Work-focused Commuters & Berufspendler mit stark regelmäßigem Pendelmuster, wenig nicht-arbeitsbezogenen Fahrten und hoher Vorhersagbarkeit. \\
+    Work-focused Commuters & Berufspendler mit stark regelmäßigem Pendelmuster, wenigen nicht-arbeitsbezogenen Fahrten und hoher Vorhersagbarkeit. \\
     \bottomrule
   \end{tabularx}
   \caption{Fünf Fahrertypen des Individualverkehrs nach \textcite{ji2023rethinking}.}

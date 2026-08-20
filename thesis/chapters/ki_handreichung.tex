@@ -3,7 +3,16 @@
 % PAGE 3 — Erweiterte Eigenständigkeitserklärung
 % =========================================================================
 
-\section*{Erweiterte Eigenständigkeitserklärung zur Verwendung generativer
+\clearpage
+
+% Angekreuztes Kaestchen: Haken (amssymb) ueber leerem Quadrat ueberlagert
+\newcommand{\ankreuz}{%
+  \makebox[1em][l]{%
+    $\square$\hspace{-0.66em}\raisebox{0.25ex}{\scriptsize$\checkmark$}%
+  }%
+}
+
+\chapter*{Erweiterte Eigenständigkeitserklärung zur Verwendung generativer
 KI-Systeme als Hilfsmittel}
 
 \begin{mdframed}[linewidth=1pt, innerleftmargin=8pt, innerrightmargin=8pt,
@@ -20,32 +29,31 @@ bestätige ich hiermit, dass ich:
 
 \vspace{0.5cm}
 
-\noindent$\square$\quad die von generativen KI-Systemen direkt übernommenen
+\noindent\ankreuz\quad die von generativen KI-Systemen direkt übernommenen
 Inhalte im inhaltlichen Teil der Arbeit entsprechend markiert bzw.\ zitiert
 habe,
 
 \vspace{0.5cm}
 
-\noindent$\square$\quad sichergestellt habe, dass die mit Hilfe der genannten
-generativen KI-Systemen erzeugten und sonstigen von mir verwendeten Inhalte
+\noindent\ankreuz\quad sichergestellt habe, dass die mit Hilfe der genannten
+generativen KI-Systeme erzeugten und sonstigen von mir verwendeten Inhalte
 faktisch korrekt sind,
 
 \vspace{0.5cm}
 
-\noindent$\square$\quad mir darüber im Klaren bin, dass ich als Verfasserin
+\noindent\ankreuz\quad mir darüber im Klaren bin, dass ich als Verfasserin
 oder Verfasser dieser Arbeit die Verantwortung für die darin enthaltenen
 Angaben und Aussagen übernehme,
 
 \vspace{0.5cm}
 
-\noindent$\square$\quad sofern ich generative KI-Systeme zur Unterstützung
+\noindent\ankreuz\quad sofern ich generative KI-Systeme zur Unterstützung
 wesentlicher Arbeitsschritte eingesetzt habe, die nicht bereits im
 inhaltlichen Teil der Arbeit oder den Referenzen thematisiert bzw.\ zitiert
 werden, dies tabellarisch erfasst habe. Die Tabelle habe ich mit Abgabe der
 Arbeit eingereicht (siehe Anhang).
 
-\vspace{3cm}
-
+\vspace{1cm}
 \noindent Ort, Datum, Unterschrift
 
 \newpage
@@ -77,24 +85,24 @@ Arbeit eingereicht (siehe Anhang).
   row{1} = {bg=kitabkopf, font=\bfseries\small},
   rowsep = 3pt,
 }
-Arbeitsschritt\textsuperscript{1} &
+Arbeitsschritt &
 Eingesetzte(s) Gen-KI-System(e) &
 Verwendung in Kapitel &
 Beschreibung der Verwendungsweise (bspw.\ Zweck, Prompt,
 Weiterverarbeitung KI-generierter Output) \\
 
-Sprachliche Optimierung oder Strukturierung von Text & Claude Haiku 4.5 \& Sonnet 4.6 &1, 2, 3, 4, 5, 6, 7& Alternativen zu geschriebenen Texten wurden mit dem KI-Modell erstellt, um die Sprache und Formulierungen zu verbessern. \\
+Sprachliche Optimierung oder Strukturierung von Text & Claude Haiku 4.5 \& Sonnet 4.6 & 1, 2, 3, 4, 5, 6, 7 & Zweck: Verbesserung von Sprache und Formulierung bereits eigenständig verfasster Absätze. Zu jedem Absatz wurden Formulierungsalternativen erzeugt; diese wurden gegengelesen, selektiv übernommen und überarbeitet. Inhaltliche Aussagen wurden dabei nicht verändert. \\
 
-Generierung von Formeln, Code-Listungen, Grafiken, Tabellen und Diagrammen & Claude Sonnet 4.6 \& Opus 5 & 1, 2, 3, 4, 5, Anhang & Struktur für Tabellen wurde durch Prompts generiert. Grafiken TikZ und matplotlib durch vorgegebenem Inhalt generieren oder optimieren lassen. Diagramme teilweise und Formeln mit Vorgabe durch Prompt generiert. \\
+Generierung von Formeln, Code-Listings, Grafiken, Tabellen und Diagrammen & Claude Sonnet 4.6 \& Opus 5 & 1, 2, 3, 4, 5, Anhang & Struktur für Tabellen wurde durch Prompts generiert. Grafiken in TikZ und matplotlib wurden bei selbst vorgegebenem Inhalt generiert oder optimiert. Diagramme teilweise und Formeln mit Vorgabe durch Prompt generiert. Die dargestellten Daten und Aussagen stammen durchgehend aus eigenen Experimenten; der erzeugte \LaTeX{}- bzw.\ Python-Code wurde selbst geprüft, angepasst und gegen die zugrunde liegenden Ergebnisdateien abgeglichen. \\
 
-Ideenentwicklung und Konzeption von Aspekten der Arbeit & Claude Opus 4.8 &3, 4, 5 & Diskurs für die Sinnmäßigkeit der Einbringung von LSTM Modellen. \\
+Ideenentwicklung und Konzeption von Aspekten der Arbeit & Claude Opus 4.8 & 3, 4, 5 & Diskurs über die Sinnhaftigkeit der Einbringung von LSTM-Modellen. Die Entscheidung für die Aufnahme beider LSTM-Varianten sowie die Festlegung der Mindestanforderung von 100 Fahrzeugwochen wurden eigenständig getroffen und in der Arbeit selbst begründet. \\
 
-Einordnung und Deckung von Literatur & Claude Sonnet 4.6 \& Opus 5 & 1, 2, 3, 4, 5, 6 & Fragen zu Literatur, nach Recherche Hilfe bei Korrektur der \texttt{.bib} File für Korrekte Metadaten. Potentielle Lücken für Belege ausfindig machen. \\
+Einordnung und Deckung von Literatur & Claude Sonnet 4.6 \& Opus 5 & 1, 2, 3, 4, 5, 6 & Fragen zu Literatur; nach eigener Recherche Hilfe bei der Korrektur der \texttt{.bib}-Datei für korrekte Metadaten. Potenzielle Lücken für Belege ausfindig machen. Sämtliche Metadaten und Fundstellen wurden anschließend an der Originalquelle verifiziert; KI-genannte Literatur wurde ohne eigene Prüfung nicht übernommen. \\
 
 
-Validierung von Ideen und Konzepten & Claude Sonnet 4.6 & 2, 3 & Recherche und Konsolidierung der Grundlagen und Methoden wurden mit KI supplementiert. \\
+Validierung von Ideen und Konzepten & Claude Sonnet 4.6 & 2, 3 & Recherche und Konsolidierung der Grundlagen und Methoden wurden durch KI ergänzt. Die Ergebnisse dienten als Ausgangspunkt für die eigene Recherche und wurden ausschließlich in der Form übernommen, in der sie durch die zitierten Quellen belegt sind. \\
 
-Generierung und Optimierung von Programmcode & Claude Sonnet 4.6 \& Opus 4.8 & 4, 5 & Während der Umsetzung \& Validierung wurde für die Erstellung von Code aktiv mit angegeben KI-Modellen gearbeitet. \\
+Generierung und Optimierung von Programmcode & Claude Sonnet 4.6 \& Opus 4.8 & 4, 5 & Während der Umsetzung und Validierung wurde für die Erstellung von Code aktiv mit den angegebenen KI-Modellen gearbeitet. Vorgegeben wurden dabei jeweils Zielschema, Modulschnitt und Experimentdesign -- etwa die Anweisung, je Datenquelle einen Adapter zu erzeugen, der Fahrzeug-ID, Zeitstempel und Aktivitätslabel in ein einheitliches Schema überführt und modular erweiterbar bleibt. Der generierte Code wurde selbst gelesen, angepasst und durch eigene Trainings- und Validierungsläufe überprüft. \\
 \end{longtblr}
 \endgroup
 
