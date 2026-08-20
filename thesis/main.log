@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  20 AUG 2026 17:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  20 AUG 2026 22:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1921,15 +1921,15 @@ Overfull \hbox (10.46088pt too wide) in paragraph at lines 17--17
 n Ba-se-li-nes, In-Distribution 
  []
 
-)
+[8
+
+])
 \tf@lot=\write9
 \openout9 = `main.lot'.
 
 
 No file main.acr.
-[8
-
-] [9] (chapters/01einleitung.tex
+[9] (chapters/01einleitung.tex
 chapter 1.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
@@ -1945,13 +1945,13 @@ l.21 \section
 
 ]
 chapter 2.
-<images/data_cars-real-world.png, id=399, 332.74312pt x 123.46124pt>
+<images/data_cars-real-world.png, id=408, 332.74312pt x 123.46124pt>
 File: images/data_cars-real-world.png Graphic file (type png)
 <use images/data_cars-real-world.png>
 Package pdftex.def Info: images/data_cars-real-world.png  used on input line 17
 .
 (pdftex.def)             Requested size: 256.07741pt x 95.02022pt.
-<images/data_emobpy.png, id=402, 316.18124pt x 108.405pt>
+<images/data_emobpy.png, id=411, 316.18124pt x 108.405pt>
 File: images/data_emobpy.png Graphic file (type png)
 <use images/data_emobpy.png>
 Package pdftex.def Info: images/data_emobpy.png  used on input line 26.
@@ -1959,14 +1959,14 @@ Package pdftex.def Info: images/data_emobpy.png  used on input line 26.
 [6
 
  <./images/data_cars-real-world.png> <./images/data_emobpy.png>]
-<images/prozess_diagramm_v2.png, id=418, 1055.142pt x 375.804pt>
+<images/prozess_diagramm_v2.png, id=427, 1055.142pt x 375.804pt>
 File: images/prozess_diagramm_v2.png Graphic file (type png)
 <use images/prozess_diagramm_v2.png>
 Package pdftex.def Info: images/prozess_diagramm_v2.png  used on input line 43.
 
 (pdftex.def)             Requested size: 426.79135pt x 152.00482pt.
  [7 <./images/prozess_diagramm_v2.png>] [8]
-<images/maschinelles-lernen.png, id=442, 1028.84375pt x 866.23625pt>
+<images/maschinelles-lernen.png, id=451, 1028.84375pt x 866.23625pt>
 File: images/maschinelles-lernen.png Graphic file (type png)
 <use images/maschinelles-lernen.png>
 Package pdftex.def Info: images/maschinelles-lernen.png  used on input line 104
@@ -2007,38 +2007,38 @@ Package biblatex Warning: Package option 'sortcites' enabled.
 
 [14{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-
 mathex.enc}] [15]
-<images/decisiontree2_hires.png, id=538, 578.16pt x 433.62pt>
+<images/decisiontree2_hires.png, id=547, 578.16pt x 433.62pt>
 File: images/decisiontree2_hires.png Graphic file (type png)
 <use images/decisiontree2_hires.png>
 Package pdftex.def Info: images/decisiontree2_hires.png  used on input line 239
 .
 (pdftex.def)             Requested size: 256.07741pt x 192.05714pt.
-<images/baggingmethod.png, id=544, 853.1875pt x 514.92375pt>
+<images/baggingmethod.png, id=553, 853.1875pt x 514.92375pt>
 File: images/baggingmethod.png Graphic file (type png)
 <use images/baggingmethod.png>
 Package pdftex.def Info: images/baggingmethod.png  used on input line 250.
 (pdftex.def)             Requested size: 341.43437pt x 206.068pt.
  [16 <./images/decisiontree2_hires.png>]
-<images/boostingmethod.png, id=559, 731.73375pt x 590.95781pt>
+<images/boostingmethod.png, id=568, 731.73375pt x 590.95781pt>
 File: images/boostingmethod.png Graphic file (type png)
 <use images/boostingmethod.png>
 Package pdftex.def Info: images/boostingmethod.png  used on input line 259.
 (pdftex.def)             Requested size: 341.43437pt x 275.74837pt.
  [17 <./images/baggingmethod.png>]
-<images/treegrowth.jpg, id=573, 342.12617pt x 90.77112pt>
+<images/treegrowth.jpg, id=582, 342.12617pt x 90.77112pt>
 File: images/treegrowth.jpg Graphic file (type jpg)
 <use images/treegrowth.jpg>
 Package pdftex.def Info: images/treegrowth.jpg  used on input line 268.
 (pdftex.def)             Requested size: 426.79135pt x 113.23369pt.
  [18 <./images/boostingmethod.png> <./images/treegrowth.jpg>]
 [19]
-<images/quantilregression.png, id=599, 794.97pt x 317.988pt>
+<images/quantilregression.png, id=608, 794.97pt x 317.988pt>
 File: images/quantilregression.png Graphic file (type png)
 <use images/quantilregression.png>
 Package pdftex.def Info: images/quantilregression.png  used on input line 311.
 (pdftex.def)             Requested size: 426.79135pt x 170.72113pt.
  [20 <./images/quantilregression.png>]
-<images/lstm.png, id=618, 1027.84pt x 587.19376pt>
+<images/lstm.png, id=627, 1027.84pt x 587.19376pt>
 File: images/lstm.png Graphic file (type png)
 <use images/lstm.png>
 Package pdftex.def Info: images/lstm.png  used on input line 329.
@@ -2109,13 +2109,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 369--369
  []
 
 [22] [23] [24]
-<images/chargingrequests_sanami.png, id=671, 663.98062pt x 364.36125pt>
+<images/chargingrequests_sanami.png, id=680, 663.98062pt x 364.36125pt>
 File: images/chargingrequests_sanami.png Graphic file (type png)
 <use images/chargingrequests_sanami.png>
 Package pdftex.def Info: images/chargingrequests_sanami.png  used on input line
  399.
 (pdftex.def)             Requested size: 384.1096pt x 210.77925pt.
-<images/weeklychargingrequests_sanami.png, id=672, 839.38594pt x 470.50781pt>
+<images/weeklychargingrequests_sanami.png, id=681, 839.38594pt x 470.50781pt>
 File: images/weeklychargingrequests_sanami.png Graphic file (type png)
 <use images/weeklychargingrequests_sanami.png>
 Package pdftex.def Info: images/weeklychargingrequests_sanami.png  used on inpu
@@ -2126,7 +2126,7 @@ ts_sanami.png>] [27
 
 ]) (chapters/03methodik.tex [28]
 chapter 3.
-<graphen/variablendiagramm/variablendiagramm.pdf, id=711, 338.80879pt x 249.616
+<graphen/variablendiagramm/variablendiagramm.pdf, id=730, 338.80879pt x 249.616
 58pt>
 File: graphen/variablendiagramm/variablendiagramm.pdf Graphic file (type pdf)
 <use graphen/variablendiagramm/variablendiagramm.pdf>
@@ -2136,7 +2136,7 @@ on input line 29.
 [29
 
 ] [30 <./graphen/variablendiagramm/variablendiagramm.pdf>] [31]
-<graphen/methodik/methodik_workflow.pdf, id=864, 281.25275pt x 516.01285pt>
+<graphen/methodik/methodik_workflow.pdf, id=883, 281.25275pt x 516.01285pt>
 File: graphen/methodik/methodik_workflow.pdf Graphic file (type pdf)
 <use graphen/methodik/methodik_workflow.pdf>
 Package pdftex.def Info: graphen/methodik/methodik_workflow.pdf  used on input 
@@ -2154,7 +2154,7 @@ chapter 4.
 
 
 ] [46]
-<graphen/komponentendiagramm/komponentendiagramm.pdf, id=1123, 530.11252pt x 42
+<graphen/komponentendiagramm/komponentendiagramm.pdf, id=1142, 530.11252pt x 42
 0.91855pt>
 File: graphen/komponentendiagramm/komponentendiagramm.pdf Graphic file (type pd
 f)
@@ -2162,7 +2162,7 @@ f)
 Package pdftex.def Info: graphen/komponentendiagramm/komponentendiagramm.pdf  u
 sed on input line 91.
 (pdftex.def)             Requested size: 426.79135pt x 338.88689pt.
-<graphen/sequenzdiagramm/sequenzdiagramm.pdf, id=1125, 468.56256pt x 336.72801p
+<graphen/sequenzdiagramm/sequenzdiagramm.pdf, id=1144, 468.56256pt x 336.72801p
 t>
 File: graphen/sequenzdiagramm/sequenzdiagramm.pdf Graphic file (type pdf)
 <use graphen/sequenzdiagramm/sequenzdiagramm.pdf>
@@ -2173,7 +2173,7 @@ nput line 100.
 
 ] [48 <./graphen/komponentendiagramm/komponentendiagramm.pdf>] [49 <./graphen/s
 equenzdiagramm/sequenzdiagramm.pdf>]
-<graphen/persistenzlayout/persistenzlayout.pdf, id=1426, 419.169pt x 319.25272p
+<graphen/persistenzlayout/persistenzlayout.pdf, id=1445, 419.169pt x 319.25272p
 t>
 File: graphen/persistenzlayout/persistenzlayout.pdf Graphic file (type pdf)
 <use graphen/persistenzlayout/persistenzlayout.pdf>
@@ -2212,7 +2212,7 @@ Ba-se-li-nes, In-
  []
 
 [60]
-<images/cv_f1_5x5.png, id=1716, 404.712pt x 325.215pt>
+<images/cv_f1_5x5.png, id=1737, 404.712pt x 325.215pt>
 File: images/cv_f1_5x5.png Graphic file (type png)
 <use images/cv_f1_5x5.png>
 Package pdftex.def Info: images/cv_f1_5x5.png  used on input line 79.
@@ -2223,13 +2223,16 @@ Package pdftex.def Info: images/cv_f1_5x5.png  used on input line 79.
 ] [64] [65
 
 ]
+Overfull \vbox (2.21146pt too high) has occurred while \output is active []
+
+
+[66]
 Overfull \hbox (1.8143pt too wide) in paragraph at lines 238--240
 \T1/lmr/m/n/12 (-20) ge-gen ih-ren Validierungs-Loss über den Trai-nings-ver-la
 uf auf-ge-tra-gen. Der Validierungs-
  []
 
-[66]
-<images/training_curves_lgbm.png, id=1748, 664.52264pt x 736.79265pt>
+<images/training_curves_lgbm.png, id=1771, 664.52264pt x 736.79265pt>
 File: images/training_curves_lgbm.png Graphic file (type png)
 <use images/training_curves_lgbm.png>
 Package pdftex.def Info: images/training_curves_lgbm.png  used on input line 24
@@ -2242,7 +2245,7 @@ n-gig über-an-passt: Auf \T1/lmtt/m/n/12 real_world_ev
  []
 
 [67 <./images/training_curves_lgbm.png>]
-<images/training_curves_lstm.png, id=1756, 664.52264pt x 491.436pt>
+<images/training_curves_lstm.png, id=1779, 664.52264pt x 491.436pt>
 File: images/training_curves_lstm.png Graphic file (type png)
 <use images/training_curves_lstm.png>
 Package pdftex.def Info: images/training_curves_lstm.png  used on input line 25
@@ -2271,12 +2274,12 @@ Overfull \hbox (38.53044pt too wide) in paragraph at lines 99--99
 
 [85] [86] (chapters/08anhang.tex [87]
 chapter A.
-<images/cv_f1_5x5_lgbm.png, id=2000, 404.712pt x 325.215pt>
+<images/cv_f1_5x5_lgbm.png, id=2025, 404.712pt x 325.215pt>
 File: images/cv_f1_5x5_lgbm.png Graphic file (type png)
 <use images/cv_f1_5x5_lgbm.png>
 Package pdftex.def Info: images/cv_f1_5x5_lgbm.png  used on input line 9.
 (pdftex.def)             Requested size: 362.77525pt x 291.52959pt.
-<images/cv_f1_5x5_lstm_tab.png, id=2004, 404.712pt x 325.215pt>
+<images/cv_f1_5x5_lstm_tab.png, id=2029, 404.712pt x 325.215pt>
 File: images/cv_f1_5x5_lstm_tab.png Graphic file (type png)
 <use images/cv_f1_5x5_lstm_tab.png>
 Package pdftex.def Info: images/cv_f1_5x5_lstm_tab.png  used on input line 24.
@@ -2284,30 +2287,30 @@ Package pdftex.def Info: images/cv_f1_5x5_lstm_tab.png  used on input line 24.
 [88
 
  <./images/cv_f1_5x5_lgbm.png>]
-<images/cv_f1_5x5_lstm_seq.png, id=2010, 404.712pt x 325.215pt>
+<images/cv_f1_5x5_lstm_seq.png, id=2035, 404.712pt x 325.215pt>
 File: images/cv_f1_5x5_lstm_seq.png Graphic file (type png)
 <use images/cv_f1_5x5_lstm_seq.png>
 Package pdftex.def Info: images/cv_f1_5x5_lstm_seq.png  used on input line 32.
 (pdftex.def)             Requested size: 362.77525pt x 291.52959pt.
  [89 <./images/cv_f1_5x5_lstm_tab.png> <./images/cv_f1_5x5_lstm_seq.png>]
-<images/cv_acc_5x5_rf.png, id=2019, 505.89pt x 397.485pt>
+<images/cv_acc_5x5_rf.png, id=2044, 505.89pt x 397.485pt>
 File: images/cv_acc_5x5_rf.png Graphic file (type png)
 <use images/cv_acc_5x5_rf.png>
 Package pdftex.def Info: images/cv_acc_5x5_rf.png  used on input line 49.
 (pdftex.def)             Requested size: 362.77525pt x 285.04266pt.
-<images/cv_acc_5x5_lgbm.png, id=2020, 505.89pt x 397.485pt>
+<images/cv_acc_5x5_lgbm.png, id=2045, 505.89pt x 397.485pt>
 File: images/cv_acc_5x5_lgbm.png Graphic file (type png)
 <use images/cv_acc_5x5_lgbm.png>
 Package pdftex.def Info: images/cv_acc_5x5_lgbm.png  used on input line 57.
 (pdftex.def)             Requested size: 362.77525pt x 285.04266pt.
  [90 <./images/cv_acc_5x5_rf.png>]
-<images/cv_acc_5x5_lstm_tab.png, id=2026, 505.89pt x 397.485pt>
+<images/cv_acc_5x5_lstm_tab.png, id=2051, 505.89pt x 397.485pt>
 File: images/cv_acc_5x5_lstm_tab.png Graphic file (type png)
 <use images/cv_acc_5x5_lstm_tab.png>
 Package pdftex.def Info: images/cv_acc_5x5_lstm_tab.png  used on input line 65.
 
 (pdftex.def)             Requested size: 362.77525pt x 285.04266pt.
-<images/cv_acc_5x5_lstm_seq.png, id=2027, 505.89pt x 397.485pt>
+<images/cv_acc_5x5_lstm_seq.png, id=2052, 505.89pt x 397.485pt>
 File: images/cv_acc_5x5_lstm_seq.png Graphic file (type png)
 <use images/cv_acc_5x5_lstm_seq.png>
 Package pdftex.def Info: images/cv_acc_5x5_lstm_seq.png  used on input line 73.
@@ -2337,10 +2340,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46539 strings out of 467871
- 955987 string characters out of 5414504
- 2247618 words of memory out of 5000000
- 74042 multiletter control sequences out of 15000+600000
+ 46543 strings out of 467871
+ 956048 string characters out of 5414504
+ 2248493 words of memory out of 5000000
+ 74045 multiletter control sequences out of 15000+600000
  752243 words of font info for 297 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  108i,20n,115p,11209b,3330s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2374,9 +2377,9 @@ pData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Users/Administ
 rator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti10.pfb><C:/Users
 /Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbol
 s/msam10.pfb>
-Output written on main.pdf (109 pages, 3764438 bytes).
+Output written on main.pdf (109 pages, 3772031 bytes).
 PDF statistics:
- 2468 PDF objects out of 2487 (max. 8388607)
- 408 named destinations out of 1000 (max. 500000)
- 71826 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 2497 PDF objects out of 2984 (max. 8388607)
+ 409 named destinations out of 1000 (max. 500000)
+ 71834 words of extra memory for PDF output out of 74296 (max. 10000000)
 

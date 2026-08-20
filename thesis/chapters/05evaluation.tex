@@ -34,7 +34,7 @@ Bei der Gegenüberstellung des Random Forests mit den naiven Baselines zeigt sic
 
 \begin{table}[H]
     \centering
-    \caption{Modell (RandomForest) im Vergleich zu naiven Baselines, In-Distribution je Datenquelle auf demselben zeitlichen Test-Split. Majority = \enquote{immer geparkt}; Persistenz-168 = gleiche Stunde der Vorwoche; Klimatologie = $P(\text{fahren}\mid\text{Wochentag},\text{Stunde})$ aus dem Trainingsteil.}
+    \caption{Modell (RandomForest) im Vergleich zu naiven Baselines, In-Distribution je Datenquelle auf demselben zeitlichen Test-Split. Majority = \enquote{immer geparkt}; Persistenz-168 = gleiche Stunde der Vorwoche; Klimatologie = $P(\text{fahren}\mid\text{Wochentag},\text{Stunde})$ aus dem Trainingsteil. Die Modellspalte gibt den Mittelwert über die fünf Seeds an und ist damit identisch mit der Diagonale von \cref{tab:cv_metrics}; die Baselines sind deterministisch und benötigen keine Wiederholung.}
     \label{tab:baselines}
 
     \begin{subtable}{\textwidth}
@@ -44,10 +44,10 @@ Bei der Gegenüberstellung des Random Forests mit den naiven Baselines zeigt sic
             \toprule
             \textbf{Datenquelle} & \textbf{Modell (RF)} & Majority & Persistenz-168 & Klimatologie \\
             \midrule
-            emobpy          & \textbf{0,267} & 0,096 & 0,105 & 0,172 \\
-            real\_world\_ev & \textbf{0,640} & 0,023 & 0,023 & 0,022 \\
-            ved             & \textbf{0,091} & 0,048 & 0,078 & 0,083 \\
-            routine         & \textbf{0,884} & 0,264 & 0,672 & 0,797 \\
+            emobpy          & \textbf{0,268} & 0,096 & 0,105 & 0,172 \\
+            real\_world\_ev & \textbf{0,630} & 0,023 & 0,023 & 0,022 \\
+            ved             & \textbf{0,089} & 0,048 & 0,078 & 0,083 \\
+            routine         & \textbf{0,887} & 0,264 & 0,672 & 0,797 \\
             yjmob100k       & \textbf{0,683} & 0,382 & 0,478 & 0,489 \\
             \bottomrule
         \end{tabular}
@@ -63,9 +63,9 @@ Bei der Gegenüberstellung des Random Forests mit den naiven Baselines zeigt sic
             \textbf{Datenquelle} & \textbf{Modell (RF)} & Majority & Persistenz-168 & Klimatologie \\
             \midrule
             emobpy          & 0,697 & \textbf{0,904} & 0,838 & \textbf{0,904} \\
-            real\_world\_ev & \textbf{0,983} & 0,977 & 0,956 & 0,977 \\
-            ved             & 0,880 & \textbf{0,952} & 0,919 & \textbf{0,952} \\
-            routine         & \textbf{0,898} & 0,736 & 0,887 & 0,868 \\
+            real\_world\_ev & \textbf{0,982} & 0,977 & 0,956 & 0,977 \\
+            ved             & 0,881 & \textbf{0,952} & 0,919 & \textbf{0,952} \\
+            routine         & \textbf{0,903} & 0,736 & 0,887 & 0,868 \\
             yjmob100k       & \textbf{0,726} & 0,618 & 0,659 & 0,619 \\
             \bottomrule
         \end{tabular}
@@ -162,7 +162,7 @@ Um genauer zu zeigen, dass Merkmalsgruppen unterschiedliche Einflüsse auf die V
 
 \begin{table}[H]
     \centering
-    \caption{Ablation der Merkmalsgruppen: PR-AUC je Datenquelle, zeitlich in-distribution. Verworfene Zeilen richten sich in allen Varianten nach dem vollständigen Merkmalssatz, sodass je Quelle identische Beobachtungen zugrunde liegen.}
+    \caption{Ablation der Merkmalsgruppen: PR-AUC je Datenquelle, zeitlich in-distribution. Verworfene Zeilen richten sich in allen Varianten nach dem vollständigen Merkmalssatz, sodass je Quelle identische Beobachtungen zugrunde liegen. Die Referenzzeile weicht geringfügig von \cref{tab:cv_metrics} ab, da die Ablation als Einzellauf auf einer etwas kleineren Zeilenbasis rechnet.}
     \label{tab:ablation}
 
     \begin{subtable}{\textwidth}

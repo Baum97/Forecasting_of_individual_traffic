@@ -42,7 +42,8 @@
 \contentsline {subsubsection}{\nonumberline Driving-/Parking-Klassifikation}{24}{subsubsection*.32}%
 \contentsline {subsubsection}{\nonumberline EV-Last- und Ladeprognose}{25}{subsubsection*.33}%
 \contentsline {subsubsection}{\nonumberline Unsicherheits- und Quantilsprognose}{27}{subsubsection*.35}%
-\contentsline {subsubsection}{\nonumberline Mobilitäts- und Nutzungsforecast}{27}{subsubsection*.36}%
+\contentsline {subsubsection}{\nonumberline Heterogenität individuellen Fahrverhaltens}{27}{subsubsection*.36}%
+\contentsline {subsection}{\numberline {2.4.2}Forschungslücke}{28}{subsection.2.4.2}%
 \contentsline {chapter}{\numberline {3}Methodik}{29}{chapter.3}%
 \contentsline {paragraph}{\nonumberline Datenquellen}{29}{paragraph*.38}%
 \contentsline {paragraph}{\nonumberline Modellfamilien}{29}{paragraph*.39}%
@@ -99,7 +100,7 @@
 \contentsline {subsection}{\numberline {6.1.7}FF2.2 -- Bewertung der Datenqualität}{73}{subsection.6.1.7}%
 \contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{73}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Limitationen}{74}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Implikationen}{75}{section.6.4}%
+\contentsline {section}{\numberline {6.4}Implikationen}{76}{section.6.4}%
 \contentsline {chapter}{\numberline {7}Fazit und Ausblick}{77}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{77}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Ausblick}{78}{section.7.2}%

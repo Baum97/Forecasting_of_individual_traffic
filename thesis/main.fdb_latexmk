@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1787240151.97613 "main.bcf" "main.bbl" "main" 1787240165.01912 0
+["biber main"] 1787257510.56148 "main.bcf" "main.bbl" "main" 1787257523.71547 0
   "literatur.bib" 1786620461.0398 38579 5209914fe3b9b3319dd4673572846a13 ""
-  "main.bcf" 1787240164.59702 119784 8432e6a2ba2ce68710439f3510ff349d "pdflatex"
+  "main.bcf" 1787257523.30129 120395 d7ff0f0132beebd9580fcef7b4287d02 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1787240159.49272 "main.tex" "main.pdf" "main" 1787240165.01989 0
+["pdflatex"] 1787257518.09659 "main.tex" "main.pdf" "main" 1787257523.71625 0
   "C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1786485272.35723 566693 c81e9331fecf5fe142ac06ca08f4e99f ""
   "C:/Users/Administrator/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1776509242.04239 13337359 921c68d39a821f8fa9f0b4adad96ec6b ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -258,13 +258,13 @@
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1773584792 2269 91cd03da61ab1da00145ba8a81560051 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1773584792 20785 8db5f0a2b2ce96dda9fac87ccab29449 ""
-  "chapters/00abstract.tex" 1787240130.00682 2725 71572a27bedb71f46df87be1f76cba16 ""
+  "chapters/00abstract.tex" 1787245959.86094 2725 78b42744e791d79a304624a5f13fb42c ""
   "chapters/01einleitung.tex" 1787240130.00733 9662 f8a637bb6d222aebb3925a382036a68d ""
-  "chapters/02grundlagen.tex" 1787240144.38926 43786 52079ad91c8120ef0b6d5a56ff4c7d0a ""
+  "chapters/02grundlagen.tex" 1787257505.19317 45142 a52d1935b8a9291e53f7fd49e4c6a09d ""
   "chapters/03methodik.tex" 1787240144.38926 34609 8f30bc5b5880cc845ddedf6f2ccd4bae ""
-  "chapters/04implementierung.tex" 1787240130.01092 26874 dd560c026f94b9042726c1f0707d5195 ""
-  "chapters/05evaluation.tex" 1787240130.01143 21696 3ac2650e13197538d966ad4c7d5196ee ""
-  "chapters/06diskussion.tex" 1787240130.01195 19031 19b0c3ba2a9ebfbd32bd09bf9f5ff133 ""
+  "chapters/04implementierung.tex" 1787245959.86094 26939 97e7b0bc45814d00a91ef017e79e3f28 ""
+  "chapters/05evaluation.tex" 1787245959.86094 22043 81c63ad838a6d596380fa24d204d0aa8 ""
+  "chapters/06diskussion.tex" 1787245959.86194 20219 73ff1ccfd6c16248a5a36ae0d1aa1027 ""
   "chapters/07fazit.tex" 1787240130.01195 4697 8ce09c38b5a3112b74d766f49b4ff155 ""
   "chapters/08anhang.tex" 1787240130.01247 7196 38f0ec12219387d820a500cea011fccd ""
   "chapters/09erklaerung.tex" 1786619086.89582 1032 d46e4483a3ee0f34ed11b6bab986ab48 ""
@@ -300,13 +300,13 @@
   "images/weeklychargingrequests_sanami.png" 1783807209.89086 354255 ac3f44f10aea33ee7760882ddea5660d ""
   "imports.tex" 1786485284.00352 3597 7160db0c88a61022b55afe2ad7ff9958 ""
   "main.acr" 0 -1 0 ""
-  "main.aux" 1787240164.56857 90333 062ef9ac0481432c63dc3d64c9e0463a "pdflatex"
-  "main.bbl" 1787240153.79731 166756 939c418a57d9d103470d37a80d1d5fcb "biber main"
-  "main.lof" 1787240164.59856 5974 a644ec66c40adad913aa2ce2da457da9 "pdflatex"
-  "main.lot" 1787240164.59856 3186 c8de5fa5e8ed2aa72750a1ba53fd107a "pdflatex"
-  "main.run.xml" 1787240164.59856 2431 c5bf256f8e4580f023f9de0aa9eb28e2 "pdflatex"
+  "main.aux" 1787257523.27316 92223 6248647c0858588be5ffcdd82140a0fb "pdflatex"
+  "main.bbl" 1787257512.34555 166756 939c418a57d9d103470d37a80d1d5fcb "biber main"
+  "main.lof" 1787257523.30329 5974 a644ec66c40adad913aa2ce2da457da9 "pdflatex"
+  "main.lot" 1787257523.30329 3535 1c1c567a3752e824e50354b6a0a485bc "pdflatex"
+  "main.run.xml" 1787257523.30229 2431 c5bf256f8e4580f023f9de0aa9eb28e2 "pdflatex"
   "main.tex" 1786523987.27813 2972 fe24e363004e6a10c2d08715817ebfc4 ""
-  "main.toc" 1787240164.59856 9153 a42e73f5c56834be613fecac569dd353 "pdflatex"
+  "main.toc" 1787257523.30329 9250 1f27922603d7dbce3e9f92f76926165a "pdflatex"
   (generated)
   "main.acn"
   "main.aux"

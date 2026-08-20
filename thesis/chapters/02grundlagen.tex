@@ -422,8 +422,8 @@ Eine weitere Studie \parencite{ali2024location} befasst sich mit der Quantilsreg
 
 % -----------------------------------------------------------------------------
 
-\subsubsection{Mobilitäts- und Nutzungsforecast}
-\label{subsec:mobilitaetsforecast}
+\subsubsection{Heterogenität individuellen Fahrverhaltens}
+\label{subsec:heterogenitaet}
 
 Ein zentraler Befund dieser Sektion betrifft die Heterogenität individuellen Fahrverhaltens. \textcite{ji2023rethinking} werten über vier Millionen Fahrten von 3743 privaten Fahrzeugführern in sechs US-Metropolregionen aus und zeigen, dass sich die Fahrer in fünf deutlich verschiedene Typen gliedern lassen (\Cref{tab:fahrertypen}), die sich vor allem in ihrer Pendelregelmäßigkeit und im Anteil nicht-arbeitsbezogener Fahrten unterscheiden. Diese Heterogenität erklärt, warum ein einzelnes, übergreifendes Modell dem Individualverkehr nur begrenzt gerecht wird und motiviert eine individuelle beziehungsweise quellenspezifische Modellierung.
 
@@ -448,3 +448,8 @@ Ein zentraler Befund dieser Sektion betrifft die Heterogenität individuellen Fa
   \label{tab:fahrertypen}
 \end{table}
 
+% -----------------------------------------------------------------------------
+\subsection{Forschungslücke}
+\label{sec:forschungsluecke}
+
+Die vier Stränge lassen die hier untersuchte Zielgröße jeweils offen: Mobilitäts- und Nutzungsforecasts prognostizieren einzelne Kenngrößen einer Fahrt statt des durchgehenden Stundenzustands \parencite{lindroth2024online,individual2025activitychain}, die Driving-/Parking-Klassifikation trennt beide Zustände nur beschreibend und ohne Prognosehorizont \parencite{kumar2023driving,su2025parking}, EV-Last- und Ladeprognosen zielen auf aggregierte Ladebedarfe statt auf einzelne Fahrzeuge \parencite{sanami2025demand,amaraouali2025quantifying}, und Unsicherheitsprognosen liefern Intervalle für Ladeparameter und Aufenthaltsorte \parencite{ali2024location,amaraouali2025quantifying}. Hinzu kommt, dass jede Studie auf einer eigenen Datengrundlage berichtet, sodass bei derart heterogenem Fahrverhalten (\Cref{subsec:heterogenitaet}) offen bleibt, ob eine Prognosegüte auf das Verfahren oder auf die Daten zurückgeht. Es fehlt somit eine Untersuchung, die die stündliche Fahraktivität einzelner Fahrzeuge über einen mehrtägigen Horizont als eigene Zielgröße prognostiziert und dabei Daten- und Algorithmuseffekt trennt -- daraus leiten sich die Forschungsfragen in \Cref{sec:forschungsfragen} ab.
