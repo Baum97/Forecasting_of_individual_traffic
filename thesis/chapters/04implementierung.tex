@@ -43,13 +43,9 @@ In \cref{tab:anforderungen} und \cref{tab:anforderungen-ml} werden die funktiona
         \hline
         \multicolumn{5}{|l|}{\textbf{System}} \\
         \Xhline{1pt}
-        Verfügbarkeit      & R-2.0 & Gewährleistung der Funktionalitäten. & NF & hoch   \\
+        Replikation      & R-2.0 & Versuche sollten deterministisch und replizierbar sein. & NF & mittel   \\
         \hline
-        Replikation      & R-2.1 & Versuche sollten deterministisch und replizierbar sein. & NF & mittel   \\
-        \hline
-        User Interface      & R-2.2 & Eine Benutzeroberfläche, die zur vereinfachten Bedienung und Darstellung des Systems dient. & F & niedrig   \\
-        \hline
-        Logging & R-2.3 & Bearbeitungsschritte, Resultate und Fehler werden protokolliert. & NF & mittel \\
+        Logging & R-2.1 & Bearbeitungsschritte, Resultate und Fehler werden protokolliert, sodass sich Kennzahlen und Abbildungen daraus erzeugen lassen. & NF & mittel \\
         \hline
     \end{tabularx}
 \end{table}
@@ -177,6 +173,16 @@ for algo in algos:
 \end{lstlisting}
 
 Durch die vollständige Kreuzvalidierung lässt sich der Effekt der Datenquelle vom Effekt des Algorithmus trennen, denn der einzige Unterschied zwischen den Modellen einer Algorithmusspalte ist die Trainingsquelle. Die Merkmale werden dabei bewusst auf der vollständigen Zeitreihe berechnet und erst danach zeitlich getrennt, da andernfalls die wochenweiten Lag-Merkmale zu Beginn kurzer Testabschnitte durchweg undefiniert wären.
+
+\paragraph{Logging} hält jeden Lauf nachvollziehbar. Jeder Trainings- und
+Auswertungslauf schreibt seine Kennzahlen zeilenweise in eine CSV-Datei im
+zugehörigen Run-Verzeichnis, dessen Name Datensatz und Datum trägt
+(\cref{fig:persistenzlayout}). Die Zeilen führen je nach Auswertung Quelle,
+Algorithmus, Seed oder Merkmalsvariante mit. Sämtliche Tabellen und Abbildungen des
+Ergebnisteils werden aus diesen Dateien erzeugt und nicht von Hand übertragen;
+die Kreuzvalidierungsmatrizen etwa entstehen direkt aus der aggregierten
+Ergebnisdatei. Dadurch ist jede berichtete Zahl auf den Lauf zurückführbar, aus
+dem sie stammt.
 
 \paragraph{Forecasting und Quantile} setzen sich aus dem Monte-Carlo-Rollout und der Unsicherheitsabschätzung zusammen. Neben dem Erwartungswert gibt der Forecaster ein unteres und oberes Quantil (P10/P90) aus. Das stündliche Band stammt aus einem Monte-Carlo-Rollout (\cref{lst:mc}): Über den Horizont werden mehrere Pfade fortgeschrieben, wobei der je Stunde gezogene Aktivitätszustand zur Vorgeschichte der nächsten Stunde wird. Das Vorgehen entspricht der simulationsbasierten Konstruktion von Prognoseintervallen, bei der die Unsicherheit über wiederholte Pfade statt über eine geschlossene Formel bestimmt wird \parencite[Kap. 5.5]{hyndman2021forecasting}. Dieser Modus ist die Voreinstellung des Auslieferungspfads; ein alternativer deterministischer Modus propagiert stattdessen die kontinuierliche Wahrscheinlichkeit und verzichtet bewusst auf das Band, da er bei sehr niedrigen Basisraten stabiler ist.
 

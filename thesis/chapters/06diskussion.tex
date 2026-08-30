@@ -14,16 +14,18 @@ Dieses Kapitel diskutiert die Ergebnisse der Evaluation (\cref{ch:evaluation}) i
 
 FF1 wird durch die Ergebnisse gestützt, sofern hochwertige Daten vorliegen; \\\texttt{yjmob100k} liefert hierfür den aussagekräftigsten Beleg, da hier real erhobene Bewegungsdaten einer Teilstichprobe von 50 Individuen ausgewertet werden und die Aussage somit über Personen hinweg generalisiert. Der Random Forest erreicht dort eine PR-AUC von $0,683$ (\cref{tab:baselines}), während die reine Zufalls-Baseline bei $0,382$ liegt. Ausschlaggebend ist letztlich nicht der Abstand zum Zufall, sondern der Abstand zur stärksten \emph{informierten} Baseline -- also die stärkste Metrik, welche keine komplexe Berechnung oder Algorithmen benötigt -- die Klimatologie, die allein Wochentag und Stunde nutzt, erreicht bereits $0,489$. Der Random Forest übertrifft sie um $0,194$ und damit um 40\,\%. Da die Streuung über die fünf Seeds mit $\sigma \approx 0,0004$ gegenüber diesem Abstand um mehr als zwei Größenordnungen kleiner ist, ist der Vorsprung statistisch eindeutig und kein Artefakt der Zufallsinitialisierung. Die PR-AUC dient als Leitmaß, da sie gegenüber der Accuracy robuster ist, insbesondere bei niedrigen Aktivraten. Bei \texttt{emobpy} beispielsweise schlägt der triviale \enquote{immer geparkt}-Klassifikator das Modell in der Accuracy sogar ($0,904$ gegenüber $0,697$, \cref{tab:baselines}), ohne eine einzige Fahrt zu erkennen, während dasselbe Modell in der PR-AUC mit $0,268$ deutlich über der Klimatologie ($0,172$) liegt. Der Befund belegt somit, dass das Modell, jenseits der reinen Tages- und Wochenperiodik, Struktur nutzt -- genau das, was FF1 unter einem \enquote{ausreichend komplexen Modell} versteht. Die Gültigkeit bleibt jedoch an die Datenqualität gebunden: Auf \texttt{ved} erreicht dasselbe Verfahren nur $0,089$ und liegt damit praktisch auf dem Niveau seiner Klimatologie-Baseline ($0,083$), sodass FF1 dort nicht aussagekräftig beantwortet werden kann.
 
+Diese Werte gelten für eine Stunde voraus. Über den in FF1 genannten Horizont von sieben Tagen (\cref{tab:horizont}) bleibt der Vorsprung nur auf \texttt{yjmob100k} bestehen: $0,581$ gegenüber $0,478$ der Klimatologie im Fenster 73--168\,h. Auf \texttt{routine} liegen beide gleichauf, auf \texttt{emobpy} und \texttt{real\_world\_ev} fällt das Modell auf die Klimatologie oder darunter. FF1 ist damit differenziert zu beantworten: Über mehrere Tage trägt die Prognose nur auf der stärksten Quelle, sonst reduziert sie sich auf die Tages- und Wochenperiodik.
+
 
 \subsection{FF1.1 -- Unterschiede der Machine-Learning-Verfahren in der Prognosegenauigkeit}
 
-Die Evaluation (\cref{ch:evaluation}) zeigt, dass kein Verfahren die übrigen durchgängig dominiert: Welches Modell vorn liegt, hängt von der Datenquelle ab und folgt keinem systematischen Muster. Wo Unterschiede auftreten, sind sie allerdings deutlich, das heißt, bestimmte Modellarchitekturen sind nicht für jeden Datensatz geeignet. So erzielt LightGBM auf \texttt{real\_world\_ev} einen F1-Score von $0,366\pm0,0$ und PR-AUC von $0,256\pm0,0$, während Random Forest dort $0,680\pm0,037$ und $0,630\pm0,013$ erreicht. Umgekehrt zeigt sich auf \texttt{ved}, dass LightGBM einen F1-Score von $0,092\pm0,0$ erreicht, während Random Forest nur $0,075\pm0,010$ erreicht; bei den restlichen Werten dominiert jedoch wieder der Random Forest (\cref{tab:cv_metrics}). Die LSTM-Modelle lassen sich auf der Mehrheit der Datensätze nicht abbilden, da diese die Mindestanforderung von 100 Fahrzeugwochen nicht erfüllen. Die Ergebnisse der LSTM-Varianten sind daher nur eingeschränkt interpretierbar, wobei das tabellarische LSTM bei \texttt{yjmob100k} bei F1-Score ($0,677\pm0,001$) und PR-AUC ($0,702\pm0,001$) vorne liegt und das sequenzielle LSTM bei \texttt{emobpy} bei F1-Score ($0,324\pm0,003$), ROC ($0,820\pm0,002$) und PR-AUC ($0,289\pm0,006$). Gemessen an der PR-AUC übertreffen die Machine-Learning-Verfahren jedoch auf allen Datensätzen sämtliche Baselines (\cref{tab:baselines}); in der Accuracy gilt das nicht, dort bleibt die Majority-Baseline auf \texttt{emobpy} und \texttt{ved} vorn. Damit lässt sich FF1.1 beantworten: Die Verfahren unterscheiden sich weniger voneinander als von der jeweiligen Datenquelle.
+Die Evaluation (\cref{ch:evaluation}) zeigt, dass kein Verfahren die übrigen durchgängig dominiert: Welches Modell vorn liegt, hängt von der Datenquelle ab und folgt keinem systematischen Muster. Wo Unterschiede auftreten, sind sie allerdings deutlich, das heißt, bestimmte Modellarchitekturen sind nicht für jeden Datensatz geeignet. So erzielt LightGBM auf \texttt{real\_world\_ev} einen F1-Score von $0,366\pm0,0$ und PR-AUC von $0,256\pm0,0$, während Random Forest dort $0,680\pm0,037$ und $0,630\pm0,013$ erreicht. Umgekehrt zeigt sich auf \texttt{ved}, dass LightGBM einen F1-Score von $0,092\pm0,0$ erreicht, während Random Forest nur $0,075\pm0,010$ erreicht; bei den restlichen Werten dominiert jedoch wieder der Random Forest (\cref{tab:cv_metrics}). Die LSTM-Modelle lassen sich auf der Mehrheit der Datensätze nicht abbilden, da diese die Mindestanforderung von 100 Fahrzeugwochen nicht erfüllen. Die Ergebnisse der LSTM-Varianten sind daher nur eingeschränkt interpretierbar, wobei das tabellarische LSTM bei \texttt{yjmob100k} bei F1-Score ($0,677\pm0,001$) und PR-AUC ($0,702\pm0,001$) vorne liegt und das sequenzielle LSTM bei \texttt{emobpy} bei F1-Score ($0,324\pm0,003$), ROC ($0,820\pm0,002$) und PR-AUC ($0,289\pm0,006$). Gemessen an der PR-AUC übertrifft der Random Forest die Baselines auf allen Quellen (\cref{tab:baselines}). LightGBM gelingt das auf \texttt{ved} nicht: Mit $0,077$ liegt es unter Klimatologie ($0,083$) und Persistenz-168 ($0,078$). In der Accuracy bleibt die Majority-Baseline auf \texttt{emobpy} und \texttt{ved} vorn. Damit lässt sich FF1.1 beantworten: Die Verfahren unterscheiden sich weniger voneinander als von der jeweiligen Datenquelle.
 
 \subsection{FF1.1.1 -- Einfluss der Datenquelle auf die Prognosegenauigkeit}
 
 Aufbauend auf FF1.1 zeigt sich, dass die Datenquelle einen entscheidenden Einfluss auf die Prognosegenauigkeit hat. Die Ergebnisse der Evaluation (\cref{ch:evaluation}) zeigen, dass die Wahl der Datenquelle ein größerer Faktor für die Prognosegenauigkeit ist als die verwendeten Machine-Learning-Verfahren. In \cref{tab:cv_metrics} zeigt sich beispielsweise, dass der Random Forest auf \texttt{yjmob100k} einen F1-Score von $0,669\pm0,001$ erreicht, während er auf \texttt{ved} nur $0,075\pm0,010$ erreicht. Im Vergleich schneidet LightGBM mit dem F1-Score bei \texttt{yjmob100k} mit $0,676\pm0,0$ ab, während es bei \texttt{ved} nur $0,092\pm0,0$ sind. Die Unterschiede zwischen den Datensätzen sind damit größer als die Unterschiede zwischen den Verfahren. Dies deutet darauf hin, dass die Qualität und Repräsentativität der Datenquelle entscheidend für die Prognosegenauigkeit ist. Dadurch lässt sich die Forschungsfrage FF1.1.1 beantworten: Die Datenquelle hat einen signifikanten Einfluss auf die Prognosegenauigkeit, so sehr, dass die Wahl der Datenquelle wichtiger ist als die Wahl des Machine-Learning-Verfahrens.
 
-Die Nebendiagonalen der Kreuzvalidierungsmatrix (\cref{fig:cv_matrix}) präzisieren diesen Befund und trennen dabei zwei Effekte, die in der In-Distribution-Betrachtung vermischt bleiben: den Effekt der \emph{Trainingsquelle} (Zeile) und den der \emph{Testquelle} (Spalte). Über alle Out-of-Distribution-Zellen des Random Forest gemittelt, streuen die Zeilenmittel der PR-AUC lediglich zwischen $0,304$ (\texttt{routine}) und $0,424$ (\texttt{yjmob100k}), die Spaltenmittel dagegen zwischen $0,083$ (\texttt{ved}) und $0,668$ (\texttt{routine}). Worauf getestet wird, erklärt die Prognosegüte damit um ein Vielfaches stärker als das, worauf trainiert wurde. \texttt{ved} ist folglich nicht nur eine schwache Trainingsquelle, sondern in erster Linie ein schlecht prognostizierbares Ziel: Auch Modelle, die auf allen anderen Quellen trainiert wurden, erreichen dort im Mittel nur eine PR-AUC von $0,083$. Umgekehrt gelingt Transfer dort, wo die Zielquelle selbst tragfähig ist -- das auf \texttt{yjmob100k} trainierte Modell erreicht auf \texttt{real\_world\_ev} eine PR-AUC von $0,644$ und damit praktisch den Wert des dort eigens trainierten Modells ($0,630$). Die Isolationsmatrix zeigt somit, dass der Datenanteil des Effekts überwiegend an der Beschaffenheit der Zielquelle hängt und nicht an einer besonderen Passung zwischen Trainings- und Testquelle.
+Die Nebendiagonalen der Kreuzvalidierungsmatrix (\cref{fig:cv_matrix}) präzisieren diesen Befund und trennen dabei zwei Effekte, die in der In-Distribution-Betrachtung vermischt bleiben: den Effekt der \emph{Trainingsquelle} (Zeile) und den der \emph{Testquelle} (Spalte). Die zugehörige PR-AUC-Matrix findet sich in \cref{fig:cv_prauc_rf}; die Matrizen im Ergebnisteil zeigen den F1-Score. Über alle Out-of-Distribution-Zellen des Random Forest gemittelt, streuen die Zeilenmittel der PR-AUC lediglich zwischen $0,304$ (\texttt{routine}) und $0,424$ (\texttt{yjmob100k}), die Spaltenmittel dagegen zwischen $0,083$ (\texttt{ved}) und $0,668$ (\texttt{routine}). Worauf getestet wird, erklärt die Prognosegüte damit um ein Vielfaches stärker als das, worauf trainiert wurde. \texttt{ved} ist folglich nicht nur eine schwache Trainingsquelle, sondern in erster Linie ein schlecht prognostizierbares Ziel: Auch Modelle, die auf allen anderen Quellen trainiert wurden, erreichen dort im Mittel nur eine PR-AUC von $0,083$. Umgekehrt gelingt Transfer dort, wo die Zielquelle selbst tragfähig ist -- das auf \texttt{yjmob100k} trainierte Modell erreicht auf \texttt{real\_world\_ev} eine PR-AUC von $0,644$ und damit praktisch den Wert des dort eigens trainierten Modells ($0,630$). Die Isolationsmatrix zeigt somit, dass der Datenanteil des Effekts überwiegend an der Beschaffenheit der Zielquelle hängt und nicht an einer besonderen Passung zwischen Trainings- und Testquelle.
 
 \subsection{FF1.2 -- Merkmalseinfluss auf individuelles Mobilitätsverhalten}
 
@@ -43,13 +45,45 @@ Folglich lässt sich FF2.1 beantworten: Aufbereitung erhält die Nutzbarkeit, in
 
 \subsection{FF2.2 -- Bewertung der Datenqualität}
 
-Die Qualität der Daten determiniert die Güte der Modelle. Wie man in der \cref{tab:cv_metrics} und \cref{tab:ablation} sehen kann, gibt es einen Datensatz, der sich deutlich von den anderen abhebt: \texttt{ved}; und zwar durch seine besonders schlechten Modellleistungen. Das Problem ist hier spezifisch, dass Daten nur willkürlich auftauchen oder Fahrzeuge teils nur in bestimmten Zeitslots aktiv sind, was zu einem Fehlen in den Test- oder Trainingssets führen kann und somit einige Einträge nicht in beiden Sets repräsentiert sind. Die Ergebnisse zeigen, dass die Qualität der Daten einen entscheidenden Einfluss auf die Prognosegenauigkeit hat. Forschungsfrage 2.2 kann somit wie folgt beantwortet werden: Die Qualität der Daten bildet das Fundament der darauffolgenden Modellierung und ist wegbereitend für ein erfolgreiches Experiment, somit kann ohne eine gute Datenqualität keine zuverlässige Prognose erreicht werden.
+Die Bewertung erfolgt zweistufig. Vorab lässt sich jede Quelle entlang von vier Kriterien einordnen, die ohne Modelltraining bestimmbar sind: Labelherkunft, zeitlicher Umfang in Fahrzeugwochen, Klassenbalance (Aktiv-Rate) und zeitliche Abdeckung, also der Anteil der Fahrzeuge mit mindestens einem vollständigen 168-Stunden-Fenster im Testteil. Nachträglich bestätigt der Abstand der Prognosegüte zur Klimatologie diese Einordnung. \Cref{tab:datenqualitaet} fasst beides zusammen.
+
+Das Raster trennt die Quellen dort, wo es darauf ankommt. \texttt{ved} fällt als einzige Quelle bei der zeitlichen Abdeckung durch: Nur eines von 15 Fahrzeugen besitzt überhaupt ein vollständiges Fenster, weil die Fahrzeuge jeweils nur kurze Zeitausschnitte abdecken. Genau diese Quelle ist es auch, bei der der Abstand zur Klimatologie mit $+0,006$ verschwindet. Die Vorab-Einordnung sagt hier also voraus, was das Experiment danach bestätigt.
+
+Ein einzelnes Kriterium genügt dafür allerdings nicht. \texttt{real\_world\_ev} wirkt mit 50 Fahrzeugwochen und einer Aktiv-Rate von $0,023$ vorab schwach, erreicht aber den größten Abstand zur Klimatologie -- allerdings nur eine Stunde voraus; über den Mehrtageshorizont bricht die Quelle ein (\cref{tab:horizont}). Umgekehrt ist \texttt{routine} mit 13 Fahrzeugwochen die kleinste Quelle und erzielt dennoch hohe Werte, weil ein Regelgenerator die Muster erzeugt hat, die das Modell zurücklernt.
+
+Damit lässt sich FF2.2 beantworten: Datenqualität ist in diesem Anwendungsfall kein einzelner Kennwert, sondern ein Profil aus vier vorab messbaren Eigenschaften, das durch den Abstand zur Klimatologie nachträglich zu prüfen ist. Erst die Kombination beider Stufen trennt eine tragfähige von einer untauglichen Quelle; die Prognosegüte allein wäre als Maß zirkulär, die Vorab-Kriterien allein nicht hinreichend.
+
+\begin{table}[H]
+    \centering
+    \caption{Datenqualitätsprofil der fünf Quellen. Die ersten vier Kriterien sind
+    ohne Modelltraining bestimmbar, die letzte Spalte prüft sie nachträglich.
+    Abdeckung = Anteil der Fahrzeuge mit mindestens einem vollständigen
+    168-Stunden-Fenster im Testteil. $\Delta$ = PR-AUC des Random Forest minus
+    Klimatologie, eine Stunde voraus (\cref{tab:baselines}).}
+    \label{tab:datenqualitaet}
+    \begin{tabularx}{\textwidth}{@{}lXccc c@{}}
+        \toprule
+        \textbf{Quelle} & \textbf{Labelherkunft} & \textbf{Fahrzeug\-wochen} &
+        \textbf{Aktiv-Rate} & \textbf{Abdeckung} & $\boldsymbol{\Delta}$ \\
+        \midrule
+        emobpy          & Flag der Quelle (synthetisch)      & 1564 & 0,096 & 1,00 & $+0,096$ \\
+        \addlinespace
+        real\_world\_ev & abgeleitet (Stromschwelle)         & 50   & 0,023 & 1,00 & $+0,608$ \\
+        \addlinespace
+        ved             & abgeleitet (Existenz eines Eintrags) & 54 & 0,048 & \textbf{0,07} & $\mathbf{+0,006}$ \\
+        \addlinespace
+        routine         & Regelgenerator (synthetisch)       & 13   & 0,264 & 1,00 & $+0,090$ \\
+        \addlinespace
+        yjmob100k       & Proxy (Zellwechsel)                & 524  & 0,382 & 1,00 & $+0,194$ \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
 
 % -----------------------------------------------------------------------------
 \section{Vergleich mit verwandten Arbeiten}
 \label{sec:vergleich}
 
-Ein direkter Vergleich mit bestehenden Arbeiten ist schwierig, da für die untersuchte Aufgabe -- stündliche Prognose der Fahraktivität -- keine etablierten Benchmarks existieren. Die in \cref{sec:verwandte_arbeiten} gesichteten Arbeiten adressieren angrenzende, aber verschiedene Probleme. 
+Ein direkter Vergleich mit bestehenden Arbeiten ist schwierig, da für die untersuchte Aufgabe -- stündliche Prognose der Fahraktivität -- keine etablierten Benchmarks existieren. Der folgende Abschnitt prüft die in \cref{sec:forschungsluecke} benannte Lücke gegen die eigenen Ergebnisse. Die in \cref{sec:verwandte_arbeiten} gesichteten Arbeiten adressieren angrenzende, aber verschiedene Probleme. 
 
 
 Ein Zweig der Forschung, welcher eine gewisse Überschneidung mit der vorliegenden Arbeit aufweist, beschäftigt sich mit dem \textit{Ladezustand} beziehungsweise Ladeverhalten von Elektrofahrzeugen und nutzt dazu die Fahraktivität \parencite{khwaja2021performance,kreft2024predictability,alikhani2025comprehensive,frendo2021improving,frendo2020datadriven}. Diese Arbeiten prognostizieren jedoch Ladeparameter statt des stündlichen Fahr- beziehungsweise Parkzustands, sodass weder Zielvariable noch Testprotokoll übereinstimmen und ein Kennzahlenvergleich ausscheidet.
@@ -77,6 +111,7 @@ Die folgenden Einschränkungen begrenzen die Reichweite der Ergebnisse und sind 
 \begin{itemize}
     \item \textbf{Rekurrentes LSTM:} Diese Version des LSTM konnte aufgrund der erstellten Mindestanforderung von 100 Fahrzeugwochen nur auf \texttt{emobpy} und \texttt{yjmob100k} evaluiert werden. Die Modelle haben im Vergleich zu den anderen Modellen ähnliche Leistungen erbracht -- wodurch die Vermutung entsteht, dass mit mehr Daten und Rechenkapazität der Architektureffekt noch deutlicher sichtbar wäre.
     \item \textbf{Teilstichproben:} \texttt{emobpy}, \texttt{VED} und \texttt{yjmob100k} sind zu umfangreich, weswegen Teilstichproben gezogen werden mussten. Die Ergebnisse gelten auf diesen Stichproben, wodurch ein Skalierungs- und Repräsentativitätsvorbehalt besteht.
+    \item \textbf{Horizont-Auswertung:} Die Startzeitpunkte des Rollouts liegen zwölf Stunden auseinander, die 168-Stunden-Fenster überlappen sich also und sind nicht unabhängig. Für \texttt{ved} existiert im Testteil nur ein vollständiges Fenster, weshalb die Quelle dort nicht auswertbar ist.
     \item \textbf{Hyperparameteroptimierung:} Die Hyperparameter wurden je Modell einmalig gesetzt und als Kontrollvariable konstant gehalten. Daraus geht hervor, dass nicht die absolute Bestleistung eines jeden Modells, sondern die relativen Effekte zwischen den Modellen und Datensätzen im Vordergrund stehen. 
 \end{itemize}
 
@@ -87,6 +122,57 @@ Die folgenden Einschränkungen begrenzen die Reichweite der Ergebnisse und sind 
 \end{itemize}
 
 % -----------------------------------------------------------------------------
+\section{Abgleich mit den Anforderungen}
+\label{sec:anforderungsabgleich}
+
+Die in \cref{sec:anforderungen} aufgestellten Anforderungen dienten als
+Referenzpunkt für die Umsetzung. \Cref{tab:abgleich} stellt ihnen den
+erreichten Stand gegenüber. Erfüllt sind alle Anforderungen an Daten und
+Modelle; offen bleibt allein die Prognosegüte über den Mehrtageshorizont, die
+sich als quellenabhängig erwiesen hat.
+
+\begin{table}[H]
+    \centering
+    \small
+    \caption{Abgleich der Anforderungen aus \cref{sec:anforderungen} mit dem
+    erreichten Stand.}
+    \label{tab:abgleich}
+    \begin{tabularx}{\textwidth}{@{}l l l X@{}}
+        \toprule
+        \textbf{Nr.} & \textbf{Anforderung} & \textbf{Status} & \textbf{Beleg} \\
+        \midrule
+        R-1.0 & Recherche & erfüllt & Fünf Quellen ausgewählt, verworfene Alternativen dokumentiert (\cref{tab:verworfene_daten}). \\
+        \addlinespace
+        R-1.1 & Aufbereitung & erfüllt & Adapter je Quelle auf das Schema \texttt{vehicle\_id, timestamp, driving} (\cref{sec:umsetzung}). \\
+        \addlinespace
+        R-1.2 & Datenvielfalt & erfüllt & Fünf heterogene Quellen, real und synthetisch (\cref{tab:datengrundlage}). \\
+        \addlinespace
+        R-1.3 & Speicherung & erfüllt & Hierarchisches Run-Layout für Modelle und Vorhersagen (\cref{fig:persistenzlayout}). \\
+        \addlinespace
+        R-1.4 & Leakage-Resistenz & erfüllt & Vier ineinandergreifende Maßnahmen, an \cref{lst:make-features} belegt. \\
+        \addlinespace
+        R-1.5 & Klassifikationslabel & erfüllt & Je Quelle ein ableitbares \texttt{driving}-Label; Herkunft in \cref{tab:datenqualitaet}. \\
+        \addlinespace
+        R-1.6 & Fahrzeug-IDs & erfüllt & Alle Fenster sind über \texttt{groupby} auf das einzelne Fahrzeug beschränkt. \\
+        \addlinespace
+        R-2.0 & Replikation & erfüllt & Feste Seeds, konstante Hyperparameter, dokumentierte Versionsstände (\cref{sec:testumgebung}). \\
+        \addlinespace
+        R-2.1 & Logging & erfüllt & Kennzahlen je Lauf als CSV; alle Tabellen und Abbildungen daraus erzeugt (\cref{sec:umsetzung}). \\
+        \addlinespace
+        R-3.0 & Modellauswahl & erfüllt & Drei Architekturen in vier Konfigurationen (\cref{sec:modellauswahl}). \\
+        \addlinespace
+        R-3.1 & Modellvergleich & erfüllt & Gegenüberstellung über alle Quellen (\cref{tab:cv_metrics}). \\
+        \addlinespace
+        R-3.2 & Prognosegüte & teilweise & Eine Stunde voraus auf allen Quellen über der Klimatologie außer \texttt{ved}; über sieben Tage nur auf \texttt{yjmob100k} (\cref{tab:horizont}). \\
+        \addlinespace
+        R-3.3 & Modellevaluierung & erfüllt & $5\times5$-Matrix über fünf Seeds (\cref{fig:cv_matrix}). \\
+        \addlinespace
+        R-3.4 & Imbalance & erfüllt & Balancierte Klassengewichte, PR-AUC als Leitmaß (\cref{sec:bewertung}). \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+% -----------------------------------------------------------------------------
 \section{Implikationen}
 \label{sec:implikationen}
 
@@ -94,7 +180,8 @@ Die folgenden Einschränkungen begrenzen die Reichweite der Ergebnisse und sind 
 \begin{itemize}
     \item \textbf{Daten schlagen Modelle:} Die Ergebnisse zeigen, dass die Wahl der Daten einen größeren Einfluss auf die Prognosegenauigkeit hat als die Wahl des Machine-Learning-Verfahrens. 
     \item \textbf{Klimatologie-Baseline:} Die Klimatologie erreicht bereits eine hohe Prognosegenauigkeit, sodass sie als Fallback und Pflicht-Vergleich dient.
-    \item \textbf{Wahrscheinlichkeiten:} Die Kalibrierung des P10/P90-Bands sorgt für eine bessere Interpretierbarkeit und liefert ein Band statt eines Punktwertes.
+    \item \textbf{Reichweite für V2G:} Für die in \cref{sec:motivation} genannte Lade- und Entladesteuerung ist der Mehrtageshorizont entscheidend. Er trägt nur auf tragfähigen Quellen (\cref{tab:horizont}); wo er das nicht tut, bleibt die Wochenperiodik die beste verfügbare Grundlage. Ein produktives V2G-System braucht daher zuerst eine Datenerhebung, die diese Schwelle sicher erreicht.
+    \item \textbf{Wahrscheinlichkeiten:} Das P10/P90-Band liefert statt eines Punktwerts eine Spanne und ist damit für die Planung besser interpretierbar. Seine Kalibrierung ist in dieser Arbeit nicht geprüft worden (\cref{sec:ausblick}).
     \item \textbf{Label-Standardisierung:} Ohne einheitliche Basis für die Definition von Fahraktivität ist ein Vergleich der Ergebnisse zwischen Datensätzen nicht möglich.
 \end{itemize}
 

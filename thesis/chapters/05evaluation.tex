@@ -10,7 +10,7 @@ In der Evaluation wird beschrieben, wie die entwickelten Methoden aus \cref{ch:m
 \section{Evaluationsdesign}
 \label{sec:evaluationsdesign}
 
-Durch verschiedene Darstellungen werden die Gütemaße der Modelle visualisiert, um die Genauigkeit, Stabilität und Verlässlichkeit der Vorhersagen zu bewerten (unter anderem \cref{tab:baselines} und \cref{tab:cv_metrics}). Anhand einer Kreuzvalidierungsmatrix (\cref{fig:cv_matrix}, \cref{fig:cv_matrix_lgbm}, \cref{fig:cv_matrix_lstm_seq} und \cref{fig:cv_matrix_lstm_tab}) wird die Konsistenz der Vorhersagen über verschiedene Datenquellen hinweg überprüft. Da bei den verschiedenen Architekturen fünf Seeds existieren, werden die Gütemaße für die Stabilität gemittelt, um Randwerte zu minimieren. Die Gütemaße werden in \cref{tab:cv_metrics} für alle Modelle und Datenquellen tabellarisch dargestellt, um die Vergleichbarkeit zu erleichtern. Metriken, die verwendet werden, sind Accuracy, F1-Score, ROC-AUC, PR-AUC und Brier-Score. Die Kennzahlen werden sowohl für die In-Distribution (auf derselben Datenquelle) als auch für die Out-of-Distribution (auf anderen Datenquellen) berechnet, um die Generalisierungsfähigkeit der Modelle zu bewerten. Accuracy wird als Negativbeispiel für die Limitierungen der Gütemaße diskutiert, da bei stark unausgeglichenen Klassenverteilungen (wie in diesem Anwendungsfall) die Accuracy eine fehlleitende Metrik sein kann, siehe \cref{sec:bewertung}. PR-AUC und Brier-Score werden als die wichtigsten Metriken hervorgehoben, da deren Fähigkeit, bei unausgeglichenen Datensätzen die Qualität der Vorhersagen zu bewerten, besonders relevant ist \parencite{davis2006relationship,saito2015prauc,gneiting2007scoring}. Im Laufe der Tests wird eine Ablation der Merkmalsgruppen durchgeführt, um die Bedeutung der einzelnen Merkmale für die Vorhersageleistung zu bewerten (\cref{tab:ablation}). Die Ablation untersucht, wie sich das Entfernen von bestimmten Merkmalsgruppen (Kalender, Lags, Rolling) auf die Metriken auswirkt.
+Durch verschiedene Darstellungen werden die Gütemaße der Modelle visualisiert, um die Genauigkeit, Stabilität und Verlässlichkeit der Vorhersagen zu bewerten (unter anderem \cref{tab:baselines} und \cref{tab:cv_metrics}). Anhand einer Kreuzvalidierungsmatrix (\cref{fig:cv_matrix}, \cref{fig:cv_matrix_lgbm}, \cref{fig:cv_matrix_lstm_seq} und \cref{fig:cv_matrix_lstm_tab}) wird die Konsistenz der Vorhersagen über verschiedene Datenquellen hinweg überprüft. Da bei den verschiedenen Architekturen fünf Seeds existieren, werden die Gütemaße für die Stabilität gemittelt, um Randwerte zu minimieren. Die Gütemaße werden in \cref{tab:cv_metrics} für alle Modelle und Datenquellen tabellarisch dargestellt, um die Vergleichbarkeit zu erleichtern. Metriken, die verwendet werden, sind Accuracy, F1-Score, ROC-AUC, PR-AUC und Brier-Score. Die Kennzahlen werden sowohl für die In-Distribution (auf derselben Datenquelle) als auch für die Out-of-Distribution (auf anderen Datenquellen) berechnet, um die Generalisierungsfähigkeit der Modelle zu bewerten. Accuracy wird als Negativbeispiel für die Limitierungen der Gütemaße diskutiert, da bei stark unausgeglichenen Klassenverteilungen (wie in diesem Anwendungsfall) die Accuracy eine fehlleitende Metrik sein kann, siehe \cref{sec:bewertung}. PR-AUC und Brier-Score werden als die wichtigsten Metriken hervorgehoben, da deren Fähigkeit, bei unausgeglichenen Datensätzen die Qualität der Vorhersagen zu bewerten, besonders relevant ist \parencite{davis2006relationship,saito2015prauc,gneiting2007scoring}. Im Laufe der Tests wird eine Ablation der Merkmalsgruppen durchgeführt, um die Bedeutung der einzelnen Merkmale für die Vorhersageleistung zu bewerten (\cref{tab:ablation}). Die Ablation untersucht, wie sich das Entfernen von bestimmten Merkmalsgruppen (Kalender, Lags, Rolling) auf die Metriken auswirkt. Da alle genannten Kennzahlen für eine Stunde voraus gelten, wird der in FF1 genannte Mehrtageshorizont gesondert ausgewertet (\cref{sec:horizont}).
 
 % -----------------------------------------------------------------------------
 \section{Testumgebung}
@@ -233,6 +233,82 @@ Um genauer zu zeigen, dass Merkmalsgruppen unterschiedliche Einflüsse auf die V
     \end{subtable}
 \end{table}
 
+Aus \cref{tab:cv_metrics} lassen sich die beiden in \cref{sec:modellauswahl}
+definierten Effekte ablesen. Der \emph{Repräsentationseffekt} ist die Differenz
+zwischen sequenziellem und tabellarischem LSTM: auf \texttt{emobpy} $+0,031$
+zugunsten der Sequenz, auf \texttt{yjmob100k} $-0,040$ zugunsten der Tabelle.
+Der \emph{Architektureffekt} ist die Differenz zwischen tabellarischem LSTM und
+Random Forest: $-0,010$ auf \texttt{emobpy}, $+0,019$ auf \texttt{yjmob100k}.
+Beide Effekte sind klein und wechseln zwischen den Quellen das Vorzeichen. Weder
+die Architektur noch die Repräsentation verschafft also einen systematischen
+Vorteil.
+
+% -----------------------------------------------------------------------------
+\subsection{Prognosegüte über den Horizont}
+\label{sec:horizont}
+
+Die bisherigen Werte gelten für eine Stunde voraus. \Cref{tab:horizont} und
+\cref{fig:horizont} zeigen die Güte über den vollen Horizont von sieben Tagen,
+bei dem die Lag-Merkmale nur noch aus selbst erzeugten Werten stammen.
+
+Das Bild ist eindeutig: Nur auf \texttt{yjmob100k} bleibt ein deutlicher
+Vorsprung vor der Klimatologie bestehen, über alle Horizontstufen hinweg. Auf
+\texttt{routine} liegen Modell und Klimatologie gleichauf. Auf \texttt{emobpy}
+und \texttt{real\_world\_ev} fällt das Modell auf das Niveau der Klimatologie
+oder darunter. \texttt{ved} liefert im Testteil nur ein einziges vollständiges
+168-Stunden-Fenster und ist damit nicht auswertbar.
+
+Auffällig ist, dass die Kurven nach dem ersten Tag flach verlaufen. Das Modell
+verliert also nicht allmählich an Güte, sondern fällt nach kurzer Zeit auf sein
+periodisches Grundmuster zurück -- genau das, was die Klimatologie ohnehin
+abbildet.
+
+\begin{table}[H]
+    \centering
+    \caption{PR-AUC über den Prognosehorizont, autoregressiver Monte-Carlo-Rollout
+    (50 Pfade) ab bis zu 16 Startzeitpunkten je Quelle. Baselines auf denselben
+    Zeitpunkten. \enquote{n.\,b.} = nicht auswertbar (weniger als drei
+    vollständige 168-Stunden-Fenster im Testteil).}
+    \label{tab:horizont}
+    \begin{tabular}{llccc}
+        \toprule
+        \textbf{Quelle} & \textbf{Verfahren} & 1--24\,h & 25--72\,h & 73--168\,h \\
+        \midrule
+        emobpy & RandomForest   & 0,167 & 0,152 & 0,164 \\
+               & LightGBM       & 0,174 & 0,147 & 0,160 \\
+               & Klimatologie   & \textbf{0,178} & \textbf{0,170} & \textbf{0,173} \\
+               & Persistenz-168 & 0,105 & 0,102 & 0,105 \\
+        \addlinespace
+        real\_world\_ev & RandomForest   & 0,005 & \textbf{0,046} & 0,018 \\
+               & LightGBM       & 0,007 & 0,021 & 0,016 \\
+               & Klimatologie   & \textbf{0,025} & 0,019 & 0,023 \\
+               & Persistenz-168 & 0,005 & 0,017 & \textbf{0,025} \\
+        \addlinespace
+        ved    & \multicolumn{4}{c}{n.\,b.} \\
+        \addlinespace
+        routine & RandomForest   & 0,832 & 0,781 & \textbf{0,843} \\
+               & LightGBM       & 0,810 & 0,764 & 0,824 \\
+               & Klimatologie   & \textbf{0,841} & \textbf{0,793} & 0,819 \\
+               & Persistenz-168 & 0,739 & 0,671 & 0,648 \\
+        \addlinespace
+        yjmob100k & RandomForest   & 0,599 & 0,558 & 0,581 \\
+               & LightGBM       & \textbf{0,608} & \textbf{0,560} & \textbf{0,585} \\
+               & Klimatologie   & 0,485 & 0,476 & 0,478 \\
+               & Persistenz-168 & 0,451 & 0,453 & 0,479 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{images/horizon_prauc.png}
+  \caption{PR-AUC über den Prognosehorizont (Mittel je 12-Stunden-Fenster).
+  \texttt{ved} ist nicht auswertbar, \texttt{real\_world\_ev} enthält je
+  Fenster zu wenige Fahrstunden für eine stabile Kurve und ist nur in
+  \cref{tab:horizont} berichtet.}
+  \label{fig:horizont}
+\end{figure}
+
 \subsection{Trainingsverlauf und Overfitting-Kontrolle}
 \label{sec:trainingsverlauf}
 Um zu prüfen, ob die iterativ trainierten Verfahren überanpassen, wird ihr
@@ -256,4 +332,3 @@ Auf \texttt{real\_world\_ev} und \texttt{routine} dreht der Validierungs-Loss na
 \end{figure}
 
 Die LSTM-Varianten (\cref{fig:curves_lstm}) zeigen dagegen kein Overfitting: Trainings- und Validierungs-Loss fallen gemeinsam und plateauen, ohne dass der Validierungs-Loss wieder ansteigt. Dass er auf \texttt{yjmob100k} unterhalb des Trainings-Loss liegt, ist kein Widerspruch, sondern eine Folge des Dropouts, der nur im Trainingsmodus aktiv ist und den Trainings-Loss dort systematisch anhebt. Das bereits im Training aktive Early Stopping (\cref{sec:modellauswahl}) sichert die Modelle zusätzlich gegen Überanpassung ab.
-
