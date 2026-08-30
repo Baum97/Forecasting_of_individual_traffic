@@ -223,6 +223,8 @@ Insgesamt gibt es fünf verschiedene Datenquellen, die jeweils unterschiedliche 
 
 Zusätzlich zur Kreuzvalidierung wird eine Ablationsstudie durchgeführt, um die Auswirkungen der Datenmerkmale auf die Prognosegüte zu untersuchen. Hierbei werden bestimmte Merkmale der Datenquelle ignoriert oder gezielt isoliert, um den Einfluss der einzelnen Merkmale zu untersuchen. Merkmale wie die Tageszeit (\texttt{lag\_\emph{X}}), der Wochentag, welcher aus dem Timestamp abgeleitet wird, und die historischen Fahrten werden dabei gezielt untersucht; der Einfluss wird als Abfall der PR-AUC gegenüber dem vollen Merkmalssatz gemessen. Dadurch lässt sich genauer bestimmen, welche Merkmale der Datenquelle einen signifikanten Einfluss auf die Prognosegüte haben und welche nicht.
 
+Die Kreuzvalidierung bewertet jede Teststunde mit der beobachteten Vergangenheit in den Lag-Merkmalen und misst damit eine Prognose eine Stunde voraus. Der in FF1 genannte Horizont von bis zu sieben Tagen wird gesondert geprüft: Ab einem Startzeitpunkt im Testteil werden 168 Stunden autoregressiv fortgeschrieben, wobei Lag- und Rolling-Merkmale ausschließlich aus den selbst erzeugten Werten stammen. Die Prognosewahrscheinlichkeit je Stunde ist der Mittelwert über 50 Monte-Carlo-Pfade. Je Quelle werden bis zu 16 über den Testzeitraum verteilte Startzeitpunkte ausgewertet; Quellen mit weniger als drei vollständigen 168-Stunden-Fenstern gelten als nicht auswertbar. Als Referenz dienen dieselben Baselines auf denselben Zeitpunkten.
+
 Die Versuche kennzeichnen sich durch drei Merkmale:
 \begin{itemize}
   \item \textbf{Datenquelle}: Die Daten werden einmalig geteilt und für alle Modelle identisch verwendet, um Vergleichbarkeiten und Differenzierungen zu gewährleisten.
