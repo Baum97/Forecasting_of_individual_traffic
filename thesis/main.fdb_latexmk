@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1788084976.19901 "main.bcf" "main.bbl" "main" 1788086506.40326 0
+["biber main"] 1788084976.19901 "main.bcf" "main.bbl" "main" 1788097809.5818 0
   "literatur.bib" 1786620461 38579 b6f29c22538fd2cda82e956efb202dfd ""
-  "main.bcf" 1788086506 120396 edf04aa5196c3dfe43ba6bf331ce9818 "pdflatex"
+  "main.bcf" 1788097809 120396 edf04aa5196c3dfe43ba6bf331ce9818 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1788086500.50793 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1788086506.40388 0
+["pdflatex"] 1788097803.72446 "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" "main.pdf" "main" 1788097809.58235 0
   "C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1786485272 566693 c81e9331fecf5fe142ac06ca08f4e99f ""
   "C:/Users/Administrator/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1776509242 13337359 a21bfb9d050a5bf8318e8708a258f339 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -272,7 +272,7 @@
   "chapters/07fazit.tex" 1788051216 4693 a020fc8d1b5b981dd2faf5e53341a442 ""
   "chapters/08anhang.tex" 1788054417 7778 4ca7c641223527eb262564d217eee255 ""
   "chapters/09erklaerung.tex" 1788049705 1169 ad211a01fafb06c12eba3d555daf4689 ""
-  "chapters/ki_handreichung.tex" 1788086500 6665 a107cbc7698c32ccaed7b38a51da85d5 ""
+  "chapters/ki_handreichung.tex" 1788097803 6691 172e14f6608cd4b726dbf16b20bee23b ""
   "d:/Projects/Forecasting_of_individual_traffic/thesis/main.tex" 1786523987 2972 5c6cfa61a28c2ba5b0bfd0afa4d40cd7 ""
   "graphen/komponentendiagramm/komponentendiagramm.pdf" 1784737829 62504 2024d19b55e632dab485a876def1145a ""
   "graphen/methodik/methodik_workflow.pdf" 1784023110 48115 ffd7e3af818cb243246ab3edc0c23bb2 ""
@@ -307,13 +307,13 @@
   "images/weeklychargingrequests_sanami.png" 1783807209 354255 7315569e53df3a55aeb830d533c5d05c ""
   "imports.tex" 1786485284 3597 adbeb68c911ea758249672cc8c17f2d6 ""
   "main.acr" 0 -1 0 ""
-  "main.aux" 1788086506 98503 b4d597074670a32142ba0199db8aabb0 "pdflatex"
+  "main.aux" 1788097809 98503 b4d597074670a32142ba0199db8aabb0 "pdflatex"
   "main.bbl" 1788084977 166756 dff9e1b9779023d9ef459ec48134c35a "biber main"
-  "main.lof" 1788086506 6551 21041813adaefbf723923d4ae7a3dacb "pdflatex"
-  "main.lot" 1788086506 4475 d096b9b6a377d38e5cbb1c448b4c13fb "pdflatex"
-  "main.run.xml" 1788086506 2431 c5bf256f8e4580f023f9de0aa9eb28e2 "pdflatex"
+  "main.lof" 1788097809 6551 21041813adaefbf723923d4ae7a3dacb "pdflatex"
+  "main.lot" 1788097809 4475 d096b9b6a377d38e5cbb1c448b4c13fb "pdflatex"
+  "main.run.xml" 1788097809 2431 c5bf256f8e4580f023f9de0aa9eb28e2 "pdflatex"
   "main.tex" 1786523987 2972 5c6cfa61a28c2ba5b0bfd0afa4d40cd7 ""
-  "main.toc" 1788086506 9652 479c00d43bd6e6f2c9a60546cfd2d1e9 "pdflatex"
+  "main.toc" 1788097809 9652 479c00d43bd6e6f2c9a60546cfd2d1e9 "pdflatex"
   "unterschrift/unterschrift.png" 1779359539 19796 c1bb05af6e35bbf232397045ac5ed466 ""
   (generated)
   "main.acn"
