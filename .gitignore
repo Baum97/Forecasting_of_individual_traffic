@@ -39,3 +39,4 @@ cc_backtest.log
 *.aux
 thesis/**/*.log
 additional/
+thesis/unterschrift/unterschrift.png

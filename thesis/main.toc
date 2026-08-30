@@ -108,5 +108,6 @@
 \def \@chapapp {\appendixname }
 \contentsline {chapter}{\numberline {A}Zusätzliche Abbildungen}{88}{appendix.A}%
 \contentsline {chapter}{\numberline {B}Zusätzliche Tabellen}{93}{appendix.B}%
+\contentsline {chapter}{Erweiterte Eigenständigkeitserklärung zur Verwendung generativer KI-Systeme als Hilfsmittel}{95}{chapter*.88}%
 \contentsline {chapter}{Eidesstattliche Erklärung}{99}{chapter*.89}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
