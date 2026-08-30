@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1788050368.39933 "main.bcf" "main.bbl" "main" 1788054441.23343 0
+["biber main"] 1788084568.45677 "main.bcf" "main.bbl" "main" 1788084578.4831 0
   "literatur.bib" 1786620461.0398 38579 5209914fe3b9b3319dd4673572846a13 ""
-  "main.bcf" 1788054440.76918 120395 d7ff0f0132beebd9580fcef7b4287d02 "pdflatex"
+  "main.bcf" 1788084578.05354 120395 d7ff0f0132beebd9580fcef7b4287d02 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1788054435.35494 "main.tex" "main.pdf" "main" 1788054441.23419 0
+["pdflatex"] 1788084572.51227 "main.tex" "main.pdf" "main" 1788084578.48385 0
   "C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1786485272.35723 566693 c81e9331fecf5fe142ac06ca08f4e99f ""
   "C:/Users/Administrator/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1776509242.04239 13337359 921c68d39a821f8fa9f0b4adad96ec6b ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -263,12 +263,12 @@
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1773584792 2269 91cd03da61ab1da00145ba8a81560051 ""
   "C:/Users/Administrator/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1773584792 20785 8db5f0a2b2ce96dda9fac87ccab29449 ""
   "chapters/00abstract.tex" 1788051216.47208 3170 092376f09ab510c1decb7d3e504b5bf9 ""
-  "chapters/01einleitung.tex" 1787240130.00733 9662 f8a637bb6d222aebb3925a382036a68d ""
-  "chapters/02grundlagen.tex" 1788051216.47008 45179 22e9eee43c1ac5b44400170734854747 ""
+  "chapters/01einleitung.tex" 1788084560.62554 9855 68078976fafba01469234062b022438d ""
+  "chapters/02grundlagen.tex" 1788084535.07248 45186 c86ad9f6d07c00c80804b932a00c6b17 ""
   "chapters/03methodik.tex" 1788051216.47108 35453 a0c859db500490d82608a83baba2f0ed ""
   "chapters/04implementierung.tex" 1788051751.45753 27361 5a189053c594ac61ff2bf50c49ac2e3d ""
   "chapters/05evaluation.tex" 1788054422.77988 26136 5eac2a9078005d7b1cfa454401f69917 ""
-  "chapters/06diskussion.tex" 1788051751.45853 27117 5a4cef27827af62e4171cdf3621909bd ""
+  "chapters/06diskussion.tex" 1788079872.01604 27096 39968fc2e53b749b4c905683cf35b968 ""
   "chapters/07fazit.tex" 1788051216.47108 4693 a020fc8d1b5b981dd2faf5e53341a442 ""
   "chapters/08anhang.tex" 1788054417.68823 7778 4ca7c641223527eb262564d217eee255 ""
   "chapters/09erklaerung.tex" 1788049705.46785 1169 17ad3c5daa955e37fbe16b4bd5561e61 ""
@@ -306,13 +306,13 @@
   "images/weeklychargingrequests_sanami.png" 1783807209.89086 354255 ac3f44f10aea33ee7760882ddea5660d ""
   "imports.tex" 1786485284.00352 3597 7160db0c88a61022b55afe2ad7ff9958 ""
   "main.acr" 0 -1 0 ""
-  "main.aux" 1788054440.73965 98469 fb0a4a024e2be6ca41def5c77468e882 "pdflatex"
-  "main.bbl" 1788050370.1123 166756 939c418a57d9d103470d37a80d1d5fcb "biber main"
-  "main.lof" 1788054440.7707 6545 26ee3d902fa9adb6c9d69686d40b1b09 "pdflatex"
-  "main.lot" 1788054440.7707 4470 91440b44d74f0ec8d55865600e351874 "pdflatex"
-  "main.run.xml" 1788054440.7707 2431 c5bf256f8e4580f023f9de0aa9eb28e2 "pdflatex"
+  "main.aux" 1788084578.02502 98469 726d14c827ae39060a5e48d8b80d5dd8 "pdflatex"
+  "main.bbl" 1788084572.4096 166756 939c418a57d9d103470d37a80d1d5fcb "biber main"
+  "main.lof" 1788084578.05454 6545 26ee3d902fa9adb6c9d69686d40b1b09 "pdflatex"
+  "main.lot" 1788084578.05454 4470 91440b44d74f0ec8d55865600e351874 "pdflatex"
+  "main.run.xml" 1788084578.05454 2431 c5bf256f8e4580f023f9de0aa9eb28e2 "pdflatex"
   "main.tex" 1786523987.27813 2972 fe24e363004e6a10c2d08715817ebfc4 ""
-  "main.toc" 1788054440.7707 9652 ba6ef773f5c70ff6e19d48dad6a6a4f7 "pdflatex"
+  "main.toc" 1788084578.05454 9652 ba6ef773f5c70ff6e19d48dad6a6a4f7 "pdflatex"
   "unterschrift/unterschrift.png" 1779359539.24325 19796 a47fe41de1b91d1dc258af5ca30cbb02 ""
   (generated)
   "main.acn"

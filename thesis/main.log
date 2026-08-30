@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  30 AUG 2026 03:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  30 AUG 2026 12:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1995,127 +1995,127 @@ Package pdftex.def Info: images/maschinelles-lernen.png  used on input line 104
 (pdftex.def)             Requested size: 426.79135pt x 359.33595pt.
  [9] [10 <./images/maschinelles-lernen.png>]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-26.
+25.
 
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 [11{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-
 ts1.enc}] [12]
-Underfull \hbox (badness 6173) in paragraph at lines 178--178
+Underfull \hbox (badness 6173) in paragraph at lines 177--177
 []|\T1/lmr/m/n/12 (+20) Kleine Ge-ne-ra-li-sie-rungs-lücke;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--178
+Underfull \hbox (badness 10000) in paragraph at lines 177--177
 []|\T1/lmr/m/n/12 (+20) Groÿe Ge-ne-ra-li-sie-rungs-lücke;
  []
 
 [13]
 
 Package biblatex Warning: Package option 'sortcites' enabled.
-(biblatex)                Verify postnote placement on input line 192.
+(biblatex)                Verify postnote placement on input line 191.
 
 [14{C:/Users/Administrator/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-
 mathex.enc}] [15]
 <images/decisiontree2_hires.png, id=581, 578.16pt x 433.62pt>
 File: images/decisiontree2_hires.png Graphic file (type png)
 <use images/decisiontree2_hires.png>
-Package pdftex.def Info: images/decisiontree2_hires.png  used on input line 239
+Package pdftex.def Info: images/decisiontree2_hires.png  used on input line 238
 .
 (pdftex.def)             Requested size: 256.07741pt x 192.05714pt.
 <images/baggingmethod.png, id=587, 853.1875pt x 514.92375pt>
 File: images/baggingmethod.png Graphic file (type png)
 <use images/baggingmethod.png>
-Package pdftex.def Info: images/baggingmethod.png  used on input line 250.
+Package pdftex.def Info: images/baggingmethod.png  used on input line 249.
 (pdftex.def)             Requested size: 341.43437pt x 206.068pt.
  [16 <./images/decisiontree2_hires.png>]
 <images/boostingmethod.png, id=602, 731.73375pt x 590.95781pt>
 File: images/boostingmethod.png Graphic file (type png)
 <use images/boostingmethod.png>
-Package pdftex.def Info: images/boostingmethod.png  used on input line 259.
+Package pdftex.def Info: images/boostingmethod.png  used on input line 258.
 (pdftex.def)             Requested size: 341.43437pt x 275.74837pt.
  [17 <./images/baggingmethod.png>]
 <images/treegrowth.jpg, id=616, 342.12617pt x 90.77112pt>
 File: images/treegrowth.jpg Graphic file (type jpg)
 <use images/treegrowth.jpg>
-Package pdftex.def Info: images/treegrowth.jpg  used on input line 268.
+Package pdftex.def Info: images/treegrowth.jpg  used on input line 267.
 (pdftex.def)             Requested size: 426.79135pt x 113.23369pt.
  [18 <./images/boostingmethod.png> <./images/treegrowth.jpg>]
 [19]
 <images/quantilregression.png, id=642, 794.97pt x 317.988pt>
 File: images/quantilregression.png Graphic file (type png)
 <use images/quantilregression.png>
-Package pdftex.def Info: images/quantilregression.png  used on input line 311.
+Package pdftex.def Info: images/quantilregression.png  used on input line 310.
 (pdftex.def)             Requested size: 426.79135pt x 170.72113pt.
  [20 <./images/quantilregression.png>]
 <images/lstm.png, id=661, 1027.84pt x 587.19376pt>
 File: images/lstm.png Graphic file (type png)
 <use images/lstm.png>
-Package pdftex.def Info: images/lstm.png  used on input line 329.
+Package pdftex.def Info: images/lstm.png  used on input line 328.
 (pdftex.def)             Requested size: 341.43437pt x 195.05579pt.
  [21 <./images/lstm.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
 []|\T1/lmr/m/n/12 (+20) Reale Telematik-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
 []|\T1/lmr/m/n/12 (+20) Generalisierung
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
 []|\T1/lmr/m/n/12 (+20) Random Fo-rest,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
 \T1/lmr/m/n/12 (+20) SVM, Gra-di-ent
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
 []|\T1/lmr/m/n/12 (+20) EV-Flottendaten,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
 []|\T1/lmr/m/n/12 (+20) Einfluss der Da-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
 []|\T1/lmr/m/n/12 (+20) Vergleichbarkeit
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
 \T1/lmr/m/n/12 (+20) syn-the-ti-scher und
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
 []|\T1/lmr/m/n/12 (+20) Quantilsregression,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
 \T1/lmr/m/n/12 (+20) Quantile-Random-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
 []|\T1/lmr/m/n/12 (+20) Kalibrierung
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
 \T1/lmr/m/n/12 (+20) in-di-vi-du-el-ler Vor-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
 \T1/lmr/m/n/12 (+20) her-sa-ge-in-ter-val-le
  []
 
@@ -2124,13 +2124,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 369--369
 File: images/chargingrequests_sanami.png Graphic file (type png)
 <use images/chargingrequests_sanami.png>
 Package pdftex.def Info: images/chargingrequests_sanami.png  used on input line
- 399.
+ 398.
 (pdftex.def)             Requested size: 384.1096pt x 210.77925pt.
 <images/weeklychargingrequests_sanami.png, id=715, 839.38594pt x 470.50781pt>
 File: images/weeklychargingrequests_sanami.png Graphic file (type png)
 <use images/weeklychargingrequests_sanami.png>
 Package pdftex.def Info: images/weeklychargingrequests_sanami.png  used on inpu
-t line 408.
+t line 407.
 (pdftex.def)             Requested size: 384.1096pt x 215.30905pt.
  [25] [26 <./images/chargingrequests_sanami.png> <./images/weeklychargingreques
 ts_sanami.png>] [27
@@ -2504,7 +2504,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  46627 strings out of 467871
  957630 string characters out of 5414504
- 2252005 words of memory out of 5000000
+ 2251963 words of memory out of 5000000
  74095 multiletter control sequences out of 15000+600000
  754925 words of font info for 311 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
@@ -2539,7 +2539,7 @@ pData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Users/Administ
 rator/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti10.pfb><C:/Users
 /Administrator/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbol
 s/msam10.pfb>
-Output written on main.pdf (115 pages, 4031215 bytes).
+Output written on main.pdf (115 pages, 4031373 bytes).
 PDF statistics:
  2644 PDF objects out of 2984 (max. 8388607)
  423 named destinations out of 1000 (max. 500000)

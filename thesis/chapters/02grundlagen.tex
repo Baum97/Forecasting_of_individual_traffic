@@ -107,8 +107,7 @@ Abschließend werden die trainierten Modelle angewendet, um das individuelle Mob
   \label{fig:ml_uebersicht}
 \end{figure}
 
-Das Prinzip des maschinellen Lernens besteht darin, einem Computer ein gewünschtes Verhalten anhand von Beispieldaten beizubringen, anstatt es durch einen fest vorgegebenen, regelbasierten
-Algorithmus explizit zu programmieren \parencite[Kap. 3]{bishop2006prml}. Das Modell erkennt dabei statistische Muster in den Trainingsdaten und nutzt diese, um Vorhersagen für bislang ungesehene Eingaben zu treffen. Der Vorteil gegenüber einem starren Algorithmus liegt darin, dass komplexe Zusammenhänge -- wie das individuelle Mobilitätsverhalten -- erlernt werden können, ohne dass sie vorab vollständig bekannt sein müssen.
+Das Prinzip des maschinellen Lernens besteht darin, einem Computer ein gewünschtes Verhalten anhand von Beispieldaten beizubringen, anstatt es durch einen fest vorgegebenen, regelbasierten Algorithmus explizit zu programmieren \parencite[Kap. 1 u. 3]{bishop2006prml}. Das Modell erkennt dabei statistische Muster in den Trainingsdaten und nutzt diese, um Vorhersagen für bislang ungesehene Eingaben zu treffen. Der Vorteil gegenüber einem starren Algorithmus liegt darin, dass komplexe Zusammenhänge -- wie das individuelle Mobilitätsverhalten -- erlernt werden können, ohne dass sie vorab vollständig bekannt sein müssen.
 
 Häufig wird maschinelles Lernen mit künstlichen neuronalen Netzen gleichgesetzt, deren Aufbau vom menschlichen Gehirn inspiriert ist. Neuronale Netze bilden jedoch nur eine von vielen Verfahrensklassen. Die in dieser Arbeit eingesetzten Modelle -- Random Forest und Gradient Boosting (\Cref{sec:randomforest} und \Cref{sec:lightgbm}) -- beruhen stattdessen auf Entscheidungsbäumen und sind nicht biologisch motiviert.
 
@@ -298,7 +297,7 @@ Eine Punktprognose ist für eine Unsicherheit nicht ausreichend, da sie nur eine
   \rho_\tau(y-\hat y)=\max\!\big(\tau(y-\hat y),\,(\tau-1)(y-\hat y)\big)  
 \end{equation}
 
-Die Formel \ref{eq:pinball} ist definiert durch:
+Die Formel \Cref{eq:pinball} ist definiert durch:
 \begin{itemize}
   \item $y$ ist der tatsächlich beobachtete Wert
   \item $\hat y$ ist der vorhergesagte Wert
@@ -336,7 +335,7 @@ Die Architektur eines LSTM ist, wie bei anderen neuronalen Netzen, ein oder mehr
 \section{Stand der Forschung}
 \label{sec:stand_forschung}
 
-Die Forschung zur Prognose individueller Fahrzeugnutzung lässt sich grob in mehrere Sektionen gliedern, die sich in Zielgröße, Methodik und Datengrundlage unterscheiden. Tabelle \ref{tab:forschungssektionen} fasst diese Sektionen als Übersicht zusammen. Jede dieser Sektionen beinhaltet Arbeiten, die entweder für diese Arbeit relevant sind oder ihrer Eingrenzung dienen. Stellvertretend für die vier Stränge stehen dabei Arbeiten zum Mobilitäts- und Nutzungsforecast \parencite{lindroth2024online,individual2025activitychain}, zur Driving-/Parking-Klassifikation \parencite{kumar2023driving,su2025parking}, zur EV-Last- und Ladeprognose \parencite{sanami2025demand,amaraouali2025quantifying} sowie zur Unsicherheits- und Quantilsprognose \parencite{ali2024location,amaraouali2025quantifying}. Die folgenden Unterabschnitte vertiefen die Sektionen jeweils und arbeiten am Ende die für diese Arbeit zentrale Forschungslücke heraus.
+Die Forschung zur Prognose individueller Fahrzeugnutzung lässt sich grob in mehrere Sektionen gliedern, die sich in Zielgröße, Methodik und Datengrundlage unterscheiden. Tabelle \cref{tab:forschungssektionen} fasst diese Sektionen als Übersicht zusammen. Jede dieser Sektionen beinhaltet Arbeiten, die entweder für diese Arbeit relevant sind oder ihrer Eingrenzung dienen. Stellvertretend für die vier Stränge stehen dabei Arbeiten zum Mobilitäts- und Nutzungsforecast \parencite{lindroth2024online,individual2025activitychain}, zur Driving-/Parking-Klassifikation \parencite{kumar2023driving,su2025parking}, zur EV-Last- und Ladeprognose \parencite{sanami2025demand,amaraouali2025quantifying} sowie zur Unsicherheits- und Quantilsprognose \parencite{ali2024location,amaraouali2025quantifying}. Die folgenden Unterabschnitte vertiefen die Sektionen jeweils und arbeiten am Ende die für diese Arbeit zentrale Forschungslücke heraus.
 
 \vspace{1cm}
 
