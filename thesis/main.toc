@@ -112,5 +112,5 @@
 \contentsline {chapter}{\numberline {A}Zusätzliche Abbildungen}{94}{appendix.A}%
 \contentsline {chapter}{\numberline {B}Zusätzliche Tabellen}{99}{appendix.B}%
 \contentsline {chapter}{Erweiterte Eigenständigkeitserklärung zur Verwendung generativer KI-Systeme als Hilfsmittel}{101}{chapter*.94}%
-\contentsline {chapter}{Eidesstattliche Erklärung}{105}{chapter*.95}%
+\contentsline {chapter}{Eidesstattliche Erklärung}{107}{chapter*.95}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -3,8 +3,8 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Beispielhafte Auszüge zweier Mobilitätsdatensätze.}}{6}{figure.caption.6}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Generalisierte Pipeline zur Verarbeitung von Mobilitätsdaten.}}{7}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Teilbereiche des maschinellen Lernens mit beispielhaften Anwendungen (\blx@tocontentsinit {0}\cite {wuttke2024ml}).}}{10}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Entscheidungsbaum mit Aufteilungskriterien (nach \blx@tocontentsinit {0}\cite {schilli2017entscheidungsbaeume}).}}{16}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Teilbereiche des maschinellen Lernens mit beispielhaften Anwendungen \blx@tocontentsinit {0}\parencite {wuttke2024ml}.}}{10}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Entscheidungsbaum mit Aufteilungskriterien nach \blx@tocontentsinit {0}\parencite {schilli2017entscheidungsbaeume}.}}{16}{figure.caption.23}%
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Bagging: Aus den Trainingsdaten werden $N$ Bootstrap-Stichproben gezogen, auf denen jeweils ein Baum trainiert wird; deren Vorhersagen werden zu einem Ensemble aggregiert \blx@tocontentsinit {0}\parencite {salcedosanz2023review}.}}{17}{figure.caption.25}%
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Boosting: Die Modelle werden nacheinander trainiert, wobei jedes folgende Modell auf den Fehlern des vorherigen Modells basiert \blx@tocontentsinit {0}\parencite {salcedosanz2023review}.}}{18}{figure.caption.26}%
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Baumwachstum in Ensemble-Verfahren \blx@tocontentsinit {0}\parencite {thai2022mlreview}.}}{18}{figure.caption.27}%

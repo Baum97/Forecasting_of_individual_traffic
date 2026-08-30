@@ -1866,8 +1866,8 @@
       \strng{authornamehash}{44393f04b9db3d51c4c344eacdc81606}
       \strng{authorfullhash}{44393f04b9db3d51c4c344eacdc81606}
       \strng{authorfullhashraw}{44393f04b9db3d51c4c344eacdc81606}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Computer and System Sciences}
@@ -2036,8 +2036,8 @@
       \strng{authornamehash}{d14e31dac4278f1743d8bffc802c9efb}
       \strng{authorfullhash}{d14e31dac4278f1743d8bffc802c9efb}
       \strng{authorfullhashraw}{d14e31dac4278f1743d8bffc802c9efb}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Machine Learning}
@@ -2072,8 +2072,8 @@
       \strng{authornamehash}{e213bf93074fd2dbfa9d1e82b9118fb3}
       \strng{authorfullhash}{e213bf93074fd2dbfa9d1e82b9118fb3}
       \strng{authorfullhashraw}{e213bf93074fd2dbfa9d1e82b9118fb3}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Advances in Neural Information Processing Systems (NeurIPS)}

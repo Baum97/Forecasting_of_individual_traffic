@@ -15,7 +15,7 @@ Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut; sow
   \begin{subfigure}{\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{images/data_cars-real-world.png}
-    \caption{Datensatz: Cars Real World Electric (\cite{pozzato2023fielddata})}
+    \caption{Datensatz: Cars Real World Electric \parencite{pozzato2023fielddata}}
     \label{fig:mobility1}
   \end{subfigure}
 
@@ -24,7 +24,7 @@ Dieses Kapitel legt die Grundlagen, auf denen die folgende Methodik aufbaut; sow
   \begin{subfigure}{\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{images/data_emobpy.png}
-    \caption{Datensatz: emobpy (\cite{emobpy_dataset})}
+    \caption{Datensatz: emobpy \parencite{emobpy_dataset}}
     \label{fig:mobility2}
   \end{subfigure}
   \caption{Beispielhafte Auszüge zweier Mobilitätsdatensätze.}
@@ -103,7 +103,7 @@ Abschließend werden die trainierten Modelle angewendet, um das individuelle Mob
   \centering
   \includegraphics[width=\textwidth]{images/maschinelles-lernen.png}
   \caption{Teilbereiche des maschinellen Lernens mit beispielhaften
-           Anwendungen (\cite{wuttke2024ml}).}
+           Anwendungen \parencite{wuttke2024ml}.}
   \label{fig:ml_uebersicht}
 \end{figure}
 
@@ -175,7 +175,7 @@ Ein Modell, das unterangepasst ist, schneidet weder beim Training noch beim Test
     auswendig gelernt. \\
     \bottomrule
   \end{tabularx}
-  \caption{Charakterisierung von Anpassungen anhand von Fehlerwerten \cite[Kap. 7.2]{hastie2009elements}.}
+  \caption{Charakterisierung von Anpassungen anhand von Fehlerwerten \parencite[Kap. 7.2]{hastie2009elements}.}
   \label{tab:fitting}
 \end{table}
 
@@ -188,7 +188,7 @@ Durch die Validierung ist es möglich, der Genauigkeit des Modells einen numeris
   \label{eq:validify}  
 \end{equation}
 
-Die \Cref{eq:validify} beschreibt die Genauigkeit eines Modells auf einer bestimmten Menge Daten \parencite[Kap. 7.10]{hastie2009elements}. Hierfür wird ein Datensatz in $K$ gleich große Mengen unterteilt -- auch \textit{Folds} genannt --, gefolgt von $K$ Trainingsläufen. Da $K$ \textit{Folds} existieren, wird das Modell einmal mit jedem \textit{Fold} getestet und hat die restlichen \textit{Folds} zur Grundlage. Bei Zeitreihendaten wird diese zufällige Aufteilung üblicherweise durch einen zeitlich getrennten Split ersetzt, bei dem der Testteil am Ende der Reihe liegt, sodass ausschließlich mit Vergangenheitsdaten auf die Zukunft geschlossen wird \parencite[Kap. 5.8]{hyndman2021forecasting, tashman2000outofsample}. Ob dieses strikte Vorgehen zwingend ist, wird allerdings diskutiert: Für stationäre Reihen und rein autoregressive Modelle kann auch eine blockweise Kreuzvalidierung valide sein \parencite{bergmeir2012cv}.
+Die \Cref{eq:validify} beschreibt die Genauigkeit eines Modells auf einer bestimmten Menge Daten \parencite[Kap. 7.10]{hastie2009elements}. Hierfür wird ein Datensatz in $K$ gleich große Mengen unterteilt -- auch \textit{Folds} genannt --, gefolgt von $K$ Trainingsläufen. Da $K$ \textit{Folds} existieren, wird das Modell einmal mit jedem \textit{Fold} getestet und hat die restlichen \textit{Folds} zur Grundlage. Bei Zeitreihendaten wird diese zufällige Aufteilung üblicherweise durch einen zeitlich getrennten Split ersetzt, bei dem der Testteil am Ende der Reihe liegt, sodass ausschließlich mit Vergangenheitsdaten auf die Zukunft geschlossen wird \parencite[Kap. 5.8]{hyndman2021forecasting}; eine ausführliche Diskussion solcher Out-of-Sample-Tests findet sich bei \textcite{tashman2000outofsample}. Ob dieses strikte Vorgehen zwingend ist, wird allerdings diskutiert: Für stationäre Reihen und rein autoregressive Modelle kann auch eine blockweise Kreuzvalidierung valide sein \parencite{bergmeir2012cv}.
 
 Die Validierung wird zum zentralen Werkzeug gegen \emph{Overfitting}, denn die Differenz zwischen Trainings- und Validierungsfehler quantifiziert die Generalisierungslücke. Ein niedriger Trainingsfehler bei hohem Validierungsfehler indiziert, dass das Modell overfitted ist.
 
@@ -205,7 +205,7 @@ Entscheidungsbäume bilden einen Teil des maschinellen Lernens, sind jedoch grun
 \label{sec:gini}
 
 Die allgemeine Form der Gini-Unreinheit für einen Knoten mit $C$ Klassen und
-den Klassenanteilen $p_i$ lautet \parencite{breiman1984cart}; die Darstellung folgt \cite[Kap. 9.2.3]{hastie2009elements}:
+den Klassenanteilen $p_i$ lautet \parencite{breiman1984cart}; die Darstellung folgt \parencite[Kap. 9.2.3]{hastie2009elements}:
 
 \begin{equation}
   G = 1 - \sum_{i=1}^{C} p_i^{2}
@@ -236,7 +236,7 @@ In \Cref{eq:gini_split} zeigt $n$ die Elemente im Elternknoten und $G$ die Unrei
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.6\textwidth]{images/decisiontree2_hires.png}
-  \caption{Entscheidungsbaum mit Aufteilungskriterien (nach \cite{schilli2017entscheidungsbaeume}).}
+  \caption{Entscheidungsbaum mit Aufteilungskriterien nach \parencite{schilli2017entscheidungsbaeume}.}
   \label{fig:decisiontree2}
 \end{figure}
 
@@ -297,7 +297,7 @@ Eine Punktprognose ist für eine Unsicherheit nicht ausreichend, da sie nur eine
   \rho_\tau(y-\hat y)=\max\!\big(\tau(y-\hat y),\,(\tau-1)(y-\hat y)\big)  
 \end{equation}
 
-Die Formel \Cref{eq:pinball} ist definiert durch:
+\Cref{eq:pinball} ist definiert durch:
 \begin{itemize}
   \item $y$ ist der tatsächlich beobachtete Wert
   \item $\hat y$ ist der vorhergesagte Wert
@@ -335,7 +335,7 @@ Die Architektur eines LSTM ist, wie bei anderen neuronalen Netzen, ein oder mehr
 \section{Stand der Forschung}
 \label{sec:stand_forschung}
 
-Die Forschung zur Prognose individueller Fahrzeugnutzung lässt sich grob in mehrere Sektionen gliedern, die sich in Zielgröße, Methodik und Datengrundlage unterscheiden. Tabelle \cref{tab:forschungssektionen} fasst diese Sektionen als Übersicht zusammen. Jede dieser Sektionen beinhaltet Arbeiten, die entweder für diese Arbeit relevant sind oder ihrer Eingrenzung dienen. Stellvertretend für die vier Stränge stehen dabei Arbeiten zum Mobilitäts- und Nutzungsforecast \parencite{lindroth2024online,individual2025activitychain}, zur Driving-/Parking-Klassifikation \parencite{kumar2023driving,su2025parking}, zur EV-Last- und Ladeprognose \parencite{sanami2025demand,amaraouali2025quantifying} sowie zur Unsicherheits- und Quantilsprognose \parencite{ali2024location,amaraouali2025quantifying}. Die folgenden Unterabschnitte vertiefen die Sektionen jeweils und arbeiten am Ende die für diese Arbeit zentrale Forschungslücke heraus.
+Die Forschung zur Prognose individueller Fahrzeugnutzung lässt sich grob in mehrere Sektionen gliedern, die sich in Zielgröße, Methodik und Datengrundlage unterscheiden. \Cref{tab:forschungssektionen} fasst diese Sektionen als Übersicht zusammen. Jede dieser Sektionen beinhaltet Arbeiten, die entweder für diese Arbeit relevant sind oder ihrer Eingrenzung dienen. Stellvertretend für die vier Stränge stehen dabei Arbeiten zum Mobilitäts- und Nutzungsforecast \parencite{lindroth2024online,individual2025activitychain}, zur Driving-/Parking-Klassifikation \parencite{kumar2023driving,su2025parking}, zur EV-Last- und Ladeprognose \parencite{sanami2025demand,amaraouali2025quantifying} sowie zur Unsicherheits- und Quantilsprognose \parencite{ali2024location,amaraouali2025quantifying}. Die folgenden Unterabschnitte vertiefen die Sektionen jeweils und arbeiten am Ende die für diese Arbeit zentrale Forschungslücke heraus.
 
 \vspace{1cm}
 
@@ -416,7 +416,7 @@ Der Bereich für EV-Last- und Ladeprognose ist gut erforscht und liefert ein sol
 \clearpage
 \subsubsection{Unsicherheits- und Quantilsprognose}
 
-Die Studie \cite{amaraouali2025quantifying} ist auch im Bereich der Unsicherheitsprognose relevant, da sie die Unsicherheit des Ladeverhaltens von Elektrofahrzeugen quantifiziert. Durch die Verwendung von probabilistischen Modellen wie GAMLSS oder QGAM werden Prognoseintervalle anstelle von Punktwerten erstellt, was eine umfassendere Darstellung der Unsicherheit ermöglicht. 
+Die Studie \parencite{amaraouali2025quantifying} ist auch im Bereich der Unsicherheitsprognose relevant, da sie die Unsicherheit des Ladeverhaltens von Elektrofahrzeugen quantifiziert. Durch die Verwendung von probabilistischen Modellen wie GAMLSS oder QGAM werden Prognoseintervalle anstelle von Punktwerten erstellt, was eine umfassendere Darstellung der Unsicherheit ermöglicht. 
 Eine weitere Studie \parencite{ali2024location} befasst sich mit der Quantilsregression und deren Anwendung in der Vorhersage, gekoppelt mit einem Multi-Quantile Temporal Convolutional Network (MQ-TCN). Das Modell erzielte eine Intervallabdeckungswahrscheinlichkeit (PICP) von 93,62\,\%, die mit nur zwei Wochen Trainingsdaten auf bis zu 96,88\,\% steigt. Die Studie zeigt, dass die Quantilsregression in Kombination mit einem gut trainierten und konfigurierten neuronalen Netzwerk eine effektive Methode zur Vorhersage von Unsicherheiten in Mobilitätsdaten darstellt. Die Ergebnisse dieser Studien sind besonders relevant für die vorliegende Arbeit, da sie die Bedeutung der Quantilsregression und der Unsicherheitsprognose in der individuellen Fahrzeugnutzungsprognose unterstreichen.  
 
 % -----------------------------------------------------------------------------
