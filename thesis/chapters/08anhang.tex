@@ -35,6 +35,11 @@ Fahrzeugwochen unterschreiten, wobei alle fünf Datensätze zum Testen verwendet
   \label{fig:cv_matrix_lstm_seq}
 \end{figure}
 
+Die Matrizen im Ergebnisteil zeigen den F1-Score. \Cref{fig:cv_prauc_rf} gibt
+dieselbe Kreuzvalidierung in der PR-AUC wieder, dem Leitmaß dieser Arbeit; aus
+ihr stammen die in \cref{sec:interpretation} berichteten Zeilen- und
+Spaltenmittel.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{images/cv_prauc_5x5_rf.png}
@@ -44,7 +49,7 @@ Fahrzeugwochen unterschreiten, wobei alle fünf Datensätze zum Testen verwendet
   \label{fig:cv_prauc_rf}
 \end{figure}
 
-Ergänzend zu den F1-basierten Matrizen zeigen die folgenden vier Abbildungen
+Ergänzend zeigen \cref{fig:cv_acc_rf,fig:cv_acc_lgbm,fig:cv_acc_lstm_tab,fig:cv_acc_lstm_seq}
 dieselbe Kreuzvalidierung anhand der Accuracy. Sie sind bewusst nicht im
 Ergebnisteil geführt, da die Accuracy bei den niedrigen Aktiv-Raten dieser
 Arbeit irreführend ist (\cref{tab:baselines}): Hohe Werte entstehen dort vor

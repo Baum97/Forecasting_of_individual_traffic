@@ -64,7 +64,7 @@
 \contentsline {section}{\numberline {3.6}Experimentaldesign}{39}{section.3.6}%
 \contentsline {section}{\numberline {3.7}Bewertung}{41}{section.3.7}%
 \contentsline {paragraph}{\nonumberline Accuracy}{41}{paragraph*.54}%
-\contentsline {paragraph}{\nonumberline Precision}{41}{paragraph*.55}%
+\contentsline {paragraph}{\nonumberline Precision}{42}{paragraph*.55}%
 \contentsline {paragraph}{\nonumberline Recall}{42}{paragraph*.56}%
 \contentsline {paragraph}{\nonumberline F$_\beta $-Score}{42}{paragraph*.57}%
 \contentsline {paragraph}{\nonumberline PR-AUC}{42}{paragraph*.58}%
@@ -78,36 +78,39 @@
 \contentsline {paragraph}{\nonumberline data\_adapters.py}{52}{paragraph*.66}%
 \contentsline {paragraph}{\nonumberline base.py}{53}{paragraph*.67}%
 \contentsline {paragraph}{\nonumberline Kreuzvalidierung}{54}{paragraph*.68}%
-\contentsline {paragraph}{\nonumberline Forecasting und Quantile}{55}{paragraph*.69}%
+\contentsline {paragraph}{\nonumberline Logging}{55}{paragraph*.69}%
+\contentsline {paragraph}{\nonumberline Forecasting und Quantile}{55}{paragraph*.70}%
 \contentsline {section}{\numberline {4.5}Herausforderungen}{56}{section.4.5}%
-\contentsline {paragraph}{\nonumberline Heterogene Rohformate und Zeitbasen}{56}{paragraph*.70}%
-\contentsline {paragraph}{\nonumberline Uneinheitliche Aktivitätssignale}{56}{paragraph*.71}%
-\contentsline {paragraph}{\nonumberline Degenerierte Fahrzeuge}{56}{paragraph*.72}%
-\contentsline {paragraph}{\nonumberline Rechenbeschränkungen}{56}{paragraph*.73}%
+\contentsline {paragraph}{\nonumberline Heterogene Rohformate und Zeitbasen}{56}{paragraph*.71}%
+\contentsline {paragraph}{\nonumberline Uneinheitliche Aktivitätssignale}{56}{paragraph*.72}%
+\contentsline {paragraph}{\nonumberline Degenerierte Fahrzeuge}{56}{paragraph*.73}%
+\contentsline {paragraph}{\nonumberline Rechenbeschränkungen}{57}{paragraph*.74}%
 \contentsline {chapter}{\numberline {5}Evaluation}{58}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Evaluationsdesign}{58}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Testumgebung}{59}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Ergebnisse}{59}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Trainingsverlauf und Overfitting-Kontrolle}{67}{subsection.5.3.1}%
-\contentsline {chapter}{\numberline {6}Diskussion}{69}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{69}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}FF1 -- Zuverlässige Vorhersage des individuellen Mobilitätsverhaltens}{69}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}FF1.1 -- Unterschiede der Machine-Learning-Verfahren in der Prognosegenauigkeit}{70}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}FF1.1.1 -- Einfluss der Datenquelle auf die Prognosegenauigkeit}{70}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}FF1.2 -- Merkmalseinfluss auf individuelles Mobilitätsverhalten}{71}{subsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.1.5}FF2 -- Anforderung an Daten}{72}{subsection.6.1.5}%
-\contentsline {subsection}{\numberline {6.1.6}FF2.1 -- Aufbereitung und Anonymisierung}{72}{subsection.6.1.6}%
-\contentsline {subsection}{\numberline {6.1.7}FF2.2 -- Bewertung der Datenqualität}{73}{subsection.6.1.7}%
-\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{73}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Limitationen}{74}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Implikationen}{76}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{77}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{77}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Ausblick}{78}{section.7.2}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{79}{chapter*.79}%
+\contentsline {section}{\numberline {5.3}Ergebnisse}{60}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Prognosegüte über den Horizont}{67}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Trainingsverlauf und Overfitting-Kontrolle}{69}{subsection.5.3.2}%
+\contentsline {chapter}{\numberline {6}Diskussion}{71}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Interpretation der Ergebnisse}{71}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}FF1 -- Zuverlässige Vorhersage des individuellen Mobilitätsverhaltens}{71}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}FF1.1 -- Unterschiede der Machine-Learning-Verfahren in der Prognosegenauigkeit}{72}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}FF1.1.1 -- Einfluss der Datenquelle auf die Prognosegenauigkeit}{73}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}FF1.2 -- Merkmalseinfluss auf individuelles Mobilitätsverhalten}{74}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}FF2 -- Anforderung an Daten}{74}{subsection.6.1.5}%
+\contentsline {subsection}{\numberline {6.1.6}FF2.1 -- Aufbereitung und Anonymisierung}{75}{subsection.6.1.6}%
+\contentsline {subsection}{\numberline {6.1.7}FF2.2 -- Bewertung der Datenqualität}{75}{subsection.6.1.7}%
+\contentsline {section}{\numberline {6.2}Vergleich mit verwandten Arbeiten}{78}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Limitationen}{78}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Abgleich mit den Anforderungen}{80}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Implikationen}{82}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{83}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Beantwortung der Forschungsfragen}{83}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Ausblick}{84}{section.7.2}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{85}{chapter*.84}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\numberline {A}Zusätzliche Abbildungen}{88}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Zusätzliche Tabellen}{93}{appendix.B}%
-\contentsline {chapter}{Erweiterte Eigenständigkeitserklärung zur Verwendung generativer KI-Systeme als Hilfsmittel}{95}{chapter*.88}%
-\contentsline {chapter}{Eidesstattliche Erklärung}{99}{chapter*.89}%
+\contentsline {chapter}{\numberline {A}Zusätzliche Abbildungen}{94}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Zusätzliche Tabellen}{99}{appendix.B}%
+\contentsline {chapter}{Erweiterte Eigenständigkeitserklärung zur Verwendung generativer KI-Systeme als Hilfsmittel}{101}{chapter*.94}%
+\contentsline {chapter}{Eidesstattliche Erklärung}{105}{chapter*.95}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
