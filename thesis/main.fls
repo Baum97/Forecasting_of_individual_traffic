@@ -1,6 +1,6 @@
-PWD d:\Projects\Forecasting_of_individual_traffic\thesis
+PWD D:\Projects\Forecasting_of_individual_traffic\thesis
 INPUT C:\Users\Administrator\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT d:\Projects\Forecasting_of_individual_traffic\thesis\main.tex
+INPUT main.tex
 OUTPUT main.log
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrreprt.cls
 INPUT C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrreprt.cls
